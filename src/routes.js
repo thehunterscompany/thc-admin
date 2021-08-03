@@ -45,10 +45,11 @@ const Badges = React.lazy(() => import('./views/components/notifications/badges/
 const Modals = React.lazy(() => import('./views/components/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/components/notifications/toasts/Toasts'))
 
-// const Login = React.lazy(() => import('./views/examples/pages/login/Login'))
-// const Register = React.lazy(() => import('./views/examples/pages/register/Register'))
-// const Page404 = React.lazy(() => import('./views/examples/pages/page404/Page404'))
-// const Page500 = React.lazy(() => import('./views/examples/pages/page500/Page500'))
+// const Login = React.lazy(() => import('./views/pages/login/Login'))
+// const Register = React.lazy(() => import('./views/pages/register/Register'))
+// const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
+// const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
+// const Simulador = React.lazy(() => import('./views/pages/simulador/Simulador'))
 
 const Widgets = React.lazy(() => import('./views/components/widgets/Widgets'))
 
@@ -102,6 +103,7 @@ const routes = [
   // { path: '/register', name: 'Register', component: Register },
   // { path: '/404', name: '404', component: Page404 },
   // { path: '/500', name: '500', component: Page500 },
+  // { path: '/simulador', name: 'Simulador', component: Simulador },
   { path: '/widgets', name: 'Widgets', component: Widgets },
 ]
 

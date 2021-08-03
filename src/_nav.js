@@ -314,6 +314,12 @@ const _nav = [
         anchor: 'Error 500',
         to: '/500',
       },
+      {
+        _component: 'CNavItem',
+        as: NavLink,
+        anchor: 'Simulador',
+        to: '/simulador',
+      },
     ],
   },
 ]
