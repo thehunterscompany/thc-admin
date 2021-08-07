@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { CWidgetBrand, CRow, CCol } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { CChart } from '@coreui/react-chartjs'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CWidgetBrand, CRow, CCol } from '@coreui/react';
+import CIcon from '@coreui/icons-react';
+import { CChart } from '@coreui/react-chartjs';
 
 const WidgetsBrand = ({ withCharts }) => {
   const chartOptions = {
@@ -31,7 +31,7 @@ const WidgetsBrand = ({ withCharts }) => {
         display: false,
       },
     },
-  }
+  };
 
   return (
     <CRow>
@@ -40,13 +40,25 @@ const WidgetsBrand = ({ withCharts }) => {
           className="mb-4"
           headerChildren={
             <>
-              <CIcon name="cib-facebook" height="52" className="my-4 text-white" />
+              <CIcon
+                name="cib-facebook"
+                height="52"
+                className="my-4 text-white"
+              />
               {withCharts && (
                 <CChart
                   className="position-absolute w-100 h-100"
                   type="line"
                   data={{
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                    ],
                     datasets: [
                       {
                         backgroundColor: 'rgba(255,255,255,.1)',
@@ -78,13 +90,25 @@ const WidgetsBrand = ({ withCharts }) => {
           className="mb-4"
           headerChildren={
             <>
-              <CIcon name="cib-twitter" height="52" className="my-4 text-white" />
+              <CIcon
+                name="cib-twitter"
+                height="52"
+                className="my-4 text-white"
+              />
               {withCharts && (
                 <CChart
                   className="position-absolute w-100 h-100"
                   type="line"
                   data={{
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                    ],
                     datasets: [
                       {
                         backgroundColor: 'rgba(255,255,255,.1)',
@@ -116,13 +140,25 @@ const WidgetsBrand = ({ withCharts }) => {
           className="mb-4"
           headerChildren={
             <>
-              <CIcon name="cib-linkedin" height="52" className="my-4 text-white" />
+              <CIcon
+                name="cib-linkedin"
+                height="52"
+                className="my-4 text-white"
+              />
               {withCharts && (
                 <CChart
                   className="position-absolute w-100 h-100"
                   type="line"
                   data={{
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                    ],
                     datasets: [
                       {
                         backgroundColor: 'rgba(255,255,255,.1)',
@@ -155,13 +191,25 @@ const WidgetsBrand = ({ withCharts }) => {
           color="warning"
           headerChildren={
             <>
-              <CIcon name="cil-calendar" height="52" className="my-4 text-white" />
+              <CIcon
+                name="cil-calendar"
+                height="52"
+                className="my-4 text-white"
+              />
               {withCharts && (
                 <CChart
                   className="position-absolute w-100 h-100"
                   type="line"
                   data={{
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                    ],
                     datasets: [
                       {
                         backgroundColor: 'rgba(255,255,255,.1)',
@@ -185,11 +233,11 @@ const WidgetsBrand = ({ withCharts }) => {
         />
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
 WidgetsBrand.propTypes = {
   withCharts: PropTypes.bool,
-}
+};
 
-export default WidgetsBrand
+export default WidgetsBrand;

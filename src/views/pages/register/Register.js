@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CButton,
   CCard,
@@ -10,8 +10,8 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+} from '@coreui/react';
+import CIcon from '@coreui/icons-react';
 
 const Register = () => {
   return (
@@ -28,7 +28,10 @@ const Register = () => {
                     <CInputGroupText>
                       <CIcon name="cil-user" />
                     </CInputGroupText>
-                    <CFormControl placeholder="Username" autoComplete="username" />
+                    <CFormControl
+                      placeholder="Username"
+                      autoComplete="username"
+                    />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
@@ -64,7 +67,7 @@ const Register = () => {
         </CRow>
       </CContainer>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

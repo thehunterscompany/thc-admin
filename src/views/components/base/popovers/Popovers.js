@@ -1,6 +1,14 @@
-import React from 'react'
-import { CButton, CCard, CCardBody, CCardHeader, CPopover, CRow, CCol } from '@coreui/react'
-import { DocsCallout, Example } from 'src/reusable'
+import React from 'react';
+import {
+  CButton,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CPopover,
+  CRow,
+  CCol,
+} from '@coreui/react';
+import { DocsCallout, Example } from 'src/reusable';
 
 const Popovers = () => {
   return (
@@ -35,8 +43,8 @@ const Popovers = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Four options are available: top, right, bottom, and left aligned. Directions are
-              mirrored when using CoreUI for React in RTL.
+              Four options are available: top, right, bottom, and left aligned.
+              Directions are mirrored when using CoreUI for React in RTL.
             </p>
             <Example href="components/popover#four-directions">
               <CPopover
@@ -68,7 +76,7 @@ const Popovers = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Popovers
+export default Popovers;

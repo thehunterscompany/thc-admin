@@ -45,6 +45,7 @@
     "date-fns": "latest",
     "enzyme": "^3.11.0",
     "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-unused-imports": "^1.1.2",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",

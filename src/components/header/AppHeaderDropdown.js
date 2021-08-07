@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CAvatar,
   CBadge,
@@ -8,8 +8,8 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+} from '@coreui/react';
+import CIcon from '@coreui/icons-react';
 
 const AppHeaderDropdown = () => {
   return (
@@ -18,7 +18,9 @@ const AppHeaderDropdown = () => {
         <CAvatar src="/avatars/8.jpg" size="md" />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">
+          Account
+        </CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon name="cil-bell" className="me-2" />
           Updates
@@ -47,7 +49,9 @@ const AppHeaderDropdown = () => {
             42
           </CBadge>
         </CDropdownItem>
-        <CDropdownHeader className="bg-light fw-semibold py-2">Settings</CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">
+          Settings
+        </CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon name="cil-user" className="me-2" />
           Profile
@@ -77,7 +81,7 @@ const AppHeaderDropdown = () => {
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
-  )
-}
+  );
+};
 
-export default AppHeaderDropdown
+export default AppHeaderDropdown;

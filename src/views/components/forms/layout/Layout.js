@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CButton,
   CCard,
@@ -13,8 +13,8 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react'
-import { Example } from 'src/reusable'
+} from '@coreui/react';
+import { Example } from 'src/reusable';
 
 const Layout = () => {
   return (
@@ -26,16 +26,23 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              More complex forms can be built using our grid classes. Use these for form layouts
-              that require multiple columns, varied widths, and additional alignment options.
+              More complex forms can be built using our grid classes. Use these
+              for form layouts that require multiple columns, varied widths, and
+              additional alignment options.
             </p>
             <Example href="forms/layout#form-grid">
               <CRow>
                 <CCol xs>
-                  <CFormControl placeholder="First name" aria-label="First name" />
+                  <CFormControl
+                    placeholder="First name"
+                    aria-label="First name"
+                  />
                 </CCol>
                 <CCol xs>
-                  <CFormControl placeholder="Last name" aria-label="Last name" />
+                  <CFormControl
+                    placeholder="Last name"
+                    aria-label="Last name"
+                  />
                 </CCol>
               </CRow>
             </Example>
@@ -49,16 +56,26 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              By adding <a href="https://coreui.io/docs/layout/gutters/">gutter modifier classes</a>
-              , you can have control over the gutter width in as well the inline as block direction.
+              By adding{' '}
+              <a href="https://coreui.io/docs/layout/gutters/">
+                gutter modifier classes
+              </a>
+              , you can have control over the gutter width in as well the inline
+              as block direction.
             </p>
             <Example href="forms/layout#gutters">
               <CRow className="g-3">
                 <CCol xs>
-                  <CFormControl placeholder="First name" aria-label="First name" />
+                  <CFormControl
+                    placeholder="First name"
+                    aria-label="First name"
+                  />
                 </CCol>
                 <CCol xs>
-                  <CFormControl placeholder="Last name" aria-label="Last name" />
+                  <CFormControl
+                    placeholder="Last name"
+                    aria-label="Last name"
+                  />
                 </CCol>
               </CRow>
             </Example>
@@ -81,7 +98,10 @@ const Layout = () => {
                 </CCol>
                 <CCol xs="12">
                   <CFormLabel htmlFor="inputAddress2">Address 2</CFormLabel>
-                  <CFormControl id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                  <CFormControl
+                    id="inputAddress2"
+                    placeholder="Apartment, studio, or floor"
+                  />
                 </CCol>
                 <CCol md="6">
                   <CFormLabel htmlFor="inputCity">City</CFormLabel>
@@ -99,7 +119,11 @@ const Layout = () => {
                   <CFormControl id="inputZip" />
                 </CCol>
                 <CCol xs="12">
-                  <CFormCheck type="checkbox" id="gridCheck" label="Check me out" />
+                  <CFormCheck
+                    type="checkbox"
+                    id="gridCheck"
+                    label="Check me out"
+                  />
                 </CCol>
                 <CCol xs="12">
                   <CButton type="submit">Sign in</CButton>
@@ -116,21 +140,26 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Create horizontal forms with the grid by adding the <code>.row</code> class to form
-              groups and using the <code>.col-*-*</code> classes to specify the width of your labels
+              Create horizontal forms with the grid by adding the{' '}
+              <code>.row</code> class to form groups and using the{' '}
+              <code>.col-*-*</code> classes to specify the width of your labels
               and controls. Be sure to add <code>.col-form-label</code> to your{' '}
-              <code>&lt;CFormLabel&gt;</code>s as well so they&#39;re vertically centered with their
-              associated form controls.
+              <code>&lt;CFormLabel&gt;</code>s as well so they&#39;re vertically
+              centered with their associated form controls.
             </p>
             <p className="text-medium-emphasis small">
-              At times, you maybe need to use margin or padding utilities to create that perfect
-              alignment you need. For example, we&#39;ve removed the <code>padding-top</code> on our
-              stacked radio inputs label to better align the text baseline.
+              At times, you maybe need to use margin or padding utilities to
+              create that perfect alignment you need. For example, we&#39;ve
+              removed the <code>padding-top</code> on our stacked radio inputs
+              label to better align the text baseline.
             </p>
             <Example href="forms/layout#horizontal-form">
               <CForm>
                 <CRow className="mb-3">
-                  <CFormLabel htmlFor="inputEmail3" className="col-sm-2 col-form-label">
+                  <CFormLabel
+                    htmlFor="inputEmail3"
+                    className="col-sm-2 col-form-label"
+                  >
                     Email
                   </CFormLabel>
                   <CCol sm="10">
@@ -138,7 +167,10 @@ const Layout = () => {
                   </CCol>
                 </CRow>
                 <CRow className="mb-3">
-                  <CFormLabel htmlFor="inputPassword3" className="col-sm-2 col-form-label">
+                  <CFormLabel
+                    htmlFor="inputPassword3"
+                    className="col-sm-2 col-form-label"
+                  >
                     Password
                   </CFormLabel>
                   <CCol sm="10">
@@ -146,7 +178,9 @@ const Layout = () => {
                   </CCol>
                 </CRow>
                 <fieldset className="row mb-3">
-                  <legend className="col-form-label col-sm-2 pt-0">Radios</legend>
+                  <legend className="col-form-label col-sm-2 pt-0">
+                    Radios
+                  </legend>
                   <CCol sm="10">
                     <CFormCheck
                       type="radio"
@@ -175,7 +209,11 @@ const Layout = () => {
                 </fieldset>
                 <CRow className="mb-3">
                   <div className="col-sm-10 offset-sm-2">
-                    <CFormCheck type="checkbox" id="gridCheck1" label="Example checkbox" />
+                    <CFormCheck
+                      type="checkbox"
+                      id="gridCheck1"
+                      label="Example checkbox"
+                    />
                   </div>
                 </CRow>
                 <CButton type="submit">Sign in</CButton>
@@ -191,9 +229,11 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Be sure to use <code>.col-form-label-sm</code> or <code>.col-form-label-lg</code> to
-              your <code>&lt;CFormLabel&gt;</code>s or <code>&lt;legend&gt;</code>s to correctly
-              follow the size of <code>.form-control-lg</code> and <code>.form-control-sm</code>.
+              Be sure to use <code>.col-form-label-sm</code> or{' '}
+              <code>.col-form-label-lg</code> to your{' '}
+              <code>&lt;CFormLabel&gt;</code>s or <code>&lt;legend&gt;</code>s
+              to correctly follow the size of <code>.form-control-lg</code> and{' '}
+              <code>.form-control-sm</code>.
             </p>
             <Example href="forms/layout#horizontal-form-label-sizing">
               <CRow className="mb-3">
@@ -213,11 +253,18 @@ const Layout = () => {
                 </CCol>
               </CRow>
               <CRow className="mb-3">
-                <CFormLabel htmlFor="colFormLabel" className="col-sm-2 col-form-label">
+                <CFormLabel
+                  htmlFor="colFormLabel"
+                  className="col-sm-2 col-form-label"
+                >
                   Email
                 </CFormLabel>
                 <CCol sm="10">
-                  <CFormControl type="email" id="colFormLabel" placeholder="col-form-label" />
+                  <CFormControl
+                    type="email"
+                    id="colFormLabel"
+                    placeholder="col-form-label"
+                  />
                 </CCol>
               </CRow>
               <CRow>
@@ -247,12 +294,13 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              As shown in the previous examples, our grid system allows you to place any number of{' '}
-              <code>&lt;CCol&gt;</code>s within a <code>&lt;CRow&gt;</code>. They&#39;ll split the
-              available width equally between them. You may also pick a subset of your columns to
-              take up more or less space, while the remaining <code>&lt;CCol&gt;</code>s equally
-              split the rest, with specific column classes like{' '}
-              <code>&lt;CCol sm=&#34;7&#34;&gt;</code>.
+              As shown in the previous examples, our grid system allows you to
+              place any number of <code>&lt;CCol&gt;</code>s within a{' '}
+              <code>&lt;CRow&gt;</code>. They&#39;ll split the available width
+              equally between them. You may also pick a subset of your columns
+              to take up more or less space, while the remaining{' '}
+              <code>&lt;CCol&gt;</code>s equally split the rest, with specific
+              column classes like <code>&lt;CCol sm=&#34;7&#34;&gt;</code>.
             </p>
             <Example href="forms/layout#column-sizing">
               <CRow className="g-3">
@@ -277,30 +325,43 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              The example below uses a flexbox utility to vertically center the contents and changes{' '}
-              <code>&lt;CCol&gt;</code> to <code>&lt;CCol xs=&#34;auto&#34;&gt;</code> so that your
-              columns only take up as much space as needed. Put another way, the column sizes itself
-              based on the contents.
+              The example below uses a flexbox utility to vertically center the
+              contents and changes <code>&lt;CCol&gt;</code> to{' '}
+              <code>&lt;CCol xs=&#34;auto&#34;&gt;</code> so that your columns
+              only take up as much space as needed. Put another way, the column
+              sizes itself based on the contents.
             </p>
             <Example href="forms/layout#auto-sizing">
               <CForm className="row gy-2 gx-3 align-items-center">
                 <CCol xs="auto">
-                  <CFormLabel className="visually-hidden" htmlFor="autoSizingInput">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="autoSizingInput"
+                  >
                     Name
                   </CFormLabel>
                   <CFormControl id="autoSizingInput" placeholder="Jane Doe" />
                 </CCol>
                 <CCol xs="auto">
-                  <CFormLabel className="visually-hidden" htmlFor="autoSizingInputGroup">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="autoSizingInputGroup"
+                  >
                     Username
                   </CFormLabel>
                   <CInputGroup>
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormControl id="autoSizingInputGroup" placeholder="Username" />
+                    <CFormControl
+                      id="autoSizingInputGroup"
+                      placeholder="Username"
+                    />
                   </CInputGroup>
                 </CCol>
                 <CCol xs="auto">
-                  <CFormLabel className="visually-hidden" htmlFor="autoSizingSelect">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="autoSizingSelect"
+                  >
                     Preference
                   </CFormLabel>
                   <CFormSelect id="autoSizingSelect">
@@ -311,7 +372,11 @@ const Layout = () => {
                   </CFormSelect>
                 </CCol>
                 <CCol xs="auto">
-                  <CFormCheck type="checkbox" id="autoSizingCheck" label="Remember me" />
+                  <CFormCheck
+                    type="checkbox"
+                    id="autoSizingCheck"
+                    label="Remember me"
+                  />
                 </CCol>
                 <CCol xs="auto">
                   <CButton type="submit">Submit</CButton>
@@ -319,27 +384,43 @@ const Layout = () => {
               </CForm>
             </Example>
             <p className="text-medium-emphasis small">
-              You can then remix that once again with size-specific column classes.
+              You can then remix that once again with size-specific column
+              classes.
             </p>
             <Example href="forms/layout#auto-sizing">
               <CForm className="row gx-3 gy-2 align-items-center">
                 <CCol sm="3">
-                  <CFormLabel className="visually-hidden" htmlFor="specificSizeInputName">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="specificSizeInputName"
+                  >
                     Name
                   </CFormLabel>
-                  <CFormControl id="specificSizeInputName" placeholder="Jane Doe" />
+                  <CFormControl
+                    id="specificSizeInputName"
+                    placeholder="Jane Doe"
+                  />
                 </CCol>
                 <CCol sm="3">
-                  <CFormLabel className="visually-hidden" htmlFor="specificSizeInputGroupUsername">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="specificSizeInputGroupUsername"
+                  >
                     Username
                   </CFormLabel>
                   <CInputGroup>
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormControl id="specificSizeInputGroupUsername" placeholder="Username" />
+                    <CFormControl
+                      id="specificSizeInputGroupUsername"
+                      placeholder="Username"
+                    />
                   </CInputGroup>
                 </CCol>
                 <CCol sm="3">
-                  <CFormLabel className="visually-hidden" htmlFor="specificSizeSelect">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="specificSizeSelect"
+                  >
                     Preference
                   </CFormLabel>
                   <CFormSelect id="specificSizeSelect">
@@ -350,7 +431,11 @@ const Layout = () => {
                   </CFormSelect>
                 </CCol>
                 <CCol xs="auto">
-                  <CFormCheck type="checkbox" id="autoSizingCheck2" label="Remember me" />
+                  <CFormCheck
+                    type="checkbox"
+                    id="autoSizingCheck2"
+                    label="Remember me"
+                  />
                 </CCol>
                 <CCol xs="auto">
                   <CButton type="submit">Submit</CButton>
@@ -367,26 +452,37 @@ const Layout = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Use the <code>&lt;CCol xs=&#34;auto&#34;&gt;</code> class to create horizontal
-              layouts. By adding{' '}
-              <a href="https://coreui.io/docs/layout/gutters/">gutter modifier classes</a>, we will
-              have gutters in horizontal and vertical directions. The{' '}
-              <code>.align-items-center</code> aligns the form elements to the middle, making the{' '}
-              <code>&lt;CFormCheck&gt;</code> align properly.
+              Use the <code>&lt;CCol xs=&#34;auto&#34;&gt;</code> class to
+              create horizontal layouts. By adding{' '}
+              <a href="https://coreui.io/docs/layout/gutters/">
+                gutter modifier classes
+              </a>
+              , we will have gutters in horizontal and vertical directions. The{' '}
+              <code>.align-items-center</code> aligns the form elements to the
+              middle, making the <code>&lt;CFormCheck&gt;</code> align properly.
             </p>
             <Example href="forms/layout#inline-forms">
               <CForm className="row row-cols-lg-auto g-3 align-items-center">
                 <CCol xs="12">
-                  <CFormLabel className="visually-hidden" htmlFor="inlineFormInputGroupUsername">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="inlineFormInputGroupUsername"
+                  >
                     Username
                   </CFormLabel>
                   <CInputGroup>
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormControl id="inlineFormInputGroupUsername" placeholder="Username" />
+                    <CFormControl
+                      id="inlineFormInputGroupUsername"
+                      placeholder="Username"
+                    />
                   </CInputGroup>
                 </CCol>
                 <CCol xs="12">
-                  <CFormLabel className="visually-hidden" htmlFor="inlineFormSelectPref">
+                  <CFormLabel
+                    className="visually-hidden"
+                    htmlFor="inlineFormSelectPref"
+                  >
                     Preference
                   </CFormLabel>
                   <CFormSelect id="inlineFormSelectPref">
@@ -397,7 +493,11 @@ const Layout = () => {
                   </CFormSelect>
                 </CCol>
                 <CCol xs="12">
-                  <CFormCheck type="checkbox" id="inlineFormCheck" label="Remember me" />
+                  <CFormCheck
+                    type="checkbox"
+                    id="inlineFormCheck"
+                    label="Remember me"
+                  />
                 </CCol>
                 <CCol xs="12">
                   <CButton type="submit">Submit</CButton>
@@ -408,7 +508,7 @@ const Layout = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

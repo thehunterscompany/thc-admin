@@ -17,11 +17,21 @@ module.exports = {
   },
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-
     // '@typescript-eslint/no-explicit-any': 'off',
-    'prettier/prettier': [],
+    // 'prettier/prettier': [],
+    'prettier/prettier': [
+      'error',
+      {
+        semi: true,
+        trailingComma: 'all',
+        singleQuote: true,
+        printWidth: 80,
+        tabWidth: 2,
+        endOfLine: 'auto',
+        arrowParens: 'always',
+      },
+    ],
   },
   settings: {
     react: {

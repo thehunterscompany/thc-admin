@@ -1,1 +1,1 @@
-export const SET_SIDEBAR = 'SET_SIDEBAR'
+export const SET_SIDEBAR = 'SET_SIDEBAR';

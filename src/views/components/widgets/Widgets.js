@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CCardGroup,
   CCol,
@@ -8,16 +8,17 @@ import {
   CWidgetProgress,
   CWidgetProgressIcon,
   CWidgetSimple,
-} from '@coreui/react'
-import { getStyle } from '@coreui/utils'
-import CIcon from '@coreui/icons-react'
-import { CChartBar, CChartLine } from '@coreui/react-chartjs'
+} from '@coreui/react';
+import { getStyle } from '@coreui/utils';
+import CIcon from '@coreui/icons-react';
+import { CChartBar, CChartLine } from '@coreui/react-chartjs';
 
-import WidgetsBrand from './WidgetsBrand'
-import WidgetsDropdown from './WidgetsDropdown'
+import WidgetsBrand from './WidgetsBrand';
+import WidgetsDropdown from './WidgetsDropdown';
 
 const Widgets = () => {
-  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+  const random = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
 
   return (
     <>
@@ -170,7 +171,11 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon name="cil-arrow-right" className="float-end" width="16" />
+                <CIcon
+                  name="cil-arrow-right"
+                  className="float-end"
+                  width="16"
+                />
               </CLink>
             }
           />
@@ -191,7 +196,11 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon name="cil-arrow-right" className="float-end" width="16" />
+                <CIcon
+                  name="cil-arrow-right"
+                  className="float-end"
+                  width="16"
+                />
               </CLink>
             }
           />
@@ -212,7 +221,11 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon name="cil-arrow-right" className="float-end" width="16" />
+                <CIcon
+                  name="cil-arrow-right"
+                  className="float-end"
+                  width="16"
+                />
               </CLink>
             }
           />
@@ -233,7 +246,11 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon name="cil-arrow-right" className="float-end" width="16" />
+                <CIcon
+                  name="cil-arrow-right"
+                  className="float-end"
+                  width="16"
+                />
               </CLink>
             }
           />
@@ -457,7 +474,23 @@ const Widgets = () => {
             <CChartBar
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: getStyle('--cui-danger'),
@@ -507,7 +540,23 @@ const Widgets = () => {
             <CChartBar
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: getStyle('--cui-primary'),
@@ -557,7 +606,23 @@ const Widgets = () => {
             <CChartBar
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: getStyle('--cui-success'),
@@ -607,7 +672,23 @@ const Widgets = () => {
             <CChartLine
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: 'transparent',
@@ -665,7 +746,23 @@ const Widgets = () => {
             <CChartLine
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: 'transparent',
@@ -723,7 +820,23 @@ const Widgets = () => {
             <CChartLine
               style={{ height: '40px' }}
               data={{
-                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M'],
+                labels: [
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                  'T',
+                  'W',
+                  'T',
+                  'F',
+                  'S',
+                  'S',
+                  'M',
+                ],
                 datasets: [
                   {
                     backgroundColor: 'transparent',
@@ -778,7 +891,7 @@ const Widgets = () => {
         </CCol>
       </CRow>
     </>
-  )
-}
+  );
+};
 
-export default Widgets
+export default Widgets;

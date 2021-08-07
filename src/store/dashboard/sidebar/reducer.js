@@ -1,16 +1,16 @@
-import { SET_SIDEBAR } from './action-types'
+import { SET_SIDEBAR } from './action-types';
 
 const initialState = {
   sidebarUnfoldable: false,
-}
+};
 
 const changeState = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_SIDEBAR:
-      return { ...state, sidebarUnfoldable: payload }
+      return { ...state, sidebarUnfoldable: payload };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default changeState
+export default changeState;

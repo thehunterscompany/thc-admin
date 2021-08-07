@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   CCard,
   CCardBody,
@@ -18,13 +18,13 @@ import {
   CNavLink,
   CDropdown,
   CButton,
-} from '@coreui/react'
-import { DocsLink } from 'src/reusable'
+} from '@coreui/react';
+import { DocsLink } from 'src/reusable';
 
 const CNavbars = () => {
-  const [visible, setVisible] = useState(false)
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
-  const [navbarText, setNavbarText] = useState(false)
+  const [visible, setVisible] = useState(false);
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const [navbarText, setNavbarText] = useState(false);
 
   return (
     <>
@@ -44,7 +44,11 @@ const CNavbars = () => {
               </CNavbarNav>
               <CNavbarNav className="ms-auto">
                 <CForm className="d-flex">
-                  <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
+                  <CFormControl
+                    className="me-sm-2"
+                    placeholder="Search"
+                    size="sm"
+                  />
                   <CButton color="light" className="my-2 my-sm-0" type="submit">
                     Search
                   </CButton>
@@ -94,7 +98,7 @@ const CNavbars = () => {
             <CNavbarToggler
               inNavbar
               onClick={() => {
-                setNavbarText(!navbarText)
+                setNavbarText(!navbarText);
               }}
             />
             <CNavbarBrand>NavbarBrand</CNavbarBrand>
@@ -114,7 +118,7 @@ const CNavbars = () => {
             <CNavbarToggler
               inNavbar
               onClick={() => {
-                setIsOpenDropdown(!isOpenDropdown)
+                setIsOpenDropdown(!isOpenDropdown);
               }}
             />
             <CCollapse show={isOpenDropdown} navbar>
@@ -148,8 +152,16 @@ const CNavbars = () => {
         <CCardBody>
           <CNavbar light color="light">
             <CForm className="d-flex">
-              <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
-              <CButton color="outline-success" className="my-2 my-sm-0" type="submit">
+              <CFormControl
+                className="me-sm-2"
+                placeholder="Search"
+                size="sm"
+              />
+              <CButton
+                color="outline-success"
+                className="my-2 my-sm-0"
+                type="submit"
+              >
                 Search
               </CButton>
             </CForm>
@@ -168,7 +180,7 @@ const CNavbars = () => {
         </CCardBody>
       </CCard>
     </>
-  )
-}
+  );
+};
 
-export default CNavbars
+export default CNavbars;

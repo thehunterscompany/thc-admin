@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CButton,
   CCard,
@@ -18,8 +18,8 @@ import {
   CNavLink,
   CCol,
   CRow,
-} from '@coreui/react'
-import { DocsCallout, Example } from 'src/reusable'
+} from '@coreui/react';
+import { DocsCallout, Example } from 'src/reusable';
 
 const Cards = () => {
   return (
@@ -34,17 +34,21 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Cards are built with as little markup and styles as possible but still manage to
-              deliver a bunch of control and customization. Built with flexbox, they offer easy
-              alignment and mix well with other CoreUI components. Cards have no top, left, and
-              right margins by default, so use{' '}
-              <a href="https://coreui.io/docs/utilities/spacing">spacing utilities</a> as needed.
-              They have no fixed width to start, so they&#39;ll fill the full width of its parent.
+              Cards are built with as little markup and styles as possible but
+              still manage to deliver a bunch of control and customization.
+              Built with flexbox, they offer easy alignment and mix well with
+              other CoreUI components. Cards have no top, left, and right
+              margins by default, so use{' '}
+              <a href="https://coreui.io/docs/utilities/spacing">
+                spacing utilities
+              </a>{' '}
+              as needed. They have no fixed width to start, so they&#39;ll fill
+              the full width of its parent.
             </p>
             <p className="text-medium-emphasis small">
-              Below is an example of a basic card with mixed content and a fixed width. Cards have
-              no fixed width to start, so they&#39;ll naturally fill the full width of its parent
-              element.
+              Below is an example of a basic card with mixed content and a fixed
+              width. Cards have no fixed width to start, so they&#39;ll
+              naturally fill the full width of its parent element.
             </p>
             <Example href="components/card">
               <CCard style={{ width: '18rem' }}>
@@ -69,8 +73,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Card title</CCardTitle>
                   <CCardText>
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card&#39;s content.
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card&#39;s content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -86,8 +90,8 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              The main block of a card is the <code>&lt;CCardBody&gt;</code>. Use it whenever you
-              need a padded section within a card.
+              The main block of a card is the <code>&lt;CCardBody&gt;</code>.
+              Use it whenever you need a padded section within a card.
             </p>
             <Example href="components/card/#body">
               <CCard>
@@ -104,24 +108,27 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Card titles are managed by <code>&lt;CCardTitle&gt;</code> component. Identically,
-              links are attached and collected next to each other by <code>&lt;CCardLink&gt;</code>{' '}
-              component.
+              Card titles are managed by <code>&lt;CCardTitle&gt;</code>{' '}
+              component. Identically, links are attached and collected next to
+              each other by <code>&lt;CCardLink&gt;</code> component.
             </p>
             <p className="text-medium-emphasis small">
-              Subtitles are managed by <code>&lt;CCardSubtitle&gt;</code> component. If the{' '}
-              <code>&lt;CCardTitle&gt;</code> also, the <code>&lt;CCardSubtitle&gt;</code> items are
-              stored in a <code>&lt;CCardBody&gt;</code> item, the card title, and subtitle are
-              arranged rightly.
+              Subtitles are managed by <code>&lt;CCardSubtitle&gt;</code>{' '}
+              component. If the <code>&lt;CCardTitle&gt;</code> also, the{' '}
+              <code>&lt;CCardSubtitle&gt;</code> items are stored in a{' '}
+              <code>&lt;CCardBody&gt;</code> item, the card title, and subtitle
+              are arranged rightly.
             </p>
             <Example href="components/card/#titles-text-and-links">
               <CCard style={{ width: '18rem' }}>
                 <CCardBody>
                   <CCardTitle>Card title</CCardTitle>
-                  <CCardSubtitle className="mb-2 text-medium-emphasis">Card subtitle</CCardSubtitle>
+                  <CCardSubtitle className="mb-2 text-medium-emphasis">
+                    Card subtitle
+                  </CCardSubtitle>
                   <CCardText>
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card&#39;s content.
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card&#39;s content.
                   </CCardText>
                   <CCardLink href="#">Card link</CCardLink>
                   <CCardLink href="#">Another link</CCardLink>
@@ -138,9 +145,10 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              <code>.card-img-top</code> places a picture to the top of the card. With{' '}
-              <code>.card-text</code>, text can be added to the card. Text within{' '}
-              <code>.card-text</code> can additionally be styled with the regular HTML tags.
+              <code>.card-img-top</code> places a picture to the top of the
+              card. With <code>.card-text</code>, text can be added to the card.
+              Text within <code>.card-text</code> can additionally be styled
+              with the regular HTML tags.
             </p>
             <Example href="components/card/#images">
               <CCard style={{ width: '18rem' }}>
@@ -164,8 +172,8 @@ const Cards = () => {
                 </CCardImage>
                 <CCardBody>
                   <CCardText>
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card&#39;s content.
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card&#39;s content.
                   </CCardText>
                 </CCardBody>
               </CCard>
@@ -225,9 +233,10 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Combine and match many content types to build the card you need, or throw everything
-              in there. Shown below are image styles, blocks, text styles, and a list group—all
-              wrapped in a fixed-width card.
+              Combine and match many content types to build the card you need,
+              or throw everything in there. Shown below are image styles,
+              blocks, text styles, and a list group—all wrapped in a fixed-width
+              card.
             </p>
             <Example href="components/card/#kitchen-sink">
               <CCard style={{ width: '18rem' }}>
@@ -252,8 +261,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Card title</CCardTitle>
                   <CCardText>
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card&#39;s content.
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card&#39;s content.
                   </CCardText>
                 </CCardBody>
                 <CListGroup flush>
@@ -285,14 +294,16 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
               </CCard>
             </Example>
             <p className="text-medium-emphasis small">
-              Card headers can be styled by adding ex. <code>component=&#34;h5&#34;</code>.
+              Card headers can be styled by adding ex.{' '}
+              <code>component=&#34;h5&#34;</code>.
             </p>
             <Example href="components/card/#header-and-footer">
               <CCard>
@@ -300,7 +311,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -312,11 +324,12 @@ const Cards = () => {
                 <CCardBody>
                   <blockquote className="blockquote mb-0">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat
-                      a ante.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Integer posuere erat a ante.
                     </p>
                     <footer className="blockquote-footer">
-                      Someone famous in <cite title="Source Title">Source Title</cite>
+                      Someone famous in{' '}
+                      <cite title="Source Title">Source Title</cite>
                     </footer>
                   </blockquote>
                 </CCardBody>
@@ -328,11 +341,14 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
-                <CCardFooter className="text-medium-emphasis">2 days ago</CCardFooter>
+                <CCardFooter className="text-medium-emphasis">
+                  2 days ago
+                </CCardFooter>
               </CCard>
             </Example>
           </CCardBody>
@@ -345,9 +361,10 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Cards assume no specific <code>width</code> to start, so they&#39;ll be 100% wide
-              unless otherwise stated. You can adjust this as required with custom CSS, grid
-              classes, grid Sass mixins, or services.
+              Cards assume no specific <code>width</code> to start, so
+              they&#39;ll be 100% wide unless otherwise stated. You can adjust
+              this as required with custom CSS, grid classes, grid Sass mixins,
+              or services.
             </p>
             <h3>Using grid markup</h3>
             <p className="text-medium-emphasis small">
@@ -360,7 +377,8 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Special title treatment</CCardTitle>
                       <CCardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        With supporting text below as a natural lead-in to
+                        additional content.
                       </CCardText>
                       <CButton href="#">Go somewhere</CButton>
                     </CCardBody>
@@ -371,7 +389,8 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Special title treatment</CCardTitle>
                       <CCardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        With supporting text below as a natural lead-in to
+                        additional content.
                       </CCardText>
                       <CButton href="#">Go somewhere</CButton>
                     </CCardBody>
@@ -382,15 +401,18 @@ const Cards = () => {
             <h3>Using utilities</h3>
             <p className="text-medium-emphasis small">
               Use some of{' '}
-              <a href="https://coreui.io/docs/utilities/sizing/">available sizing utilities</a> to
-              rapidly set a card&#39;s width.
+              <a href="https://coreui.io/docs/utilities/sizing/">
+                available sizing utilities
+              </a>{' '}
+              to rapidly set a card&#39;s width.
             </p>
             <Example href="components/card/#sizing">
               <CCard className="w-75">
                 <CCardBody>
                   <CCardTitle>Card title</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -399,7 +421,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Card title</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -407,14 +430,16 @@ const Cards = () => {
             </Example>
             <strong>Using custom CSS</strong>
             <p className="text-medium-emphasis small">
-              Use custom CSS in your stylesheets or as inline styles to set a width.
+              Use custom CSS in your stylesheets or as inline styles to set a
+              width.
             </p>
             <Example href="components/card/#sizing">
               <CCard style={{ width: '18rem' }}>
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -430,9 +455,11 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              You can instantly change the text arrangement of any card—in its whole or specific
-              parts—with{' '}
-              <a href="https://coreui.io/docs/utilities/text/#text-alignment">text align classes</a>
+              You can instantly change the text arrangement of any card—in its
+              whole or specific parts—with{' '}
+              <a href="https://coreui.io/docs/utilities/text/#text-alignment">
+                text align classes
+              </a>
               .
             </p>
             <Example href="components/card/#text-alignment">
@@ -440,7 +467,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -449,7 +477,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -458,7 +487,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -499,7 +529,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -527,7 +558,8 @@ const Cards = () => {
                 <CCardBody>
                   <CCardTitle>Special title treatment</CCardTitle>
                   <CCardText>
-                    With supporting text below as a natural lead-in to additional content.
+                    With supporting text below as a natural lead-in to
+                    additional content.
                   </CCardText>
                   <CButton href="#">Go somewhere</CButton>
                 </CCardBody>
@@ -543,8 +575,8 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Similar to headers and footers, cards can include top and bottom &#34;image
-              caps&#34;—images at the top or bottom of a card.
+              Similar to headers and footers, cards can include top and bottom
+              &#34;image caps&#34;—images at the top or bottom of a card.
             </p>
             <Example href="components/card/#image-caps">
               <CRow>
@@ -571,11 +603,14 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                       <CCardText>
-                        <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                        <small className="text-medium-emphasis">
+                          Last updated 3 mins ago
+                        </small>
                       </CCardText>
                     </CCardBody>
                   </CCard>
@@ -585,11 +620,14 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                       <CCardText>
-                        <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                        <small className="text-medium-emphasis">
+                          Last updated 3 mins ago
+                        </small>
                       </CCardText>
                     </CCardBody>
                     <CCardImage
@@ -624,11 +662,13 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Cards include various options for customizing their backgrounds, borders, and color.
+              Cards include various options for customizing their backgrounds,
+              borders, and color.
             </p>
             <h3>Background and color</h3>
             <p className="text-medium-emphasis small">
-              Use <code>color</code> property to change the appearance of a card.
+              Use <code>color</code> property to change the appearance of a
+              card.
             </p>
             <Example href="components/card/#background-and-color">
               <CRow>
@@ -643,13 +683,17 @@ const Cards = () => {
                   { color: 'dark', textColor: 'white' },
                 ].map((item, index) => (
                   <CCol lg={4} key={index}>
-                    <CCard color={item.color} textColor={item.textColor} className="mb-3">
+                    <CCard
+                      color={item.color}
+                      textColor={item.textColor}
+                      className="mb-3"
+                    >
                       <CCardHeader>Header</CCardHeader>
                       <CCardBody>
                         <CCardTitle>{item.color} card title</CCardTitle>
                         <CCardText>
-                          Some quick example text to build on the card title and make up the bulk of
-                          the card&#39;s content.
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card&#39;s content.
                         </CCardText>
                       </CCardBody>
                     </CCard>
@@ -659,10 +703,14 @@ const Cards = () => {
             </Example>
             <h3>Border</h3>
             <p className="text-medium-emphasis small">
-              Use <a href="https://coreui.io/docs/utilities/borders/">border utilities</a> to change
-              just the <code>border-color</code> of a card. Note that you can set{' '}
-              <code>textColor</code> property on the <code>&lt;CCard&gt;</code> or a subset of the
-              card&#39;s contents as shown below.
+              Use{' '}
+              <a href="https://coreui.io/docs/utilities/borders/">
+                border utilities
+              </a>{' '}
+              to change just the <code>border-color</code> of a card. Note that
+              you can set <code>textColor</code> property on the{' '}
+              <code>&lt;CCard&gt;</code> or a subset of the card&#39;s contents
+              as shown below.
             </p>
             <Example href="components/card/#border">
               <CRow>
@@ -677,13 +725,16 @@ const Cards = () => {
                   { color: 'dark' },
                 ].map((item, index) => (
                   <CCol lg={4} key={index}>
-                    <CCard textColor={item.textColor} className={`mb-3 border-${item.color}`}>
+                    <CCard
+                      textColor={item.textColor}
+                      className={`mb-3 border-${item.color}`}
+                    >
                       <CCardHeader>Header</CCardHeader>
                       <CCardBody>
                         <CCardTitle>{item.color} card title</CCardTitle>
                         <CCardText>
-                          Some quick example text to build on the card title and make up the bulk of
-                          the card&#39;s content.
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card&#39;s content.
                         </CCardText>
                       </CCardBody>
                     </CCard>
@@ -693,10 +744,14 @@ const Cards = () => {
             </Example>
             <h3>Top border</h3>
             <p className="text-medium-emphasis small">
-              Use <a href="https://coreui.io/docs/utilities/borders/">border utilities</a> to change
-              just the <code>border-color</code> of a card. Note that you can set{' '}
-              <code>textColor</code> property on the <code>&lt;CCard&gt;</code> or a subset of the
-              card&#39;s contents as shown below.
+              Use{' '}
+              <a href="https://coreui.io/docs/utilities/borders/">
+                border utilities
+              </a>{' '}
+              to change just the <code>border-color</code> of a card. Note that
+              you can set <code>textColor</code> property on the{' '}
+              <code>&lt;CCard&gt;</code> or a subset of the card&#39;s contents
+              as shown below.
             </p>
             <Example href="components/card/#top-border">
               <CRow>
@@ -719,8 +774,8 @@ const Cards = () => {
                       <CCardBody>
                         <CCardTitle>{item.color} card title</CCardTitle>
                         <CCardText>
-                          Some quick example text to build on the card title and make up the bulk of
-                          the card&#39;s content.
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card&#39;s content.
                         </CCardText>
                       </CCardBody>
                     </CCard>
@@ -738,9 +793,10 @@ const Cards = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Use card groups to render cards as a single, attached element with equal width and
-              height columns. Card groups start off stacked and use <code>display: flex;</code> to
-              become attached with uniform dimensions starting at the <code>sm</code> breakpoint.
+              Use card groups to render cards as a single, attached element with
+              equal width and height columns. Card groups start off stacked and
+              use <code>display: flex;</code> to become attached with uniform
+              dimensions starting at the <code>sm</code> breakpoint.
             </p>
             <Example href="components/card/#card-groups">
               <CCardGroup>
@@ -766,41 +822,14 @@ const Cards = () => {
                   <CCardBody>
                     <CCardTitle>Card title</CCardTitle>
                     <CCardText>
-                      This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
                     </CCardText>
                     <CCardText>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
-                    </CCardText>
-                  </CCardBody>
-                </CCard>
-                <CCard>
-                  <CCardImage
-                    component="svg"
-                    orientation="top"
-                    className="docs-placeholder-img"
-                    width="100%"
-                    height="180"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: Image cap"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#868e96"></rect>
-                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                      Image cap
-                    </text>
-                  </CCardImage>
-                  <CCardBody>
-                    <CCardTitle>Card title</CCardTitle>
-                    <CCardText>
-                      This card has supporting text below as a natural lead-in to additional
-                      content.
-                    </CCardText>
-                    <CCardText>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardText>
                   </CCardBody>
                 </CCard>
@@ -826,19 +855,55 @@ const Cards = () => {
                   <CCardBody>
                     <CCardTitle>Card title</CCardTitle>
                     <CCardText>
-                      This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This card has even longer content than the first to show
-                      that equal height action.
+                      This card has supporting text below as a natural lead-in
+                      to additional content.
                     </CCardText>
                     <CCardText>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
+                    </CCardText>
+                  </CCardBody>
+                </CCard>
+                <CCard>
+                  <CCardImage
+                    component="svg"
+                    orientation="top"
+                    className="docs-placeholder-img"
+                    width="100%"
+                    height="180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Placeholder: Image cap"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                      Image cap
+                    </text>
+                  </CCardImage>
+                  <CCardBody>
+                    <CCardTitle>Card title</CCardTitle>
+                    <CCardText>
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This card has even
+                      longer content than the first to show that equal height
+                      action.
+                    </CCardText>
+                    <CCardText>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardText>
                   </CCardBody>
                 </CCard>
               </CCardGroup>
             </Example>
             <p className="text-medium-emphasis small">
-              When using card groups with footers, their content will automatically line up.
+              When using card groups with footers, their content will
+              automatically line up.
             </p>
             <Example href="components/card/#card-groups">
               <CCardGroup>
@@ -864,12 +929,15 @@ const Cards = () => {
                   <CCardBody>
                     <CCardTitle>Card title</CCardTitle>
                     <CCardText>
-                      This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
                     </CCardText>
                   </CCardBody>
                   <CCardFooter>
-                    <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                    <small className="text-medium-emphasis">
+                      Last updated 3 mins ago
+                    </small>
                   </CCardFooter>
                 </CCard>
                 <CCard>
@@ -894,12 +962,14 @@ const Cards = () => {
                   <CCardBody>
                     <CCardTitle>Card title</CCardTitle>
                     <CCardText>
-                      This card has supporting text below as a natural lead-in to additional
-                      content.
+                      This card has supporting text below as a natural lead-in
+                      to additional content.
                     </CCardText>
                   </CCardBody>
                   <CCardFooter>
-                    <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                    <small className="text-medium-emphasis">
+                      Last updated 3 mins ago
+                    </small>
                   </CCardFooter>
                 </CCard>
                 <CCard>
@@ -924,13 +994,16 @@ const Cards = () => {
                   <CCardBody>
                     <CCardTitle>Card title</CCardTitle>
                     <CCardText>
-                      This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This card has even longer content than the first to show
-                      that equal height action.
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This card has even
+                      longer content than the first to show that equal height
+                      action.
                     </CCardText>
                   </CCardBody>
                   <CCardFooter>
-                    <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                    <small className="text-medium-emphasis">
+                      Last updated 3 mins ago
+                    </small>
                   </CCardFooter>
                 </CCard>
               </CCardGroup>
@@ -946,11 +1019,16 @@ const Cards = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               Use the <code>CRow</code> component and set{' '}
-              <code>&#123;xs|sm|md|lg|xl|xxl&#125;=&#123;&#123; cols: * &#125;&#125;</code> property
-              to control how many grid columns (wrapped around your cards) you show per row. For
-              example, here&#39;s <code>xs=&#123;&#123;cols: 1&#125;&#125;</code> laying out the
-              cards on one column, and <code>md=&#123;&#123;cols: 1&#125;&#125;</code> splitting
-              four cards to equal width across multiple rows, from the medium breakpoint up.
+              <code>
+                &#123;xs|sm|md|lg|xl|xxl&#125;=&#123;&#123; cols: * &#125;&#125;
+              </code>{' '}
+              property to control how many grid columns (wrapped around your
+              cards) you show per row. For example, here&#39;s{' '}
+              <code>xs=&#123;&#123;cols: 1&#125;&#125;</code> laying out the
+              cards on one column, and{' '}
+              <code>md=&#123;&#123;cols: 1&#125;&#125;</code> splitting four
+              cards to equal width across multiple rows, from the medium
+              breakpoint up.
             </p>
             <Example href="components/card/#grid-cards">
               <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 2 }}>
@@ -977,12 +1055,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1009,12 +1090,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1041,12 +1125,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1073,20 +1160,23 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
               </CRow>
             </Example>
             <p className="text-medium-emphasis small">
-              Change it to <code>md=&#123;&#123; cols: 3&#125;&#125;</code> and you&#39;ll see the
-              fourth card wrap.
+              Change it to <code>md=&#123;&#123; cols: 3&#125;&#125;</code> and
+              you&#39;ll see the fourth card wrap.
             </p>
             <Example href="components/card/#grid-cards">
               <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 3 }}>
@@ -1113,12 +1203,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1145,12 +1238,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1177,12 +1273,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1209,12 +1308,15 @@ const Cards = () => {
                     <CCardBody>
                       <CCardTitle>Card title</CCardTitle>
                       <CCardText>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content is a
+                        little bit longer.
                       </CCardText>
                     </CCardBody>
                     <CCardFooter>
-                      <small className="text-medium-emphasis">Last updated 3 mins ago</small>
+                      <small className="text-medium-emphasis">
+                        Last updated 3 mins ago
+                      </small>
                     </CCardFooter>
                   </CCard>
                 </CCol>
@@ -1224,7 +1326,7 @@ const Cards = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;

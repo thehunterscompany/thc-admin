@@ -22,7 +22,6 @@ export default function DateField(props) {
       const date = new Date(value);
       setSelectedDate(date);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleDateChange = (date) => {

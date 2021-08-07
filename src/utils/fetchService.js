@@ -1,6 +1,6 @@
-import { call } from 'redux-saga/effects'
-import { HOST_URL } from './path'
-import axios from 'axios'
+import { call } from 'redux-saga/effects';
+import { HOST_URL } from './path';
+import axios from 'axios';
 
 function* axiosGenerator(url, method = 'GET', data = null, headers = '') {
   const objectRequest = {
@@ -11,13 +11,13 @@ function* axiosGenerator(url, method = 'GET', data = null, headers = '') {
       Authorization: headers,
       'Content-Type': 'application/json',
     },
-  }
+  };
 
-  const response = yield call(axios, objectRequest)
+  const response = yield call(axios, objectRequest);
 
-  const responseBody = response.data
+  const responseBody = response.data;
 
-  return responseBody
+  return responseBody;
 }
 
-export default axiosGenerator
+export default axiosGenerator;
