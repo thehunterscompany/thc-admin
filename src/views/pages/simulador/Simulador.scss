@@ -1,7 +1,9 @@
 ._form-spaces {
   background: #fff;
-  margin-top: 8em;
+  // margin-top: 2em;
   margin-bottom: 1em;
+  padding: 2%;
+  min-width: 700px;
 
   h1 {
     font-size: 24px;
@@ -9,4 +11,13 @@
     text-align: center;
     margin-bottom: 1em;
   }
+}
+
+._simulador-container {
+  display: flex;
+  height: auto;
+  min-height: 100vh;
+  align-items: center;
+  gap: 2.5em;
+  flex-direction: column;
 }
