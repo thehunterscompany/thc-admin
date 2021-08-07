@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
@@ -20,4 +20,4 @@ export default makeStyles((theme) => ({
     top: '50%',
     left: '50%',
   },
-}))
+}));

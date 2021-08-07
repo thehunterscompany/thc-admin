@@ -1,5 +1,5 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   CSidebar,
@@ -7,22 +7,24 @@ import {
   CSidebarNav,
   CSidebarToggler,
   CCreateNavItem,
-} from '@coreui/react'
+} from '@coreui/react';
 
-import CIcon from '@coreui/icons-react'
+import CIcon from '@coreui/icons-react';
 
-import SimpleBar from 'simplebar-react'
-import 'simplebar/dist/simplebar.min.css'
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 // sidebar nav config
-import navigation from '../_nav'
+import navigation from '../_nav';
 
-import { responsiveSidebar } from '../store/actions'
+import { responsiveSidebar } from '../store/actions';
 
 const AppSidebar = () => {
-  const dispatch = useDispatch()
-  const unfoldable = useSelector((state) => state.changeState.sidebarUnfoldable)
-  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const dispatch = useDispatch();
+  const unfoldable = useSelector(
+    (state) => state.changeState.sidebarUnfoldable,
+  );
+  const sidebarShow = useSelector((state) => state.sidebarShow);
 
   return (
     <CSidebar
@@ -32,11 +34,15 @@ const AppSidebar = () => {
       show={sidebarShow}
       onShow={() => console.log('show')}
       onHide={() => {
-        dispatch({ type: 'set', sidebarShow: false })
+        dispatch({ type: 'set', sidebarShow: false });
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" name="logo-negative" height={35} />
+        <CIcon
+          className="sidebar-brand-full"
+          name="logo-negative"
+          height={35}
+        />
         <CIcon className="sidebar-brand-narrow" name="sygnet" height={35} />
       </CSidebarBrand>
       <CSidebarNav>
@@ -49,7 +55,7 @@ const AppSidebar = () => {
         onClick={() => dispatch(responsiveSidebar(!unfoldable))}
       />
     </CSidebar>
-  )
-}
+  );
+};
 
-export default React.memo(AppSidebar)
+export default React.memo(AppSidebar);

@@ -1,6 +1,6 @@
-import React from 'react'
-import { CNavbar, CNavbarBrand, CContainer } from '@coreui/react'
-import './Navbar.scss'
+import React from 'react';
+import { CNavbar, CNavbarBrand, CContainer } from '@coreui/react';
+import './Navbar.scss';
 
 const Navbar = () => (
   <header className="_navbar">
@@ -17,6 +17,6 @@ const Navbar = () => (
       </CContainer>
     </CNavbar>
   </header>
-)
+);
 
-export default Navbar
+export default Navbar;

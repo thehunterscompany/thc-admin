@@ -1,6 +1,6 @@
-import React from 'react'
-import { CCard, CCardBody, CCol, CRow } from '@coreui/react'
-import SimulatorForm from '../Form'
+import React from 'react';
+import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
+import SimulatorForm from '../Form';
 
 const Simulation = () => {
   return (
@@ -13,7 +13,7 @@ const Simulation = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Simulation
+export default Simulation;

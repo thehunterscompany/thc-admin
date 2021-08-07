@@ -1,32 +1,36 @@
-import React, { useState, useMemo } from 'react'
-import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
-import { InputField, SelectField, DateField } from '../../../../../components/FormFields'
-import { FormControl, FormControlLabel, Switch } from '@material-ui/core'
-import countryList from 'react-select-country-list'
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { Grid } from '@material-ui/core';
+import {
+  InputField,
+  SelectField,
+  DateField,
+} from '../../../../../components/FormFields';
+import { FormControl, FormControlLabel, Switch } from '@material-ui/core';
+import countryList from 'react-select-country-list';
 
 const simulationOptions = [
   { value: 1, label: 'Calular Cuota' },
   { value: 2, label: 'Cuanto me prestan' },
-]
+];
 
 const rateSimulation = [
   { value: 1, label: 'Financiación de vivienda' },
   { value: 2, label: 'Financiación inmuebles comerciales' },
   { value: 3, label: 'Compra de cartera' },
-]
+];
 
 const idType = [
   { value: 1, label: 'Cedula de ciudadanía' },
   { value: 2, label: 'Cedula de extrangería' },
   { value: 3, label: 'Pasaporte' },
-]
+];
 
 const PersonalFields = ({ formField, values }) => {
   const [state, setState] = useState({
     checkedA: false,
     checkedB: false,
-  })
+  });
 
   const {
     firstNames,
@@ -39,30 +43,40 @@ const PersonalFields = ({ formField, values }) => {
     telephone,
     simulation,
     simulationType,
-  } = formField
+  } = formField;
 
-  const options = useMemo(() => countryList().getData(), [])
+  const options = useMemo(() => countryList().getData(), []);
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked })
-  }
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   const calculateMaxDate = () => {
-    let today = new Date()
-    let year = today.getFullYear()
-    let yearDiff = year - 18
-    today.setFullYear(yearDiff)
-    return today
-  }
+    let today = new Date();
+    let year = today.getFullYear();
+    let yearDiff = year - 18;
+    today.setFullYear(yearDiff);
+    return today;
+  };
 
   return (
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <InputField name={firstNames.name} label={firstNames.label} type="text" fullWidth />
+          <InputField
+            name={firstNames.name}
+            label={firstNames.label}
+            type="text"
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12} md={6}>
-          <InputField name={lastNames.name} label={lastNames.label} type="text" fullWidth />
+          <InputField
+            name={lastNames.name}
+            label={lastNames.label}
+            type="text"
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <SelectField
@@ -75,7 +89,12 @@ const PersonalFields = ({ formField, values }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField name={documentId.name} label={documentId.label} type="text" fullWidth />
+          <InputField
+            name={documentId.name}
+            label={documentId.label}
+            type="text"
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -91,7 +110,12 @@ const PersonalFields = ({ formField, values }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField name={email.name} label={email.label} type="text" fullWidth />
+          <InputField
+            name={email.name}
+            label={email.label}
+            type="text"
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -105,7 +129,12 @@ const PersonalFields = ({ formField, values }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField name={telephone.name} label={telephone.label} type="text" fullWidth />
+          <InputField
+            name={telephone.name}
+            label={telephone.label}
+            type="text"
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={values.simulation === 1 ? 6 : 12}>
@@ -167,16 +196,19 @@ const PersonalFields = ({ formField, values }) => {
               }
             />
           </FormControl>
-          <small>Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.</small>
+          <small>
+            Autorizo a thcsas.com.co a consultar mi información en centrales de
+            riesgo.
+          </small>
         </Grid>
       </Grid>
     </React.Fragment>
-  )
-}
+  );
+};
 
 PersonalFields.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
-}
+};
 
-export default PersonalFields
+export default PersonalFields;
