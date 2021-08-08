@@ -73,19 +73,10 @@ const formFields = {
         requiredErrorMsg: 'Este campo es requerido.',
         invalidErrorMsg: 'Solo ingresa numeros.',
       },
-      currency: {
-        name: 'currency',
-        label: 'Tipo de Moneda',
-        requiredErrorMsg: 'Este campo es requerido.',
-      },
       passive: {
         name: 'passive',
-        label: 'Pasivos',
+        label: 'Cuotas mensuales de préstamos y tarjetas de crédito?',
         requiredErrorMsg: 'Este campo es requerido.',
-      },
-      extra: {
-        name: 'extra',
-        label: 'Añadir Titular',
       },
     },
     operational: {

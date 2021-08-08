@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { formatValue } from 'react-currency-input-field';
-import countryList from 'react-select-country-list';
 import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
@@ -11,13 +9,6 @@ import {
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
-
-const formattedValue2 = formatValue({
-  value: '500000',
-  intlConfig: { locale: 'en-CO', currency: 'INR' },
-});
-
-console.log(formattedValue2);
 
 const simulationOptions = [
   { value: 1, label: 'Calular Cuota' },
@@ -42,13 +33,11 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     checkedB: values?.checkedB ? values.checkedB : false,
   });
 
-  console.log(state);
-
   const [phoneCountryCode, setPhoneCountryCode] = useState('');
 
   useEffect(() => {
     if (values.country['phone']) {
-      if (values.country?.phone > 1) {
+      if (values.country?.phone.length >= 1) {
         setPhoneCountryCode(values.country?.phone);
       } else {
         setPhoneCountryCode('');
@@ -70,8 +59,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     simulation,
     simulationType,
   } = formField;
-
-  const options = useMemo(() => countryList().getData(), []);
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
@@ -158,6 +145,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={telephone.name}
             label={telephone.label}
             code={phoneCountryCode}
+            type="phone"
           />
         </Grid>
 

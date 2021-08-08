@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 function TextMaskCustom(props) {
-  const { inputRef, code, ...other } = props;
+  const { inputRef, code, type, ...other } = props;
 
   const [mask, setMask] = useState(false);
 
@@ -14,12 +14,12 @@ function TextMaskCustom(props) {
     } else {
       setMask(false);
     }
-  }, [code]);
+  }, [code, type]);
 
   const numberMask = createNumberMask({
-    prefix: `+${code} `,
+    prefix: type === 'phone' ? `+${code} ` : `${code} `,
     includeThousandsSeparator: false,
-    integerLimit: 15,
+    integerLimit: type === 'phone' ? 15 : null,
   });
   return (
     <MaskedInput
@@ -30,17 +30,15 @@ function TextMaskCustom(props) {
       mask={mask ? numberMask : []}
       placeholderChar={'\u2000'}
       showMask
+      guide={true}
     />
   );
 }
 
 TextMaskCustom.propTypes = {
   inputRef: PropTypes.func.isRequired,
-};
-
-TextMaskCustom.propTypes = {
-  inputRef: PropTypes.func.isRequired,
   code: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default TextMaskCustom;

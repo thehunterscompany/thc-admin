@@ -27,7 +27,13 @@ const renderStepForms = (step, values, setFieldValue) => {
       />
     );
   if (step === 1)
-    return <FinancialFields formField={formField.financial} values={values} />;
+    return (
+      <FinancialFields
+        formField={formField.financial}
+        values={values}
+        setFieldValue={setFieldValue}
+      />
+    );
   if (step === 2 && values?.simulation === 2) return null;
   if (step === 2)
     return (
@@ -81,7 +87,8 @@ const SimulatorForm = () => {
             checkedB: false,
             dateOfBirth: '',
             tenants: [],
-            country: { name: '', code: '', phone: '', currency: '' },
+            country: { name: '', code: '', phone: '', currencyCode: '' },
+            earnings: '',
           }}
           onSubmit={(values, actions) => {
             // props.postParams(values, resetForm)
@@ -90,7 +97,6 @@ const SimulatorForm = () => {
           validationSchema={''}
         >
           {({ handleChange, isSubmitting, values, setFieldValue }) => {
-            console.log(values);
             return (
               <Form onChange={handleChange} id={formId}>
                 {renderStepForms(activeStep, values, setFieldValue)}

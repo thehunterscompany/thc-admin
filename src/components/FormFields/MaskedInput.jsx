@@ -7,26 +7,30 @@ import TextMaskCustom from './TextMaskCustom/TextMaskCustom';
 import InputField from './InputField';
 
 const MaskedInput = (props) => {
+  const { code, type, width } = props;
+
   const useStyles = makeStyles({
     root: {
-      width: '20vw',
+      width: width ? width : '20.4vw',
     },
   });
 
-  const { code } = props;
-  const [values, setValues] = useState(`+${code}`);
+  const [values, setValues] = useState(
+    type === 'phone' ? `+${code}` : `${code} `,
+  );
 
   const handleChange = (event) => {
     setValues(event.target.value);
   };
 
   useEffect(() => {
-    if (code && code.length >= 1) {
-      setValues(`+${code}`);
+    if (code && code.length > 0) {
+      if (type === 'phone') setValues(`+${code}`);
+      else setValues(`${code} `);
     } else {
       setValues('');
     }
-  }, [code]);
+  }, [code, type]);
 
   return (
     <div>
@@ -37,7 +41,7 @@ const MaskedInput = (props) => {
           onChange={handleChange}
           InputProps={{
             inputComponent: TextMaskCustom,
-            inputProps: { code },
+            inputProps: { code, type },
           }}
           {...props}
         />
@@ -48,7 +52,9 @@ const MaskedInput = (props) => {
 
 MaskedInput.propTypes = {
   code: PropTypes.string,
+  type: PropTypes.string,
   label: PropTypes.string,
+  width: PropTypes.string,
 };
 
 export default MaskedInput;

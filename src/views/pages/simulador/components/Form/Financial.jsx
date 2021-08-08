@@ -1,26 +1,18 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { formatValue } from 'react-currency-input-field';
 import { Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
-import country from 'currency-codes';
+import { makeStyles } from '@material-ui/core/styles';
+import currencies from 'currency-codes';
 import PropTypes from 'prop-types';
 
-import { InputField, SelectField } from '../../../../../components/FormFields';
+import { InputField, MaskedInput } from '../../../../../components/FormFields';
 
 const FinancialFields = ({ formField, values }) => {
-  const { mainEmployment, laborTime, earnings, currency, passive } = formField;
+  const { mainEmployment, laborTime, earnings, passive } = formField;
 
   const [extraTenants, setExtraTenants] = useState(0);
 
-  const [countryCurrency, setCountryCurrency] = useState([]);
-
-  const mapCurrency = () => {
-    let array;
-    array = country.data.map(({ code }) => {
-      let object = {};
-      object = { value: code, label: code };
-      return object;
-    });
-    return array;
-  };
+  const [currencySymbol, setCurrencySymbol] = useState('');
 
   const renderExtraTenants = () => {
     let array = [];
@@ -43,24 +35,14 @@ const FinancialFields = ({ formField, values }) => {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} md={6}>
-            <InputField
-              name={currency.name}
-              label={currency.label}
-              value={countryCurrency}
-              variant="filled"
-              InputProps={{
-                readOnly: true,
-              }}
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <InputField
+
+          <Grid item xs={12}>
+            <MaskedInput
               name={`tenants[${i}].earnings`}
               label={earnings.label}
-              type="text"
+              code={currencySymbol}
               fullWidth
+              width={'41.9vw'}
             />
           </Grid>
         </React.Fragment>,
@@ -80,13 +62,26 @@ const FinancialFields = ({ formField, values }) => {
     setExtraTenants((preValue) => preValue - 1);
   };
 
-  const currencyOptions = useMemo(() => mapCurrency(), []);
-
   useEffect(() => {
-    if (values.currency) {
-      setCountryCurrency(values.currency);
+    if (values.country['currencyCode']) {
+      let currencyCode = currencies.number(values.country.currencyCode).code;
+      const symbol = formatValue({
+        value: '0',
+        intlConfig: {
+          locale: `en-${values.country.code}`,
+          currency: currencyCode,
+        },
+      });
+      let r = /\D+/;
+      setCurrencySymbol(r.exec(symbol)[0].trim());
     }
-  }, [values.currency]);
+  }, [values.country]);
+
+  const useStyles = makeStyles({
+    root: {
+      width: '101%',
+    },
+  });
 
   return (
     <React.Fragment>
@@ -107,44 +102,21 @@ const FinancialFields = ({ formField, values }) => {
             fullWidth
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SelectField
-            name={currency.name}
-            label={currency.label}
-            data={currencyOptions}
-            fullWidth
-            style={{ marginTop: '25px' }}
-          />
-        </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={earnings.name}
             label={earnings.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={currency.name}
-            label={currency.label}
-            value={countryCurrency}
-            variant="filled"
-            InputProps={{
-              readOnly: true,
-            }}
-            fullWidth
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={passive.name}
             label={passive.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
+            className={useStyles().root}
           />
         </Grid>
         {renderExtraTenants().map((tenant, index) => (
@@ -183,6 +155,7 @@ const FinancialFields = ({ formField, values }) => {
 FinancialFields.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
+  setFieldValue: PropTypes.func,
 };
 
 export default FinancialFields;
