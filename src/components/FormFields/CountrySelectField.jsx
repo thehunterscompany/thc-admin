@@ -49,7 +49,6 @@ const CountrySelect = (props) => {
         option: classes.option,
       }}
       onChange={(e, value) => {
-        console.log(value);
         setFieldValue(
           'country',
           value !== null ? value : { name: '', code: '', phone: '' },

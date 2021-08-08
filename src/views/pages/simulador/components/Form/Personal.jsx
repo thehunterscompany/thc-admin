@@ -38,9 +38,11 @@ const idType = [
 
 const PersonalFields = ({ formField, values, setFieldValue }) => {
   const [state, setState] = useState({
-    checkedA: false,
-    checkedB: false,
+    checkedA: values?.checkedA ? values.checkedA : false,
+    checkedB: values?.checkedB ? values.checkedB : false,
   });
+
+  console.log(state);
 
   const [phoneCountryCode, setPhoneCountryCode] = useState('');
 
