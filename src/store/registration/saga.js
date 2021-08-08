@@ -1,7 +1,9 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import { REGISTRATION, REGISTRATION_ASYNC } from './action-types';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { fetchService } from '../../utils';
 import { registration } from '../../utils/path';
+
+import { REGISTRATION, REGISTRATION_ASYNC } from './action-types';
 
 function* registrationAsync(action) {
   try {

@@ -1,6 +1,7 @@
-import { call } from 'redux-saga/effects';
-import { HOST_URL } from './path';
 import axios from 'axios';
+import { call } from 'redux-saga/effects';
+
+import { HOST_URL } from './path';
 
 function* axiosGenerator(url, method = 'GET', data = null, headers = '') {
   const objectRequest = {

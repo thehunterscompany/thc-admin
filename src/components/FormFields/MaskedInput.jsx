@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import React, { useEffect, useState } from 'react';
 import FormControl from '@material-ui/core/FormControl';
-import TextMaskCustom from './TextMaskCustom';
+import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
-const FormattedInputs = (props) => {
+import TextMaskCustom from './TextMaskCustom/TextMaskCustom';
+import InputField from './InputField';
+
+const MaskedInput = (props) => {
   const useStyles = makeStyles({
     root: {
       width: '20vw',
-      marginTop: '16px',
     },
   });
 
@@ -31,12 +31,10 @@ const FormattedInputs = (props) => {
   return (
     <div>
       <FormControl className={useStyles().root}>
-        <TextField
+        <InputField
           label={props.label}
           value={values}
           onChange={handleChange}
-          variant="filled"
-          id="formatted-text-mask-input"
           InputProps={{
             inputComponent: TextMaskCustom,
             inputProps: { code },
@@ -48,9 +46,9 @@ const FormattedInputs = (props) => {
   );
 };
 
-FormattedInputs.propTypes = {
+MaskedInput.propTypes = {
   code: PropTypes.string,
   label: PropTypes.string,
 };
 
-export default FormattedInputs;
+export default MaskedInput;

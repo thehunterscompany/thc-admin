@@ -4,9 +4,9 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
+  CCol,
   CPopover,
   CRow,
-  CCol,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 

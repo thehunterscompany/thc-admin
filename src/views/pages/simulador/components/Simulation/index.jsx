@@ -1,5 +1,6 @@
 import React from 'react';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
+
 import SimulatorForm from '../Form';
 
 const Simulation = () => {

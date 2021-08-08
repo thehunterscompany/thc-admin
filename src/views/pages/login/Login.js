@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CIcon from '@coreui/icons-react';
 import {
   CButton,
   CCard,
@@ -13,7 +14,6 @@ import {
   CInputGroupText,
   CRow,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
 
 const Login = () => {
   return (

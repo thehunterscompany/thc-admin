@@ -1,7 +1,7 @@
-import InputField from './InputField';
-import SelectField from './SelectField';
-import DateField from './DateField';
 import CountrySelect from './CountrySelectField';
-import FormattedInputs from './MaskedInput';
+import DateField from './DateField';
+import InputField from './InputField';
+import MaskedInput from './MaskedInput';
+import SelectField from './SelectField';
 
-export { CountrySelect, FormattedInputs, InputField, SelectField, DateField };
+export { CountrySelect, DateField, InputField, MaskedInput, SelectField };

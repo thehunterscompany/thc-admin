@@ -1,9 +1,10 @@
 import React from 'react';
+
 import {
   AppContent,
-  AppSidebar,
   AppFooter,
   AppHeader,
+  AppSidebar,
 } from '../components/index';
 
 const DefaultLayout = () => {

@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { InputField, SelectField } from '../../../../../components/FormFields';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
+import { InputField, SelectField } from '../../../../../components/FormFields';
 
 const theme = createTheme({
   overrides: {

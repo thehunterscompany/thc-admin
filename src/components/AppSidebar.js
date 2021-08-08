@@ -1,23 +1,20 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import CIcon from '@coreui/icons-react';
 import {
+  CCreateNavItem,
   CSidebar,
   CSidebarBrand,
   CSidebarNav,
   CSidebarToggler,
-  CCreateNavItem,
 } from '@coreui/react';
-
-import CIcon from '@coreui/icons-react';
-
 import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
 
 // sidebar nav config
 import navigation from '../_nav';
-
 import { responsiveSidebar } from '../store/actions';
+
+import 'simplebar/dist/simplebar.min.css';
 
 const AppSidebar = () => {
   const dispatch = useDispatch();

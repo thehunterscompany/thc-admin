@@ -4,10 +4,10 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
-  CLink,
-  CTooltip,
-  CRow,
   CCol,
+  CLink,
+  CRow,
+  CTooltip,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 

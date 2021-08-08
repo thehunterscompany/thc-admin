@@ -1,5 +1,7 @@
 module.exports = {
   // parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  // parser: 'babel-eslint',
+  plugins: ['react', 'import', 'simple-import-sort'],
   extends: [
     'prettier',
     'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
@@ -15,13 +17,25 @@ module.exports = {
       js: true,
     },
   },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: {
+          resolve: {
+            extensions: ['.js', '.jsx'],
+          },
+        },
+      },
+    },
+  },
   rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    // '@typescript-eslint/no-explicit-any': 'off',
-    // 'prettier/prettier': [],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         semi: true,
         trailingComma: 'all',
@@ -33,6 +47,38 @@ module.exports = {
       },
     ],
   },
+
+  overrides: [
+    {
+      // Alternatively, use Prettier (https://prettier.io/) to fix formatting.
+      // This is the much easier and recommended approach.
+      files: ['3.spaces.prettier.js'],
+      // This doesn’t need any extra ESLint config, only Prettier setup.
+    },
+    {
+      files: ['*.jsx', '*.js'],
+      rules: {
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+        'import/first': 'error',
+        'import/newline-after-import': 'error',
+        'import/no-duplicates': 'error',
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [
+              ['^react', '^@?\\w'],
+              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+              // Style imports.
+              ['^.+\\.s?css$'],
+            ],
+          },
+        ],
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use

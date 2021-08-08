@@ -1,16 +1,16 @@
 import React from 'react';
+import CIcon from '@coreui/icons-react';
 import {
-  CRow,
   CCol,
   CDropdown,
-  CDropdownMenu,
   CDropdownItem,
+  CDropdownMenu,
   CDropdownToggle,
+  CRow,
   CWidgetDropdown,
 } from '@coreui/react';
-import { getStyle } from '@coreui/utils';
 import { CChartBar, CChartLine } from '@coreui/react-chartjs';
-import CIcon from '@coreui/icons-react';
+import { getStyle } from '@coreui/utils';
 
 const WidgetsDropdown = () => {
   return (

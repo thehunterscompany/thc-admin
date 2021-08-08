@@ -1,11 +1,11 @@
 import React from 'react';
 import {
+  CBadge,
   CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
-  CBadge,
   CRow,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';

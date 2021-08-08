@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useState, createRef } from 'react';
-import classNames from 'classnames';
-import { CRow, CCol, CCard, CCardHeader, CCardBody } from '@coreui/react';
+import React, { createRef, useEffect, useState } from 'react';
+import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react';
 import { rgbToHex } from '@coreui/utils';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { DocsLink } from 'src/reusable';
 
 const ThemeView = () => {

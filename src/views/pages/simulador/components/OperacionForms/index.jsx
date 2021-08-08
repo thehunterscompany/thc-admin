@@ -1,4 +1,5 @@
-import RealEstateForm from './RealEstate';
 import CommercialForm from './Commercial';
+import RealEstateForm from './RealEstate';
 import WalletForm from './Wallet';
-export { RealEstateForm, CommercialForm, WalletForm };
+
+export { CommercialForm, RealEstateForm, WalletForm };

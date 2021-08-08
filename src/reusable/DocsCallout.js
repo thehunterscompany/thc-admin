@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { CCallout, CLink } from '@coreui/react';
+import PropTypes from 'prop-types';
 
 import packageJson from '../../package.json';
 

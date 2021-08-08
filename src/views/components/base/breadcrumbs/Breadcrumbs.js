@@ -6,8 +6,8 @@ import {
   CCardBody,
   CCardHeader,
   CCol,
-  CRow,
   CLink,
+  CRow,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 

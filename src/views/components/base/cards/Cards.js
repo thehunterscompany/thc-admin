@@ -11,12 +11,12 @@ import {
   CCardSubtitle,
   CCardText,
   CCardTitle,
+  CCol,
   CListGroup,
   CListGroupItem,
   CNav,
   CNavItem,
   CNavLink,
-  CCol,
   CRow,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';

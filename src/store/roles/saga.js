@@ -1,7 +1,9 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import { GET_ROLES, GET_ROLES_ASYNC } from './action-types';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { fetchService } from '../../utils';
 import { roles } from '../../utils/path';
+
+import { GET_ROLES, GET_ROLES_ASYNC } from './action-types';
 
 function* getRolesAsync(action) {
   try {

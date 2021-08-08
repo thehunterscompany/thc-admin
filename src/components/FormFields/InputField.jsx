@@ -1,7 +1,7 @@
 import React from 'react';
-import { at } from 'lodash';
-import { useField } from 'formik';
 import { TextField } from '@material-ui/core';
+import { useField } from 'formik';
+import { at } from 'lodash';
 
 export default function InputField(props) {
   // eslint-disable-next-line react/prop-types

@@ -1,14 +1,14 @@
-import 'react-app-polyfill/stable';
-import 'core-js';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from 'src/store/index';
+
+import { icons } from './assets/icons';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { icons } from './assets/icons';
-
-import { Provider } from 'react-redux';
-import { store } from 'src/store/index';
+import 'react-app-polyfill/stable';
+import 'core-js';
 // import store from './store'
 React.icons = icons;
 

@@ -23,9 +23,9 @@ export {
   ListGroups,
   Navbars,
   Navs,
+  Paginations,
   Popovers,
   ProgressBar,
   Tabs,
   Tooltips,
-  Paginations,
 };

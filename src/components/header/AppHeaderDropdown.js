@@ -1,4 +1,5 @@
 import React from 'react';
+import CIcon from '@coreui/icons-react';
 import {
   CAvatar,
   CBadge,
@@ -9,7 +10,6 @@ import {
   CDropdownMenu,
   CDropdownToggle,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
 
 const AppHeaderDropdown = () => {
   return (

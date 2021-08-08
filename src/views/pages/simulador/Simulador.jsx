@@ -1,8 +1,11 @@
 import React from 'react';
-import './Simulador.scss';
+
 import Navbar from '../../../components/Navbar/Navbar';
-import Simulation from './components/Simulation';
+
 import SimulatorForm from './components/Form';
+import Simulation from './components/Simulation';
+
+import './Simulador.scss';
 
 const Simulador = () => (
   <div className="_simulador-container">

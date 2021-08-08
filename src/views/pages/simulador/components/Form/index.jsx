@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Formik, Form } from 'formik';
 import {
-  Stepper,
-  Step,
-  StepLabel,
   Button,
   CircularProgress,
+  Step,
+  StepLabel,
+  Stepper,
 } from '@material-ui/core';
-import FinancialFields from './Financial';
-import PersonalFields from './Personal';
-import OperationalFields from './Operacion';
+import { Form, Formik } from 'formik';
 
-import useStyles from './style';
 import formFields from '../FormModel/simulationFormModel';
+
+import FinancialFields from './Financial';
+import OperationalFields from './Operacion';
+import PersonalFields from './Personal';
+import useStyles from './style';
 
 const steps = ['Datos Personales', 'Datos Económicos', 'Datos de la operación'];
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import CIcon from '@coreui/icons-react';
 import {
   CCardGroup,
   CCol,
@@ -9,9 +10,8 @@ import {
   CWidgetProgressIcon,
   CWidgetSimple,
 } from '@coreui/react';
-import { getStyle } from '@coreui/utils';
-import CIcon from '@coreui/icons-react';
 import { CChartBar, CChartLine } from '@coreui/react-chartjs';
+import { getStyle } from '@coreui/utils';
 
 import WidgetsBrand from './WidgetsBrand';
 import WidgetsDropdown from './WidgetsDropdown';

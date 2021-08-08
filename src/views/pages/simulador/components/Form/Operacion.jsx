@@ -1,6 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { RealEstateForm, CommercialForm, WalletForm } from '../OperacionForms';
+
+import { CommercialForm, RealEstateForm, WalletForm } from '../OperacionForms';
 
 const OperationalFields = ({ formField, values }) => {
   const formSelector = (simulationType) => {

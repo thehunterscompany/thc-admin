@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { at } from 'lodash';
-import { useField } from 'formik';
 import {
-  InputLabel,
   FormControl,
-  Select,
-  MenuItem,
   FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
 } from '@material-ui/core';
+import { useField } from 'formik';
+import { at } from 'lodash';
+import PropTypes from 'prop-types';
 
 function SelectField(props) {
   // eslint-disable-next-line react/prop-types

@@ -5,8 +5,8 @@ import {
   CCardBody,
   CCardHeader,
   CCol,
-  CSpinner,
   CRow,
+  CSpinner,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 

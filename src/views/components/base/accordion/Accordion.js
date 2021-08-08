@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import {
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CRow,
   CAccordion,
   CAccordionBody,
   CAccordionButton,
   CAccordionCollapse,
   CAccordionHeader,
   CAccordionItem,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CRow,
 } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 

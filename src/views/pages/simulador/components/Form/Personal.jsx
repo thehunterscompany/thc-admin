@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { Grid } from '@material-ui/core';
-import {
-  InputField,
-  FormattedInputs,
-  SelectField,
-  DateField,
-  CountrySelect,
-} from '../../../../../components/FormFields';
-import { FormControl, FormControlLabel, Switch } from '@material-ui/core';
-import countryList from 'react-select-country-list';
+import React, { useEffect, useMemo, useState } from 'react';
 import { formatValue } from 'react-currency-input-field';
+import countryList from 'react-select-country-list';
+import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
+import PropTypes from 'prop-types';
+
+import {
+  CountrySelect,
+  DateField,
+  InputField,
+  MaskedInput,
+  SelectField,
+} from '../../../../../components/FormFields';
 
 const formattedValue2 = formatValue({
   value: '500000',
@@ -154,7 +154,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormattedInputs
+          <MaskedInput
             name={telephone.name}
             label={telephone.label}
             code={phoneCountryCode}

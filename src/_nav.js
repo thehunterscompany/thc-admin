@@ -1,6 +1,6 @@
 import React from 'react';
-import CIcon from '@coreui/icons-react';
 import { NavLink } from 'react-router-dom';
+import CIcon from '@coreui/icons-react';
 
 const _nav = [
   {

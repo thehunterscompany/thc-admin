@@ -5,8 +5,8 @@ import {
   CCardHeader,
   CCol,
   CFormControl,
-  CFormLabel,
   CFormFloating,
+  CFormLabel,
   CFormSelect,
   CRow,
 } from '@coreui/react';

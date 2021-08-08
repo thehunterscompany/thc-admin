@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useField } from 'formik';
+import React, { useEffect, useState } from 'react';
+import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
 import {
-  MuiPickersUtilsProvider,
   KeyboardDatePicker,
+  MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import { useField } from 'formik';
+
 import 'date-fns';
 
 export default function DateField(props) {

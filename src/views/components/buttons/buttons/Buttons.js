@@ -1,4 +1,5 @@
 import React from 'react';
+import CIcon from '@coreui/icons-react';
 import {
   CButton,
   CCard,
@@ -7,7 +8,6 @@ import {
   CCol,
   CRow,
 } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
 import { DocsCallout, Example } from 'src/reusable';
 
 const Buttons = () => {
