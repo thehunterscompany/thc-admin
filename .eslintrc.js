@@ -21,7 +21,7 @@ module.exports = {
     // '@typescript-eslint/no-explicit-any': 'off',
     // 'prettier/prettier': [],
     'prettier/prettier': [
-      'error',
+      'warn',
       {
         semi: true,
         trailingComma: 'all',
