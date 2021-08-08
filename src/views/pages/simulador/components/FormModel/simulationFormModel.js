@@ -34,9 +34,9 @@ const formFields = {
         requiredErrorMsg: 'Este campo es requerido.',
         invalidErrorMsg: 'El correo ingresado es incorrecto',
       },
-      countryCode: {
-        name: 'countryCode',
-        label: 'Código ',
+      country: {
+        name: 'country',
+        label: 'En que país vives? ',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       telephone: {
@@ -104,7 +104,7 @@ const formFields = {
         },
         type: {
           name: 'type',
-          label: 'Liinea de financiación',
+          label: 'Linea de financiación',
           requiredErrorMsg: 'Este campo es requerido.',
         },
         time: {

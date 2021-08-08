@@ -9,16 +9,22 @@ import {
 } from '@material-ui/core';
 import FinancialFields from './Financial';
 import PersonalFields from './Personal';
-import OperationalFields from './Operación';
+import OperationalFields from './Operacion';
 
 import useStyles from './style';
 import formFields from '../FormModel/simulationFormModel';
 
 const steps = ['Datos Personales', 'Datos Económicos', 'Datos de la operación'];
 
-const renderStepForms = (step, values) => {
+const renderStepForms = (step, values, setFieldValue) => {
   if (step === 0)
-    return <PersonalFields formField={formField.personal} values={values} />;
+    return (
+      <PersonalFields
+        formField={formField.personal}
+        values={values}
+        setFieldValue={setFieldValue}
+      />
+    );
   if (step === 1)
     return <FinancialFields formField={formField.financial} values={values} />;
   if (step === 2 && values?.simulation === 2) return null;
@@ -74,6 +80,7 @@ const SimulatorForm = () => {
             checkedB: false,
             dateOfBirth: '',
             tenants: [],
+            country: { name: '', code: '', phone: '', currency: '' },
           }}
           onSubmit={(values, actions) => {
             // props.postParams(values, resetForm)
@@ -81,11 +88,11 @@ const SimulatorForm = () => {
           }}
           validationSchema={''}
         >
-          {({ handleChange, isSubmitting, values }) => {
+          {({ handleChange, isSubmitting, values, setFieldValue }) => {
             console.log(values);
             return (
               <Form onChange={handleChange} id={formId}>
-                {renderStepForms(activeStep, values)}
+                {renderStepForms(activeStep, values, setFieldValue)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={_handleBack} className={classes.button}>

@@ -1,13 +1,23 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 import {
   InputField,
+  FormattedInputs,
   SelectField,
   DateField,
+  CountrySelect,
 } from '../../../../../components/FormFields';
 import { FormControl, FormControlLabel, Switch } from '@material-ui/core';
 import countryList from 'react-select-country-list';
+import { formatValue } from 'react-currency-input-field';
+
+const formattedValue2 = formatValue({
+  value: '500000',
+  intlConfig: { locale: 'en-CO', currency: 'INR' },
+});
+
+console.log(formattedValue2);
 
 const simulationOptions = [
   { value: 1, label: 'Calular Cuota' },
@@ -26,11 +36,25 @@ const idType = [
   { value: 3, label: 'Pasaporte' },
 ];
 
-const PersonalFields = ({ formField, values }) => {
+const PersonalFields = ({ formField, values, setFieldValue }) => {
   const [state, setState] = useState({
     checkedA: false,
     checkedB: false,
   });
+
+  const [phoneCountryCode, setPhoneCountryCode] = useState('');
+
+  useEffect(() => {
+    if (values.country['phone']) {
+      if (values.country?.phone > 1) {
+        setPhoneCountryCode(values.country?.phone);
+      } else {
+        setPhoneCountryCode('');
+      }
+    } else {
+      setPhoneCountryCode('');
+    }
+  }, [values.country]);
 
   const {
     firstNames,
@@ -39,7 +63,7 @@ const PersonalFields = ({ formField, values }) => {
     documentId,
     dateOfBirth,
     email,
-    countryCode,
+    country,
     telephone,
     simulation,
     simulationType,
@@ -119,21 +143,19 @@ const PersonalFields = ({ formField, values }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <SelectField
-            name={countryCode.name}
-            label={countryCode.label}
-            data={options}
+          <CountrySelect
+            name={country.name}
+            label={country.label}
             fullWidth
-            style={{ marginTop: '25px' }}
+            setFieldValue={setFieldValue}
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
+          <FormattedInputs
             name={telephone.name}
             label={telephone.label}
-            type="text"
-            fullWidth
+            code={phoneCountryCode}
           />
         </Grid>
 
@@ -209,6 +231,7 @@ const PersonalFields = ({ formField, values }) => {
 PersonalFields.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
+  setFieldValue: PropTypes.func,
 };
 
 export default PersonalFields;
