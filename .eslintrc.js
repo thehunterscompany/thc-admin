@@ -52,7 +52,7 @@ module.exports = {
     {
       // Alternatively, use Prettier (https://prettier.io/) to fix formatting.
       // This is the much easier and recommended approach.
-      files: ['3.spaces.prettier.js'],
+      files: ['.prettierrc.js'],
       // This doesn’t need any extra ESLint config, only Prettier setup.
     },
     {
