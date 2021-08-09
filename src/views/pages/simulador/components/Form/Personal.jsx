@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
 import PropTypes from 'prop-types';
 

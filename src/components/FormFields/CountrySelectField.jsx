@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -31,8 +31,6 @@ const useStyles = makeStyles({
 const CountrySelect = (props) => {
   const classes = useStyles();
 
-  const options = useMemo(() => countries, []);
-
   // eslint-disable-next-line react/prop-types
   const { errorText, type, setFieldValue, ...rest } = props;
   const [field, meta] = useField(props);
@@ -47,7 +45,7 @@ const CountrySelect = (props) => {
   return (
     <Autocomplete
       id="country-select-demo"
-      options={options}
+      options={countries}
       classes={{
         option: classes.option,
       }}

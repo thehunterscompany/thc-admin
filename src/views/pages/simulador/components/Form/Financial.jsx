@@ -1,18 +1,23 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { formatValue } from 'react-currency-input-field';
+import React, { useEffect, useState } from 'react';
 import { Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import currencies from 'currency-codes';
 import PropTypes from 'prop-types';
 
 import { InputField, MaskedInput } from '../../../../../components/FormFields';
+import { useCurrencySymbol } from '../../hooks/useCurrencySymbol';
 
 const FinancialFields = ({ formField, values }) => {
   const { mainEmployment, laborTime, earnings, passive } = formField;
 
   const [extraTenants, setExtraTenants] = useState(0);
 
-  const [currencySymbol, setCurrencySymbol] = useState('');
+  const currencySymbol = useCurrencySymbol(values.country);
+
+  const useStyles = makeStyles({
+    root: {
+      width: '101%',
+    },
+  });
 
   const renderExtraTenants = () => {
     let array = [];
@@ -41,8 +46,8 @@ const FinancialFields = ({ formField, values }) => {
               name={`tenants[${i}].earnings`}
               label={earnings.label}
               code={currencySymbol}
-              fullWidth
               width={'41.9vw'}
+              type="currency"
             />
           </Grid>
         </React.Fragment>,
@@ -61,27 +66,6 @@ const FinancialFields = ({ formField, values }) => {
   const handleRemoveClick = () => {
     setExtraTenants((preValue) => preValue - 1);
   };
-
-  useEffect(() => {
-    if (values.country['currencyCode']) {
-      let currencyCode = currencies.number(values.country.currencyCode).code;
-      const symbol = formatValue({
-        value: '0',
-        intlConfig: {
-          locale: `en-${values.country.code}`,
-          currency: currencyCode,
-        },
-      });
-      let r = /\D+/;
-      setCurrencySymbol(r.exec(symbol)[0].trim());
-    }
-  }, [values.country]);
-
-  const useStyles = makeStyles({
-    root: {
-      width: '101%',
-    },
-  });
 
   return (
     <React.Fragment>
@@ -108,6 +92,7 @@ const FinancialFields = ({ formField, values }) => {
             name={earnings.name}
             label={earnings.label}
             code={currencySymbol}
+            type="currency"
           />
         </Grid>
 
@@ -116,6 +101,7 @@ const FinancialFields = ({ formField, values }) => {
             name={passive.name}
             label={passive.label}
             code={currencySymbol}
+            type="currency"
             className={useStyles().root}
           />
         </Grid>

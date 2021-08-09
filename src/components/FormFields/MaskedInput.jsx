@@ -16,17 +16,22 @@ const MaskedInput = (props) => {
   });
 
   const [values, setValues] = useState(
-    type === 'phone' ? `+${code}` : `${code} `,
+    type === 'phone'
+      ? `+${code}`
+      : type === 'currency'
+      ? `${code} `
+      : ` ${code}`,
   );
 
   const handleChange = (event) => {
     setValues(event.target.value);
   };
-
   useEffect(() => {
     if (code && code.length > 0) {
-      if (type === 'phone') setValues(`+${code}`);
-      else setValues(`${code} `);
+      if (type === 'phone') setValues(`+${code} `);
+      else if (type === 'currency') setValues(`${code} `);
+      else if (type === 'percentage') setValues(` ${code}`);
+      else if (type === 'year') setValues(` ${code}`);
     } else {
       setValues('');
     }

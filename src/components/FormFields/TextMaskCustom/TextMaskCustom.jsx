@@ -16,18 +16,53 @@ function TextMaskCustom(props) {
     }
   }, [code, type]);
 
-  const numberMask = createNumberMask({
-    prefix: type === 'phone' ? `+${code} ` : `${code} `,
-    includeThousandsSeparator: false,
-    integerLimit: type === 'phone' ? 15 : null,
-  });
+  const creatingMaskSettings = () => {
+    let setting;
+    switch (type) {
+      case 'phone':
+        setting = {
+          prefix: `+${code} `,
+          includeThousandsSeparator: false,
+          integerLimit: 15,
+        };
+        break;
+
+      case 'currency':
+        setting = {
+          prefix: `${code} `,
+          includeThousandsSeparator: false,
+        };
+        break;
+
+      case 'percentage':
+        setting = {
+          prefix: '',
+          suffix: `${code}`,
+          integerLimit: 2,
+        };
+        break;
+      case 'year':
+        setting = {
+          prefix: '',
+          suffix: ` ${code}`,
+          allowDecimal: true,
+          decimalLimit: 2,
+          integerLimit: 2,
+        };
+        break;
+    }
+
+    return setting;
+  };
+
+  const textMask = createNumberMask(creatingMaskSettings());
   return (
     <MaskedInput
       {...other}
       ref={(ref) => {
         inputRef(ref ? ref.inputElement : null);
       }}
-      mask={mask ? numberMask : []}
+      mask={mask ? textMask : []}
       placeholderChar={'\u2000'}
       showMask
       guide={true}

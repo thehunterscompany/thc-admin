@@ -97,6 +97,8 @@ const SimulatorForm = () => {
           validationSchema={''}
         >
           {({ handleChange, isSubmitting, values, setFieldValue }) => {
+            console.log(values);
+
             return (
               <Form onChange={handleChange} id={formId}>
                 {renderStepForms(activeStep, values, setFieldValue)}
