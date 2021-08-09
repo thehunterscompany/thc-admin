@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 function TextMaskCustom(props) {
-  const { inputRef, code, type, ...other } = props;
+  const { inputRef, code, type, values, singular, ...other } = props;
 
   const [mask, setMask] = useState(false);
+
+  console.log(singular);
 
   useEffect(() => {
     if (code) {
@@ -39,14 +41,14 @@ function TextMaskCustom(props) {
           prefix: '',
           suffix: `${code}`,
           integerLimit: 2,
+          allowDecimal: true,
+          decimalLimit: 2,
         };
         break;
       case 'year':
         setting = {
           prefix: '',
-          suffix: ` ${code}`,
-          allowDecimal: true,
-          decimalLimit: 2,
+          suffix: ` ${singular !== code ? singular : code}`,
           integerLimit: 2,
         };
         break;
@@ -74,6 +76,8 @@ TextMaskCustom.propTypes = {
   inputRef: PropTypes.func.isRequired,
   code: PropTypes.string,
   type: PropTypes.string,
+  values: PropTypes.string,
+  singular: PropTypes.string,
 };
 
 export default TextMaskCustom;
