@@ -1,62 +1,34 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Grid, InputAdornment, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import { InputField, SelectField } from '../../../../../components/FormFields';
+import {
+  InputField,
+  MaskedInput,
+  SelectField,
+} from '../../../../../components/FormFields';
 
-const theme = createTheme({
-  overrides: {
-    // Style sheet name ⚛️
-    MuiTypography: {
-      // Name of the rule
-      h2: {
-        // Some CSS
-        fontSize: '2em',
-      },
-    },
-  },
-});
-
-const CommercialForm = ({ formField, values }) => {
-  // const classes = useStyles();
+const CommercialForm = ({ formField, values, currencySymbol }) => {
   const { value, percentage, realEstateType, time } = formField;
 
   return (
     <React.Fragment>
-      {/* <ThemeProvider theme={theme}>
-        <Typography variant="h2" gutterBottom>
-          Financiación de vivienda
-        </Typography>
-      </ThemeProvider> */}
       <h2>Financiación inmuebles comerciales</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <InputField
-            name={'currency'}
-            label={'Tipo de Moneda'}
-            value={values.currency}
-            variant="filled"
-            InputProps={{
-              readOnly: true,
-            }}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={value.name}
             label={value.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
+            type="currency"
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={percentage.name}
             label={percentage.label}
-            type="text"
-            fullWidth
+            type="percentage"
+            code="%"
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -73,12 +45,19 @@ const CommercialForm = ({ formField, values }) => {
           />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
           <InputField
             name={time.name}
             label={time.label}
             type="text"
             fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                </InputAdornment>
+              ),
+            }}
           />
         </Grid>
 
@@ -91,6 +70,7 @@ const CommercialForm = ({ formField, values }) => {
 CommercialForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
+  currencySymbol: PropTypes.string,
 };
 
 export default CommercialForm;

@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Grid } from '@material-ui/core';
+import React from 'react';
+import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import {
@@ -7,16 +7,13 @@ import {
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
-import { useCurrencySymbol } from '../../hooks/useCurrencySymbol';
 
-const RealEstateForm = ({ formField, values }) => {
+const RealEstateForm = ({ formField, values, currencySymbol }) => {
   const { value, percentage, type, time, realEstateType } = formField;
-
-  const currencySymbol = useCurrencySymbol(values.country);
 
   return (
     <React.Fragment>
-      <h2> Financiación de vivienda</h2>
+      <h2>Financiación de vivienda</h2>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <MaskedInput
@@ -49,11 +46,18 @@ const RealEstateForm = ({ formField, values }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <MaskedInput
+          <InputField
             name={time.name}
             label={time.label}
-            type="year"
-            code="años"
+            type="text"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                </InputAdornment>
+              ),
+            }}
           />
         </Grid>
 
@@ -79,6 +83,7 @@ const RealEstateForm = ({ formField, values }) => {
 RealEstateForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
+  currencySymbol: PropTypes.string,
 };
 
 export default RealEstateForm;

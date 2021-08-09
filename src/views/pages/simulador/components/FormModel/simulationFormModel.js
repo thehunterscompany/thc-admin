@@ -64,7 +64,7 @@ const formFields = {
       },
       laborTime: {
         name: 'laborTime',
-        label: 'Actividad Laboral (años)',
+        label: 'Actividad Laboral',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       earnings: {
@@ -161,7 +161,7 @@ const formFields = {
         },
         time: {
           name: 'time',
-          label: 'Plaz del préstamo actual',
+          label: 'Plazo del préstamo actual',
           requiredErrorMsg: 'Este campo es requerido.',
         },
         rates: {

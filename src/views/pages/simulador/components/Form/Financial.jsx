@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
@@ -84,6 +85,13 @@ const FinancialFields = ({ formField, values }) => {
             label={laborTime.label}
             type="text"
             fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {parseInt(values.laborTime) > 1 ? 'años' : 'año'}
+                </InputAdornment>
+              ),
+            }}
           />
         </Grid>
 

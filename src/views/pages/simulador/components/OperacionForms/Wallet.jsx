@@ -1,59 +1,39 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import { InputField, SelectField } from '../../../../../components/FormFields';
+import { InputField, MaskedInput } from '../../../../../components/FormFields';
 
-const theme = createTheme({
-  overrides: {
-    // Style sheet name ⚛️
-    MuiTypography: {
-      // Name of the rule
-      h2: {
-        // Some CSS
-        fontSize: '2em',
-      },
-    },
-  },
-});
-
-const WalletForm = ({ formField, values }) => {
-  // const classes = useStyles();
+const WalletForm = ({ formField, values, currencySymbol }) => {
   const { value, currentDeal, currentDealMonth, institution, time, rates } =
     formField;
 
   return (
     <React.Fragment>
-      {/* <ThemeProvider theme={theme}>
-        <Typography variant="h2" gutterBottom>
-          Financiación de vivienda
-        </Typography>
-      </ThemeProvider> */}
       <h2>Compra de cartera</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={value.name}
             label={value.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
+            type="currency"
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
+            type="currency"
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={currentDealMonth.name}
             label={currentDealMonth.label}
-            type="text"
-            fullWidth
+            code={currencySymbol}
+            type="currency"
           />
         </Grid>
 
@@ -72,15 +52,22 @@ const WalletForm = ({ formField, values }) => {
             label={time.label}
             type="text"
             fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {parseInt(values.time) > 1 ? 'meses' : 'mes'}
+                </InputAdornment>
+              ),
+            }}
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
+          <MaskedInput
             name={rates.name}
             label={rates.label}
-            type="text"
-            fullWidth
+            code="%"
+            type="percentage"
           />
         </Grid>
 
@@ -93,6 +80,7 @@ const WalletForm = ({ formField, values }) => {
 WalletForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
+  currencySymbol: PropTypes.string,
 };
 
 export default WalletForm;

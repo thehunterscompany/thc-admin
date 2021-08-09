@@ -31,7 +31,6 @@ const MaskedInput = (props) => {
       if (type === 'phone') setValues(`+${code} `);
       else if (type === 'currency') setValues(`${code} `);
       else if (type === 'percentage') setValues(` ${code}`);
-      else if (type === 'year') setValues(` ${code}`);
     } else {
       setValues('');
     }

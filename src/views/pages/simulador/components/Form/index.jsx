@@ -89,6 +89,8 @@ const SimulatorForm = () => {
             tenants: [],
             country: { name: '', code: '', phone: '', currencyCode: '' },
             earnings: '',
+            laborTime: '',
+            time: '',
           }}
           onSubmit={(values, actions) => {
             // props.postParams(values, resetForm)
@@ -97,7 +99,7 @@ const SimulatorForm = () => {
           validationSchema={''}
         >
           {({ handleChange, isSubmitting, values, setFieldValue }) => {
-            console.log(values);
+            // console.log(values);
 
             return (
               <Form onChange={handleChange} id={formId}>
@@ -110,9 +112,9 @@ const SimulatorForm = () => {
                   )}
                   <div className={classes.wrapper}>
                     <Button
-                      disabled={
-                        isSubmitting || !values.checkedA || !values.checkedB
-                      }
+                      // disabled={
+                      //   isSubmitting || !values.checkedA || !values.checkedB
+                      // }
                       type="submit"
                       variant="contained"
                       color="primary"
