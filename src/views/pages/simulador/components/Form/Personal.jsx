@@ -64,14 +64,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const calculateMaxDate = () => {
-    let today = new Date();
-    let year = today.getFullYear();
-    let yearDiff = year - 18;
-    today.setFullYear(yearDiff);
-    return today;
-  };
-
   return (
     <React.Fragment>
       <Grid container spacing={3}>
@@ -116,7 +108,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={dateOfBirth.label}
             format="dd/MM/yyyy"
             minDate={new Date('1900/01/01')}
-            maxDate={calculateMaxDate()}
+            maxDate={new Date()}
             style={{ marginTop: '25px' }}
             fullWidth
           />

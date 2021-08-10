@@ -161,7 +161,7 @@ const formFields = {
         },
         time: {
           name: 'time',
-          label: 'Plazo del préstamo actual',
+          label: 'Fecha de inicio del préstamo',
           requiredErrorMsg: 'Este campo es requerido.',
         },
         rates: {

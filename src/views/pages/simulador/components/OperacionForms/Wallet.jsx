@@ -2,7 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import { InputField, MaskedInput } from '../../../../../components/FormFields';
+import {
+  DateField,
+  InputField,
+  MaskedInput,
+} from '../../../../../components/FormFields';
 
 const WalletForm = ({ formField, values, currencySymbol }) => {
   const { value, currentDeal, currentDealMonth, institution, time, rates } =
@@ -47,18 +51,14 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
+          <DateField
             name={time.name}
             label={time.label}
-            type="text"
+            format="dd/MM/yyyy"
+            minDate={new Date('1900/01/01')}
+            maxDate={new Date()}
+            style={{ marginTop: '25px' }}
             fullWidth
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  {parseInt(values.time) > 1 ? 'meses' : 'mes'}
-                </InputAdornment>
-              ),
-            }}
           />
         </Grid>
 

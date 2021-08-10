@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 import { InputField, MaskedInput } from '../../../../../components/FormFields';
-import { useCurrencySymbol } from '../../hooks/useCurrencySymbol';
+import useCurrencySymbol from '../../hooks/useCurrencySymbol';
 
 const FinancialFields = ({ formField, values }) => {
   const { mainEmployment, laborTime, earnings, passive } = formField;

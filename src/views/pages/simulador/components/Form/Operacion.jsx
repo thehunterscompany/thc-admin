@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { useCurrencySymbol } from '../../hooks/useCurrencySymbol';
+import useCurrencySymbol from '../../hooks/useCurrencySymbol';
 import { CommercialForm, RealEstateForm, WalletForm } from '../OperacionForms';
 
 const OperationalFields = ({ formField, values }) => {

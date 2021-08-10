@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { formatValue } from 'react-currency-input-field';
 import currencies from 'currency-codes';
 
-export const useCurrencySymbol = (countryObject) => {
+const useCurrencySymbol = (countryObject) => {
   const [currencySymbol, setCurrencySymbol] = useState('');
 
   useEffect(() => {
@@ -22,3 +22,5 @@ export const useCurrencySymbol = (countryObject) => {
 
   return currencySymbol;
 };
+
+export default useCurrencySymbol;
