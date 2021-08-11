@@ -10,7 +10,7 @@ import {
 import { Form, Formik } from 'formik';
 
 import formFields from '../FormModel/simulationFormModel';
-import { Lending } from '../Outcome';
+import { Feasible, Lending } from '../Outcome';
 
 import FinancialFields from './Financial';
 import OperationalFields from './Operacion';
@@ -50,6 +50,8 @@ const renderStepForms = (step, values, setFieldValue) => {
     return (
       <OperationalFields formField={formField.operational} values={values} />
     );
+
+  if (step === 3) return <Feasible values={values} />;
   // case 2:
   //   return <OperationalFields formField={formField.operational} values={values} />
   // case 3:
@@ -68,6 +70,8 @@ const SimulatorForm = () => {
     } else {
       if (activeStep + 1 === 2 && values?.simulation === 2) {
         setSkip(true);
+      } else if (activeStep + 1 === 3 && values?.simulation === 1) {
+        setSkip(true);
       }
       setActiveStep(activeStep + 1);
       actions.setTouched({});
@@ -82,15 +86,12 @@ const SimulatorForm = () => {
 
   return (
     <React.Fragment>
-      {activeStep < 2 ? (
+      {!skip ? (
         <h1>Para darte la mejor opción necesitamos algunos datos</h1>
       ) : null}
       <CRow className="justify-content-center">
         <CCol xs="8" sm="8" md="8" lg="8" xl="6">
-          <CCard
-            className="mx-4"
-            style={activeStep < 2 ? null : { border: 'none' }}
-          >
+          <CCard className="mx-4" style={!skip ? null : { border: 'none' }}>
             <CCardBody className="p-4">
               <Stepper
                 activeStep={activeStep}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const Lending = ({ income, tenants }) => {
@@ -15,7 +15,6 @@ const Lending = ({ income, tenants }) => {
     let sum = earningsArray.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
     );
-    console.log(sum);
     setValue({ symbol: symbol, totalSum: Math.round(sum * 0.3) });
   }, [income, tenants]);
 

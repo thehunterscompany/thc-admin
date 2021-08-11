@@ -1,3 +1,4 @@
+import Feasible from './Financing/Feasible';
 import Lending from './Lending/Lending';
 
-export { Lending };
+export { Feasible, Lending };
