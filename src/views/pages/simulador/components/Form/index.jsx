@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
 import {
   Button,
@@ -8,9 +9,10 @@ import {
   Stepper,
 } from '@material-ui/core';
 import { Form, Formik } from 'formik';
+import { simulation } from 'src/store/actions';
 
 import formFields from '../FormModel/simulationFormModel';
-import { Feasible, Lending } from '../Outcome';
+import { Feasible, Lending, NotFeasible } from '../Outcome';
 
 import FinancialFields from './Financial';
 import OperationalFields from './Operacion';
@@ -26,7 +28,7 @@ const steps = [
 ];
 
 const { formId, formField } = formFields;
-const renderStepForms = (step, values, setFieldValue) => {
+const renderStepForms = (step, values, setFieldValue, simulation) => {
   if (step === 0)
     return (
       <PersonalFields
@@ -51,11 +53,9 @@ const renderStepForms = (step, values, setFieldValue) => {
       <OperationalFields formField={formField.operational} values={values} />
     );
 
-  if (step === 3) return <Feasible values={values} />;
-  // case 2:
-  //   return <OperationalFields formField={formField.operational} values={values} />
-  // case 3:
-  //   return null
+  if (step === 3 && simulation) return <Feasible values={values} />;
+
+  if (step === 3 && !simulation) return <NotFeasible />;
 };
 const SimulatorForm = () => {
   const classes = useStyles();
@@ -63,6 +63,13 @@ const SimulatorForm = () => {
   const [skip, setSkip] = useState(false);
   const isLastStep = activeStep === steps.length - 1;
 
+  const simulationResult = useSelector(
+    (state) => state.PmtSimulationState,
+  ).simulation;
+
+  console.log(simulationResult);
+
+  const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     if (isLastStep) {
       // _submitForm(values, actions);
@@ -71,6 +78,15 @@ const SimulatorForm = () => {
       if (activeStep + 1 === 2 && values?.simulation === 2) {
         setSkip(true);
       } else if (activeStep + 1 === 3 && values?.simulation === 1) {
+        dispatch(
+          simulation(
+            values.value,
+            values.time,
+            '8.5%',
+            values.earnings,
+            values.tenants,
+          ),
+        );
         setSkip(true);
       }
       setActiveStep(activeStep + 1);
@@ -128,7 +144,12 @@ const SimulatorForm = () => {
 
                   return (
                     <Form onChange={handleChange} id={formId}>
-                      {renderStepForms(activeStep, values, setFieldValue)}
+                      {renderStepForms(
+                        activeStep,
+                        values,
+                        setFieldValue,
+                        simulationResult,
+                      )}
                       <div className={classes.buttons}>
                         {activeStep !== 0 && (
                           <Button

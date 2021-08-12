@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
+import { FormControl, FormControlLabel } from '@material-ui/core';
+import {
+  createTheme,
+  makeStyles,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 import TextMaskCustom from './TextMaskCustom/TextMaskCustom';
@@ -11,7 +15,24 @@ const MaskedInput = (props) => {
 
   const useStyles = makeStyles({
     root: {
-      width: width ? width : '20.4vw',
+      width: width ? width : '20vw',
+    },
+
+    label: {
+      minWidth: '400px',
+    },
+  });
+
+  const theme = createTheme({
+    overrides: {
+      // Style sheet name ⚛️
+      MuiInputLabel: {
+        // Name of the rule
+        root: {
+          // Some CSS
+          minWidth: '400px',
+        },
+      },
     },
   });
 
@@ -39,16 +60,18 @@ const MaskedInput = (props) => {
   return (
     <div>
       <FormControl className={useStyles().root}>
-        <InputField
-          label={props.label}
-          value={values}
-          onChange={handleChange}
-          InputProps={{
-            inputComponent: TextMaskCustom,
-            inputProps: { code, type },
-          }}
-          {...props}
-        />
+        <ThemeProvider theme={theme}>
+          <InputField
+            label={props.label}
+            value={values}
+            onChange={handleChange}
+            InputProps={{
+              inputComponent: TextMaskCustom,
+              inputProps: { code, type },
+            }}
+            {...props}
+          />
+        </ThemeProvider>
       </FormControl>
     </div>
   );

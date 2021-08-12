@@ -32,18 +32,6 @@ const RealEstateForm = ({ formField, values, currencySymbol }) => {
             code="%"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <SelectField
-            name={type.name}
-            label={type.label}
-            data={[
-              { value: 'Crédito', label: 'Crédito' },
-              { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
-            ]}
-            fullWidth
-            style={{ marginTop: '25px' }}
-          />
-        </Grid>
 
         <Grid item xs={12} md={6}>
           <InputField
@@ -60,6 +48,17 @@ const RealEstateForm = ({ formField, values, currencySymbol }) => {
             }}
           />
         </Grid>
+        <Grid item xs={12} md={6}>
+          <SelectField
+            name={type.name}
+            label={type.label}
+            data={[
+              { value: 'Crédito', label: 'Crédito' },
+              { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
+            ]}
+            fullWidth
+          />
+        </Grid>
 
         <Grid item xs={12} md={6}>
           <SelectField
@@ -71,7 +70,6 @@ const RealEstateForm = ({ formField, values, currencySymbol }) => {
               { value: 'None', label: 'No se aun' },
             ]}
             fullWidth
-            style={{ marginTop: '25px' }}
           />
         </Grid>
         <div style={{ minWidth: '50vw' }} />

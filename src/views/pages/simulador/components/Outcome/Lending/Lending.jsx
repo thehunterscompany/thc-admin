@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
 
 const Lending = ({ income, tenants }) => {
   const [value, setValue] = useState({ symbol: '', totalSum: '' });
 
   useEffect(() => {
-    let earningsArray = [];
-    earningsArray = tenants.map((tenant) =>
-      Number(tenant.earnings.split(' ')[1]),
-    );
-    let [symbol, earning] = income.split(' ');
-    earningsArray.push(Number(earning));
-    let sum = earningsArray.reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-    );
+    const { symbol, sum } = sumTotalEarnings(tenants, income);
     setValue({ symbol: symbol, totalSum: Math.round(sum * 0.3) });
   }, [income, tenants]);
 

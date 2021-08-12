@@ -14,12 +14,6 @@ const FinancialFields = ({ formField, values }) => {
 
   const currencySymbol = useCurrencySymbol(values.country);
 
-  const useStyles = makeStyles({
-    root: {
-      width: '101%',
-    },
-  });
-
   const renderExtraTenants = () => {
     let array = [];
     for (let i = 0; i < extraTenants; i++) {
@@ -110,7 +104,7 @@ const FinancialFields = ({ formField, values }) => {
             label={passive.label}
             code={currencySymbol}
             type="currency"
-            className={useStyles().root}
+            // className={useStyles().root}
           />
         </Grid>
         {renderExtraTenants().map((tenant, index) => (
