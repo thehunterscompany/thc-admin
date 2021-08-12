@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { Grid, LinearProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import CustomTable from '../Table/Table';
@@ -14,12 +15,36 @@ const headersTopTable = [
 const headersBottomTable = [
   { name: 'Valor Compra', align: 'center' },
   { name: 'Valor a Financiar', align: 'center' },
-  { name: '%Valor de Compra', align: 'center' },
+  { name: 'Valor de Compra', align: 'center' },
   { name: 'Plazo', align: 'center' },
 ];
 
 const Feasible = ({ values }) => {
+  const [topData, setTopData] = useState([]);
+
   const [bottomData, setBottomData] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const simulation = useSelector((state) => state.PmtSimulationState);
+
+  useEffect(() => {
+    let { pmt, symbol, rate, tem } = simulation;
+    setTopData([
+      {
+        value: {
+          1: `Crédito`,
+          2: rate,
+          3: `${tem}%`,
+          4: `${symbol} ${pmt
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+        },
+        align: 'center',
+      },
+    ]);
+  }, [simulation]);
+
   useEffect(() => {
     if (Object.keys(values).length) {
       const { value, percentage, time } = values;
@@ -36,7 +61,7 @@ const Feasible = ({ values }) => {
             )
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
-            3: percentNumber,
+            3: percentage,
             4: time,
           },
           align: 'center',
@@ -45,8 +70,15 @@ const Feasible = ({ values }) => {
     }
   }, [values]);
 
-  console.log(bottomData);
-  return (
+  useEffect(() => {
+    if (Object.keys(simulation).length) {
+      setIsLoading(false);
+    }
+  }, [simulation]);
+
+  return isLoading ? (
+    <LinearProgress />
+  ) : (
     <Grid
       container
       justifyContent="center"
@@ -56,7 +88,7 @@ const Feasible = ({ values }) => {
     >
       <h1>Enhorabuena!</h1>
       <h2>Tu financiación es VIABLE</h2>
-      {/* <CustomTable headers={headersTopTable} /> */}
+      <CustomTable headers={headersTopTable} rowData={topData} />
       <p>
         ** este valor es simulado con el promedio de cuotas desembolsadas en los
         últimos 3 meses, por lo que podría ser incluso mejor dependiendo de la
