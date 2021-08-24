@@ -12,9 +12,7 @@ const countryToFlag = (isoCode) => {
   return typeof String.fromCodePoint !== 'undefined'
     ? isoCode
         .toUpperCase()
-        .replace(/./g, (char) =>
-          String.fromCodePoint(char.charCodeAt(0) + 127397),
-        )
+        .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
     : isoCode;
 };
 
@@ -52,9 +50,7 @@ const CountrySelect = (props) => {
       onChange={(e, value) => {
         setFieldValue(
           'country',
-          value !== null
-            ? value
-            : { name: '', code: '', phone: '', currencyCode: '' },
+          value !== null ? value : { name: '', code: '', phone: '', currencyCode: '' },
         );
       }}
       autoHighlight

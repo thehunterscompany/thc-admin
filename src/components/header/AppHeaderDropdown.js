@@ -18,9 +18,7 @@ const AppHeaderDropdown = () => {
         <CAvatar src="/avatars/8.jpg" size="md" />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownHeader className="bg-light fw-semibold py-2">
-          Account
-        </CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon name="cil-bell" className="me-2" />
           Updates
@@ -49,9 +47,7 @@ const AppHeaderDropdown = () => {
             42
           </CBadge>
         </CDropdownItem>
-        <CDropdownHeader className="bg-light fw-semibold py-2">
-          Settings
-        </CDropdownHeader>
+        <CDropdownHeader className="bg-light fw-semibold py-2">Settings</CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon name="cil-user" className="me-2" />
           Profile

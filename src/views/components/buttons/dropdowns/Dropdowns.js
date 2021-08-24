@@ -33,9 +33,7 @@ const Dropdowns = () => {
             </p>
             <Example href="components/dropdown#single-button">
               <CDropdown>
-                <CDropdownToggle color="secondary">
-                  Dropdown button
-                </CDropdownToggle>
+                <CDropdownToggle color="secondary">Dropdown button</CDropdownToggle>
                 <CDropdownMenu>
                   <CDropdownItem href="#">Action</CDropdownItem>
                   <CDropdownItem href="#">Another action</CDropdownItem>
@@ -48,27 +46,20 @@ const Dropdowns = () => {
             </p>
             <Example href="components/dropdown#single-button">
               <>
-                {[
-                  'primary',
-                  'secondary',
-                  'success',
-                  'info',
-                  'warning',
-                  'danger',
-                ].map((color, index) => (
-                  <CDropdown variant="btn-group" key={index}>
-                    <CDropdownToggle color={color}>{color}</CDropdownToggle>
-                    <CDropdownMenu>
-                      <CDropdownItem href="#">Action</CDropdownItem>
-                      <CDropdownItem href="#">Another action</CDropdownItem>
-                      <CDropdownItem href="#">
-                        Something else here
-                      </CDropdownItem>
-                      <CDropdownDivider />
-                      <CDropdownItem href="#">Separated link</CDropdownItem>
-                    </CDropdownMenu>
-                  </CDropdown>
-                ))}
+                {['primary', 'secondary', 'success', 'info', 'warning', 'danger'].map(
+                  (color, index) => (
+                    <CDropdown variant="btn-group" key={index}>
+                      <CDropdownToggle color={color}>{color}</CDropdownToggle>
+                      <CDropdownMenu>
+                        <CDropdownItem href="#">Action</CDropdownItem>
+                        <CDropdownItem href="#">Another action</CDropdownItem>
+                        <CDropdownItem href="#">Something else here</CDropdownItem>
+                        <CDropdownDivider />
+                        <CDropdownItem href="#">Separated link</CDropdownItem>
+                      </CDropdownMenu>
+                    </CDropdown>
+                  ),
+                )}
               </>
             </Example>
           </CCardBody>
@@ -81,43 +72,34 @@ const Dropdowns = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Similarly, create split button dropdowns with virtually the same
-              markup as single button dropdowns, but with the addition of
-              boolean prop <code>split</code> for proper spacing around the
-              dropdown caret.
+              Similarly, create split button dropdowns with virtually the same markup as
+              single button dropdowns, but with the addition of boolean prop{' '}
+              <code>split</code> for proper spacing around the dropdown caret.
             </p>
             <p className="text-medium-emphasis small">
-              We use this extra class to reduce the horizontal{' '}
-              <code>padding</code> on either side of the caret by 25% and remove
-              the <code>margin-left</code> that&#39;s attached for normal button
-              dropdowns. Those additional changes hold the caret centered in the
-              split button and implement a more properly sized hit area next to
-              the main button.
+              We use this extra class to reduce the horizontal <code>padding</code> on
+              either side of the caret by 25% and remove the <code>margin-left</code>{' '}
+              that&#39;s attached for normal button dropdowns. Those additional changes
+              hold the caret centered in the split button and implement a more properly
+              sized hit area next to the main button.
             </p>
             <Example href="components/dropdown#split-button">
               <>
-                {[
-                  'primary',
-                  'secondary',
-                  'success',
-                  'info',
-                  'warning',
-                  'danger',
-                ].map((color, index) => (
-                  <CDropdown variant="btn-group" key={index}>
-                    <CButton color={color}>{color}</CButton>
-                    <CDropdownToggle color={color} split />
-                    <CDropdownMenu>
-                      <CDropdownItem href="#">Action</CDropdownItem>
-                      <CDropdownItem href="#">Another action</CDropdownItem>
-                      <CDropdownItem href="#">
-                        Something else here
-                      </CDropdownItem>
-                      <CDropdownDivider />
-                      <CDropdownItem href="#">Separated link</CDropdownItem>
-                    </CDropdownMenu>
-                  </CDropdown>
-                ))}
+                {['primary', 'secondary', 'success', 'info', 'warning', 'danger'].map(
+                  (color, index) => (
+                    <CDropdown variant="btn-group" key={index}>
+                      <CButton color={color}>{color}</CButton>
+                      <CDropdownToggle color={color} split />
+                      <CDropdownMenu>
+                        <CDropdownItem href="#">Action</CDropdownItem>
+                        <CDropdownItem href="#">Another action</CDropdownItem>
+                        <CDropdownItem href="#">Something else here</CDropdownItem>
+                        <CDropdownDivider />
+                        <CDropdownItem href="#">Separated link</CDropdownItem>
+                      </CDropdownMenu>
+                    </CDropdown>
+                  ),
+                )}
               </>
             </Example>
           </CCardBody>
@@ -130,8 +112,8 @@ const Dropdowns = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Button dropdowns work with buttons of all sizes, including default
-              and split dropdown buttons.
+              Button dropdowns work with buttons of all sizes, including default and split
+              dropdown buttons.
             </p>
             <Example href="components/dropdown#sizing">
               <CDropdown variant="btn-group">
@@ -197,15 +179,12 @@ const Dropdowns = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Opt into darker dropdowns to match a dark navbar or custom style
-              by set <code>dark</code> property. No changes are required to the
-              dropdown items.
+              Opt into darker dropdowns to match a dark navbar or custom style by set{' '}
+              <code>dark</code> property. No changes are required to the dropdown items.
             </p>
             <Example href="components/dropdown#dark-dropdowns">
               <CDropdown dark>
-                <CDropdownToggle color="secondary">
-                  Dropdown button
-                </CDropdownToggle>
+                <CDropdownToggle color="secondary">Dropdown button</CDropdownToggle>
                 <CDropdownMenu>
                   <CDropdownItem href="#">Action</CDropdownItem>
                   <CDropdownItem href="#">Another action</CDropdownItem>
@@ -235,19 +214,14 @@ const Dropdowns = () => {
                   >
                     <span className="navbar-toggler-icon"></span>
                   </button>
-                  <div
-                    className="collapse navbar-collapse"
-                    id="navbarNavDarkDropdown"
-                  >
+                  <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
                     <ul className="navbar-nav">
                       <CDropdown dark component="li" variant="nav-item">
                         <CDropdownToggle>Dropdown</CDropdownToggle>
                         <CDropdownMenu>
                           <CDropdownItem href="#">Action</CDropdownItem>
                           <CDropdownItem href="#">Another action</CDropdownItem>
-                          <CDropdownItem href="#">
-                            Something else here
-                          </CDropdownItem>
+                          <CDropdownItem href="#">Something else here</CDropdownItem>
                           <CDropdownDivider />
                           <CDropdownItem href="#">Separated link</CDropdownItem>
                         </CDropdownMenu>

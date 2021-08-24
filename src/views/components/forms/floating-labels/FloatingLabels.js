@@ -26,14 +26,12 @@ const FloatingLabels = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               Wrap a pair of <code>&lt;CFormControl&gt;</code> and{' '}
-              <code>&lt;CFormLabel&gt;</code> elements in{' '}
-              <code>CFormFloating</code> to enable floating labels with textual
-              form fields. A <code>placeholder</code> is required on each{' '}
-              <code>&lt;CFormControl&gt;</code> as our method of CSS-only
-              floating labels uses the <code>:placeholder-shown</code>{' '}
-              pseudo-element. Also note that the{' '}
-              <code>&lt;CFormControl&gt;</code> must come first so we can
-              utilize a sibling selector (e.g., <code>~</code>).
+              <code>&lt;CFormLabel&gt;</code> elements in <code>CFormFloating</code> to
+              enable floating labels with textual form fields. A <code>placeholder</code>{' '}
+              is required on each <code>&lt;CFormControl&gt;</code> as our method of
+              CSS-only floating labels uses the <code>:placeholder-shown</code>{' '}
+              pseudo-element. Also note that the <code>&lt;CFormControl&gt;</code> must
+              come first so we can utilize a sibling selector (e.g., <code>~</code>).
             </p>
             <Example href="forms/floating-labels">
               <CFormFloating className="mb-3">
@@ -50,15 +48,13 @@ const FloatingLabels = () => {
                   id="floatingPassword"
                   placeholder="Password"
                 />
-                <CFormLabel htmlFor="exampleFormControlTextarea1">
-                  Password
-                </CFormLabel>
+                <CFormLabel htmlFor="exampleFormControlTextarea1">Password</CFormLabel>
               </CFormFloating>
             </Example>
             <p className="text-medium-emphasis small">
               When there&#39;s a <code>value</code> already defined,{' '}
-              <code>&lt;CFormLabel&gt;</code>s will automatically adjust to
-              their floated position.
+              <code>&lt;CFormLabel&gt;</code>s will automatically adjust to their floated
+              position.
             </p>
             <Example href="forms/floating-labels">
               <CFormFloating>
@@ -68,9 +64,7 @@ const FloatingLabels = () => {
                   placeholder="name@example.com"
                   defaultValue="test@example.com"
                 />
-                <CFormLabel htmlFor="floatingInputValue">
-                  Input with value
-                </CFormLabel>
+                <CFormLabel htmlFor="floatingInputValue">Input with value</CFormLabel>
               </CFormFloating>
             </Example>
           </CCardBody>
@@ -83,8 +77,7 @@ const FloatingLabels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              By default,{' '}
-              <code>&lt;CFormControl component=&#34;textarea&#34;&gt;</code>s
+              By default, <code>&lt;CFormControl component=&#34;textarea&#34;&gt;</code>s
               will be the same height as <code>&lt;CFormControl&gt;</code>s.
             </p>
             <Example href="forms/floating-labels#textareas">
@@ -99,8 +92,8 @@ const FloatingLabels = () => {
             </Example>
             <p className="text-medium-emphasis small">
               To set a custom height on your{' '}
-              <code>&lt;CFormControl component=&#34;textarea&#34;&gt;</code>, do
-              not use the <code>rows</code> attribute. Instead, set an explicit{' '}
+              <code>&lt;CFormControl component=&#34;textarea&#34;&gt;</code>, do not use
+              the <code>rows</code> attribute. Instead, set an explicit{' '}
               <code>height</code> (either inline or via custom CSS).
             </p>
             <Example href="forms/floating-labels#textareas">
@@ -124,11 +117,10 @@ const FloatingLabels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Other than <code>&lt;CFormControl&gt;</code>, floating labels are
-              only available on <code>&lt;CFormSelect&gt;</code>s. They work in
-              the same way, but unlike <code>&lt;CFormControl&gt;</code>s,
-              they&#39;ll always show the <code>&lt;CFormLabel&gt;</code> in its
-              floated state.{' '}
+              Other than <code>&lt;CFormControl&gt;</code>, floating labels are only
+              available on <code>&lt;CFormSelect&gt;</code>s. They work in the same way,
+              but unlike <code>&lt;CFormControl&gt;</code>s, they&#39;ll always show the{' '}
+              <code>&lt;CFormLabel&gt;</code> in its floated state.{' '}
               <strong>
                 Selects with <code>size</code> and <code>multiple</code> are not
                 supported.
@@ -145,9 +137,7 @@ const FloatingLabels = () => {
                   <option value="2">Two</option>
                   <option value="3">Three</option>
                 </CFormSelect>
-                <CFormLabel htmlFor="floatingSelect">
-                  Works with selects
-                </CFormLabel>
+                <CFormLabel htmlFor="floatingSelect">Works with selects</CFormLabel>
               </CFormFloating>
             </Example>
           </CCardBody>
@@ -160,8 +150,8 @@ const FloatingLabels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              When working with the CoreUI for Bootstrap grid system, be sure to
-              place form elements within column classes.
+              When working with the CoreUI for Bootstrap grid system, be sure to place
+              form elements within column classes.
             </p>
             <Example href="forms/floating-labels#layout">
               <CRow xs={{ gutter: 2 }}>
@@ -173,9 +163,7 @@ const FloatingLabels = () => {
                       placeholder="name@example.com"
                       defaultValue="email@example.com"
                     />
-                    <CFormLabel htmlFor="floatingInputGrid">
-                      Email address
-                    </CFormLabel>
+                    <CFormLabel htmlFor="floatingInputGrid">Email address</CFormLabel>
                   </CFormFloating>
                 </CCol>
                 <CCol md>

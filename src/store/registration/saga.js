@@ -7,12 +7,7 @@ import { REGISTRATION, REGISTRATION_ASYNC } from './action-types';
 
 function* registrationAsync(action) {
   try {
-    const response = yield call(
-      fetchService,
-      registration,
-      'POST',
-      action.payload,
-    );
+    const response = yield call(fetchService, registration, 'POST', action.payload);
     const payloadObject = {
       result: response.result,
       error: null,

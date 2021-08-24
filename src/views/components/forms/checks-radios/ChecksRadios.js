@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CFormCheck,
-  CRow,
-} from '@coreui/react';
+import { CCard, CCardBody, CCardHeader, CCol, CFormCheck, CRow } from '@coreui/react';
 import { DocsCallout, Example } from 'src/reusable';
 
 const ChecksRadios = () => {
@@ -23,11 +16,7 @@ const ChecksRadios = () => {
           <CCardBody>
             <Example href="forms/checks-radios">
               <CFormCheck id="flexCheckDefault" label="Default checkbox" />
-              <CFormCheck
-                id="flexCheckChecked"
-                label="Checked checkbox"
-                defaultChecked
-              />
+              <CFormCheck id="flexCheckChecked" label="Checked checkbox" defaultChecked />
             </Example>
           </CCardBody>
         </CCard>
@@ -40,16 +29,12 @@ const ChecksRadios = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               Add the <code>disabled</code> attribute and the associated{' '}
-              <code>&lt;label&gt;</code>s are automatically styled to match with
-              a lighter color to help indicate the input&#39;s state.
+              <code>&lt;label&gt;</code>s are automatically styled to match with a lighter
+              color to help indicate the input&#39;s state.
             </p>
             <Example href="forms/checks-radios#disabled">
               <CFormCheck label="Disabled checkbox" disabled />
-              <CFormCheck
-                label="Disabled checked checkbox"
-                defaultChecked
-                disabled
-              />
+              <CFormCheck label="Disabled checked checkbox" defaultChecked disabled />
             </Example>
           </CCardBody>
         </CCard>
@@ -62,8 +47,8 @@ const ChecksRadios = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               Add the <code>disabled</code> attribute and the associated{' '}
-              <code>&lt;label&gt;</code>s are automatically styled to match with
-              a lighter color to help indicate the input&#39;s state.
+              <code>&lt;label&gt;</code>s are automatically styled to match with a lighter
+              color to help indicate the input&#39;s state.
             </p>
             <Example href="forms/checks-radios#radios">
               <CFormCheck
@@ -117,8 +102,8 @@ const ChecksRadios = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               A switch has the markup of a custom checkbox but uses the{' '}
-              <code>switch</code> boolean properly to render a toggle switch.
-              Switches also support the <code>disabled</code> attribute.
+              <code>switch</code> boolean properly to render a toggle switch. Switches
+              also support the <code>disabled</code> attribute.
             </p>
             <Example href="forms/checks-radios#switches">
               <CFormCheck
@@ -185,16 +170,12 @@ const ChecksRadios = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              By default, any number of checkboxes and radios that are immediate
-              sibling will be vertically stacked and appropriately spaced.
+              By default, any number of checkboxes and radios that are immediate sibling
+              will be vertically stacked and appropriately spaced.
             </p>
             <Example href="forms/checks-radios#default-stacked">
               <CFormCheck id="defaultCheck1" label="Default checkbox" />
-              <CFormCheck
-                id="defaultCheck2"
-                label="Disabled checkbox"
-                disabled
-              />
+              <CFormCheck id="defaultCheck2" label="Disabled checkbox" disabled />
             </Example>
             <Example href="forms/checks-radios#default-stacked">
               <CFormCheck
@@ -232,22 +213,11 @@ const ChecksRadios = () => {
           <CCardBody>
             <p className="text-medium-emphasis small">
               Group checkboxes or radios on the same horizontal row by adding{' '}
-              <code>inline</code> boolean property to any{' '}
-              <code>&lt;CFormCheck&gt;</code>.
+              <code>inline</code> boolean property to any <code>&lt;CFormCheck&gt;</code>.
             </p>
             <Example href="forms/checks-radios#inline">
-              <CFormCheck
-                inline
-                id="inlineCheckbox1"
-                value="option1"
-                label="1"
-              />
-              <CFormCheck
-                inline
-                id="inlineCheckbox2"
-                value="option2"
-                label="2"
-              />
+              <CFormCheck inline id="inlineCheckbox1" value="option1" label="1" />
+              <CFormCheck inline id="inlineCheckbox2" value="option2" label="2" />
               <CFormCheck
                 inline
                 id="inlineCheckbox3"
@@ -289,14 +259,12 @@ const ChecksRadios = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Checks and Radios</strong>{' '}
-            <small>Without labels</small>
+            <strong>React Checks and Radios</strong> <small>Without labels</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Remember to still provide some form of accessible name for
-              assistive technologies (for instance, using{' '}
-              <code>aria-label</code>).
+              Remember to still provide some form of accessible name for assistive
+              technologies (for instance, using <code>aria-label</code>).
             </p>
             <Example href="forms/checks-radios#without-labels">
               <div>
@@ -322,10 +290,9 @@ const ChecksRadios = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Create button-like checkboxes and radio buttons by using{' '}
-              <code>button</code> boolean property on the{' '}
-              <code>&lt;CFormCheck&gt;</code> component. These toggle buttons
-              can further be grouped in a button group if needed.
+              Create button-like checkboxes and radio buttons by using <code>button</code>{' '}
+              boolean property on the <code>&lt;CFormCheck&gt;</code> component. These
+              toggle buttons can further be grouped in a button group if needed.
             </p>
             <Example href="forms/checks-radios#toggle-buttons">
               <CFormCheck
@@ -396,8 +363,8 @@ const ChecksRadios = () => {
             </Example>
             <h3>Outlined styles</h3>
             <p className="text-medium-emphasis small">
-              Different variants of button, such at the various outlined styles,
-              are supported.
+              Different variants of button, such at the various outlined styles, are
+              supported.
             </p>
             <Example href="forms/checks-radios#toggle-buttons">
               <div>

@@ -28,10 +28,7 @@ const Register = () => {
                     <CInputGroupText>
                       <CIcon name="cil-user" />
                     </CInputGroupText>
-                    <CFormControl
-                      placeholder="Username"
-                      autoComplete="username"
-                    />
+                    <CFormControl placeholder="Username" autoComplete="username" />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>

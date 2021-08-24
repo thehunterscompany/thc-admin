@@ -24,15 +24,7 @@ const Charts = () => {
           <CCardBody>
             <CChartBar
               data={{
-                labels: [
-                  'January',
-                  'February',
-                  'March',
-                  'April',
-                  'May',
-                  'June',
-                  'July',
-                ],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
                   {
                     label: 'GitHub Commits',
@@ -52,15 +44,7 @@ const Charts = () => {
           <CCardBody>
             <CChartLine
               data={{
-                labels: [
-                  'January',
-                  'February',
-                  'March',
-                  'April',
-                  'May',
-                  'June',
-                  'July',
-                ],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
                   {
                     label: 'My First dataset',
@@ -109,12 +93,7 @@ const Charts = () => {
                 labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
                 datasets: [
                   {
-                    backgroundColor: [
-                      '#41B883',
-                      '#E46651',
-                      '#00D8FF',
-                      '#DD1B16',
-                    ],
+                    backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
                     data: [40, 20, 80, 10],
                   },
                 ],

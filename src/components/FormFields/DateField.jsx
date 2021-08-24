@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
-import {
-  KeyboardDatePicker,
-  MuiPickersUtilsProvider,
-} from '@material-ui/pickers';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { useField } from 'formik';
 
 import 'date-fns';
@@ -29,11 +26,7 @@ export default function DateField(props) {
     if (date) {
       setSelectedDate(date);
       try {
-        const newDate = new Date(
-          date.getFullYear(),
-          date.getMonth(),
-          date.getDate(),
-        );
+        const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         setValue(newDate.toISOString().split('T')[0]);
       } catch (error) {
         setValue(date);

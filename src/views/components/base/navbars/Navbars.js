@@ -44,11 +44,7 @@ const CNavbars = () => {
               </CNavbarNav>
               <CNavbarNav className="ms-auto">
                 <CForm className="d-flex">
-                  <CFormControl
-                    className="me-sm-2"
-                    placeholder="Search"
-                    size="sm"
-                  />
+                  <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
                   <CButton color="light" className="my-2 my-sm-0" type="submit">
                     Search
                   </CButton>
@@ -152,16 +148,8 @@ const CNavbars = () => {
         <CCardBody>
           <CNavbar light color="light">
             <CForm className="d-flex">
-              <CFormControl
-                className="me-sm-2"
-                placeholder="Search"
-                size="sm"
-              />
-              <CButton
-                color="outline-success"
-                className="my-2 my-sm-0"
-                type="submit"
-              >
+              <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
+              <CButton color="outline-success" className="my-2 my-sm-0" type="submit">
                 Search
               </CButton>
             </CForm>

@@ -92,8 +92,8 @@ const FormControl = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Add the <code>disabled</code> boolean attribute on an input to
-              give it a grayed out appearance and remove pointer events.
+              Add the <code>disabled</code> boolean attribute on an input to give it a
+              grayed out appearance and remove pointer events.
             </p>
             <Example href="forms/form-control#disabled">
               <CFormControl
@@ -122,10 +122,9 @@ const FormControl = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Add the <code>readOnly</code> boolean attribute on an input to
-              prevent modification of the input&#39;s value. Read-only inputs
-              appear lighter (just like disabled inputs), but retain the
-              standard cursor.
+              Add the <code>readOnly</code> boolean attribute on an input to prevent
+              modification of the input&#39;s value. Read-only inputs appear lighter (just
+              like disabled inputs), but retain the standard cursor.
             </p>
             <Example href="forms/form-control#readonly">
               <CFormControl
@@ -141,22 +140,18 @@ const FormControl = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Form Control</strong>{' '}
-            <small>Readonly plain text</small>
+            <strong>React Form Control</strong> <small>Readonly plain text</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              If you want to have <code>&lt;input readonly&gt;</code> elements
-              in your form styled as plain text, use the <code>plainText</code>{' '}
-              boolean property to remove the default form field styling and
-              preserve the correct margin and padding.
+              If you want to have <code>&lt;input readonly&gt;</code> elements in your
+              form styled as plain text, use the <code>plainText</code> boolean property
+              to remove the default form field styling and preserve the correct margin and
+              padding.
             </p>
             <Example href="components/accordion">
               <CRow className="mb-3">
-                <CFormLabel
-                  htmlFor="staticEmail"
-                  className="col-sm-2 col-form-label"
-                >
+                <CFormLabel htmlFor="staticEmail" className="col-sm-2 col-form-label">
                   Email
                 </CFormLabel>
                 <div className="col-sm-10">
@@ -170,10 +165,7 @@ const FormControl = () => {
                 </div>
               </CRow>
               <CRow className="mb-3">
-                <CFormLabel
-                  htmlFor="inputPassword"
-                  className="col-sm-2 col-form-label"
-                >
+                <CFormLabel htmlFor="inputPassword" className="col-sm-2 col-form-label">
                   Password
                 </CFormLabel>
                 <div className="col-sm-10">
@@ -184,10 +176,7 @@ const FormControl = () => {
             <Example href="components/accordion">
               <CForm className="row g-3">
                 <div className="col-auto">
-                  <CFormLabel
-                    htmlFor="staticEmail2"
-                    className="visually-hidden"
-                  >
+                  <CFormLabel htmlFor="staticEmail2" className="visually-hidden">
                     Email
                   </CFormLabel>
                   <CFormControl
@@ -199,10 +188,7 @@ const FormControl = () => {
                   />
                 </div>
                 <div className="col-auto">
-                  <CFormLabel
-                    htmlFor="inputPassword2"
-                    className="visually-hidden"
-                  >
+                  <CFormLabel htmlFor="inputPassword2" className="visually-hidden">
                     Password
                   </CFormLabel>
                   <CFormControl
@@ -229,9 +215,7 @@ const FormControl = () => {
           <CCardBody>
             <Example href="forms/form-control#file-input">
               <div className="mb-3">
-                <CFormLabel htmlFor="formFile">
-                  Default file input example
-                </CFormLabel>
+                <CFormLabel htmlFor="formFile">Default file input example</CFormLabel>
                 <CFormControl type="file" id="formFile" />
               </div>
               <div className="mb-3">
@@ -247,15 +231,11 @@ const FormControl = () => {
                 <CFormControl type="file" id="formFileDisabled" disabled />
               </div>
               <div className="mb-3">
-                <CFormLabel htmlFor="formFileSm">
-                  Small file input example
-                </CFormLabel>
+                <CFormLabel htmlFor="formFileSm">Small file input example</CFormLabel>
                 <CFormControl type="file" size="sm" id="formFileSm" />
               </div>
               <div>
-                <CFormLabel htmlFor="formFileLg">
-                  Large file input example
-                </CFormLabel>
+                <CFormLabel htmlFor="formFileLg">Large file input example</CFormLabel>
                 <CFormControl type="file" size="lg" id="formFileLg" />
               </div>
             </Example>

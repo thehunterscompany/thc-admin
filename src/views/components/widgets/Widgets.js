@@ -17,8 +17,7 @@ import WidgetsBrand from './WidgetsBrand';
 import WidgetsDropdown from './WidgetsDropdown';
 
 const Widgets = () => {
-  const random = (min, max) =>
-    Math.floor(Math.random() * (max - min + 1) + min);
+  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
   return (
     <>
@@ -171,11 +170,7 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon
-                  name="cil-arrow-right"
-                  className="float-end"
-                  width="16"
-                />
+                <CIcon name="cil-arrow-right" className="float-end" width="16" />
               </CLink>
             }
           />
@@ -196,11 +191,7 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon
-                  name="cil-arrow-right"
-                  className="float-end"
-                  width="16"
-                />
+                <CIcon name="cil-arrow-right" className="float-end" width="16" />
               </CLink>
             }
           />
@@ -221,11 +212,7 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon
-                  name="cil-arrow-right"
-                  className="float-end"
-                  width="16"
-                />
+                <CIcon name="cil-arrow-right" className="float-end" width="16" />
               </CLink>
             }
           />
@@ -246,11 +233,7 @@ const Widgets = () => {
                 target="_blank"
               >
                 View more
-                <CIcon
-                  name="cil-arrow-right"
-                  className="float-end"
-                  width="16"
-                />
+                <CIcon name="cil-arrow-right" className="float-end" width="16" />
               </CLink>
             }
           />

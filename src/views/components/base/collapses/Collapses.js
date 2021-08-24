@@ -43,10 +43,9 @@ const Collapses = () => {
               <CCollapse visible={visible}>
                 <CCard className="mt-3">
                   <CCardBody>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    accusamus terry richardson ad squid. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident.
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                    terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                    labore wes anderson cred nesciunt sapiente ea proident.
                   </CCardBody>
                 </CCard>
               </CCollapse>
@@ -61,8 +60,7 @@ const Collapses = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              A <code>&lt;CButton&gt;</code> can show and hide multiple
-              elements.
+              A <code>&lt;CButton&gt;</code> can show and hide multiple elements.
             </p>
             <Example href="components/collapse#multiple-targets">
               <CButton onClick={() => setVisibleA(!visibleA)}>
@@ -84,10 +82,10 @@ const Collapses = () => {
                   <CCollapse visible={visibleA}>
                     <CCard className="mt-3">
                       <CCardBody>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high
-                        life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident.
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                        accusamus terry richardson ad squid. Nihil anim keffiyeh
+                        helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                        ea proident.
                       </CCardBody>
                     </CCard>
                   </CCollapse>
@@ -96,10 +94,10 @@ const Collapses = () => {
                   <CCollapse visible={visibleB}>
                     <CCard className="mt-3">
                       <CCardBody>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high
-                        life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident.
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                        accusamus terry richardson ad squid. Nihil anim keffiyeh
+                        helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                        ea proident.
                       </CCardBody>
                     </CCard>
                   </CCollapse>

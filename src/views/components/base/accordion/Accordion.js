@@ -30,8 +30,7 @@ const Accordion = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Click the accordions below to expand/collapse the accordion
-              content.
+              Click the accordions below to expand/collapse the accordion content.
             </p>
             <Example href="components/accordion">
               <CAccordion>
@@ -48,16 +47,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey === 1}>
                     <CAccordionBody>
-                      <strong>
-                        This is the first item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the first item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>
@@ -75,16 +71,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey === 2}>
                     <CAccordionBody>
-                      <strong>
-                        This is the second item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the second item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>
@@ -102,16 +95,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey === 3}>
                     <CAccordionBody>
-                      <strong>
-                        This is the third item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the third item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>
@@ -126,10 +116,9 @@ const Accordion = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Add <code>flush</code> to remove the default{' '}
-              <code>background-color</code>, some borders, and some rounded
-              corners to render accordions edge-to-edge with their parent
-              container.
+              Add <code>flush</code> to remove the default <code>background-color</code>,
+              some borders, and some rounded corners to render accordions edge-to-edge
+              with their parent container.
             </p>
             <Example href="components/accordion#flush">
               <CAccordion flush>
@@ -146,16 +135,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey2 === 1}>
                     <CAccordionBody>
-                      <strong>
-                        This is the first item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the first item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>
@@ -173,16 +159,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey2 === 2}>
                     <CAccordionBody>
-                      <strong>
-                        This is the second item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the second item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>
@@ -200,16 +183,13 @@ const Accordion = () => {
                   </CAccordionHeader>
                   <CAccordionCollapse visible={activeKey2 === 3}>
                     <CAccordionBody>
-                      <strong>
-                        This is the third item&#39;s accordion body.
-                      </strong>{' '}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                      These classes control the overall appearance, as well as
-                      the showing and hiding via CSS transitions. You can modify
-                      any of this with custom CSS or overriding our default
-                      variables. It&#39;s also worth noting that just about any
-                      HTML can go within the <code>.accordion-body</code>,
+                      <strong>This is the third item&#39;s accordion body.</strong> It is
+                      hidden by default, until the collapse plugin adds the appropriate
+                      classes that we use to style each element. These classes control the
+                      overall appearance, as well as the showing and hiding via CSS
+                      transitions. You can modify any of this with custom CSS or
+                      overriding our default variables. It&#39;s also worth noting that
+                      just about any HTML can go within the <code>.accordion-body</code>,
                       though the transition does limit overflow.
                     </CAccordionBody>
                   </CAccordionCollapse>

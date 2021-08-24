@@ -4,12 +4,10 @@ import { SIMULATION_FAILED, SIMULATION_PASS } from './action-types';
 
 const calculatePMT = (amount, duration, rate) => {
   rate = parseFloat(rate) / 100;
-  amount = Number(amount.split(' ')[1]);
   duration = duration * 12;
+  amount = Number(amount.split(' ')[1]);
 
-  let pmt = Math.round(
-    (amount * rate) / 12 / (1 - (1 + rate / 12) ** (-1 * duration)),
-  );
+  let pmt = Math.round((amount * rate) / 12 / (1 - (1 + rate / 12) ** (-1 * duration)));
   return pmt;
 };
 

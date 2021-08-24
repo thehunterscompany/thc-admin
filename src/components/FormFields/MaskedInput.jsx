@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, FormControlLabel } from '@material-ui/core';
-import {
-  createTheme,
-  makeStyles,
-  ThemeProvider,
-} from '@material-ui/core/styles';
+import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 import TextMaskCustom from './TextMaskCustom/TextMaskCustom';
@@ -37,11 +33,7 @@ const MaskedInput = (props) => {
   });
 
   const [values, setValues] = useState(
-    type === 'phone'
-      ? `+${code}`
-      : type === 'currency'
-      ? `${code} `
-      : ` ${code}`,
+    type === 'phone' ? `+${code}` : type === 'currency' ? `${code} ` : ` ${code}`,
   );
 
   const handleChange = (event) => {

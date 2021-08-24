@@ -58,9 +58,9 @@ const Toasts = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Toasts are as flexible as you need and have very little required
-              markup. At a minimum, we require a single element to contain your
-              “toasted” content and strongly encourage a dismiss button.
+              Toasts are as flexible as you need and have very little required markup. At
+              a minimum, we require a single element to contain your “toasted” content and
+              strongly encourage a dismiss button.
             </p>
             <Example href="components/toast">
               <CToast title="CoreUI for React.js" autohide={false}>
@@ -93,8 +93,7 @@ const Toasts = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Toasts are slightly translucent to blend in with what&#39;s below
-              them.
+              Toasts are slightly translucent to blend in with what&#39;s below them.
             </p>
             <Example href="components/toast#translucent">
               <div className="bg-dark p-3">
@@ -114,9 +113,7 @@ const Toasts = () => {
                     <strong className="me-auto">CoreUI for React.js</strong>
                     <small>7 min ago</small>
                   </CToastHeader>
-                  <CToastBody>
-                    Hello, world! This is a toast message.
-                  </CToastBody>
+                  <CToastBody>Hello, world! This is a toast message.</CToastBody>
                 </CToast>
               </div>
             </Example>
@@ -130,8 +127,8 @@ const Toasts = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              You can stack toasts by wrapping them in a toast container, which
-              will vertically add some spacing.
+              You can stack toasts by wrapping them in a toast container, which will
+              vertically add some spacing.
             </p>
             <Example href="components/toast#stacking">
               <CToaster>
@@ -151,9 +148,7 @@ const Toasts = () => {
                     <strong className="me-auto">CoreUI for React.js</strong>
                     <small>7 min ago</small>
                   </CToastHeader>
-                  <CToastBody>
-                    Hello, world! This is a toast message.
-                  </CToastBody>
+                  <CToastBody>Hello, world! This is a toast message.</CToastBody>
                 </CToast>
                 <CToast title="CoreUI for React.js" autohide={false}>
                   <CToastHeader close>
@@ -171,9 +166,7 @@ const Toasts = () => {
                     <strong className="me-auto">CoreUI for React.js</strong>
                     <small>7 min ago</small>
                   </CToastHeader>
-                  <CToastBody>
-                    Hello, world! This is a toast message.
-                  </CToastBody>
+                  <CToastBody>Hello, world! This is a toast message.</CToastBody>
                 </CToast>
               </CToaster>
             </Example>
@@ -187,31 +180,25 @@ const Toasts = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Customize your toasts by removing sub-components, tweaking them
-              with{' '}
-              <a href="https://coreui.io/docs/4.0/utilities/api">utilities</a>,
-              or by adding your own markup. Here we&#39;ve created a simpler
-              toast by removing the default <code>&lt;CToastHeader&gt;</code>,
-              adding a custom hide icon from{' '}
-              <a href="https://icons.coreui.io">CoreUI Icons</a>, and using some{' '}
-              <a href="https://coreui.io/docs/4.0/utilities/flex">
-                flexbox utilities
-              </a>{' '}
-              to adjust the layout.
+              Customize your toasts by removing sub-components, tweaking them with{' '}
+              <a href="https://coreui.io/docs/4.0/utilities/api">utilities</a>, or by
+              adding your own markup. Here we&#39;ve created a simpler toast by removing
+              the default <code>&lt;CToastHeader&gt;</code>, adding a custom hide icon
+              from <a href="https://icons.coreui.io">CoreUI Icons</a>, and using some{' '}
+              <a href="https://coreui.io/docs/4.0/utilities/flex">flexbox utilities</a> to
+              adjust the layout.
             </p>
             <Example href="components/toast#custom-content">
               <CToast autohide={false} className="align-items-center">
                 <div className="d-flex">
-                  <CToastBody>
-                    Hello, world! This is a toast message.
-                  </CToastBody>
+                  <CToastBody>Hello, world! This is a toast message.</CToastBody>
                   <CToastClose className="me-2 m-auto" />
                 </div>
               </CToast>
             </Example>
             <p className="text-medium-emphasis small">
-              Alternatively, you can also add additional controls and components
-              to toasts.
+              Alternatively, you can also add additional controls and components to
+              toasts.
             </p>
             <Example href="components/toast#custom-content">
               <CToast autohide={false}>
@@ -243,18 +230,13 @@ const Toasts = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Building on the above example, you can create different toast
-              color schemes with our{' '}
-              <a href="https://coreui.io/docs/4.0/utilities/colors">color</a>{' '}
-              and{' '}
-              <a href="https://coreui.io/docs/4.0//utilities/background">
-                background
-              </a>{' '}
-              utilities. Here we&#39;ve set <code>color=&#34;primary&#34;</code>{' '}
-              and added <code>.text-white</code> class to the{' '}
-              <code>&lt;Ctoast&gt;</code>, and then set <code>white</code>{' '}
-              property to our close button. For a crisp edge, we remove the
-              default border with <code>.border-0</code>.
+              Building on the above example, you can create different toast color schemes
+              with our <a href="https://coreui.io/docs/4.0/utilities/colors">color</a> and{' '}
+              <a href="https://coreui.io/docs/4.0//utilities/background">background</a>{' '}
+              utilities. Here we&#39;ve set <code>color=&#34;primary&#34;</code> and added{' '}
+              <code>.text-white</code> class to the <code>&lt;Ctoast&gt;</code>, and then
+              set <code>white</code> property to our close button. For a crisp edge, we
+              remove the default border with <code>.border-0</code>.
             </p>
             <Example href="components/toast#color-schemes">
               <CToast
@@ -263,9 +245,7 @@ const Toasts = () => {
                 className="text-white align-items-center"
               >
                 <div className="d-flex">
-                  <CToastBody>
-                    Hello, world! This is a toast message.
-                  </CToastBody>
+                  <CToastBody>Hello, world! This is a toast message.</CToastBody>
                   <CToastClose className="me-2 m-auto" white />
                 </div>
               </CToast>

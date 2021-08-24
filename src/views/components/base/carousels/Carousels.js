@@ -35,31 +35,17 @@ const Carousels = () => {
             <strong>Carousel</strong> <small>Slide only</small>
           </CCardHeader>
           <CCardBody>
-            <p className="text-medium-emphasis small">
-              Here’s a carousel with slides
-            </p>
+            <p className="text-medium-emphasis small">Here’s a carousel with slides</p>
             <Example href="components/carousel">
               <CCarousel>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slides[0]} alt="slide 1" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slides[1]} alt="slide 2" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slides[2]} alt="slide 3" />
                 </CCarouselItem>
               </CCarousel>
             </Example>
@@ -73,31 +59,18 @@ const Carousels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Adding in the previous and next controls by <code>controls</code>{' '}
-              property.
+              Adding in the previous and next controls by <code>controls</code> property.
             </p>
             <Example href="components/carousel/#with-controls">
               <CCarousel controls>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slides[0]} alt="slide 1" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slides[1]} alt="slide 2" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slides[2]} alt="slide 3" />
                 </CCarouselItem>
               </CCarousel>
             </Example>
@@ -111,31 +84,18 @@ const Carousels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              You can attach the indicators to the carousel, lengthwise the
-              controls, too.
+              You can attach the indicators to the carousel, lengthwise the controls, too.
             </p>
             <Example href="components/carousel/#with-indicators">
               <CCarousel controls indicators>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slides[0]} alt="slide 1" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slides[1]} alt="slide 2" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slides[2]} alt="slide 3" />
                 </CCarouselItem>
               </CCarousel>
             </Example>
@@ -151,56 +111,33 @@ const Carousels = () => {
             <p className="text-medium-emphasis small">
               You can add captions to slides with the{' '}
               <code>&lt;CCarouselCaption&gt;</code> element within any{' '}
-              <code>&lt;CCarouselItem&gt;</code>. They can be immediately hidden
-              on smaller viewports, as shown below, with optional{' '}
-              <a href="https://coreui.io/4.0/utilities/display">
-                display utilities
-              </a>
-              . We hide them with <code>.d-none</code> and draw them back on
-              medium-sized devices with <code>.d-md-block</code>.
+              <code>&lt;CCarouselItem&gt;</code>. They can be immediately hidden on
+              smaller viewports, as shown below, with optional{' '}
+              <a href="https://coreui.io/4.0/utilities/display">display utilities</a>. We
+              hide them with <code>.d-none</code> and draw them back on medium-sized
+              devices with <code>.d-md-block</code>.
             </p>
             <Example href="components/carousel/#with-captions">
               <CCarousel controls indicators>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slides[0]} alt="slide 1" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>First slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slides[1]} alt="slide 2" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>Second slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slides[2]} alt="slide 3" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>Third slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
               </CCarousel>
@@ -215,31 +152,19 @@ const Carousels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Add <code>transition=&#34;crossfade&#34;</code> to your carousel
-              to animate slides with a fade transition instead of a slide.
+              Add <code>transition=&#34;crossfade&#34;</code> to your carousel to animate
+              slides with a fade transition instead of a slide.
             </p>
             <Example href="components/carousel/#crossfade">
               <CCarousel controls transition="crossfade">
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slides[0]} alt="slide 1" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slides[1]} alt="slide 2" />
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slides[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slides[2]} alt="slide 3" />
                 </CCarouselItem>
               </CCarousel>
             </Example>
@@ -253,55 +178,33 @@ const Carousels = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              Add <code>dark</code> property to the <code>CCarousel</code> for
-              darker controls, indicators, and captions. Controls have been
-              inverted from their default white fill with the{' '}
-              <code>filter</code> CSS property. Captions and controls have
-              additional Sass variables that customize the <code>color</code>{' '}
-              and <code>background-color</code>.
+              Add <code>dark</code> property to the <code>CCarousel</code> for darker
+              controls, indicators, and captions. Controls have been inverted from their
+              default white fill with the <code>filter</code> CSS property. Captions and
+              controls have additional Sass variables that customize the{' '}
+              <code>color</code> and <code>background-color</code>.
             </p>
             <Example href="components/carousel/#dark-variant">
               <CCarousel controls indicators dark>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slidesLight[0]}
-                    alt="slide 1"
-                  />
+                  <img className="d-block w-100" src={slidesLight[0]} alt="slide 1" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>First slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slidesLight[1]}
-                    alt="slide 2"
-                  />
+                  <img className="d-block w-100" src={slidesLight[1]} alt="slide 2" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>Second slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
-                  <img
-                    className="d-block w-100"
-                    src={slidesLight[2]}
-                    alt="slide 3"
-                  />
+                  <img className="d-block w-100" src={slidesLight[2]} alt="slide 3" />
                   <CCarouselCaption className="d-none d-md-block">
                     <h5>Third slide label</h5>
-                    <p>
-                      Some representative placeholder content for the first
-                      slide.
-                    </p>
+                    <p>Some representative placeholder content for the first slide.</p>
                   </CCarouselCaption>
                 </CCarouselItem>
               </CCarousel>
