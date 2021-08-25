@@ -49,6 +49,7 @@ function TextMaskCustom(props) {
   };
 
   const textMask = createNumberMask(creatingMaskSettings());
+
   return (
     <MaskedInput
       {...other}

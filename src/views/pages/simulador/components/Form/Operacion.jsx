@@ -9,10 +9,12 @@ const OperationalFields = ({ formField, values }) => {
 
   const formSelector = (simulationType) => {
     let component;
+    const { value, currentDeal, time } = formField;
+
     if (simulationType === 1)
       component = (
         <RealEstateForm
-          formField={formField.realEstate}
+          formField={{ value, currentDeal, time, ...formField.realEstate }}
           values={values}
           currencySymbol={currencySymbol}
         />
@@ -20,7 +22,7 @@ const OperationalFields = ({ formField, values }) => {
     if (simulationType === 2)
       component = (
         <CommercialForm
-          formField={formField.commercial}
+          formField={{ value, currentDeal, time, ...formField.commercial }}
           values={values}
           currencySymbol={currencySymbol}
         />
@@ -29,7 +31,7 @@ const OperationalFields = ({ formField, values }) => {
     if (simulationType === 3)
       component = (
         <WalletForm
-          formField={formField.wallet}
+          formField={{ value, currentDeal, time, ...formField.wallet }}
           values={values}
           currencySymbol={currencySymbol}
         />

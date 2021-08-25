@@ -9,7 +9,7 @@ import {
 } from '../../../../../components/FormFields';
 
 const CommercialForm = ({ formField, values, currencySymbol }) => {
-  const { value, percentage, realEstateType, time } = formField;
+  const { value, currentDeal, realEstateType, time } = formField;
 
   return (
     <React.Fragment>
@@ -21,14 +21,16 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
             label={value.label}
             code={currencySymbol}
             type="currency"
+            value={values.value}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
-            name={percentage.name}
-            label={percentage.label}
-            type="percentage"
-            code="%"
+            name={currentDeal.name}
+            label={currentDeal.label}
+            code={currencySymbol}
+            type="currency"
+            value={values.currentDeal}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -42,6 +44,7 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
             ]}
             fullWidth
             style={{ marginTop: '25px' }}
+            value={values.realEstateType}
           />
         </Grid>
 
@@ -58,6 +61,7 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
                 </InputAdornment>
               ),
             }}
+            value={values.time}
           />
         </Grid>
 

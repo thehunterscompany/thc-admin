@@ -25,13 +25,13 @@ const Lending = ({ income, tenants }) => {
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</h2>
       <p>
-        ** este valor es simulado con el promedio de cuotas desembolsadas en los
-        últimos 3 meses, por lo que podría ser incluso mejor dependiendo de la
-        entidad financiera donde presentemos tu operación.
+        ** este valor es simulado con el promedio de cuotas desembolsadas en los últimos 3
+        meses, por lo que podría ser incluso mejor dependiendo de la entidad financiera
+        donde presentemos tu operación.
       </p>
       <span>
-        Si quieres solicitar tu financiación, contacta un bróker o continua el
-        proceso en línea…
+        Si quieres solicitar tu financiación, contacta un bróker o continua el proceso en
+        línea…
       </span>
     </Grid>
   );

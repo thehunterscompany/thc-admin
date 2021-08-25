@@ -78,31 +78,35 @@ const formFields = {
         label: 'Cuotas mensuales de préstamos y tarjetas de crédito?',
         requiredErrorMsg: 'Este campo es requerido.',
       },
+      tenants: {
+        name: 'tenants',
+      },
     },
     operational: {
+      value: {
+        name: 'value',
+        label: 'Valor de la vivienda',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'Solo ingresa numeros.',
+      },
+      currentDeal: {
+        name: 'currentDeal',
+        label: 'Valor a Financiar',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'El máximo porcentaje de financiación es de 85%',
+      },
+      time: {
+        name: 'time',
+        label: 'Plazo',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'El plazo minímo es a 5 año y el máximo a 20 años',
+      },
+
       realEstate: {
-        value: {
-          name: 'value',
-          label: 'Valor de la vivienda',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'Solo ingresa numeros.',
-        },
-        percentage: {
-          name: 'percentage',
-          label: 'Cuanto necesitas financiar?',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'El máximo porcentaje de financiación es de 85%',
-        },
         type: {
           name: 'type',
           label: 'Linea de financiación',
           requiredErrorMsg: 'Este campo es requerido.',
-        },
-        time: {
-          name: 'time',
-          label: 'Plazo',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'El plazo minímo es a 5 año y el máximo a 20 años',
         },
         realEstateType: {
           name: 'realEstateType',
@@ -111,43 +115,13 @@ const formFields = {
         },
       },
       commercial: {
-        value: {
-          name: 'value',
-          label: 'Valor del inmueble',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'Solo ingresa numeros.',
-        },
-        percentage: {
-          name: 'percentage',
-          label: 'Cuanto necesitas financiar?',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'El máximo porcentaje de financiación es de 85%',
-        },
         realEstateType: {
           name: 'realEstateType',
           label: 'Tipo de inmueble',
           requiredErrorMsg: 'Este campo es requerido.',
         },
-        time: {
-          name: 'time',
-          label: 'Plazo',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'El plazo minímo es a 5 año y el máximo a 10 años',
-        },
       },
       wallet: {
-        value: {
-          name: 'value',
-          label: 'Valor comercial de la vivienda',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'Solo ingresa numeros.',
-        },
-        currentDeal: {
-          name: 'currentDeal',
-          label: 'Valor del préstamo actual',
-          requiredErrorMsg: 'Este campo es requerido.',
-          invalidErrorMsg: 'Solo ingresa numeros.',
-        },
         currentDealMonth: {
           name: 'currentDealMonth',
           label: 'Valor de la cuota mensual',
@@ -157,11 +131,6 @@ const formFields = {
         institution: {
           name: 'institution',
           label: 'Entidad Financiera',
-          requiredErrorMsg: 'Este campo es requerido.',
-        },
-        time: {
-          name: 'time',
-          label: 'Fecha de inicio del préstamo',
           requiredErrorMsg: 'Este campo es requerido.',
         },
         rates: {

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
-import {
-  Button,
-  CircularProgress,
-  Step,
-  StepLabel,
-  Stepper,
-} from '@material-ui/core';
+import { Button, CircularProgress, Step, StepLabel, Stepper } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import { simulation } from 'src/store/actions';
 
 import formFields from '../FormModel/simulationFormModel';
+import {
+  financialValues,
+  operationalValues,
+  personalValues,
+} from '../FormModel/simulationInitialValues';
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
 import FinancialFields from './Financial';
@@ -49,9 +48,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
     return <Lending income={values.earnings} tenants={values.tenants} />;
   }
   if (step === 2)
-    return (
-      <OperationalFields formField={formField.operational} values={values} />
-    );
+    return <OperationalFields formField={formField.operational} values={values} />;
 
   if (step === 3 && simulation) return <Feasible values={values} />;
 
@@ -61,26 +58,46 @@ const SimulatorForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [skip, setSkip] = useState(false);
+  const [initialValues, setInitialValues] = useState(personalValues);
   const isLastStep = activeStep === steps.length - 1;
-
-  const simulationResult = useSelector(
-    (state) => state.PmtSimulationState,
-  ).simulation;
-
-  console.log(simulationResult);
+  const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     if (isLastStep) {
       // _submitForm(values, actions);
-      console.log('hi');
     } else {
+      if (activeStep + 1 === 1 && initialValues?.mainEmployment === undefined) {
+        handleAddExtra(financialValues);
+      }
+
+      if (
+        activeStep + 1 === 2 &&
+        values?.simulation === 1 &&
+        initialValues?.value === undefined
+      ) {
+        const { value, currentDeal, time } = operationalValues;
+        let obj = { value, currentDeal, time };
+        switch (values?.simulationType) {
+          case 1:
+            obj = { ...obj, ...operationalValues.realEstate };
+            break;
+          case 2:
+            obj = { ...obj, ...operationalValues.commercial };
+            break;
+          case 3:
+            obj = { ...obj, ...operationalValues.wallet };
+            break;
+        }
+        handleAddExtra(obj);
+      }
+
       if (activeStep + 1 === 2 && values?.simulation === 2) {
         setSkip(true);
       } else if (activeStep + 1 === 3 && values?.simulation === 1) {
         dispatch(
           simulation(
-            values.value,
+            values.currentDeal,
             values.time,
             '8.5%',
             values.earnings,
@@ -89,22 +106,28 @@ const SimulatorForm = () => {
         );
         setSkip(true);
       }
+
       setActiveStep(activeStep + 1);
       actions.setTouched({});
       actions.setSubmitting(false);
     }
   };
 
-  const handleBack = () => {
+  const handleBack = (values) => {
+    setInitialValues(values);
     setSkip(false);
     setActiveStep(activeStep - 1);
   };
 
+  const handleAddExtra = (obj) => {
+    setInitialValues((prevState) => ({
+      ...prevState,
+      ...obj,
+    }));
+  };
   return (
     <React.Fragment>
-      {!skip ? (
-        <h1>Para darte la mejor opción necesitamos algunos datos</h1>
-      ) : null}
+      {!skip ? <h1>Para darte la mejor opción necesitamos algunos datos</h1> : null}
       <CRow className="justify-content-center">
         <CCol xs="8" sm="8" md="8" lg="8" xl="6">
           <CCard className="mx-4" style={!skip ? null : { border: 'none' }}>
@@ -123,21 +146,13 @@ const SimulatorForm = () => {
                   : null}
               </Stepper>
               <Formik
-                initialValues={{
-                  checkedA: false,
-                  checkedB: false,
-                  dateOfBirth: '',
-                  tenants: [],
-                  country: { name: '', code: '', phone: '', currencyCode: '' },
-                  earnings: '',
-                  laborTime: '',
-                  time: '',
-                }}
+                initialValues={initialValues}
                 onSubmit={(values, actions) => {
-                  // props.postParams(values, resetForm)
+                  setInitialValues(values);
                   handleSubmit(values, actions);
                 }}
                 validationSchema={''}
+                enableReinitialize
               >
                 {({ handleChange, isSubmitting, values, setFieldValue }) => {
                   console.log(values);
@@ -153,7 +168,7 @@ const SimulatorForm = () => {
                       <div className={classes.buttons}>
                         {activeStep !== 0 && (
                           <Button
-                            onClick={handleBack}
+                            onClick={() => handleBack(values)}
                             className={classes.button}
                           >
                             Regresar

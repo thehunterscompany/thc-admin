@@ -24,20 +24,16 @@ const NotFeasible = () => {
       style={{ textAlign: 'center' }}
     >
       <h1>Lo sentimos!</h1>
-      <h2>
-        Para ese valor de inmueble, debes tener unos ingresos mensuales mínimos
-        de
-      </h2>
+      <h2>Para ese valor de inmueble, debes tener unos ingresos mensuales mínimos de</h2>
       <h2>{`${simulation.symbol} ${simulation.sum
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</h2>
       <p>
-        **Recuerda que puedes consolidar ingresos hasta segundo grado de
-        afinidad y tercero de consanguinidad
+        **Recuerda que puedes consolidar ingresos hasta segundo grado de afinidad y
+        tercero de consanguinidad
       </p>
       <span>
-        Si quieres más información contacta un bróker o continua vuelve al
-        proceso…
+        Si quieres más información contacta un bróker o continua vuelve al proceso…
       </span>
     </Grid>
   );

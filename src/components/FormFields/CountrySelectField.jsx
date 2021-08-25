@@ -28,31 +28,67 @@ const useStyles = makeStyles({
 
 const CountrySelect = (props) => {
   const classes = useStyles();
-
   // eslint-disable-next-line react/prop-types
-  const { errorText, type, setFieldValue, ...rest } = props;
+  const { errorText, type, setFieldValue, value, ...rest } = props;
   const [field, meta] = useField(props);
 
-  function _renderHelperText() {
+  const _renderHelperText = () => {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
       return error;
     }
-  }
+  };
+
+  const findIfSelectedOption = () => {
+    // eslint-disable-next-line react/prop-types
+    const country = (element) => element.label === value?.label;
+    const index = countries.findIndex(country);
+    if (index > -1) {
+      return countries[index];
+    }
+    return countries[47];
+  };
+
+  const enterInput = () => {
+    // eslint-disable-next-line react/prop-types
+    if (value.label) {
+      // eslint-disable-next-line react/prop-types
+      return value.label;
+    }
+    return '';
+  };
+
+  const [inputValue, setInputValue] = React.useState(enterInput());
+  const [userValue, setValue] = React.useState(findIfSelectedOption());
 
   return (
     <Autocomplete
-      id="country-select-demo"
+      inputValue={inputValue}
+      selectOnFocus
+      clearOnBlur
+      handleHomeEndKeys
       options={countries}
       classes={{
         option: classes.option,
       }}
-      onChange={(e, value) => {
+      onChange={(e, newValue) => {
+        setValue(newValue);
         setFieldValue(
           'country',
-          value !== null ? value : { name: '', code: '', phone: '', currencyCode: '' },
+          newValue !== null
+            ? newValue
+            : { code: '', label: '', phone: '', currencyCode: '' },
         );
       }}
+      onInputChange={(event, newInputValue) => {
+        const country = (element) => element.label === newInputValue;
+        const index = countries.findIndex(country);
+        if (index > -1) {
+          setFieldValue('country', countries[index]);
+        }
+        setInputValue(newInputValue);
+      }}
+      value={userValue}
       autoHighlight
       getOptionLabel={(option) => option.label}
       renderOption={(option) => (

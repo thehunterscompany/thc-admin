@@ -22,9 +22,9 @@ const rateSimulation = [
 ];
 
 const idType = [
-  { value: 1, label: 'Cedula de ciudadanía' },
-  { value: 2, label: 'Cedula de extrangería' },
-  { value: 3, label: 'Pasaporte' },
+  { value: 'Cedula de ciudadanía', label: 'Cedula de ciudadanía' },
+  { value: 'Cedula de extrangería', label: 'Cedula de extrangería' },
+  { value: 'Pasaporte', label: 'Pasaporte' },
 ];
 
 const PersonalFields = ({ formField, values, setFieldValue }) => {
@@ -44,6 +44,17 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
       }
     } else {
       setPhoneCountryCode('');
+    }
+  }, [values.country]);
+
+  useEffect(() => {
+    if (values.country) {
+      if (values.telephone) {
+        let number = values.telephone.split(' ')[1];
+        setFieldValue('telephone', `+${values.country.phone} ${number}`);
+      }
+    } else {
+      setFieldValue('telephone', '');
     }
   }, [values.country]);
 
@@ -73,6 +84,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={firstNames.label}
             type="text"
             fullWidth
+            value={values.firstNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -81,6 +93,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={lastNames.label}
             type="text"
             fullWidth
+            value={values.lastNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -90,6 +103,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             data={idType}
             fullWidth
             style={{ marginTop: '25px' }}
+            value={values.documentType}
           />
         </Grid>
 
@@ -99,6 +113,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={documentId.label}
             type="text"
             fullWidth
+            value={values.documentId}
           />
         </Grid>
 
@@ -120,6 +135,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={email.label}
             type="text"
             fullWidth
+            value={values.email}
           />
         </Grid>
 
@@ -129,6 +145,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={country.label}
             fullWidth
             setFieldValue={setFieldValue}
+            value={values.country}
           />
         </Grid>
 
@@ -138,6 +155,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={telephone.label}
             code={phoneCountryCode}
             type="phone"
+            value={values.telephone}
           />
         </Grid>
 
@@ -147,6 +165,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={simulation.label}
             data={simulationOptions}
             fullWidth
+            value={values.simulation}
           />
         </Grid>
 
@@ -157,6 +176,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
               label={simulationType.label}
               data={rateSimulation}
               fullWidth
+              value={values.simulationType}
             />
           </Grid>
         ) : null}
@@ -201,8 +221,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             />
           </FormControl>
           <small>
-            Autorizo a thcsas.com.co a consultar mi información en centrales de
-            riesgo.
+            Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.
           </small>
         </Grid>
       </Grid>

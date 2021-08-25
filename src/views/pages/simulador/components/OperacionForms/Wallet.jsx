@@ -2,15 +2,10 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import {
-  DateField,
-  InputField,
-  MaskedInput,
-} from '../../../../../components/FormFields';
+import { DateField, InputField, MaskedInput } from '../../../../../components/FormFields';
 
 const WalletForm = ({ formField, values, currencySymbol }) => {
-  const { value, currentDeal, currentDealMonth, institution, time, rates } =
-    formField;
+  const { value, currentDeal, currentDealMonth, institution, time, rates } = formField;
 
   return (
     <React.Fragment>
@@ -22,6 +17,7 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
             label={value.label}
             code={currencySymbol}
             type="currency"
+            value={values.value}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -30,6 +26,7 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
             label={currentDeal.label}
             code={currencySymbol}
             type="currency"
+            value={values.currentDeal}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -38,6 +35,7 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
             label={currentDealMonth.label}
             code={currencySymbol}
             type="currency"
+            value={values.currentDealMonth}
           />
         </Grid>
 
@@ -47,6 +45,7 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
             label={institution.label}
             type="text"
             fullWidth
+            value={values.institution}
           />
         </Grid>
 
@@ -68,6 +67,7 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
             label={rates.label}
             code="%"
             type="percentage"
+            value={values.rates}
           />
         </Grid>
 

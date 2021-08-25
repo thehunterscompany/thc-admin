@@ -30,9 +30,7 @@ const CustomTable = ({ className, headers, rowData }) => {
                 {Object.keys(row.value).map((key, index2) => {
                   return (
                     <TableCell
-                      component={
-                        row.value[key === 'component' ? 'component' : '']
-                      }
+                      component={row.value[key === 'component' ? 'component' : '']}
                       scope={row.value[key === 'scope' ? 'scope' : '']}
                       align={row.align}
                       key={index2}
