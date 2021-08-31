@@ -50,14 +50,19 @@ const WalletForm = ({ formField, values, currencySymbol }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <DateField
+          <InputField
             name={time.name}
             label={time.label}
-            format="dd/MM/yyyy"
-            minDate={new Date('1900/01/01')}
-            maxDate={new Date()}
-            style={{ marginTop: '25px' }}
+            type="text"
             fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                </InputAdornment>
+              ),
+            }}
+            value={values.time}
           />
         </Grid>
 
