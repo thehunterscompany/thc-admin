@@ -88,7 +88,6 @@ const SimulatorForm = () => {
 
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
-    console.log(isLastStep, activeStep);
     if (isLastStep) {
       // _submitForm(values, actions);
     } else {
@@ -133,8 +132,6 @@ const SimulatorForm = () => {
         setSkip(true);
       }
 
-      console.log(activeStep);
-
       setActiveStep(
         activeStep + 1 === 2 && values?.simulation === 2
           ? activeStep + 2
@@ -144,8 +141,6 @@ const SimulatorForm = () => {
       actions.setSubmitting(false);
     }
   };
-
-  console.log(activeStep);
 
   const handleBack = (values) => {
     setInitialValues(values);
