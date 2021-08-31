@@ -10,24 +10,23 @@ export default function DateField(props) {
   const [field, meta, helper] = useField(props);
   const { touched, error } = meta;
   const { setValue } = helper;
-  const { value } = field;
-
   const isError = touched && error && true;
-  const [selectedDate, setSelectedDate] = useState(null);
+  const { value } = field;
+  const [selectedDate, setSelectedDate] = useState(value ? value : null);
 
   useEffect(() => {
-    if (selectedDate) {
+    if (value) {
       const date = new Date(value);
       setSelectedDate(date);
     }
   }, [value]);
 
-  const handleDateChange = (date) => {
+  const handleChange = (date) => {
     if (date) {
       setSelectedDate(date);
       try {
-        const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-        setValue(newDate.toISOString().split('T')[0]);
+        const ISODateString = date.toISOString();
+        setValue(ISODateString);
       } catch (error) {
         setValue(date);
       }
@@ -37,23 +36,18 @@ export default function DateField(props) {
   };
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container>
+    <Grid container>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
+          {...field}
+          {...props}
           value={selectedDate}
-          onChange={handleDateChange}
+          onChange={handleChange}
           error={isError}
           invalidDateMessage={isError && error}
           helperText={isError && error}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-          // {...field}
-          {...props}
         />
-      </Grid>
-    </MuiPickersUtilsProvider>
+      </MuiPickersUtilsProvider>
+    </Grid>
   );
 }

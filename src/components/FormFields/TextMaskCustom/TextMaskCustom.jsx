@@ -59,7 +59,7 @@ function TextMaskCustom(props) {
       mask={mask ? textMask : []}
       placeholderChar={'\u2000'}
       showMask
-      guide={true}
+      guide={false}
     />
   );
 }

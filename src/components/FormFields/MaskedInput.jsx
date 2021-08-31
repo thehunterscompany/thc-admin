@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, FormControlLabel } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
 import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
@@ -33,7 +33,7 @@ const MaskedInput = (props) => {
   });
 
   const [values, setValues] = useState(
-    type === 'phone' ? `+${code}` : type === 'currency' ? `${code} ` : ` ${code}`,
+    type === 'phone' ? `+${code}` : type === 'currency' ? `${code}` : ` ${code}`,
   );
 
   const handleChange = (event) => {
@@ -41,8 +41,8 @@ const MaskedInput = (props) => {
   };
   useEffect(() => {
     if (code && code.length > 0) {
-      if (type === 'phone') setValues(`+${code} `);
-      else if (type === 'currency') setValues(`${code} `);
+      if (type === 'phone') setValues(`+${code}`);
+      else if (type === 'currency') setValues(`${code}`);
       else if (type === 'percentage') setValues(` ${code}`);
     } else {
       setValues('');
