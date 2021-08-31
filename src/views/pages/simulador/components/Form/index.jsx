@@ -7,12 +7,14 @@ import { simulation } from 'src/store/actions';
 
 import formFields from '../FormModel/simulationFormModel';
 import {
+  credentialValues,
   financialValues,
   operationalValues,
   personalValues,
 } from '../FormModel/simulationInitialValues';
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
+import CredentialFields from './Credentials';
 import FinancialFields from './Financial';
 import OperationalFields from './Operacion';
 import PersonalFields from './Personal';
@@ -44,26 +46,49 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
         setFieldValue={setFieldValue}
       />
     );
-  if (step === 2 && values?.simulation === 2) {
-    return <Lending income={values.earnings} tenants={values.tenants} />;
+
+  if (values?.simulation === 1) {
+    if (step === 2)
+      return <OperationalFields formField={formField.operational} values={values} />;
+
+    if (step === 3 && simulation) return <Feasible values={values} />;
+
+    if (step === 3 && !simulation) return <NotFeasible />;
+
+    if (step === 4)
+      return (
+        <CredentialFields
+          formField={{ email: formField.personal.email, ...formField.credential }}
+          values={values}
+          setFieldValue={setFieldValue}
+        />
+      );
+  } else {
+    if (step === 3) {
+      return <Lending income={values.earnings} tenants={values.tenants} />;
+    }
+
+    if (step === 4)
+      return (
+        <CredentialFields
+          formField={{ email: formField.personal.email, ...formField.credential }}
+          values={values}
+          setFieldValue={setFieldValue}
+        />
+      );
   }
-  if (step === 2)
-    return <OperationalFields formField={formField.operational} values={values} />;
-
-  if (step === 3 && simulation) return <Feasible values={values} />;
-
-  if (step === 3 && !simulation) return <NotFeasible />;
 };
 const SimulatorForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [skip, setSkip] = useState(false);
   const [initialValues, setInitialValues] = useState(personalValues);
-  const isLastStep = activeStep === steps.length - 1;
+  const isLastStep = activeStep === steps.length;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
+    console.log(isLastStep, activeStep);
     if (isLastStep) {
       // _submitForm(values, actions);
     } else {
@@ -93,6 +118,7 @@ const SimulatorForm = () => {
       }
 
       if (activeStep + 1 === 2 && values?.simulation === 2) {
+        handleAddExtra(credentialValues);
         setSkip(true);
       } else if (activeStep + 1 === 3 && values?.simulation === 1) {
         dispatch(
@@ -107,16 +133,27 @@ const SimulatorForm = () => {
         setSkip(true);
       }
 
-      setActiveStep(activeStep + 1);
+      console.log(activeStep);
+
+      setActiveStep(
+        activeStep + 1 === 2 && values?.simulation === 2
+          ? activeStep + 2
+          : activeStep + 1,
+      );
       actions.setTouched({});
       actions.setSubmitting(false);
     }
   };
 
+  console.log(activeStep);
+
   const handleBack = (values) => {
     setInitialValues(values);
-    setSkip(false);
-    setActiveStep(activeStep - 1);
+
+    setSkip(activeStep === 4 && values?.simulation === 2 ? true : false);
+    setActiveStep(
+      activeStep === 3 && values?.simulation === 2 ? activeStep - 2 : activeStep - 1,
+    );
   };
 
   const handleAddExtra = (obj) => {

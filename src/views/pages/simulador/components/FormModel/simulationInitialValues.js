@@ -1,7 +1,7 @@
 import formFields from './simulationFormModel';
 
 const {
-  formField: { personal, financial, operational },
+  formField: { personal, financial, operational, credential },
 } = formFields;
 
 const personalValues = {
@@ -45,4 +45,9 @@ const operationalValues = {
   },
 };
 
-export { financialValues, operationalValues, personalValues };
+const credentialValues = {
+  [credential.password.name]: '',
+  [credential.repeatPassword.name]: '',
+};
+
+export { credentialValues, financialValues, operationalValues, personalValues };

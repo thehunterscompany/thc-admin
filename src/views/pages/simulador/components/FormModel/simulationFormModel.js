@@ -140,6 +140,20 @@ const formFields = {
         },
       },
     },
+    credential: {
+      password: {
+        name: 'password',
+        label: 'Contraseña',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'Solo ingresa numeros.',
+      },
+      repeatPassword: {
+        name: 'repeatPassword',
+        label: 'Repite la contraseña',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'Las contraseñas no son las mismas',
+      },
+    },
   },
 };
 
