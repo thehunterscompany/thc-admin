@@ -1,7 +1,7 @@
 import React from 'react';
 import { flagSet } from '@coreui/icons';
 import { CCard, CCardBody, CCardHeader, CRow } from '@coreui/react';
-import { DocsLink } from 'src/reusable';
+import { DocsLink } from 'src/components';
 
 import { getIconsView } from '../brands/Brands.js';
 

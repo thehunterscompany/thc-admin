@@ -13,7 +13,6 @@ const AppBreadcrumb = () => {
   };
 
   const getBreadcrumbs = (location) => {
-    console.log(location);
     const breadcrumbs = [];
     location.split('/').reduce((prev, curr, index, array) => {
       const currentPathname = `${prev}/${curr}`;

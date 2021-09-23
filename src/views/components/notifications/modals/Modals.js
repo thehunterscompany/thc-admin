@@ -15,7 +15,7 @@ import {
   CRow,
   CTooltip,
 } from '@coreui/react';
-import { DocsCallout, Example } from 'src/reusable';
+import { DocsCallout, DocsExample } from 'src/components';
 
 const LiveDemo = () => {
   const [visible, setVisible] = useState(false);
@@ -23,7 +23,7 @@ const LiveDemo = () => {
     <>
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal visible={visible} onDismiss={() => setVisible(false)}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>Woohoo, you&#39;re reading this text in a modal!</CModalBody>
@@ -43,8 +43,8 @@ const StaticBackdrop = () => {
   return (
     <>
       <CButton onClick={() => setVisible(!visible)}>Launch static backdrop modal</CButton>
-      <CModal visible={visible}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+      <CModal backdrop="static" visible={visible} onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -67,7 +67,7 @@ const ScrollingLongContent = () => {
     <>
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal visible={visible} onDismiss={() => setVisible(false)}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -173,7 +173,7 @@ const ScrollingLongContent2 = () => {
     <>
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
       <CModal scrollable visible={visible} onDismiss={() => setVisible(false)}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -278,8 +278,8 @@ const VerticallyCentered = () => {
   return (
     <>
       <CButton onClick={() => setVisible(!visible)}>Vertically centered modal</CButton>
-      <CModal alignment="center" visible={visible}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+      <CModal alignment="center" visible={visible} onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -305,8 +305,13 @@ const VerticallyCentered2 = () => {
       <CButton onClick={() => setVisible(!visible)}>
         Vertically centered scrollable modal
       </CButton>
-      <CModal alignment="center" scrollable visible={visible}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+      <CModal
+        alignment="center"
+        scrollable
+        visible={visible}
+        onDismiss={() => setVisible(false)}
+      >
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -350,8 +355,8 @@ const TooltipsPopovers = () => {
   return (
     <>
       <CButton onClick={() => setVisible(!visible)}>Launch demo modal</CButton>
-      <CModal alignment="center" visible={visible}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+      <CModal alignment="center" visible={visible} onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Modal title</CModalTitle>
         </CModalHeader>
         <CModalBody>
@@ -399,20 +404,20 @@ const OptionalSizes = () => {
       <CButton onClick={() => setVisibleXL(!visibleXL)}>Extra large modal</CButton>
       <CButton onClick={() => setVisibleLg(!visibleLg)}>Large modal</CButton>
       <CButton onClick={() => setVisibleSm(!visibleSm)}>Small large modal</CButton>
-      <CModal size="xl" visible={visibleXL}>
-        <CModalHeader onDismiss={() => setVisibleXL(false)}>
+      <CModal size="xl" visible={visibleXL} onDismiss={() => setVisibleXL(false)}>
+        <CModalHeader>
           <CModalTitle>Extra large modal</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal size="lg" visible={visibleLg}>
-        <CModalHeader onDismiss={() => setVisibleLg(false)}>
+      <CModal size="lg" visible={visibleLg} onDismiss={() => setVisibleLg(false)}>
+        <CModalHeader>
           <CModalTitle>Large modal</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal size="sm" visible={visibleSm}>
-        <CModalHeader onDismiss={() => setVisibleSm(false)}>
+      <CModal size="sm" visible={visibleSm} onDismiss={() => setVisibleSm(false)}>
+        <CModalHeader>
           <CModalTitle>Small modal</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
@@ -437,38 +442,42 @@ const FullscreenModal = () => {
       <CButton onClick={() => setVisibleLg(!visibleLg)}>Full screen below lg</CButton>
       <CButton onClick={() => setVisibleXL(!visibleXL)}>Full screen below xl</CButton>
       <CButton onClick={() => setVisibleXXL(!visibleXXL)}>Full screen below xxl</CButton>
-      <CModal fullscreen visible={visible}>
-        <CModalHeader onDismiss={() => setVisible(false)}>
+      <CModal fullscreen visible={visible} onDismiss={() => setVisible(false)}>
+        <CModalHeader>
           <CModalTitle>Full screen</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal fullscreen="sm" visible={visibleSm}>
-        <CModalHeader onDismiss={() => setVisibleSm(false)}>
+      <CModal fullscreen="sm" visible={visibleSm} onDismiss={() => setVisibleSm(false)}>
+        <CModalHeader>
           <CModalTitle>Full screen below sm</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal fullscreen="md" visible={visibleMd}>
-        <CModalHeader onDismiss={() => setVisibleMd(false)}>
+      <CModal fullscreen="md" visible={visibleMd} onDismiss={() => setVisibleMd(false)}>
+        <CModalHeader>
           <CModalTitle>Full screen below md</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal fullscreen="lg" visible={visibleLg}>
-        <CModalHeader onDismiss={() => setVisibleLg(false)}>
+      <CModal fullscreen="lg" visible={visibleLg} onDismiss={() => setVisibleLg(false)}>
+        <CModalHeader>
           <CModalTitle>Full screen below lg</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal fullscreen="xl" visible={visibleXL}>
-        <CModalHeader onDismiss={() => setVisibleXL(false)}>
+      <CModal fullscreen="xl" visible={visibleXL} onDismiss={() => setVisibleXL(false)}>
+        <CModalHeader>
           <CModalTitle>Full screen below xl</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
       </CModal>
-      <CModal fullscreen="xxl" visible={visibleXXL}>
-        <CModalHeader onDismiss={() => setVisibleXXL(false)}>
+      <CModal
+        fullscreen="xxl"
+        visible={visibleXXL}
+        onDismiss={() => setVisibleXXL(false)}
+      >
+        <CModalHeader>
           <CModalTitle>Full screen below xxl</CModalTitle>
         </CModalHeader>
         <CModalBody>...</CModalBody>
@@ -496,7 +505,7 @@ const Modals = () => {
               We ask that you include modal headers with dismiss actions whenever
               possible, or provide another explicit dismiss action.
             </p>
-            <Example href="components/modal">
+            <DocsExample href="components/modal">
               <CModal
                 className="show d-block position-static"
                 backdrop={false}
@@ -513,7 +522,7 @@ const Modals = () => {
                   <CButton color="primary">Save changes</CButton>
                 </CModalFooter>
               </CModal>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -527,7 +536,7 @@ const Modals = () => {
               Toggle a working modal demo by clicking the button below. It will slide down
               and fade in from the top of the page.
             </p>
-            <Example href="components/modal#live-demo">{LiveDemo()}</Example>
+            <DocsExample href="components/modal#live-demo">{LiveDemo()}</DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -543,7 +552,9 @@ const Modals = () => {
               it will not close when clicking outside it. Click the button below to try
               it.
             </p>
-            <Example href="components/modal#static-backdrop">{StaticBackdrop()}</Example>
+            <DocsExample href="components/modal#static-backdrop">
+              {StaticBackdrop()}
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -559,16 +570,16 @@ const Modals = () => {
               it will not close when clicking outside it. Click the button below to try
               it.
             </p>
-            <Example href="components/modal#scrolling-long-content">
+            <DocsExample href="components/modal#scrolling-long-content">
               {ScrollingLongContent()}
-            </Example>
+            </DocsExample>
             <p className="text-medium-emphasis small">
               You can also create a scrollable modal that allows scroll the modal body by
               adding <code>scrollable</code> prop.
             </p>
-            <Example href="components/modal#scrolling-long-content">
+            <DocsExample href="components/modal#scrolling-long-content">
               {ScrollingLongContent2()}
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -582,12 +593,12 @@ const Modals = () => {
               Add <code>alignment=&#34;center&#34;</code> to <code>&lt;CModal&gt;</code>{' '}
               to vertically center the modal.
             </p>
-            <Example href="components/modal#vertically-centered">
+            <DocsExample href="components/modal#vertically-centered">
               {VerticallyCentered()}
-            </Example>
-            <Example href="components/modal#vertically-centered">
+            </DocsExample>
+            <DocsExample href="components/modal#vertically-centered">
               {VerticallyCentered2()}
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -602,9 +613,9 @@ const Modals = () => {
               placed within modals as needed. When modals are closed, any tooltips and
               popovers within are also automatically dismissed.
             </p>
-            <Example href="components/modal#tooltips-and-popovers">
+            <DocsExample href="components/modal#tooltips-and-popovers">
               {TooltipsPopovers()}
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -664,7 +675,9 @@ const Modals = () => {
                 </tr>
               </tbody>
             </table>
-            <Example href="components/modal#optional-sizes">{OptionalSizes()}</Example>
+            <DocsExample href="components/modal#optional-sizes">
+              {OptionalSizes()}
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -734,9 +747,9 @@ const Modals = () => {
                 </tr>
               </tbody>
             </table>
-            <Example href="components/modal#fullscreen-modal">
+            <DocsExample href="components/modal#fullscreen-modal">
               {FullscreenModal()}
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>

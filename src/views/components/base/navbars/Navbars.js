@@ -10,7 +10,7 @@ import {
   CDropdownMenu,
   CDropdownToggle,
   CForm,
-  CFormControl,
+  CFormInput,
   CImage,
   CNavbar,
   CNavbarBrand,
@@ -19,7 +19,7 @@ import {
   CNavbarToggler,
   CNavLink,
 } from '@coreui/react';
-import { DocsLink } from 'src/reusable';
+import { DocsLink } from 'src/components';
 
 const CNavbars = () => {
   const [visible, setVisible] = useState(false);
@@ -44,7 +44,7 @@ const CNavbars = () => {
               </CNavbarNav>
               <CNavbarNav className="ms-auto">
                 <CForm className="d-flex">
-                  <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
+                  <CFormInput className="me-sm-2" placeholder="Search" size="sm" />
                   <CButton color="light" className="my-2 my-sm-0" type="submit">
                     Search
                   </CButton>
@@ -148,7 +148,7 @@ const CNavbars = () => {
         <CCardBody>
           <CNavbar light color="light">
             <CForm className="d-flex">
-              <CFormControl className="me-sm-2" placeholder="Search" size="sm" />
+              <CFormInput className="me-sm-2" placeholder="Search" size="sm" />
               <CButton color="outline-success" className="my-2 my-sm-0" type="submit">
                 Search
               </CButton>
@@ -162,7 +162,7 @@ const CNavbars = () => {
         <CCardBody>
           <CNavbar light color="light">
             <CForm className="d-flex">
-              <CFormControl className="me-sm-2" placeholder="Username" />
+              <CFormInput className="me-sm-2" placeholder="Username" />
             </CForm>
           </CNavbar>
         </CCardBody>

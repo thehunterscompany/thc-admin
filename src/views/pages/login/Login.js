@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { cilLockLocked, cilUser } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import {
   CButton,
@@ -9,7 +10,7 @@ import {
   CCol,
   CContainer,
   CForm,
-  CFormControl,
+  CFormInput,
   CInputGroup,
   CInputGroupText,
   CRow,
@@ -20,7 +21,7 @@ const Login = () => {
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
-          <CCol md="8">
+          <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
@@ -29,27 +30,27 @@ const Login = () => {
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
-                        <CIcon name="cil-user" />
+                        <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormControl placeholder="Username" autoComplete="username" />
+                      <CFormInput placeholder="Username" autoComplete="username" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
-                        <CIcon name="cil-lock-locked" />
+                        <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
-                      <CFormControl
+                      <CFormInput
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs="6">
+                      <CCol xs={6}>
                         <CButton color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
-                      <CCol xs="6" className="text-right">
+                      <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
                           Forgot password?
                         </CButton>

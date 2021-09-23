@@ -8,7 +8,7 @@ import {
   CCollapse,
   CRow,
 } from '@coreui/react';
-import { DocsCallout, Example } from 'src/reusable';
+import { DocsCallout, DocsExample } from 'src/components';
 
 const Collapses = () => {
   const [visible, setVisible] = useState(false);
@@ -29,7 +29,7 @@ const Collapses = () => {
             <p className="text-medium-emphasis small">
               You can use a link or a button component.
             </p>
-            <Example href="components/collapse">
+            <DocsExample href="components/collapse">
               <CButton
                 href="#"
                 onClick={(e) => {
@@ -49,7 +49,7 @@ const Collapses = () => {
                   </CCardBody>
                 </CCard>
               </CCollapse>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -62,7 +62,7 @@ const Collapses = () => {
             <p className="text-medium-emphasis small">
               A <code>&lt;CButton&gt;</code> can show and hide multiple elements.
             </p>
-            <Example href="components/collapse#multiple-targets">
+            <DocsExample href="components/collapse#multiple-targets">
               <CButton onClick={() => setVisibleA(!visibleA)}>
                 Toggle first element
               </CButton>
@@ -78,7 +78,7 @@ const Collapses = () => {
                 Toggle both elements
               </CButton>
               <CRow>
-                <CCol xs="6">
+                <CCol xs={6}>
                   <CCollapse visible={visibleA}>
                     <CCard className="mt-3">
                       <CCardBody>
@@ -90,7 +90,7 @@ const Collapses = () => {
                     </CCard>
                   </CCollapse>
                 </CCol>
-                <CCol xs="6">
+                <CCol xs={6}>
                   <CCollapse visible={visibleB}>
                     <CCard className="mt-3">
                       <CCardBody>
@@ -103,7 +103,7 @@ const Collapses = () => {
                   </CCollapse>
                 </CCol>
               </CRow>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>

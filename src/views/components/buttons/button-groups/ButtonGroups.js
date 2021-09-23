@@ -13,12 +13,12 @@ import {
   CDropdownMenu,
   CDropdownToggle,
   CFormCheck,
-  CFormControl,
+  CFormInput,
   CInputGroup,
   CInputGroupText,
   CRow,
 } from '@coreui/react';
-import { DocsCallout, Example } from 'src/reusable';
+import { DocsCallout, DocsExample } from 'src/components';
 
 const ButtonGroups = () => {
   return (
@@ -36,18 +36,18 @@ const ButtonGroups = () => {
               Wrap a series of <code>&lt;CButton&gt;</code> components in{' '}
               <code>&lt;CButtonGroup&gt;</code>.{' '}
             </p>
-            <Example href="components/button-group">
+            <DocsExample href="components/button-group">
               <CButtonGroup role="group" aria-label="Basic example">
                 <CButton color="primary">Left</CButton>
                 <CButton color="primary">Middle</CButton>
                 <CButton color="primary">Right</CButton>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
             <p>
               These classes can also be added to groups of links, as an alternative to the{' '}
               <code>&lt;CNav&gt;</code> components.
             </p>
-            <Example href="components/button-group">
+            <DocsExample href="components/button-group">
               <CButtonGroup>
                 <CButton href="#" color="primary" active>
                   Active link
@@ -59,7 +59,7 @@ const ButtonGroups = () => {
                   Link
                 </CButton>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -69,13 +69,13 @@ const ButtonGroups = () => {
             <strong>React Button Group</strong> <span>Mixed styles</span>
           </CCardHeader>
           <CCardBody>
-            <Example href="components/button-group#mixed-styles">
+            <DocsExample href="components/button-group#mixed-styles">
               <CButtonGroup role="group" aria-label="Basic mixed styles example">
                 <CButton color="danger">Left</CButton>
                 <CButton color="warning">Middle</CButton>
                 <CButton color="success">Right</CButton>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -85,7 +85,7 @@ const ButtonGroups = () => {
             <strong>React Button Group</strong> <span>Outlined styles</span>
           </CCardHeader>
           <CCardBody>
-            <Example href="components/button-group#outlined-styles">
+            <DocsExample href="components/button-group#outlined-styles">
               <CButtonGroup role="group" aria-label="Basic outlined example">
                 <CButton color="primary" variant="outline">
                   Left
@@ -97,7 +97,7 @@ const ButtonGroups = () => {
                   Right
                 </CButton>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -112,37 +112,33 @@ const ButtonGroups = () => {
               Combine button-like checkbox and radio toggle buttons into a seamless
               looking button group.
             </p>
-            <Example href="components/button-group#checkbox-and-radio-button-groups">
+            <DocsExample href="components/button-group#checkbox-and-radio-button-groups">
               <CButtonGroup role="group" aria-label="Basic checkbox toggle button group">
                 <CFormCheck
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   id="btncheck1"
                   autoComplete="off"
                   label="Checkbox 1"
                 />
                 <CFormCheck
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   id="btncheck2"
                   autoComplete="off"
                   label="Checkbox 2"
                 />
                 <CFormCheck
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   id="btncheck3"
                   autoComplete="off"
                   label="Checkbox 3"
                 />
               </CButtonGroup>
-            </Example>
-            <Example href="components/button-group#checkbox-and-radio-button-groups">
+            </DocsExample>
+            <DocsExample href="components/button-group#checkbox-and-radio-button-groups">
               <CButtonGroup role="group" aria-label="Basic checkbox toggle button group">
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   name="btnradio"
                   id="btnradio1"
                   autoComplete="off"
@@ -150,8 +146,7 @@ const ButtonGroups = () => {
                 />
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   name="btnradio"
                   id="btnradio2"
                   autoComplete="off"
@@ -159,15 +154,14 @@ const ButtonGroups = () => {
                 />
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonVariant="outline"
+                  button={{ variant: 'outline' }}
                   name="btnradio"
                   id="btnradio3"
                   autoComplete="off"
                   label="Radio 3"
                 />
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -182,7 +176,7 @@ const ButtonGroups = () => {
               components. Use utility classes as needed to space out groups, buttons, and
               more.
             </p>
-            <Example href="components/button-group#button-toolbar">
+            <DocsExample href="components/button-group#button-toolbar">
               <CButtonToolbar role="group" aria-label="Toolbar with button groups">
                 <CButtonGroup className="me-2" role="group" aria-label="First group">
                   <CButton color="primary">1</CButton>
@@ -199,13 +193,13 @@ const ButtonGroups = () => {
                   <CButton color="info">8</CButton>
                 </CButtonGroup>
               </CButtonToolbar>
-            </Example>
+            </DocsExample>
             <p>
               Feel free to combine input groups with button groups in your toolbars.
               Similar to the example above, you’ll likely need some utilities through to
               space items correctly.
             </p>
-            <Example href="components/button-group#button-toolbar">
+            <DocsExample href="components/button-group#button-toolbar">
               <CButtonToolbar
                 className="mb-3"
                 role="group"
@@ -227,7 +221,7 @@ const ButtonGroups = () => {
                 </CButtonGroup>
                 <CInputGroup>
                   <CInputGroupText>@</CInputGroupText>
-                  <CFormControl
+                  <CFormInput
                     placeholder="Input group example"
                     aria-label="Input group example"
                     aria-describedby="btnGroupAddon"
@@ -255,14 +249,14 @@ const ButtonGroups = () => {
                 </CButtonGroup>
                 <CInputGroup>
                   <CInputGroupText>@</CInputGroupText>
-                  <CFormControl
+                  <CFormInput
                     placeholder="Input group example"
                     aria-label="Input group example"
                     aria-describedby="btnGroupAddon"
                   />
                 </CInputGroup>
               </CButtonToolbar>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -278,7 +272,7 @@ const ButtonGroups = () => {
               <code>&lt;CButtonGroup&gt;</code>&#39;s, including each one when nesting
               multiple groups.
             </p>
-            <Example href="components/button-group#sizing">
+            <DocsExample href="components/button-group#sizing">
               <CButtonGroup size="lg" role="group" aria-label="Large button group">
                 <CButton color="dark" variant="outline">
                   Left
@@ -314,7 +308,7 @@ const ButtonGroups = () => {
                   Right
                 </CButton>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -329,7 +323,7 @@ const ButtonGroups = () => {
               <code>&lt;CButtonGroup&gt;</code> when you need dropdown menus combined with
               a series of buttons.
             </p>
-            <Example href="components/button-group#nesting">
+            <DocsExample href="components/button-group#nesting">
               <CButtonGroup role="group" aria-label="Button group with nested dropdown">
                 <CButton color="primary">1</CButton>
                 <CButton color="primary">2</CButton>
@@ -344,7 +338,7 @@ const ButtonGroups = () => {
                   </CDropdownMenu>
                 </CDropdown>
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
@@ -359,7 +353,7 @@ const ButtonGroups = () => {
               horizontally.{' '}
               <strong>Split button dropdowns are not supported here.</strong>
             </p>
-            <Example href="components/button-group/#vertical-variation">
+            <DocsExample href="components/button-group/#vertical-variation">
               <CButtonGroup vertical role="group" aria-label="Vertical button group">
                 <CButton color="dark">Button</CButton>
                 <CButton color="dark">Button</CButton>
@@ -369,8 +363,8 @@ const ButtonGroups = () => {
                 <CButton color="dark">Button</CButton>
                 <CButton color="dark">Button</CButton>
               </CButtonGroup>
-            </Example>
-            <Example href="components/button-group/#vertical-variation">
+            </DocsExample>
+            <DocsExample href="components/button-group/#vertical-variation">
               <CButtonGroup vertical role="group" aria-label="Vertical button group">
                 <CButton color="primary">Button</CButton>
                 <CButton color="primary">Button</CButton>
@@ -417,14 +411,12 @@ const ButtonGroups = () => {
                   </CDropdownMenu>
                 </CDropdown>
               </CButtonGroup>
-            </Example>
-            <Example href="components/button-group/#vertical-variation">
+            </DocsExample>
+            <DocsExample href="components/button-group/#vertical-variation">
               <CButtonGroup vertical role="group" aria-label="Vertical button group">
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonColor="danger"
-                  buttonVariant="outline"
+                  button={{ color: 'danger', variant: 'outline' }}
                   name="vbtnradio"
                   id="vbtnradio1"
                   autoComplete="off"
@@ -433,9 +425,7 @@ const ButtonGroups = () => {
                 />
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonColor="danger"
-                  buttonVariant="outline"
+                  button={{ color: 'danger', variant: 'outline' }}
                   name="vbtnradio"
                   id="vbtnradio2"
                   autoComplete="off"
@@ -443,16 +433,14 @@ const ButtonGroups = () => {
                 />
                 <CFormCheck
                   type="radio"
-                  button
-                  buttonColor="danger"
-                  buttonVariant="outline"
+                  button={{ color: 'danger', variant: 'outline' }}
                   name="vbtnradio"
                   id="vbtnradio3"
                   autoComplete="off"
                   label="Radio 3"
                 />
               </CButtonGroup>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>

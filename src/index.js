@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { store } from 'src/store/index';
 
-import { icons } from './assets/icons';
+// import store from './store';
+import { store } from './store/index';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'react-app-polyfill/stable';
 import 'core-js';
-// import store from './store'
-React.icons = icons;
 
 ReactDOM.render(
   <Provider store={store}>

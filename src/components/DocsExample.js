@@ -1,11 +1,12 @@
 import React from 'react';
+import { cilCode, cilMediaPlay } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import { CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
 import PropTypes from 'prop-types';
 
 import packageJson from '../../package.json';
 
-const Example = (props) => {
+const DocsExample = (props) => {
   const { children, href } = props;
 
   const _href = `https://coreui.io/react/docs/${packageJson.config.coreui_library_short_version}/${href}`;
@@ -15,13 +16,13 @@ const Example = (props) => {
       <CNav variant="tabs">
         <CNavItem>
           <CNavLink href="#" active>
-            <CIcon name="cil-media-play" className="me-2" />
+            <CIcon icon={cilMediaPlay} className="me-2" />
             Preview
           </CNavLink>
         </CNavItem>
         <CNavItem>
           <CNavLink href={_href} target="_blank">
-            <CIcon name="cil-code" className="me-2" />
+            <CIcon icon={cilCode} className="me-2" />
             Code
           </CNavLink>
         </CNavItem>
@@ -35,9 +36,9 @@ const Example = (props) => {
   );
 };
 
-Example.propTypes = {
+DocsExample.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
 };
 
-export default React.memo(Example);
+export default React.memo(DocsExample);

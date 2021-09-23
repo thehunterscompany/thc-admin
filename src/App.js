@@ -18,7 +18,6 @@ const Register = React.lazy(() => import('./views/pages/register/Register'));
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'));
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 const Simulador = React.lazy(() => import('./views/pages/simulador/Simulador'));
-
 class App extends Component {
   render() {
     return (
@@ -50,8 +49,9 @@ class App extends Component {
               render={(props) => <Page500 {...props} />}
             />
             <Route
+              exact
               path="/simulador"
-              name="Simulator Page"
+              name="Simulador"
               render={(props) => <Simulador {...props} />}
             />
             <Route

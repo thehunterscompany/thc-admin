@@ -1,13 +1,12 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  sidebarShow: false,
+  sidebarShow: true,
 };
 
 const changeState = (state = initialState, { type, ...rest }) => {
   switch (type) {
     case 'set':
-      console.log({ ...state, ...rest });
       return { ...state, ...rest };
     default:
       return state;

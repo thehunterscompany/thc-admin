@@ -1,14 +1,5 @@
 module.exports = {
   // parser: '@typescript-eslint/parser', // Specifies the ESLint parser
-  // parser: 'babel-eslint',
-  plugins: ['react', 'import', 'simple-import-sort'],
-  extends: [
-    'prettier',
-    'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
-    // 'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    // 'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-  ],
   parserOptions: {
     ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
@@ -19,15 +10,22 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      webpack: {
-        config: {
-          resolve: {
-            extensions: ['.js', '.jsx'],
-          },
-        },
+      node: {
+        extensions: ['.js', '.jsx'],
       },
     },
+    react: {
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
   },
+  extends: [
+    'react-app',
+    'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
+    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+  ],
+  plugins: ['react', 'import', 'simple-import-sort'],
+
+  // plugins: ['react-hooks', 'react', 'import', 'simple-import-sort'],
   rules: {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
@@ -58,7 +56,6 @@ module.exports = {
     {
       files: ['*.jsx', '*.js'],
       rules: {
-        'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
         'import/first': 'error',
         'import/newline-after-import': 'error',
@@ -79,10 +76,4 @@ module.exports = {
       },
     },
   ],
-  settings: {
-    react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
-    },
-  },
-  ignorePatterns: ['node_modules', 'dist', 'dist-plugins', 'dist-tiles'],
 };
