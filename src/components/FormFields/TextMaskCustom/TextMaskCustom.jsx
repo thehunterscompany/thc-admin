@@ -43,6 +43,14 @@ function TextMaskCustom(props) {
           decimalLimit: 2,
         };
         break;
+      default:
+        setting = {
+          prefix: '',
+          suffix: `${code}`,
+          integerLimit: 2,
+          allowDecimal: true,
+          decimalLimit: 2,
+        };
     }
 
     return setting;

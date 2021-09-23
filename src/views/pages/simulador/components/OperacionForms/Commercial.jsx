@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Grid, InputAdornment, Typography } from '@material-ui/core';
+import React from 'react';
+import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import {

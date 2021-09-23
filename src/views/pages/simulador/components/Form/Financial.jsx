@@ -43,7 +43,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
         }
       }
     }
-  }, [currencySymbol]);
+  }, [currencySymbol, setFieldValue, values.earnings, values.passive, values.tenants]);
 
   const renderExtraTenants = () => {
     let array = [];

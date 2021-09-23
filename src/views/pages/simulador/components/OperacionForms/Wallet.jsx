@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import { DateField, InputField, MaskedInput } from '../../../../../components/FormFields';
+import { InputField, MaskedInput } from '../../../../../components/FormFields';
 
 const WalletForm = ({ formField, values, currencySymbol }) => {
   const { value, currentDeal, currentDealMonth, institution, time, rates } = formField;

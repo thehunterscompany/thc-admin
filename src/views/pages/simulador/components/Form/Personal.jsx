@@ -56,7 +56,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     } else {
       setFieldValue('telephone', '');
     }
-  }, [values.country]);
+  }, [setFieldValue, values.country, values.telephone]);
 
   const {
     firstNames,

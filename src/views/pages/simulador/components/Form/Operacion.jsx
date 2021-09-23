@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import useCurrencySymbol from '../../hooks/useCurrencySymbol';

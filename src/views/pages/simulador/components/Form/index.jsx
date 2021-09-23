@@ -112,6 +112,8 @@ const SimulatorForm = () => {
           case 3:
             obj = { ...obj, ...operationalValues.wallet };
             break;
+          default:
+            obj = { ...obj };
         }
         handleAddExtra(obj);
       }
