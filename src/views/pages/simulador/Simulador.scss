@@ -1,0 +1,46 @@
+._form-spaces {
+  background: #fff;
+  // margin-top: 2em;
+  margin-bottom: 1em;
+  padding: 2%;
+  min-width: 700px;
+
+  h1 {
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+}
+
+._simulador-container {
+  display: flex;
+  height: auto;
+  min-height: 100vh;
+  align-items: center;
+  gap: 2.5em;
+  flex-direction: column;
+
+  ._eliminar-x::before {
+    content: '×';
+    font-size: 20px;
+    color: #e72c67;
+    margin-bottom: 2px;
+  }
+
+  ._titular-space {
+    position: absolute;
+    padding-left: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 36px;
+
+    strong {
+      align-items: center;
+      display: inline-flex;
+      padding: 15px 0px;
+      margin-top: -13px;
+    }
+  }
+}

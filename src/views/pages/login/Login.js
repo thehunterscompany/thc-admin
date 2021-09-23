@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { cilLockLocked, cilUser } from '@coreui/icons';
+import CIcon from '@coreui/icons-react';
 import {
   CButton,
   CCard,
@@ -8,19 +10,18 @@ import {
   CCol,
   CContainer,
   CForm,
-  CFormControl,
+  CFormInput,
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+} from '@coreui/react';
 
 const Login = () => {
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
-          <CCol md="8">
+          <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
@@ -29,27 +30,27 @@ const Login = () => {
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
-                        <CIcon name="cil-user" />
+                        <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormControl placeholder="Username" autoComplete="username" />
+                      <CFormInput placeholder="Username" autoComplete="username" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
-                        <CIcon name="cil-lock-locked" />
+                        <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
-                      <CFormControl
+                      <CFormInput
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs="6">
+                      <CCol xs={6}>
                         <CButton color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
-                      <CCol xs="6" className="text-right">
+                      <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
                           Forgot password?
                         </CButton>
@@ -63,8 +64,8 @@ const Login = () => {
                   <div>
                     <h2>Sign up</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <Link to="/register">
                       <CButton color="primary" className="mt-3" active tabIndex={-1}>
@@ -79,7 +80,7 @@ const Login = () => {
         </CRow>
       </CContainer>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

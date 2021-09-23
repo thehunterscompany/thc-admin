@@ -1,5 +1,5 @@
-import React from 'react'
-import { CCard, CCardBody, CCol, CCardHeader, CRow } from '@coreui/react'
+import React from 'react';
+import { CCard, CCardBody, CCardHeader, CCol, CRow } from '@coreui/react';
 import {
   CChartBar,
   CChartDoughnut,
@@ -7,11 +7,11 @@ import {
   CChartPie,
   CChartPolarArea,
   CChartRadar,
-} from '@coreui/react-chartjs'
-import { DocsLink } from 'src/reusable'
+} from '@coreui/react-chartjs';
+import { DocsLink } from 'src/components';
 
 const Charts = () => {
-  const random = () => Math.round(Math.random() * 100)
+  const random = () => Math.round(Math.random() * 100);
 
   return (
     <CRow>
@@ -52,7 +52,15 @@ const Charts = () => {
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: [
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                    ],
                   },
                   {
                     label: 'My Second dataset',
@@ -60,7 +68,15 @@ const Charts = () => {
                     borderColor: 'rgba(151, 187, 205, 1)',
                     pointBackgroundColor: 'rgba(151, 187, 205, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: [
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                      random(),
+                    ],
                   },
                 ],
               }}
@@ -115,7 +131,13 @@ const Charts = () => {
                 datasets: [
                   {
                     data: [11, 16, 7, 3, 14],
-                    backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56', '#E7E9ED', '#36A2EB'],
+                    backgroundColor: [
+                      '#FF6384',
+                      '#4BC0C0',
+                      '#FFCE56',
+                      '#E7E9ED',
+                      '#36A2EB',
+                    ],
                   },
                 ],
               }}
@@ -166,7 +188,7 @@ const Charts = () => {
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Charts
+export default Charts;
