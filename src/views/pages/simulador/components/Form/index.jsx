@@ -146,8 +146,8 @@ const SimulatorForm = () => {
 
   const handleBack = (values) => {
     setInitialValues(values);
+    setSkip(activeStep - 1 === 3 ? true : false);
 
-    setSkip(activeStep === 4 && values?.simulation === 2 ? true : false);
     setActiveStep(
       activeStep === 3 && values?.simulation === 2 ? activeStep - 2 : activeStep - 1,
     );
@@ -189,7 +189,7 @@ const SimulatorForm = () => {
                 enableReinitialize
               >
                 {({ handleChange, isSubmitting, values, setFieldValue }) => {
-                  console.log(values);
+                  // console.log(values);
 
                   return (
                     <Form onChange={handleChange} id={formId}>

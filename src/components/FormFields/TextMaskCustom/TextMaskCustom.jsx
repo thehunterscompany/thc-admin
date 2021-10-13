@@ -30,7 +30,7 @@ function TextMaskCustom(props) {
       case 'currency':
         setting = {
           prefix: `${code} `,
-          includeThousandsSeparator: false,
+          includeThousandsSeparator: ',',
         };
         break;
 
@@ -41,6 +41,13 @@ function TextMaskCustom(props) {
           integerLimit: 2,
           allowDecimal: true,
           decimalLimit: 2,
+        };
+        break;
+
+      default:
+        setting = {
+          prefix: '',
+          suffix: '',
         };
         break;
     }

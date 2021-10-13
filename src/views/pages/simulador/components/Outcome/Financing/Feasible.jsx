@@ -47,8 +47,9 @@ const Feasible = ({ values }) => {
     if (Object.keys(values).length) {
       const { value, currentDeal, time } = values;
       let [symbol, totalValue] = value.split(' ');
-      let financingValue = currentDeal.split(' ')[1];
-      let percent = (financingValue / totalValue).toFixed(4) * 100;
+      totalValue = Number(totalValue.replace(/\D/g, ''));
+      let financingValue = Number(currentDeal.replace(/\D/g, ''));
+      let percent = ((financingValue / totalValue).toFixed(4) * 100).toFixed(2);
       setBottomData([
         {
           value: {
