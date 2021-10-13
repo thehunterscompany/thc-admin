@@ -79,8 +79,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint \"src/**/*.js\" --fix",
-    "lint-fix": "eslint --fix --ext .js,.jsx .",
+    "lint": "eslint \"src/**/*.js*\" --fix",
     "test": "react-scripts test",
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
