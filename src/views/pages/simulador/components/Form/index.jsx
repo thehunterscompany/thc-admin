@@ -12,6 +12,7 @@ import {
   operationalValues,
   personalValues,
 } from '../FormModel/simulationInitialValues';
+import { personalValidation } from '../FormModel/validationSchema';
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
 import CredentialFields from './Credentials';
@@ -83,10 +84,12 @@ const SimulatorForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [skip, setSkip] = useState(false);
   const [initialValues, setInitialValues] = useState(personalValues);
+  const [activeSchema, setActiveSchema] = useState(personalValidation);
   const isLastStep = activeStep === steps.length;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
   const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     if (isLastStep) {
       // _submitForm(values, actions);
@@ -191,11 +194,11 @@ const SimulatorForm = () => {
                   setInitialValues(values);
                   handleSubmit(values, actions);
                 }}
-                validationSchema={''}
+                validationSchema={activeSchema}
                 enableReinitialize
               >
                 {({ handleChange, isSubmitting, values, setFieldValue }) => {
-                  // console.log(values);
+                  console.log(values);
 
                   return (
                     <Form onChange={handleChange} id={formId}>
