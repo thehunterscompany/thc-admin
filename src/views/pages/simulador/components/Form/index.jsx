@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
 import { Button, CircularProgress, Step, StepLabel, Stepper } from '@material-ui/core';
 import { Form, Formik } from 'formik';
-import { simulation } from 'src/store/actions';
+import { lendingSimulation, simulation } from 'src/store/actions';
 
 import formFields from '../FormModel/simulationFormModel';
 import {
@@ -65,7 +65,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
       );
   } else {
     if (step === 3) {
-      return <Lending income={values.earnings} tenants={values.tenants} />;
+      return <Lending />;
     }
 
     if (step === 4)
@@ -118,20 +118,26 @@ const SimulatorForm = () => {
         handleAddExtra(obj);
       }
 
-      if (activeStep + 1 === 2 && values?.simulation === 2) {
-        handleAddExtra(credentialValues);
-        setSkip(true);
-      } else if (activeStep + 1 === 3 && values?.simulation === 1) {
-        dispatch(
-          simulation(
-            values.currentDeal,
-            values.time,
-            '8.5%',
-            values.earnings,
-            values.tenants,
-          ),
-        );
-        setSkip(true);
+      if (values?.simulation === 2) {
+        if (activeStep + 1 === 2) {
+          setSkip(true);
+          dispatch(lendingSimulation(values.earnings, values.tenants, '8.5%'));
+        } else if (activeStep + 1 === 3) {
+          handleAddExtra(credentialValues);
+        }
+      } else {
+        if (activeStep + 1 === 3) {
+          dispatch(
+            simulation(
+              values.currentDeal,
+              values.time,
+              '8.5%',
+              values.earnings,
+              values.tenants,
+            ),
+          );
+          setSkip(true);
+        }
       }
 
       setActiveStep(

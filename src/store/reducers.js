@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
 import changeState from './dashboard/sidebar/reducer';
+import PmtSimulationState from './financing/reducer';
+import LendingSimulationState from './lending/reducer';
 import loginState from './login/reducer';
-import PmtSimulationState from './pmt/reducer';
 import registrationState from './registration/reducer';
 import roleState from './roles/reducer';
 
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   loginState,
   changeState,
   PmtSimulationState,
+  LendingSimulationState,
 });
 
 export default reducers;

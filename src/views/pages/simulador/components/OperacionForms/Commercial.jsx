@@ -38,9 +38,10 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
             name={realEstateType.name}
             label={realEstateType.label}
             data={[
-              { value: 'Local', label: 'Local' },
-              { value: 'Oficina', label: 'Oficina' },
+              { value: 'Bodega', label: 'Bodega' },
               { value: 'Consultorio', label: 'Consultorio' },
+              { value: 'Oficina', label: 'Oficina' },
+              { value: 'Local', label: 'Local' },
             ]}
             fullWidth
             style={{ marginTop: '25px' }}

@@ -64,7 +64,7 @@ const formFields = {
       },
       laborTime: {
         name: 'laborTime',
-        label: 'Actividad Laboral',
+        label: 'Antiguedad Laboral',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       earnings: {

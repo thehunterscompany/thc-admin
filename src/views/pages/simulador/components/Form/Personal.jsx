@@ -11,7 +11,7 @@ import {
 } from '../../../../../components/FormFields';
 
 const simulationOptions = [
-  { value: 1, label: 'Calular Cuota' },
+  { value: 1, label: 'Calcular Cuota' },
   { value: 2, label: 'Cuanto me prestan' },
 ];
 
@@ -23,8 +23,7 @@ const rateSimulation = [
 
 const idType = [
   { value: 'Cedula de ciudadanía', label: 'Cedula de ciudadanía' },
-  { value: 'Cedula de extrangería', label: 'Cedula de extrangería' },
-  { value: 'Pasaporte', label: 'Pasaporte' },
+  { value: 'Cedula de extragería', label: 'Cedula de extragería' },
 ];
 
 const PersonalFields = ({ formField, values, setFieldValue }) => {
@@ -56,7 +55,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     } else {
       setFieldValue('telephone', '');
     }
-  }, [values.country]);
+  }, [setFieldValue, values.country, values.telephone]);
 
   const {
     firstNames,

@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
 
-const Lending = ({ income, tenants }) => {
-  const [value, setValue] = useState({ symbol: '', totalSum: '' });
-
-  useEffect(() => {
-    const { symbol, sum } = sumTotalEarnings(tenants, income);
-    setValue({ symbol: symbol, totalSum: Math.round(sum * 0.3) });
-  }, [income, tenants]);
+const Lending = () => {
+  const { maxLoanValue, symbol } = useSelector((state) => state.LendingSimulationState);
 
   return (
     <Grid
@@ -21,7 +16,7 @@ const Lending = ({ income, tenants }) => {
     >
       <h1>Enhorabuena!</h1>
       <h2>Puedes tener una financiación de hasta</h2>
-      <h2>{` ${value.symbol} ${value.totalSum
+      <h2>{` ${symbol} ${maxLoanValue
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</h2>
       <p>

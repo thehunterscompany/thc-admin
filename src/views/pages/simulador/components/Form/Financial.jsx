@@ -43,7 +43,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
         }
       }
     }
-  }, [currencySymbol]);
+  }, [currencySymbol, setFieldValue, values.earnings, values.passive, values.tenants]);
 
   const renderExtraTenants = () => {
     let array = [];
@@ -51,7 +51,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
       array.push(
         <Grid container item spacing={3}>
           <div className="_titular-space">
-            <strong>Titular {i + 1}</strong>
+            <strong>Titular {i + 2}</strong>
             <Button
               className={`_eliminar-x ${classes.button}`}
               onClick={() => handleRemoveClick(i)}
@@ -122,6 +122,9 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
   return (
     <React.Fragment>
       <Grid container spacing={3}>
+        <div className="_titular-space">
+          <strong>Titular {1}</strong>
+        </div>
         <Grid item xs={12} md={6}>
           <InputField
             name={mainEmployment.name}
@@ -170,7 +173,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
         {renderExtraTenants().map((tenant, index) => (
           <React.Fragment key={index}>{tenant}</React.Fragment>
         ))}
-        {extraTenants < 4 ? (
+        {extraTenants < 3 ? (
           <Grid item xs={12}>
             <FormControl>
               <FormControlLabel

@@ -3,25 +3,25 @@ import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
 import { SIMULATION_FAILED, SIMULATION_PASS } from './action-types';
 
 const calculatePMT = (amount, duration, rate) => {
-  rate = parseFloat(rate) / 100;
+  rate = parseFloat(rate) / 100 / 12;
   duration = duration * 12;
   amount = Number(amount.replace(/\D/g, ''));
 
-  let pmt = Math.round((amount * rate) / 12 / (1 - (1 + rate / 12) ** (-1 * duration)));
+  let pmt = Math.round((amount * rate) / (1 - (1 + rate) ** (-1 * duration)));
   return pmt;
 };
 
 const calculateMonthlyRate = (rate) => {
   rate = parseFloat(rate) / 100;
-  let tem = (1 + rate) ** (1 / 12) - 1;
-  let roundTem = +parseFloat(tem).toFixed(4);
+  const tem = (1 + rate) ** (1 / 12) - 1;
+  const roundTem = +parseFloat(tem).toFixed(4);
   return (roundTem * 100).toFixed(2);
 };
 
 export const simulation = (amount, duration, rate, income, tenants) => {
   const { symbol, sum } = sumTotalEarnings(tenants, income);
-  let pmt = calculatePMT(amount, duration, rate);
-  let tem = calculateMonthlyRate(rate);
+  const pmt = calculatePMT(amount, duration, rate);
+  const tem = calculateMonthlyRate(rate);
   if (Math.round(sum * 0.3) < pmt) {
     return {
       type: SIMULATION_FAILED,
