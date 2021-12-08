@@ -11,7 +11,7 @@ const MaskedInput = (props) => {
 
   const useStyles = makeStyles({
     root: {
-      width: width ? width : '20vw',
+      width: width ? width : '100%',
     },
 
     label: {

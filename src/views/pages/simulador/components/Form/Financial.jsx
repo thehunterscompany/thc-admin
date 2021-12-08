@@ -90,7 +90,6 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               name={`tenants[${i}].earnings`}
               label={earnings.label}
               code={currencySymbol}
-              width="41.5vw"
               type="currency"
               value={
                 values.tenants.length && values.tenants[i]

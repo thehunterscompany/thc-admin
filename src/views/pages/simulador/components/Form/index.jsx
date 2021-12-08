@@ -219,9 +219,9 @@ const SimulatorForm = () => {
                         )}
                         <div className={classes.wrapper}>
                           <Button
-                            // disabled={
-                            //   isSubmitting || !values.checkedA || !values.checkedB
-                            // }
+                            disabled={
+                              isSubmitting || !values.checkedA || !values.checkedB
+                            }
                             type="submit"
                             variant="contained"
                             color="primary"
