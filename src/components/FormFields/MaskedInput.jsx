@@ -76,4 +76,4 @@ MaskedInput.propTypes = {
   width: PropTypes.string,
 };
 
-export default MaskedInput;
+export default React.memo(MaskedInput);

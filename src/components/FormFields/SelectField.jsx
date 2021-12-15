@@ -46,4 +46,4 @@ SelectField.propTypes = {
   data: PropTypes.array.isRequired,
 };
 
-export default SelectField;
+export default React.memo(SelectField);

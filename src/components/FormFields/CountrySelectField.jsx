@@ -71,7 +71,7 @@ const CountrySelect = (props) => {
       classes={{
         option: classes.option,
       }}
-      onChange={(e, newValue) => {
+      onChange={(_e, newValue) => {
         setValue(newValue);
         setFieldValue(
           'country',
@@ -80,7 +80,7 @@ const CountrySelect = (props) => {
             : { code: '', label: '', phone: '', currencyCode: '' },
         );
       }}
-      onInputChange={(event, newInputValue) => {
+      onInputChange={(_event, newInputValue) => {
         const country = (element) => element.label === newInputValue;
         const index = countries.findIndex(country);
         if (index > -1) {

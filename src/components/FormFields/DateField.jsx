@@ -6,7 +6,7 @@ import { useField } from 'formik';
 
 import 'date-fns';
 
-export default function DateField(props) {
+const DateField = (props) => {
   const [field, meta, helper] = useField(props);
   const { touched, error } = meta;
   const { setValue } = helper;
@@ -50,4 +50,6 @@ export default function DateField(props) {
       </MuiPickersUtilsProvider>
     </Grid>
   );
-}
+};
+
+export default React.memo(DateField);
