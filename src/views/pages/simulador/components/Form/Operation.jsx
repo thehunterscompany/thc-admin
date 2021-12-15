@@ -1,12 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import useCurrencySymbol from '../../hooks/useCurrencySymbol';
-import { CommercialForm, RealEstateForm, WalletForm } from '../OperacionForms';
+import { CommercialForm, RealEstateForm, WalletForm } from '../OperationForms';
 
 const OperationalFields = ({ formField, values }) => {
-  const currencySymbol = useCurrencySymbol(values.country);
-
   const formSelector = (simulationType) => {
     let component;
     const { value, currentDeal, time } = formField;
@@ -16,7 +13,7 @@ const OperationalFields = ({ formField, values }) => {
         <RealEstateForm
           formField={{ value, currentDeal, time, ...formField.realEstate }}
           values={values}
-          currencySymbol={currencySymbol}
+          currencySymbol={'COP'}
         />
       );
     if (simulationType === 2)
@@ -24,7 +21,7 @@ const OperationalFields = ({ formField, values }) => {
         <CommercialForm
           formField={{ value, currentDeal, time, ...formField.commercial }}
           values={values}
-          currencySymbol={currencySymbol}
+          currencySymbol={'COP'}
         />
       );
 
@@ -33,7 +30,7 @@ const OperationalFields = ({ formField, values }) => {
         <WalletForm
           formField={{ value, currentDeal, time, ...formField.wallet }}
           values={values}
-          currencySymbol={currencySymbol}
+          currencySymbol={'COP'}
         />
       );
 

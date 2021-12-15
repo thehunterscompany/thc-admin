@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import {
-  CountrySelect,
+  CitySelect,
   DateField,
   InputField,
   MaskedInput,
@@ -32,31 +32,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     checkedB: values?.checkedB ? values.checkedB : false,
   });
 
-  const [phoneCountryCode, setPhoneCountryCode] = useState('');
-
-  useEffect(() => {
-    if (values.country['phone']) {
-      if (values.country?.phone.length >= 1) {
-        setPhoneCountryCode(values.country?.phone);
-      } else {
-        setPhoneCountryCode('');
-      }
-    } else {
-      setPhoneCountryCode('');
-    }
-  }, [values.country]);
-
-  useEffect(() => {
-    if (values.country) {
-      if (values.telephone) {
-        let number = values.telephone.split(' ')[1];
-        setFieldValue('telephone', `+${values.country.phone} ${number}`);
-      }
-    } else {
-      setFieldValue('telephone', '');
-    }
-  }, [setFieldValue, values.country, values.telephone]);
-
   const {
     firstNames,
     lastNames,
@@ -64,7 +39,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     documentId,
     dateOfBirth,
     email,
-    country,
+    location,
     telephone,
     simulation,
     simulationType,
@@ -83,7 +58,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={firstNames.label}
             type="text"
             fullWidth
-            value={values.firstNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -92,7 +66,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={lastNames.label}
             type="text"
             fullWidth
-            value={values.lastNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -102,7 +75,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             data={idType}
             fullWidth
             style={{ marginTop: '25px' }}
-            value={values.documentType}
           />
         </Grid>
 
@@ -112,7 +84,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={documentId.label}
             type="text"
             fullWidth
-            value={values.documentId}
           />
         </Grid>
 
@@ -129,22 +100,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={email.name}
-            label={email.label}
-            type="text"
-            fullWidth
-            value={values.email}
-          />
+          <InputField name={email.name} label={email.label} type="text" fullWidth />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <CountrySelect
-            name={country.name}
-            label={country.label}
+          <CitySelect
+            name={location.name}
+            label={location.label}
             fullWidth
             setFieldValue={setFieldValue}
-            value={values.country}
           />
         </Grid>
 
@@ -152,7 +116,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={telephone.name}
             label={telephone.label}
-            code={phoneCountryCode}
+            code={'57'}
             type="phone"
             value={values.telephone}
           />
@@ -164,7 +128,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={simulation.label}
             data={simulationOptions}
             fullWidth
-            value={values.simulation}
           />
         </Grid>
 
@@ -175,7 +138,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
               label={simulationType.label}
               data={rateSimulation}
               fullWidth
-              value={values.simulationType}
             />
           </Grid>
         ) : null}

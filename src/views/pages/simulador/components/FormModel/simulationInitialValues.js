@@ -5,25 +5,25 @@ const {
 } = formFields;
 
 const personalValues = {
-  [personal.firstNames.name]: '',
-  [personal.lastNames.name]: '',
-  [personal.documentType.name]: '',
-  [personal.documentId.name]: '',
-  [personal.dateOfBirth.name]: '',
-  [personal.email.name]: '',
-  [personal.country.name]: '',
-  [personal.telephone.name]: '',
-  [personal.simulation.name]: '',
-  [personal.simulationType.name]: '',
+  [personal.firstNames.name]: 'A',
+  [personal.lastNames.name]: 'B',
+  [personal.documentType.name]: 'Cedula de ciudadanía',
+  [personal.documentId.name]: '1341413',
+  [personal.dateOfBirth.name]: '2021-12-06T17:07:00.000Z',
+  [personal.email.name]: 'a@gmail.com',
+  [personal.location.name]: { state: 'Atlántico', label: 'Barranquilla' },
+  [personal.telephone.name]: '124',
+  [personal.simulation.name]: 2,
+  [personal.simulationType.name]: 1,
   checkedA: false,
   checkedB: false,
 };
 
 const financialValues = {
-  [financial.mainEmployment.name]: '',
-  [financial.laborTime.name]: '',
-  [financial.earnings.name]: '',
-  [financial.passive.name]: '',
+  [financial.mainEmployment.name]: '134',
+  [financial.laborTime.name]: '1234',
+  [financial.earnings.name]: '1234',
+  [financial.passive.name]: '1234',
   [financial.tenants.name]: [],
 };
 

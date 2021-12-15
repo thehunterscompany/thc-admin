@@ -1,19 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Grid, InputAdornment, Typography } from '@material-ui/core';
+import React from 'react';
+import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import {
-  InputField,
-  MaskedInput,
-  SelectField,
-} from '../../../../../components/FormFields';
+import { InputField, MaskedInput } from '../../../../../components/FormFields';
 
-const CommercialForm = ({ formField, values, currencySymbol }) => {
-  const { value, currentDeal, realEstateType, time } = formField;
+const WalletForm = ({ formField, values, currencySymbol }) => {
+  const { value, currentDeal, currentDealMonth, institution, time, rates } = formField;
 
   return (
     <React.Fragment>
-      <h2>Financiación inmuebles comerciales</h2>
+      <h2>Compra de cartera</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <MaskedInput
@@ -34,18 +30,22 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <SelectField
-            name={realEstateType.name}
-            label={realEstateType.label}
-            data={[
-              { value: 'Bodega', label: 'Bodega' },
-              { value: 'Consultorio', label: 'Consultorio' },
-              { value: 'Oficina', label: 'Oficina' },
-              { value: 'Local', label: 'Local' },
-            ]}
+          <MaskedInput
+            name={currentDealMonth.name}
+            label={currentDealMonth.label}
+            code={currencySymbol}
+            type="currency"
+            value={values.currentDealMonth}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <InputField
+            name={institution.name}
+            label={institution.label}
+            type="text"
             fullWidth
-            style={{ marginTop: '25px' }}
-            value={values.realEstateType}
+            value={values.institution}
           />
         </Grid>
 
@@ -66,16 +66,26 @@ const CommercialForm = ({ formField, values, currencySymbol }) => {
           />
         </Grid>
 
+        <Grid item xs={12} md={6}>
+          <MaskedInput
+            name={rates.name}
+            label={rates.label}
+            code="%"
+            type="percentage"
+            value={values.rates}
+          />
+        </Grid>
+
         <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );
 };
 
-CommercialForm.propTypes = {
+WalletForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
   currencySymbol: PropTypes.string,
 };
 
-export default CommercialForm;
+export default WalletForm;

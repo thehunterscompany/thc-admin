@@ -12,12 +12,19 @@ import {
   operationalValues,
   personalValues,
 } from '../FormModel/simulationInitialValues';
-import { personalValidation } from '../FormModel/validationSchema';
+import {
+  commercialValidation,
+  credentialValidation,
+  financialValidation,
+  personalValidation,
+  realEstateValidation,
+  walletValidation,
+} from '../FormModel/validationSchema';
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
 import CredentialFields from './Credentials';
 import FinancialFields from './Financial';
-import OperationalFields from './Operacion';
+import OperationalFields from './Operation';
 import PersonalFields from './Personal';
 import useStyles from './style';
 
@@ -29,13 +36,18 @@ const steps = [
   'Register',
 ];
 
-const { formId, formField } = formFields;
+const { formField } = formFields;
 const renderStepForms = (step, values, setFieldValue, simulation) => {
   if (step === 0)
     return (
       <PersonalFields
         formField={formField.personal}
-        values={values}
+        values={{
+          simulation: values.simulation,
+          checkedA: values.checkedA,
+          checkedB: values.checkedB,
+          telephone: values.telephone,
+        }}
         setFieldValue={setFieldValue}
       />
     );
@@ -43,14 +55,34 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
     return (
       <FinancialFields
         formField={formField.financial}
-        values={values}
+        values={{
+          tenants: values.tenants,
+          earnings: values.earnings,
+          passive: values.passive,
+          laborTime: values.laborTime,
+        }}
         setFieldValue={setFieldValue}
       />
     );
 
   if (values?.simulation === 1) {
     if (step === 2)
-      return <OperationalFields formField={formField.operational} values={values} />;
+      return (
+        <OperationalFields
+          formField={formField.operational}
+          // values={{
+          //   value: values.value,
+          //   currentDeal: values.currentDeal,
+          //   time: values.time,
+          //   type: values?.type,
+          //   realEstateType: values?.realEstateType,
+          //   currentDealMonth: values?.currentDealMonth,
+          //   institution: values?.institution,
+          //   rates: values?.rates,
+          // }}
+          values={values}
+        />
+      );
 
     if (step === 3 && simulation) return <Feasible values={values} />;
 
@@ -90,35 +122,40 @@ const SimulatorForm = () => {
 
   const dispatch = useDispatch();
 
+  const setSchemaOnFormChange = (simulationType) => {
+    if (simulationType === 1) {
+      setActiveSchema(realEstateValidation);
+    } else if (simulationType === 2) {
+      setActiveSchema(commercialValidation);
+    } else {
+      setActiveSchema(walletValidation);
+    }
+  };
+
   const handleSubmit = (values, actions) => {
     if (isLastStep) {
       // _submitForm(values, actions);
     } else {
-      if (activeStep + 1 === 1 && initialValues?.mainEmployment === undefined) {
-        handleAddExtra(financialValues);
+      if (activeStep + 1 === 1) {
+        setActiveSchema(financialValidation);
+        if (initialValues?.mainEmployment === undefined) {
+          handleAddExtra(financialValues);
+        }
       }
 
-      if (
-        activeStep + 1 === 2 &&
-        values?.simulation === 1 &&
-        initialValues?.value === undefined
-      ) {
-        const { value, currentDeal, time } = operationalValues;
-        let obj = { value, currentDeal, time };
-        switch (values?.simulationType) {
-          case 1:
-            obj = { ...obj, ...operationalValues.realEstate };
-            break;
-          case 2:
-            obj = { ...obj, ...operationalValues.commercial };
-            break;
-          case 3:
-            obj = { ...obj, ...operationalValues.wallet };
-            break;
-          default:
-            obj = { ...obj };
+      if (activeStep + 1 === 2 && values?.simulation === 1) {
+        setSchemaOnFormChange(values.simulationType);
+        if (initialValues?.value === undefined) {
+          const { value, currentDeal, time } = operationalValues;
+          const obj = { value, currentDeal, time };
+          if (values.simulationType === 1) {
+            handleAddExtra({ ...obj, ...operationalValues.realEstate });
+          } else if (values.simulationType === 2) {
+            handleAddExtra({ ...obj, ...operationalValues.commercial });
+          } else {
+            handleAddExtra({ ...obj, ...operationalValues.wallet });
+          }
         }
-        handleAddExtra(obj);
       }
 
       if (values?.simulation === 2) {
@@ -127,6 +164,7 @@ const SimulatorForm = () => {
           dispatch(lendingSimulation(values.earnings, values.tenants, '8.5%'));
         } else if (activeStep + 1 === 3) {
           handleAddExtra(credentialValues);
+          setActiveSchema(credentialValidation);
         }
       } else {
         if (activeStep + 1 === 3) {
@@ -160,6 +198,14 @@ const SimulatorForm = () => {
     setActiveStep(
       activeStep === 3 && values?.simulation === 2 ? activeStep - 2 : activeStep - 1,
     );
+
+    if (activeStep === 1) {
+      setActiveSchema(personalValidation);
+    } else if (activeStep === 2 || activeStep - 1 === 2) {
+      setActiveSchema(financialValidation);
+    } else if (activeStep === 3 && values?.simulation === 2) {
+      setSchemaOnFormChange(values.simulationType);
+    }
   };
 
   const handleAddExtra = (obj) => {
@@ -201,7 +247,7 @@ const SimulatorForm = () => {
                   console.log(values);
 
                   return (
-                    <Form onChange={handleChange} id={formId}>
+                    <Form onChange={handleChange}>
                       {renderStepForms(
                         activeStep,
                         values,
@@ -219,9 +265,9 @@ const SimulatorForm = () => {
                         )}
                         <div className={classes.wrapper}>
                           <Button
-                            disabled={
-                              isSubmitting || !values.checkedA || !values.checkedB
-                            }
+                            // disabled={
+                            //   isSubmitting || !values.checkedA || !values.checkedB
+                            // }
                             type="submit"
                             variant="contained"
                             color="primary"
