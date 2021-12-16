@@ -140,11 +140,11 @@ const operationalValidation = Yup.object().shape({
       }
       return true;
     }),
+  [operational.type.name]: Yup.string().required(operational.type.requiredErrorMsg),
 });
 
 export const realEstateValidation = Yup.object()
   .shape({
-    [realEstate.type.name]: Yup.string().required(realEstate.type.requiredErrorMsg),
     [realEstate.realEstateType.name]: Yup.string().required(
       realEstate.realEstateType.requiredErrorMsg,
     ),

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import { InputField, MaskedInput } from '../../../../../components/FormFields';
+import { axiosCall } from '../../../../../utils';
 
-const WalletForm = ({ formField, values, currencySymbol }) => {
-  const { value, currentDeal, currentDealMonth, institution, time, rates } = formField;
+const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
+  const { value, currentDeal, currentDealMonth, institution, time, rates, type } =
+    formField;
+
+  useEffect(() => {
+    (async () => {
+      axiosCall('GET', 'credit-type')
+        .then((data) => setFieldValue(type.name, data))
+        .catch(() => setFieldValue(type.name, 'Crédito Hipotecario'));
+    })();
+  }, [setFieldValue, type]);
 
   return (
     <React.Fragment>
@@ -86,6 +96,7 @@ WalletForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
   currencySymbol: PropTypes.string,
+  setFieldValue: PropTypes.func,
 };
 
 export default WalletForm;

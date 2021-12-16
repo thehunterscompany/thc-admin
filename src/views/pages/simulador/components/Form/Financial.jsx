@@ -156,6 +156,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             handleOpenChange={setOpen}
             open={open}
             fullWidth
+            value={values.earnings}
           />
         </Grid>
         <Grid item xs={12} md={6}>

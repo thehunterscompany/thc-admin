@@ -70,16 +70,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
       return (
         <OperationalFields
           formField={formField.operational}
-          // values={{
-          //   value: values.value,
-          //   currentDeal: values.currentDeal,
-          //   time: values.time,
-          //   type: values?.type,
-          //   realEstateType: values?.realEstateType,
-          //   currentDealMonth: values?.currentDealMonth,
-          //   institution: values?.institution,
-          //   rates: values?.rates,
-          // }}
+          setFieldValue={setFieldValue}
           values={values}
         />
       );

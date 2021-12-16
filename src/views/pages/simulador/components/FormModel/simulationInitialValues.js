@@ -31,9 +31,10 @@ const operationalValues = {
   [operational.value.name]: '',
   [operational.currentDeal.name]: '',
   [operational.time.name]: '',
+  [operational.type.name]: '',
+
   realEstate: {
     [operational.realEstate.realEstateType.name]: '',
-    [operational.realEstate.type.name]: '',
   },
   commercial: {
     [operational.commercial.realEstateType.name]: '',

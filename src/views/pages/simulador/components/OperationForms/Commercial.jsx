@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
@@ -7,9 +7,18 @@ import {
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
+import { axiosCall } from '../../../../../utils';
 
-const CommercialForm = ({ formField, values, currencySymbol }) => {
-  const { value, currentDeal, realEstateType, time } = formField;
+const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) => {
+  const { value, currentDeal, realEstateType, time, type } = formField;
+
+  useEffect(() => {
+    (async () => {
+      axiosCall('GET', 'credit-type')
+        .then((data) => setFieldValue(type.name, data))
+        .catch(() => setFieldValue(type.name, 'Linea Comercial'));
+    })();
+  }, [setFieldValue, type]);
 
   return (
     <React.Fragment>
@@ -76,6 +85,7 @@ CommercialForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
   currencySymbol: PropTypes.string,
+  setFieldValue: PropTypes.func,
 };
 
 export default CommercialForm;

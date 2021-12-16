@@ -105,13 +105,13 @@ const formFields = {
         invalidErrorMsg: 'Solo puede contener números!',
         invalidErrorMsg1: 'El plazo minímo es a 5 año y el máximo a 20 años',
       },
+      type: {
+        name: 'type',
+        label: 'Linea de financiación',
+        requiredErrorMsg: 'Este campo es requerido.',
+      },
 
       realEstate: {
-        type: {
-          name: 'type',
-          label: 'Linea de financiación',
-          requiredErrorMsg: 'Este campo es requerido.',
-        },
         realEstateType: {
           name: 'realEstateType',
           label: 'Tipo de vivienda',

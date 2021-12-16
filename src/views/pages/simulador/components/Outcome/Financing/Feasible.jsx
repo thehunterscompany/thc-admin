@@ -33,7 +33,7 @@ const Feasible = ({ values }) => {
     setTopData([
       {
         value: {
-          1: `Crédito`,
+          1: values.type,
           2: rate,
           3: `${tem}%`,
           4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
@@ -41,7 +41,7 @@ const Feasible = ({ values }) => {
         align: 'center',
       },
     ]);
-  }, [simulation]);
+  }, [simulation, values]);
 
   useEffect(() => {
     if (Object.keys(values).length) {

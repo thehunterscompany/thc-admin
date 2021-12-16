@@ -1,30 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import {
+  ComboBox,
   InputField,
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
+import { axiosCall } from '../../../../../utils';
 
-const RealEstateForm = ({ formField, values, currencySymbol }) => {
+function sleep(delay = 0) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
+}
+
+const DATA = [
+  { value: 'Crédito Hipotecario', label: 'Crédito Hipotecario' },
+  { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
+];
+
+const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) => {
   const { value, currentDeal, type, time, realEstateType } = formField;
+
+  const [creditLineType, setCreditLineType] = useState([]);
+
+  const [open, setOpen] = useState(false);
+  const loading = open && creditLineType.length === 0;
+
+  useEffect(() => {
+    if (!loading) {
+      return undefined;
+    }
+
+    (async () => {
+      await sleep(1e3);
+      axiosCall('GET', 'credit-type')
+        .then((data) => setCreditLineType(data))
+        .catch(() => setCreditLineType(DATA));
+    })();
+  }, [loading]);
 
   return (
     <React.Fragment>
       <h2>Financiación de vivienda</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <SelectField
+          <ComboBox
             name={type.name}
             label={type.label}
-            data={[
-              { value: 'Crédito Hipotecario', label: 'Crédito Hipotecario' },
-              { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
-            ]}
+            loading={loading}
+            data={creditLineType}
+            setFieldValue={setFieldValue}
+            handleOpenChange={setOpen}
+            open={open}
             fullWidth
-            value={values.type}
           />
         </Grid>
 
@@ -39,6 +70,7 @@ const RealEstateForm = ({ formField, values, currencySymbol }) => {
             ]}
             fullWidth
             value={values.realEstateType}
+            style={{ marginTop: '7.5%' }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -87,6 +119,7 @@ RealEstateForm.propTypes = {
   formField: PropTypes.object,
   values: PropTypes.object,
   currencySymbol: PropTypes.string,
+  setFieldValue: PropTypes.func,
 };
 
 export default RealEstateForm;
