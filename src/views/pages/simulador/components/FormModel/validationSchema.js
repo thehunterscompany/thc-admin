@@ -180,7 +180,7 @@ export const credentialValidation = Yup.object().shape({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~`!@#$%^&*+=_:;”’?/<>,./|]).*$/,
       credential.password.invalidErrorMsg1,
     ),
-  confirmPassword: Yup.string()
+  [credential.repeatPassword.name]: Yup.string()
     .min(8, credential.password.invalidErrorMsg)
     .required(credential.password.requiredErrorMsg)
     .test('passwords-match', credential.repeatPassword.invalidErrorMsg, function (value) {

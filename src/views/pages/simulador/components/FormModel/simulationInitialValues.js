@@ -7,9 +7,9 @@ const {
 const personalValues = {
   [personal.firstNames.name]: 'A',
   [personal.lastNames.name]: 'B',
-  [personal.documentType.name]: 'Cedula de ciudadanía',
+  [personal.documentType.name]: '',
   [personal.documentId.name]: '1341413',
-  [personal.dateOfBirth.name]: '2021-12-06T17:07:00.000Z',
+  [personal.dateOfBirth.name]: '',
   [personal.email.name]: 'a@gmail.com',
   [personal.location.name]: { state: 'Atlántico', label: 'Barranquilla' },
   [personal.telephone.name]: '124',

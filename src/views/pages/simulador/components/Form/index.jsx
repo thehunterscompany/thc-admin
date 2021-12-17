@@ -4,6 +4,7 @@ import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
 import { Button, CircularProgress, Step, StepLabel, Stepper } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import { lendingSimulation, simulation } from 'src/store/actions';
+import * as Yup from 'yup';
 
 import formFields from '../FormModel/simulationFormModel';
 import {
@@ -83,7 +84,11 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
       return (
         <CredentialFields
           formField={{ email: formField.personal.email, ...formField.credential }}
-          values={values}
+          values={{
+            email: values.email,
+            repeatPassword: values.repeatPassword,
+            password: values.password,
+          }}
           setFieldValue={setFieldValue}
         />
       );
@@ -153,7 +158,7 @@ const SimulatorForm = () => {
         if (activeStep + 1 === 2) {
           setSkip(true);
           dispatch(lendingSimulation(values.earnings, values.tenants, '8.5%'));
-        } else if (activeStep + 1 === 3) {
+        } else if (activeStep === 3) {
           handleAddExtra(credentialValues);
           setActiveSchema(credentialValidation);
         }
@@ -169,6 +174,9 @@ const SimulatorForm = () => {
             ),
           );
           setSkip(true);
+        } else if (activeStep + 1 === 3) {
+          handleAddExtra(credentialValues);
+          setActiveSchema(credentialValidation);
         }
       }
 
@@ -196,6 +204,10 @@ const SimulatorForm = () => {
       setActiveSchema(financialValidation);
     } else if (activeStep === 3 && values?.simulation === 2) {
       setSchemaOnFormChange(values.simulationType);
+    }
+
+    if (activeStep === 4) {
+      setActiveSchema(Yup.object().shape({}));
     }
   };
 
