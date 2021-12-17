@@ -1,5 +1,7 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Grid, InputAdornment } from '@material-ui/core';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PropTypes from 'prop-types';
 
 import { InputField } from '../../../../../components/FormFields';
@@ -8,6 +10,10 @@ import '../../Simulador.scss';
 
 const CredentialFields = ({ formField, values }) => {
   const { email, password, repeatPassword } = formField;
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
   return (
     <React.Fragment>
@@ -34,9 +40,21 @@ const CredentialFields = ({ formField, values }) => {
             <InputField
               name={password.name}
               label={password.label}
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               fullWidth
               value={values.password}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <div
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => setShowPassword((state) => !state)}
+                    >
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </div>
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
 
@@ -44,9 +62,21 @@ const CredentialFields = ({ formField, values }) => {
             <InputField
               name={repeatPassword.name}
               label={repeatPassword.label}
-              type="password"
+              type={showRepeatPassword ? 'text' : 'password'}
               fullWidth
               value={values.repeatPassword}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <div
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => setShowRepeatPassword((state) => !state)}
+                    >
+                      {showRepeatPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </div>
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
 
