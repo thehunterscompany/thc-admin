@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect, useRef, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Box, Popover, Stack } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import { InputField } from '../../../../../components/FormFields';
+
+import LinearWithValueLabel from './LinearProgressWithLabel';
 
 import '../../Simulador.scss';
 
@@ -14,6 +20,20 @@ const CredentialFields = ({ formField, values }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = () => {
+    setAnchorEl(ref.current);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
+  const ref = useRef();
 
   return (
     <React.Fragment>
@@ -42,7 +62,6 @@ const CredentialFields = ({ formField, values }) => {
               label={password.label}
               type={showPassword ? 'text' : 'password'}
               fullWidth
-              value={values.password}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -55,7 +74,28 @@ const CredentialFields = ({ formField, values }) => {
                   </InputAdornment>
                 ),
               }}
+              onClick={handleClick}
+              innerRef={ref}
             />
+            <Popover
+              style={{ borderRadius: '10px' }}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              disableAutoFocus={true}
+              disableRestoreFocus={true}
+            >
+              <PassswordRulesContainer password={values.password} />
+            </Popover>
+            <LinearWithValueLabel />
           </Grid>
 
           <Grid item xs={12}>
@@ -64,7 +104,6 @@ const CredentialFields = ({ formField, values }) => {
               label={repeatPassword.label}
               type={showRepeatPassword ? 'text' : 'password'}
               fullWidth
-              value={values.repeatPassword}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -84,6 +123,62 @@ const CredentialFields = ({ formField, values }) => {
         </Grid>
       </Grid>
     </React.Fragment>
+  );
+};
+
+const PassswordRulesContainer = (props) => {
+  const [correctLength, setCorrectLength] = useState(false);
+  const [upperCaseLetter, setUpperCaseLetter] = useState(false);
+  const [lowerCaseLetter, setLowerCaseLetter] = useState(false);
+  const [number, setNumber] = useState(false);
+  const [specialCharacter, setSpecialCharacter] = useState(false);
+
+  // eslint-disable-next-line react/prop-types
+  const Item = ({ label, color }) => (
+    <span style={{ display: 'flex', color: `${color ? 'green' : 'red'}` }}>
+      {color ? <CheckIcon htmlColor="green" /> : <ClearIcon htmlColor="red" />}
+      {label}
+    </span>
+  );
+
+  useEffect(() => {
+    if (props.password.length >= 8) {
+      setCorrectLength(true);
+    } else {
+      setCorrectLength(false);
+    }
+    if (/\d/.test(props.password)) {
+      setNumber(true);
+    } else {
+      setNumber(false);
+    }
+    if (/[A-Z]/.test(props.password)) {
+      setUpperCaseLetter(true);
+    } else {
+      setUpperCaseLetter(false);
+    }
+    if (/[a-z]/.test(props.password)) {
+      setLowerCaseLetter(true);
+    } else {
+      setLowerCaseLetter(false);
+    }
+    if (/[$%^&*#@!.,?/><+=)(;:~]/.test(props.password)) {
+      setSpecialCharacter(true);
+    } else {
+      setSpecialCharacter(false);
+    }
+  }, [props.password]);
+
+  return (
+    <Box style={{ padding: '5px 10px', borderRadius: '5px' }}>
+      <Stack spacing={2}>
+        <Item color={correctLength} label="8 caracteres" />
+        <Item color={upperCaseLetter} label="1 letra mayúscula" />
+        <Item color={lowerCaseLetter} label="1 letra minúscula" />
+        <Item color={number} label="1 número" />
+        <Item color={specialCharacter} label="1 caracter especial e.g. $%#&*+" />
+      </Stack>
+    </Box>
   );
 };
 
