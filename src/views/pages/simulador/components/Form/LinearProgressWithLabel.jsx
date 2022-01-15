@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function LinearProgressWithLabel(props) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
       <Box sx={{ width: '78%', mr: 1 }}>
         <LinearProgress variant="determinate" {...props} />
       </Box>

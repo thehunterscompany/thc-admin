@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
-} from '@material-ui/core';
+import { FormHelperText } from '@material-ui/core';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useField } from 'formik';
 import { at } from 'lodash';
 import PropTypes from 'prop-types';
 
-function SelectField(props) {
+const SelectField = (props) => {
   // eslint-disable-next-line react/prop-types
   const { label, data, ...rest } = props;
   const [field, meta] = useField(props);
@@ -24,7 +19,7 @@ function SelectField(props) {
   }
 
   return (
-    <FormControl {...rest} error={isError}>
+    <FormControl {...rest} variant="filled" error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
@@ -36,7 +31,7 @@ function SelectField(props) {
       {_renderHelperText()}
     </FormControl>
   );
-}
+};
 
 SelectField.defaultProps = {
   data: [],

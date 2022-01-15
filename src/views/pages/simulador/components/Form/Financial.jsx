@@ -34,6 +34,7 @@ const DATA = [
   { value: 'Pensionado', label: 'Pensionado' },
   { value: 'Fuerzas Militares', label: 'Fuerzas Militares' },
   { value: 'Rentista de capital', label: 'Rentista de capital' },
+  { value: 'Independiente', label: 'Independiente' },
 ];
 
 function sleep(delay = 0) {

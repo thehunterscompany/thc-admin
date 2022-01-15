@@ -9,10 +9,8 @@ import './Simulador.scss';
 const Simulador = () => (
   <div className="_simulador-container">
     <Navbar />
-    <div>
-      <div className="_form-spaces">
-        <SimulatorForm />
-      </div>
+    <div className="_form-spaces">
+      <SimulatorForm />
     </div>
   </div>
 );

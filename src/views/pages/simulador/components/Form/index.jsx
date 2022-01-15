@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
-import { Button, CircularProgress, Step, StepLabel, Stepper } from '@material-ui/core';
+import { Button, CircularProgress } from '@material-ui/core';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
 import { Form, Formik } from 'formik';
+import { StepperConnector, StepperIcon } from 'src/components/Stepper';
 import { lendingSimulation, simulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
 import formFields from '../FormModel/simulationFormModel';
 import {
-  credentialValues,
   financialValues,
   operationalValues,
   personalValues,
 } from '../FormModel/simulationInitialValues';
 import {
   commercialValidation,
-  credentialValidation,
   financialValidation,
   personalValidation,
   realEstateValidation,
@@ -23,8 +25,8 @@ import {
 } from '../FormModel/validationSchema';
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
-import CredentialFields from './Credentials';
 import FinancialFields from './Financial';
+import MientrasTanto from './MientrasTanto';
 import OperationalFields from './Operation';
 import PersonalFields from './Personal';
 import useStyles from './style';
@@ -34,7 +36,7 @@ const steps = [
   'Datos Económicos',
   'Datos de la operación',
   'Outcome',
-  'Register',
+  // 'Register',
 ];
 
 const { formField } = formFields;
@@ -43,12 +45,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
     return (
       <PersonalFields
         formField={formField.personal}
-        values={{
-          simulation: values.simulation,
-          checkedA: values.checkedA,
-          checkedB: values.checkedB,
-          telephone: values.telephone,
-        }}
+        values={values}
         setFieldValue={setFieldValue}
       />
     );
@@ -56,12 +53,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
     return (
       <FinancialFields
         formField={formField.financial}
-        values={{
-          tenants: values.tenants,
-          earnings: values.earnings,
-          passive: values.passive,
-          laborTime: values.laborTime,
-        }}
+        values={values}
         setFieldValue={setFieldValue}
       />
     );
@@ -82,15 +74,16 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
 
     if (step === 4)
       return (
-        <CredentialFields
-          formField={{ email: formField.personal.email, ...formField.credential }}
-          values={{
-            email: values.email,
-            repeatPassword: values.repeatPassword,
-            password: values.password,
-          }}
-          setFieldValue={setFieldValue}
-        />
+        // <CredentialFields
+        //   formField={{ email: formField.personal.email, ...formField.credential }}
+        //   values={{
+        //     email: values.email,
+        //     repeatPassword: values.repeatPassword,
+        //     password: values.password,
+        //   }}
+        //   setFieldValue={setFieldValue}
+        // />
+        <MientrasTanto />
       );
   } else {
     if (step === 3) {
@@ -99,11 +92,16 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
 
     if (step === 4)
       return (
-        <CredentialFields
-          formField={{ email: formField.personal.email, ...formField.credential }}
-          values={values}
-          setFieldValue={setFieldValue}
-        />
+        // <CredentialFields
+        //   formField={{ email: formField.personal.email, ...formField.credential }}
+        //   values={{
+        //     email: values.email,
+        //     repeatPassword: values.repeatPassword,
+        //     password: values.password,
+        //   }}
+        //   setFieldValue={setFieldValue}
+        // />
+        <MientrasTanto />
       );
   }
 };
@@ -131,6 +129,7 @@ const SimulatorForm = () => {
   const handleSubmit = (values, actions) => {
     if (isLastStep) {
       // _submitForm(values, actions);
+      window.open('https://api.whatsapp.com/send?phone=+573104908414');
     } else {
       if (activeStep + 1 === 1) {
         setActiveSchema(financialValidation);
@@ -158,10 +157,11 @@ const SimulatorForm = () => {
         if (activeStep + 1 === 2) {
           setSkip(true);
           dispatch(lendingSimulation(values.earnings, values.tenants, '8.5%'));
-        } else if (activeStep === 3) {
-          handleAddExtra(credentialValues);
-          setActiveSchema(credentialValidation);
         }
+        // else if (activeStep === 3) {
+        //   handleAddExtra(credentialValues);
+        //   setActiveSchema(credentialValidation);
+        // }
       } else {
         if (activeStep + 1 === 3) {
           dispatch(
@@ -174,10 +174,11 @@ const SimulatorForm = () => {
             ),
           );
           setSkip(true);
-        } else if (activeStep + 1 === 3) {
-          handleAddExtra(credentialValues);
-          setActiveSchema(credentialValidation);
         }
+        // } else if (activeStep + 1 === 3) {
+        //   handleAddExtra(credentialValues);
+        //   setActiveSchema(credentialValidation);
+        // }
       }
 
       setActiveStep(
@@ -221,18 +222,24 @@ const SimulatorForm = () => {
     <React.Fragment>
       {!skip ? <h1>Para darte la mejor opción necesitamos algunos datos</h1> : null}
       <CRow className="justify-content-center">
-        <CCol xs="8" sm="8" md="8" lg="8" xl="6">
+        <CCol xs="8" sm="8" md="8" lg="8" xl={!skip ? '6' : '8'}>
           <CCard className="mx-4" style={!skip ? null : { border: 'none' }}>
             <CCardBody className="p-4">
               <Stepper
                 activeStep={activeStep}
-                alternativeLabel
                 className={classes.stepper}
+                connector={<StepperConnector />}
+                alternativeLabel
               >
                 {!skip
                   ? steps.slice(0, 3).map((label) => (
                       <Step key={label}>
-                        <StepLabel className={classes.svg}>{label}</StepLabel>
+                        <StepLabel
+                          StepIconComponent={StepperIcon}
+                          className={classes.stepperSvg}
+                        >
+                          {label}
+                        </StepLabel>
                       </Step>
                     ))
                   : null}
@@ -243,11 +250,18 @@ const SimulatorForm = () => {
                   setInitialValues(values);
                   handleSubmit(values, actions);
                 }}
-                validationSchema={activeSchema}
+                // validationSchema={activeSchema}
                 enableReinitialize
               >
-                {({ handleChange, isSubmitting, values, setFieldValue }) => {
-                  console.log(values);
+                {({
+                  handleChange,
+                  isSubmitting,
+                  values,
+                  setFieldValue,
+                  isValid,
+                  touched,
+                }) => {
+                  // console.log(dirty);
 
                   return (
                     <Form onChange={handleChange}>
@@ -258,7 +272,7 @@ const SimulatorForm = () => {
                         simulationResult,
                       )}
                       <div className={classes.buttons}>
-                        {activeStep !== 0 && (
+                        {![0, 4].includes(activeStep) && (
                           <Button
                             onClick={() => handleBack(values)}
                             className={classes.button}
@@ -268,15 +282,24 @@ const SimulatorForm = () => {
                         )}
                         <div className={classes.wrapper}>
                           <Button
+                            disabled={
+                              isSubmitting || !values.checkedA || !values.checkedB
+                            }
+                            // disabled={!isValid}
                             // disabled={
-                            //   isSubmitting || !values.checkedA || !values.checkedB
+                            //   !isValid ||
+                            //   (Object.keys(touched).length === 0 &&
+                            //     touched.constructor === Object)
                             // }
                             type="submit"
                             variant="contained"
                             color="primary"
-                            className={classes.button}
+                            className={classes.buttonContinue}
                           >
-                            {isLastStep ? 'Simular' : 'Continuar'}
+                            {(values?.simulation === 1 && activeStep === 2) ||
+                            (values?.simulation === 2 && activeStep === 1)
+                              ? 'Simular'
+                              : 'Continuar'}
                           </Button>
                           {isSubmitting && (
                             <CircularProgress

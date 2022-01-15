@@ -9,6 +9,7 @@ import {
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
+import { CustomSwitch } from '../../../../../components/Switch';
 
 const simulationOptions = [
   { value: 1, label: 'Calcular Cuota' },
@@ -58,6 +59,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={firstNames.label}
             type="text"
             fullWidth
+            value={values.firstNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -74,7 +76,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={documentType.label}
             data={idType}
             fullWidth
-            style={{ marginTop: '25px' }}
+            style={{ marginTop: '16px' }}
           />
         </Grid>
 
@@ -142,15 +144,14 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           </Grid>
         ) : null}
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
               control={
-                <Switch
+                <CustomSwitch
                   checked={state.checkedA}
                   onChange={handleChange}
                   name="checkedA"
-                  color="primary"
                 />
               }
             />
@@ -168,15 +169,14 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           </small>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
               control={
-                <Switch
+                <CustomSwitch
                   checked={state.checkedB}
                   onChange={handleChange}
                   name="checkedB"
-                  color="primary"
                 />
               }
             />

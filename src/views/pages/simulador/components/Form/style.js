@@ -8,6 +8,14 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
+  buttonContinue: {
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(1),
+    backgroundColor: 'rgb(211, 73, 150)',
+    '&:hover': {
+      backgroundColor: 'rgb(211, 73, 150, 0.8)',
+    },
+  },
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),

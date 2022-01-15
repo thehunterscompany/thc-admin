@@ -21,17 +21,17 @@ const CredentialFields = ({ formField, values }) => {
 
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  // const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = () => {
-    setAnchorEl(ref.current);
-  };
+  // const handleClick = () => {
+  //   setAnchorEl(ref.current);
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
-  const open = Boolean(anchorEl);
+  // const open = Boolean(anchorEl);
 
   const ref = useRef();
 
@@ -74,10 +74,10 @@ const CredentialFields = ({ formField, values }) => {
                   </InputAdornment>
                 ),
               }}
-              onClick={handleClick}
-              innerRef={ref}
+              // onClick={handleClick}
+              // innerRef={ref}
             />
-            <Popover
+            {/* <Popover
               style={{ borderRadius: '10px' }}
               open={open}
               anchorEl={anchorEl}
@@ -94,8 +94,9 @@ const CredentialFields = ({ formField, values }) => {
               disableRestoreFocus={true}
             >
               <PassswordRulesContainer password={values.password} />
-            </Popover>
+            </Popover> */}
             <LinearWithValueLabel />
+            <PassswordRulesContainer password={values.password} />
           </Grid>
 
           <Grid item xs={12}>
@@ -135,34 +136,42 @@ const PassswordRulesContainer = (props) => {
 
   // eslint-disable-next-line react/prop-types
   const Item = ({ label, color }) => (
-    <span style={{ display: 'flex', color: `${color ? 'green' : 'red'}` }}>
-      {color ? <CheckIcon htmlColor="green" /> : <ClearIcon htmlColor="red" />}
+    <span
+      style={{
+        display: 'flex',
+        color: `${color ? 'green' : 'auto'}`,
+        padding: '5px 5px 5px 0px',
+        marginLeft: '-5px',
+        alignItems: 'center',
+      }}
+    >
+      {color ? <CheckIcon htmlColor="green" /> : <ClearIcon />}
       {label}
     </span>
   );
 
   useEffect(() => {
-    if (props.password.length >= 8) {
+    if (props?.password?.length >= 8) {
       setCorrectLength(true);
     } else {
       setCorrectLength(false);
     }
-    if (/\d/.test(props.password)) {
+    if (/\d/.test(props?.password)) {
       setNumber(true);
     } else {
       setNumber(false);
     }
-    if (/[A-Z]/.test(props.password)) {
+    if (/[A-Z]/.test(props?.password)) {
       setUpperCaseLetter(true);
     } else {
       setUpperCaseLetter(false);
     }
-    if (/[a-z]/.test(props.password)) {
+    if (/[a-z]/.test(props?.password)) {
       setLowerCaseLetter(true);
     } else {
       setLowerCaseLetter(false);
     }
-    if (/[$%^&*#@!.,?/><+=)(;:~]/.test(props.password)) {
+    if (/[$%^&*#@!.,?/><+=)(;:~]/.test(props?.password)) {
       setSpecialCharacter(true);
     } else {
       setSpecialCharacter(false);
@@ -170,14 +179,18 @@ const PassswordRulesContainer = (props) => {
   }, [props.password]);
 
   return (
-    <Box style={{ padding: '5px 10px', borderRadius: '5px' }}>
-      <Stack spacing={2}>
-        <Item color={correctLength} label="8 caracteres" />
-        <Item color={upperCaseLetter} label="1 letra mayúscula" />
-        <Item color={lowerCaseLetter} label="1 letra minúscula" />
-        <Item color={number} label="1 número" />
-        <Item color={specialCharacter} label="1 caracter especial e.g. $%#&*+" />
-      </Stack>
+    <Box
+      style={{
+        display: 'flex',
+        borderRadius: '5px',
+        flexDirection: 'column',
+      }}
+    >
+      <Item color={correctLength} label="8 caracteres" />
+      <Item color={upperCaseLetter} label="1 letra mayúscula" />
+      <Item color={lowerCaseLetter} label="1 letra minúscula" />
+      <Item color={number} label="1 número" />
+      <Item color={specialCharacter} label="1 caracter especial e.g. $%#&*+" />
     </Box>
   );
 };

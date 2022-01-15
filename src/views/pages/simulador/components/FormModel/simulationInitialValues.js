@@ -5,25 +5,25 @@ const {
 } = formFields;
 
 const personalValues = {
-  [personal.firstNames.name]: 'A',
-  [personal.lastNames.name]: 'B',
+  [personal.firstNames.name]: '',
+  [personal.lastNames.name]: '',
   [personal.documentType.name]: '',
-  [personal.documentId.name]: '1341413',
+  [personal.documentId.name]: '',
   [personal.dateOfBirth.name]: '',
-  [personal.email.name]: 'a@gmail.com',
-  [personal.location.name]: { state: 'Atlántico', label: 'Barranquilla' },
-  [personal.telephone.name]: '124',
-  [personal.simulation.name]: 2,
-  [personal.simulationType.name]: 1,
+  [personal.email.name]: '',
+  [personal.location.name]: { state: '', label: '' },
+  [personal.telephone.name]: '',
+  [personal.simulation.name]: '',
+  [personal.simulationType.name]: '',
   checkedA: false,
   checkedB: false,
 };
 
 const financialValues = {
-  [financial.mainEmployment.name]: '134',
-  [financial.laborTime.name]: '1234',
-  [financial.earnings.name]: '1234',
-  [financial.passive.name]: '1234',
+  [financial.mainEmployment.name]: '',
+  [financial.laborTime.name]: '',
+  [financial.earnings.name]: '',
+  [financial.passive.name]: '',
   [financial.tenants.name]: [],
 };
 
