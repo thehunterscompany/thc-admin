@@ -27,6 +27,7 @@ export default makeStyles((theme) => ({
   buttonProgress: {
     position: 'absolute',
     top: '50%',
-    left: '50%',
+    left: '40%',
+    color: 'rgb(211, 73, 150)',
   },
 }));
