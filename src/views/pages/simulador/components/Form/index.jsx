@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
-import { Button, CircularProgress } from '@material-ui/core';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Stepper from '@mui/material/Stepper';
+import {
+  Button,
+  CircularProgress,
+  Container,
+  Step,
+  StepLabel,
+  Stepper,
+} from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
 import { lendingSimulation, simulation } from 'src/store/actions';
@@ -26,7 +30,6 @@ import {
 import { Feasible, Lending, NotFeasible } from '../Outcome';
 
 import FinancialFields from './Financial';
-import MientrasTanto from './MientrasTanto';
 import OperationalFields from './Operation';
 import PersonalFields from './Personal';
 import useStyles from './style';
@@ -83,7 +86,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
         //   }}
         //   setFieldValue={setFieldValue}
         // />
-        <MientrasTanto />
+        <div />
       );
   } else {
     if (step === 3) {
@@ -101,7 +104,7 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
         //   }}
         //   setFieldValue={setFieldValue}
         // />
-        <MientrasTanto />
+        <div />
       );
   }
 };
@@ -111,7 +114,7 @@ const SimulatorForm = () => {
   const [skip, setSkip] = useState(false);
   const [initialValues, setInitialValues] = useState(personalValues);
   const [activeSchema, setActiveSchema] = useState(personalValidation);
-  const isLastStep = activeStep === steps.length;
+  const isLastStep = activeStep === steps.length - 1;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
   const dispatch = useDispatch();
@@ -126,10 +129,9 @@ const SimulatorForm = () => {
     }
   };
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     if (isLastStep) {
-      // _submitForm(values, actions);
-      window.open('https://api.whatsapp.com/send?phone=+573104908414');
+      window.open('https://api.whatsapp.com/send?phone=+573104908414', '_self');
     } else {
       if (activeStep + 1 === 1) {
         setActiveSchema(financialValidation);
@@ -168,7 +170,7 @@ const SimulatorForm = () => {
             simulation(
               values.currentDeal,
               values.time,
-              '8.5%',
+              '9.5%',
               values.earnings,
               values.tenants,
             ),
@@ -218,32 +220,44 @@ const SimulatorForm = () => {
       ...obj,
     }));
   };
+
+  console.log(activeStep);
+
   return (
     <React.Fragment>
-      {!skip ? <h1>Para darte la mejor opción necesitamos algunos datos</h1> : null}
+      {/* {!skip ? <h1>Para darte la mejor opción necesitamos algunos datos</h1> : null} */}
+      {/* <CRow className="justify-content-center"> */}
+      {/* <Container maxWidth={false}> */}
       <CRow className="justify-content-center">
         <CCol xs="8" sm="8" md="8" lg="8" xl={!skip ? '6' : '8'}>
           <CCard className="mx-4" style={!skip ? null : { border: 'none' }}>
+            {/* <CCard
+          className="mx-4"
+          // style={!skip ? null : { border: 'none' }}
+          style={{ border: 'none' }}
+        > */}
             <CCardBody className="p-4">
-              <Stepper
-                activeStep={activeStep}
-                className={classes.stepper}
-                connector={<StepperConnector />}
-                alternativeLabel
-              >
-                {!skip
-                  ? steps.slice(0, 3).map((label) => (
-                      <Step key={label}>
-                        <StepLabel
-                          StepIconComponent={StepperIcon}
-                          className={classes.stepperSvg}
-                        >
-                          {label}
-                        </StepLabel>
-                      </Step>
-                    ))
-                  : null}
-              </Stepper>
+              {activeStep < 3 ? (
+                <Stepper
+                  activeStep={activeStep}
+                  className={classes.stepper}
+                  connector={<StepperConnector />}
+                  alternativeLabel
+                >
+                  {!skip
+                    ? steps.slice(0, 3).map((label) => (
+                        <Step key={label}>
+                          <StepLabel
+                            StepIconComponent={StepperIcon}
+                            className={classes.stepperSvg}
+                          >
+                            {label}
+                          </StepLabel>
+                        </Step>
+                      ))
+                    : null}
+                </Stepper>
+              ) : null}
               <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
@@ -261,7 +275,7 @@ const SimulatorForm = () => {
                   isValid,
                   touched,
                 }) => {
-                  // console.log(dirty);
+                  console.log(values);
 
                   return (
                     <Form onChange={handleChange}>
@@ -271,15 +285,18 @@ const SimulatorForm = () => {
                         setFieldValue,
                         simulationResult,
                       )}
-                      <div className={classes.buttons}>
-                        {![0, 4].includes(activeStep) && (
+                      <div className="_buttons_space">
+                        {[1, 2].includes(activeStep) ||
+                        (!simulationResult &&
+                          activeStep === 3 &&
+                          values?.simulation === 1) ? (
                           <Button
                             onClick={() => handleBack(values)}
-                            className={classes.button}
+                            className={'_return_button'}
                           >
                             Regresar
                           </Button>
-                        )}
+                        ) : null}
                         <div className={classes.wrapper}>
                           <Button
                             disabled={
@@ -293,8 +310,7 @@ const SimulatorForm = () => {
                             // }
                             type="submit"
                             variant="contained"
-                            color="primary"
-                            className={classes.buttonContinue}
+                            className={'_continue_button'}
                           >
                             {(values?.simulation === 1 && activeStep === 2) ||
                             (values?.simulation === 2 && activeStep === 1)
@@ -316,6 +332,7 @@ const SimulatorForm = () => {
             </CCardBody>
           </CCard>
         </CCol>
+        {/* </Container> */}
       </CRow>
     </React.Fragment>
   );

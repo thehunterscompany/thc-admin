@@ -53,7 +53,7 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
               { value: 'Local', label: 'Local' },
             ]}
             fullWidth
-            style={{ marginTop: '25px' }}
+            style={{ marginTop: '16px' }}
             value={values.realEstateType}
           />
         </Grid>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Grid, LinearProgress } from '@material-ui/core';
+import { Container, LinearProgress } from '@mui/material';
 
 const NotFeasible = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,26 +16,23 @@ const NotFeasible = () => {
   return isLoading ? (
     <LinearProgress />
   ) : (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      direction="column"
-      style={{ textAlign: 'center' }}
-    >
-      <h1>Lo sentimos!</h1>
-      <h2>Para ese valor de inmueble, debes tener unos ingresos mensuales mínimos de</h2>
-      <h2>{`${simulation.symbol} ${simulation.sum
+    <Container className="_simulation_results">
+      <h1>¡Lo sentimos!</h1>
+      <h2>
+        Para este valor de inmueble, debes contar con unos ingresos mensuales mínimos de
+      </h2>
+      <h2 className="_value">{`${simulation.symbol} ${simulation.sum
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</h2>
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`}</h2>
       <p>
-        **Recuerda que puedes consolidar ingresos hasta segundo grado de afinidad y
-        tercero de consanguinidad
+        **Recuerda que puedes consolidar ingresos hasta segundo grado de consanguinidad y
+        primero de afinidad.
       </p>
       <span>
-        Si quieres más información contacta un bróker o continua vuelve al proceso…
+        {`Si deseas continuar con el proceso, haz click en el botón "continuar" para
+        comunicarte con uno de nuestros brokers.`}
       </span>
-    </Grid>
+    </Container>
   );
 };
 

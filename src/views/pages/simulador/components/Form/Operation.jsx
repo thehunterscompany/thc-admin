@@ -20,7 +20,7 @@ const OperationalFields = ({ formField, values, setFieldValue }) => {
     if (simulationType === 2)
       component = (
         <CommercialForm
-          formField={{ value, currentDeal, time, type, ...formField.realEstate }}
+          formField={{ value, currentDeal, time, type, ...formField.commercial }}
           values={values}
           currencySymbol={'COP'}
           setFieldValue={setFieldValue}
@@ -30,7 +30,7 @@ const OperationalFields = ({ formField, values, setFieldValue }) => {
     if (simulationType === 3)
       component = (
         <WalletForm
-          formField={{ value, currentDeal, time, type, ...formField.realEstate }}
+          formField={{ value, currentDeal, time, type, ...formField.wallet }}
           values={values}
           currencySymbol={'COP'}
           setFieldValue={setFieldValue}

@@ -40,26 +40,28 @@ const ComboBox = (props) => {
       getOptionLabel={(option) => option.label}
       options={data}
       loading={loading}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          error={meta.touched && meta.error && true}
-          helperText={_renderHelperText()}
-          variant="filled"
-          margin="normal"
-          {...field}
-          {...rest}
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                {params.InputProps.endAdornment}
-              </React.Fragment>
-            ),
-          }}
-        />
-      )}
+      renderInput={(params) => {
+        return (
+          <TextField
+            {...params}
+            error={meta.touched && meta.error && true}
+            helperText={_renderHelperText()}
+            variant="filled"
+            margin="normal"
+            {...field}
+            {...rest}
+            InputProps={{
+              ...params.InputProps,
+              endAdornment: (
+                <React.Fragment>
+                  {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                  {params.InputProps.endAdornment}
+                </React.Fragment>
+              ),
+            }}
+          />
+        );
+      }}
     />
   );
 };

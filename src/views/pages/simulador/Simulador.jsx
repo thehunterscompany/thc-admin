@@ -7,7 +7,7 @@ import SimulatorForm from './components/Form';
 import './Simulador.scss';
 
 const Simulador = () => (
-  <div className="_simulador-container">
+  <div className="_simulation-container">
     <Navbar />
     <div className="_form-spaces">
       <SimulatorForm />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
+import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import {
@@ -68,12 +68,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={lastNames.label}
             type="text"
             fullWidth
+            value={values.lastNames}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <SelectField
             name={documentType.name}
             label={documentType.label}
+            value={values.documentType}
             data={idType}
             fullWidth
             style={{ marginTop: '16px' }}
@@ -85,6 +88,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={documentId.name}
             label={documentId.label}
             type="text"
+            value={values.documentId}
             fullWidth
           />
         </Grid>
@@ -102,7 +106,13 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField name={email.name} label={email.label} type="text" fullWidth />
+          <InputField
+            name={email.name}
+            label={email.label}
+            type="text"
+            value={values.email}
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -111,6 +121,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={location.label}
             fullWidth
             setFieldValue={setFieldValue}
+            value={values.location}
           />
         </Grid>
 

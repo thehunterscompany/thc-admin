@@ -3,7 +3,7 @@
   // margin-top: 2em;
   margin-bottom: 1em;
   padding: 2%;
-  min-width: 700px;
+  // min-width: 700px;
 
   h1 {
     font-size: 32px;
@@ -11,9 +11,6 @@
     text-align: center;
     margin-bottom: 1em;
   }
-}
-
-._simulador-container {
   .MuiFormLabel-root.Mui-focused {
     color: rgb(211, 73, 150) !important;
   }
@@ -25,9 +22,55 @@
   .MuiInput-underline.Mui-focused::after {
     border-bottom: 2px solid rgb(211, 73, 150) !important;
   }
+
+  ._buttons_space {
+    display: flex;
+    justify-content: center;
+
+    ._return_button.MuiButton-root {
+      margin-top: 24px;
+      margin-left: 8px;
+      color: #000;
+      &:not(:disabled):hover {
+        background-color: rgba(211, 73, 150, 0.04);
+      }
+    }
+
+    ._continue_button.MuiButton-root {
+      margin-top: 24px;
+      margin-left: 8px;
+      background-color: rgb(211, 73, 150);
+      &:disabled {
+        color: rgba(0, 0, 0, 0.26);
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+      &:not(:disabled):hover {
+        background-color: rgba(211, 73, 150, 0.8);
+      }
+    }
+  }
+
+  // .makeStyles-wrapper-5 {
+  //   .MuiButton-root {
+  //     background-color: rgb(211, 73, 150);
+
+  //     &:disabled {
+  //       color: rgba(0, 0, 0, 0.26);
+  //       box-shadow: none;
+  //       background-color: rgba(0, 0, 0, 0.12);
+  //     }
+  //     &:not(:disabled):hover {
+  //       background-color: rgba(211, 73, 150, 0.8);
+  //     }
+  //   }
+  // }
+}
+
+._simulation-container {
   display: flex;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
+  width: auto;
   align-items: center;
   gap: 2.5em;
   flex-direction: column;
@@ -52,6 +95,44 @@
       display: inline-flex;
       padding: 15px 0px;
       margin-top: -13px;
+    }
+  }
+
+  ._simulation_results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h1,
+    ._value {
+      color: rgb(211, 73, 150) !important;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 50px;
+    }
+    p {
+      font-size: 12px;
+      text-align: left;
+    }
+    span {
+      text-align: left;
+    }
+
+    ._simulation_table {
+      border-radius: 25px;
+      table {
+        background-color: rgb(211, 73, 150) !important;
+        color: #fff !important;
+        border-radius: 1px;
+        th,
+        td {
+          color: #fff;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

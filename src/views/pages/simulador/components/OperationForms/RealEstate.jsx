@@ -55,6 +55,7 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             setFieldValue={setFieldValue}
             handleOpenChange={setOpen}
             open={open}
+            value={values.type}
             fullWidth
           />
         </Grid>
@@ -70,7 +71,7 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             ]}
             fullWidth
             value={values.realEstateType}
-            style={{ marginTop: '7.5%' }}
+            style={{ marginTop: '5%' }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
