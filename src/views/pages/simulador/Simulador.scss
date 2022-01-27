@@ -15,21 +15,23 @@
     color: rgb(211, 73, 150) !important;
   }
 
-  .MuiFilledInput-underline.Mui-focused::after {
-    border-bottom: 2px solid rgb(211, 73, 150) !important;
+  .MuiFormLabel-root.Mui-focused.Mui-error {
+    color: #f44336 !important;
   }
 
-  .MuiInput-underline.Mui-focused::after {
+  .MuiFilledInput-underline.Mui-focused.Mui-error::after,
+  .MuiFilledInput-underline.Mui-error::after {
+    border-bottom-color: #f44336 !important;
+  }
+
+  .MuiInput-underline.Mui-focused::after,
+  .MuiFilledInput-underline.Mui-focused::after {
     border-bottom: 2px solid rgb(211, 73, 150) !important;
   }
 
   .MuiFormLabel-root.Mui-error,
   .MuiFormHelperText-root.Mui-error {
     color: #f44336;
-  }
-
-  .MuiFilledInput-underline.Mui-error::after {
-    border-bottom-color: #f44336;
   }
 
   ._buttons_space {
