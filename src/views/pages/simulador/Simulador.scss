@@ -23,6 +23,15 @@
     border-bottom: 2px solid rgb(211, 73, 150) !important;
   }
 
+  .MuiFormLabel-root.Mui-error,
+  .MuiFormHelperText-root.Mui-error {
+    color: #f44336;
+  }
+
+  .MuiFilledInput-underline.Mui-error::after {
+    border-bottom-color: #f44336;
+  }
+
   ._buttons_space {
     display: flex;
     justify-content: center;
@@ -50,21 +59,6 @@
       }
     }
   }
-
-  // .makeStyles-wrapper-5 {
-  //   .MuiButton-root {
-  //     background-color: rgb(211, 73, 150);
-
-  //     &:disabled {
-  //       color: rgba(0, 0, 0, 0.26);
-  //       box-shadow: none;
-  //       background-color: rgba(0, 0, 0, 0.12);
-  //     }
-  //     &:not(:disabled):hover {
-  //       background-color: rgba(211, 73, 150, 0.8);
-  //     }
-  //   }
-  // }
 }
 
 ._simulation-container {

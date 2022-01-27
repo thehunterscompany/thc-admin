@@ -1,0 +1,3313 @@
+{
+  "cities": [
+    {
+      "label": "Amazonas-Leticia"
+    },
+    {
+      "label": "Amazonas-Puerto Nari\u00f1o"
+    },
+    {
+      "label": "Antioquia-Abejorral"
+    },
+    {
+      "label": "Antioquia-Abriaqu\u00ed"
+    },
+    {
+      "label": "Antioquia-Alejandr\u00eda"
+    },
+    {
+      "label": "Antioquia-Amag\u00e1"
+    },
+    {
+      "label": "Antioquia-Amalfi"
+    },
+    {
+      "label": "Antioquia-Andes"
+    },
+    {
+      "label": "Antioquia-Angel\u00f3polis"
+    },
+    {
+      "label": "Antioquia-Angostura"
+    },
+    {
+      "label": "Antioquia-Anor\u00ed"
+    },
+    {
+      "label": "Antioquia-Anz\u00e1"
+    },
+    {
+      "label": "Antioquia-Apartad\u00f3"
+    },
+    {
+      "label": "Antioquia-Arboletes"
+    },
+    {
+      "label": "Antioquia-Argelia"
+    },
+    {
+      "label": "Antioquia-Armenia"
+    },
+    {
+      "label": "Antioquia-Barbosa"
+    },
+    {
+      "label": "Antioquia-Bello"
+    },
+    {
+      "label": "Antioquia-Belmira"
+    },
+    {
+      "label": "Antioquia-Betania"
+    },
+    {
+      "label": "Antioquia-Betulia"
+    },
+    {
+      "label": "Antioquia-Brice\u00f1o"
+    },
+    {
+      "label": "Antioquia-Buritic\u00e1"
+    },
+    {
+      "label": "Antioquia-C\u00e1ceres"
+    },
+    {
+      "label": "Antioquia-Caicedo"
+    },
+    {
+      "label": "Antioquia-Caldas"
+    },
+    {
+      "label": "Antioquia-Campamento"
+    },
+    {
+      "label": "Antioquia-Ca\u00f1asgordas"
+    },
+    {
+      "label": "Antioquia-Caracol\u00ed"
+    },
+    {
+      "label": "Antioquia-Caramanta"
+    },
+    {
+      "label": "Antioquia-Carepa"
+    },
+    {
+      "label": "Antioquia-Carolina del Pr\u00edncipe"
+    },
+    {
+      "label": "Antioquia-Caucasia"
+    },
+    {
+      "label": "Antioquia-Chigorod\u00f3"
+    },
+    {
+      "label": "Antioquia-Cisneros"
+    },
+    {
+      "label": "Antioquia-Ciudad Bol\u00edvar"
+    },
+    {
+      "label": "Antioquia-Cocorn\u00e1"
+    },
+    {
+      "label": "Antioquia-Concepci\u00f3n"
+    },
+    {
+      "label": "Antioquia-Concordia"
+    },
+    {
+      "label": "Antioquia-Copacabana"
+    },
+    {
+      "label": "Antioquia-Dabeiba"
+    },
+    {
+      "label": "Antioquia-Donmat\u00edas"
+    },
+    {
+      "label": "Antioquia-Eb\u00e9jico"
+    },
+    {
+      "label": "Antioquia-El Bagre"
+    },
+    {
+      "label": "Antioquia-El Carmen de Viboral"
+    },
+    {
+      "label": "Antioquia-El Pe\u00f1ol"
+    },
+    {
+      "label": "Antioquia-El Retiro"
+    },
+    {
+      "label": "Antioquia-El Santuario"
+    },
+    {
+      "label": "Antioquia-Entrerr\u00edos"
+    },
+    {
+      "label": "Antioquia-Envigado"
+    },
+    {
+      "label": "Antioquia-Fredonia"
+    },
+    {
+      "label": "Antioquia-Frontino"
+    },
+    {
+      "label": "Antioquia-Giraldo"
+    },
+    {
+      "label": "Antioquia-Girardota"
+    },
+    {
+      "label": "Antioquia-G\u00f3mez Plata"
+    },
+    {
+      "label": "Antioquia-Granada"
+    },
+    {
+      "label": "Antioquia-Guadalupe"
+    },
+    {
+      "label": "Antioquia-Guarne"
+    },
+    {
+      "label": "Antioquia-Guatap\u00e9"
+    },
+    {
+      "label": "Antioquia-Heliconia"
+    },
+    {
+      "label": "Antioquia-Hispania"
+    },
+    {
+      "label": "Antioquia-Itag\u00fc\u00ed"
+    },
+    {
+      "label": "Antioquia-Ituango"
+    },
+    {
+      "label": "Antioquia-Jard\u00edn"
+    },
+    {
+      "label": "Antioquia-Jeric\u00f3"
+    },
+    {
+      "label": "Antioquia-La Ceja"
+    },
+    {
+      "label": "Antioquia-La Estrella"
+    },
+    {
+      "label": "Antioquia-La Pintada"
+    },
+    {
+      "label": "Antioquia-La Uni\u00f3n"
+    },
+    {
+      "label": "Antioquia-Liborina"
+    },
+    {
+      "label": "Antioquia-Maceo"
+    },
+    {
+      "label": "Antioquia-Marinilla"
+    },
+    {
+      "label": "Antioquia-Medell\u00edn"
+    },
+    {
+      "label": "Antioquia-Montebello"
+    },
+    {
+      "label": "Antioquia-Murind\u00f3"
+    },
+    {
+      "label": "Antioquia-Mutat\u00e1"
+    },
+    {
+      "label": "Antioquia-Nari\u00f1o"
+    },
+    {
+      "label": "Antioquia-Nech\u00ed"
+    },
+    {
+      "label": "Antioquia-Necocl\u00ed"
+    },
+    {
+      "label": "Antioquia-Olaya"
+    },
+    {
+      "label": "Antioquia-Peque"
+    },
+    {
+      "label": "Antioquia-Pueblorrico"
+    },
+    {
+      "label": "Antioquia-Puerto Berr\u00edo"
+    },
+    {
+      "label": "Antioquia-Puerto Nare"
+    },
+    {
+      "label": "Antioquia-Puerto Triunfo"
+    },
+    {
+      "label": "Antioquia-Remedios"
+    },
+    {
+      "label": "Antioquia-Rionegro"
+    },
+    {
+      "label": "Antioquia-Sabanalarga"
+    },
+    {
+      "label": "Antioquia-Sabaneta"
+    },
+    {
+      "label": "Antioquia-Salgar"
+    },
+    {
+      "label": "Antioquia-San Andr\u00e9s de Cuerquia"
+    },
+    {
+      "label": "Antioquia-San Carlos"
+    },
+    {
+      "label": "Antioquia-San Francisco"
+    },
+    {
+      "label": "Antioquia-San Jer\u00f3nimo"
+    },
+    {
+      "label": "Antioquia-San Jos\u00e9 de la Monta\u00f1a"
+    },
+    {
+      "label": "Antioquia-San Juan de Urab\u00e1"
+    },
+    {
+      "label": "Antioquia-San Luis"
+    },
+    {
+      "label": "Antioquia-San Pedro de Urab\u00e1"
+    },
+    {
+      "label": "Antioquia-San Pedro de los Milagros"
+    },
+    {
+      "label": "Antioquia-San Rafael"
+    },
+    {
+      "label": "Antioquia-San Roque"
+    },
+    {
+      "label": "Antioquia-San Vicente"
+    },
+    {
+      "label": "Antioquia-Santa B\u00e1rbara"
+    },
+    {
+      "label": "Antioquia-Santa Fe de Antioquia"
+    },
+    {
+      "label": "Antioquia-Santa Rosa de Osos"
+    },
+    {
+      "label": "Antioquia-Santo Domingo"
+    },
+    {
+      "label": "Antioquia-Segovia"
+    },
+    {
+      "label": "Antioquia-Sons\u00f3n"
+    },
+    {
+      "label": "Antioquia-Sopetr\u00e1n"
+    },
+    {
+      "label": "Antioquia-T\u00e1mesis"
+    },
+    {
+      "label": "Antioquia-Taraz\u00e1"
+    },
+    {
+      "label": "Antioquia-Tarso"
+    },
+    {
+      "label": "Antioquia-Titirib\u00ed"
+    },
+    {
+      "label": "Antioquia-Toledo"
+    },
+    {
+      "label": "Antioquia-Turbo"
+    },
+    {
+      "label": "Antioquia-Uramita"
+    },
+    {
+      "label": "Antioquia-Urrao"
+    },
+    {
+      "label": "Antioquia-Valdivia"
+    },
+    {
+      "label": "Antioquia-Valpara\u00edso"
+    },
+    {
+      "label": "Antioquia-Vegach\u00ed"
+    },
+    {
+      "label": "Antioquia-Venecia"
+    },
+    {
+      "label": "Antioquia-Vig\u00eda del Fuerte"
+    },
+    {
+      "label": "Antioquia-Yal\u00ed"
+    },
+    {
+      "label": "Antioquia-Yarumal"
+    },
+    {
+      "label": "Antioquia-Yolomb\u00f3"
+    },
+    {
+      "label": "Antioquia-Yond\u00f3"
+    },
+    {
+      "label": "Antioquia-Zaragoza"
+    },
+    {
+      "label": "Arauca-Arauca"
+    },
+    {
+      "label": "Arauca-Arauquita"
+    },
+    {
+      "label": "Arauca-Cravo Norte"
+    },
+    {
+      "label": "Arauca-Fortul"
+    },
+    {
+      "label": "Arauca-Puerto Rond\u00f3n"
+    },
+    {
+      "label": "Arauca-Saravena"
+    },
+    {
+      "label": "Arauca-Tame"
+    },
+    {
+      "label": "Atl\u00e1ntico-Baranoa"
+    },
+    {
+      "label": "Atl\u00e1ntico-Barranquilla"
+    },
+    {
+      "label": "Atl\u00e1ntico-Campo de la Cruz"
+    },
+    {
+      "label": "Atl\u00e1ntico-Candelaria"
+    },
+    {
+      "label": "Atl\u00e1ntico-Galapa"
+    },
+    {
+      "label": "Atl\u00e1ntico-Juan de Acosta"
+    },
+    {
+      "label": "Atl\u00e1ntico-Luruaco"
+    },
+    {
+      "label": "Atl\u00e1ntico-Malambo"
+    },
+    {
+      "label": "Atl\u00e1ntico-Manat\u00ed"
+    },
+    {
+      "label": "Atl\u00e1ntico-Palmar de Varela"
+    },
+    {
+      "label": "Atl\u00e1ntico-Pioj\u00f3"
+    },
+    {
+      "label": "Atl\u00e1ntico-Polonuevo"
+    },
+    {
+      "label": "Atl\u00e1ntico-Ponedera"
+    },
+    {
+      "label": "Atl\u00e1ntico-Puerto Colombia"
+    },
+    {
+      "label": "Atl\u00e1ntico-Repel\u00f3n"
+    },
+    {
+      "label": "Atl\u00e1ntico-Sabanagrande"
+    },
+    {
+      "label": "Atl\u00e1ntico-Sabanalarga"
+    },
+    {
+      "label": "Atl\u00e1ntico-Santa Luc\u00eda"
+    },
+    {
+      "label": "Atl\u00e1ntico-Santo Tom\u00e1s"
+    },
+    {
+      "label": "Atl\u00e1ntico-Soledad"
+    },
+    {
+      "label": "Atl\u00e1ntico-Su\u00e1n"
+    },
+    {
+      "label": "Atl\u00e1ntico-Tubar\u00e1"
+    },
+    {
+      "label": "Atl\u00e1ntico-Usiacur\u00ed"
+    },
+    {
+      "label": "Bol\u00edvar-Ach\u00ed"
+    },
+    {
+      "label": "Bol\u00edvar-Altos del Rosario"
+    },
+    {
+      "label": "Bol\u00edvar-Arenal"
+    },
+    {
+      "label": "Bol\u00edvar-Arjona"
+    },
+    {
+      "label": "Bol\u00edvar-Arroyohondo"
+    },
+    {
+      "label": "Bol\u00edvar-Barranco de Loba"
+    },
+    {
+      "label": "Bol\u00edvar-Brazuelo de Papayal"
+    },
+    {
+      "label": "Bol\u00edvar-Calamar"
+    },
+    {
+      "label": "Bol\u00edvar-Cantagallo"
+    },
+    {
+      "label": "Bol\u00edvar-Cartagena de Indias"
+    },
+    {
+      "label": "Bol\u00edvar-Cicuco"
+    },
+    {
+      "label": "Bol\u00edvar-Clemencia"
+    },
+    {
+      "label": "Bol\u00edvar-C\u00f3rdoba"
+    },
+    {
+      "label": "Bol\u00edvar-El Carmen de Bol\u00edvar"
+    },
+    {
+      "label": "Bol\u00edvar-El Guamo"
+    },
+    {
+      "label": "Bol\u00edvar-El Pe\u00f1\u00f3n"
+    },
+    {
+      "label": "Bol\u00edvar-Hatillo de Loba"
+    },
+    {
+      "label": "Bol\u00edvar-Magangu\u00e9"
+    },
+    {
+      "label": "Bol\u00edvar-Mahates"
+    },
+    {
+      "label": "Bol\u00edvar-Margarita"
+    },
+    {
+      "label": "Bol\u00edvar-Mar\u00eda la Baja"
+    },
+    {
+      "label": "Bol\u00edvar-Momp\u00f3s"
+    },
+    {
+      "label": "Bol\u00edvar-Montecristo"
+    },
+    {
+      "label": "Bol\u00edvar-Morales"
+    },
+    {
+      "label": "Bol\u00edvar-Noros\u00ed"
+    },
+    {
+      "label": "Bol\u00edvar-Pinillos"
+    },
+    {
+      "label": "Bol\u00edvar-Regidor"
+    },
+    {
+      "label": "Bol\u00edvar-R\u00edo Viejo"
+    },
+    {
+      "label": "Bol\u00edvar-San Crist\u00f3bal"
+    },
+    {
+      "label": "Bol\u00edvar-San Estanislao"
+    },
+    {
+      "label": "Bol\u00edvar-San Fernando"
+    },
+    {
+      "label": "Bol\u00edvar-San Jacinto del Cauca"
+    },
+    {
+      "label": "Bol\u00edvar-San Jacinto"
+    },
+    {
+      "label": "Bol\u00edvar-San Juan Nepomuceno"
+    },
+    {
+      "label": "Bol\u00edvar-San Mart\u00edn de Loba"
+    },
+    {
+      "label": "Bol\u00edvar-San Pablo"
+    },
+    {
+      "label": "Bol\u00edvar-Santa Catalina"
+    },
+    {
+      "label": "Bol\u00edvar-Santa Rosa"
+    },
+    {
+      "label": "Bol\u00edvar-Santa Rosa del Sur"
+    },
+    {
+      "label": "Bol\u00edvar-Simit\u00ed"
+    },
+    {
+      "label": "Bol\u00edvar-Soplaviento"
+    },
+    {
+      "label": "Bol\u00edvar-Talaigua Nuevo"
+    },
+    {
+      "label": "Bol\u00edvar-Tiquisio"
+    },
+    {
+      "label": "Bol\u00edvar-Turbaco"
+    },
+    {
+      "label": "Bol\u00edvar-Turban\u00e1"
+    },
+    {
+      "label": "Bol\u00edvar-Villanueva"
+    },
+    {
+      "label": "Bol\u00edvar-Zambrano"
+    },
+    {
+      "label": "Boyac\u00e1-Almeida"
+    },
+    {
+      "label": "Boyac\u00e1-Aquitania"
+    },
+    {
+      "label": "Boyac\u00e1-Arcabuco"
+    },
+    {
+      "label": "Boyac\u00e1-Bel\u00e9n"
+    },
+    {
+      "label": "Boyac\u00e1-Berbeo"
+    },
+    {
+      "label": "Boyac\u00e1-Bet\u00e9itiva"
+    },
+    {
+      "label": "Boyac\u00e1-Boavita"
+    },
+    {
+      "label": "Boyac\u00e1-Boyac\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Brice\u00f1o"
+    },
+    {
+      "label": "Boyac\u00e1-Buenavista"
+    },
+    {
+      "label": "Boyac\u00e1-Busbanz\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Caldas"
+    },
+    {
+      "label": "Boyac\u00e1-Campohermoso"
+    },
+    {
+      "label": "Boyac\u00e1-Cerinza"
+    },
+    {
+      "label": "Boyac\u00e1-Chinavita"
+    },
+    {
+      "label": "Boyac\u00e1-Chiquinquir\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Ch\u00edquiza"
+    },
+    {
+      "label": "Boyac\u00e1-Chiscas"
+    },
+    {
+      "label": "Boyac\u00e1-Chita"
+    },
+    {
+      "label": "Boyac\u00e1-Chitaraque"
+    },
+    {
+      "label": "Boyac\u00e1-Chivat\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Chivor"
+    },
+    {
+      "label": "Boyac\u00e1-Ci\u00e9nega"
+    },
+    {
+      "label": "Boyac\u00e1-C\u00f3mbita"
+    },
+    {
+      "label": "Boyac\u00e1-Coper"
+    },
+    {
+      "label": "Boyac\u00e1-Corrales"
+    },
+    {
+      "label": "Boyac\u00e1-Covarach\u00eda"
+    },
+    {
+      "label": "Boyac\u00e1-Cubar\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Cucaita"
+    },
+    {
+      "label": "Boyac\u00e1-Cu\u00edtiva"
+    },
+    {
+      "label": "Boyac\u00e1-Duitama"
+    },
+    {
+      "label": "Boyac\u00e1-El Cocuy"
+    },
+    {
+      "label": "Boyac\u00e1-El Espino"
+    },
+    {
+      "label": "Boyac\u00e1-Firavitoba"
+    },
+    {
+      "label": "Boyac\u00e1-Floresta"
+    },
+    {
+      "label": "Boyac\u00e1-Gachantiv\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-G\u00e1meza"
+    },
+    {
+      "label": "Boyac\u00e1-Garagoa"
+    },
+    {
+      "label": "Boyac\u00e1-Guacamayas"
+    },
+    {
+      "label": "Boyac\u00e1-Guateque"
+    },
+    {
+      "label": "Boyac\u00e1-Guayat\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-G\u00fcic\u00e1n"
+    },
+    {
+      "label": "Boyac\u00e1-Iza"
+    },
+    {
+      "label": "Boyac\u00e1-Jenesano"
+    },
+    {
+      "label": "Boyac\u00e1-Jeric\u00f3"
+    },
+    {
+      "label": "Boyac\u00e1-La Capilla"
+    },
+    {
+      "label": "Boyac\u00e1-La Uvita"
+    },
+    {
+      "label": "Boyac\u00e1-La Victoria"
+    },
+    {
+      "label": "Boyac\u00e1-Labranzagrande"
+    },
+    {
+      "label": "Boyac\u00e1-Macanal"
+    },
+    {
+      "label": "Boyac\u00e1-Marip\u00ed"
+    },
+    {
+      "label": "Boyac\u00e1-Miraflores"
+    },
+    {
+      "label": "Boyac\u00e1-Mongua"
+    },
+    {
+      "label": "Boyac\u00e1-Mongu\u00ed"
+    },
+    {
+      "label": "Boyac\u00e1-Moniquir\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Motavita"
+    },
+    {
+      "label": "Boyac\u00e1-Muzo"
+    },
+    {
+      "label": "Boyac\u00e1-Nobsa"
+    },
+    {
+      "label": "Boyac\u00e1-Nuevo Col\u00f3n"
+    },
+    {
+      "label": "Boyac\u00e1-Oicat\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Otanche"
+    },
+    {
+      "label": "Boyac\u00e1-Pachavita"
+    },
+    {
+      "label": "Boyac\u00e1-P\u00e1ez"
+    },
+    {
+      "label": "Boyac\u00e1-Paipa"
+    },
+    {
+      "label": "Boyac\u00e1-Pajarito"
+    },
+    {
+      "label": "Boyac\u00e1-Panqueba"
+    },
+    {
+      "label": "Boyac\u00e1-Pauna"
+    },
+    {
+      "label": "Boyac\u00e1-Paya"
+    },
+    {
+      "label": "Boyac\u00e1-Paz del R\u00edo"
+    },
+    {
+      "label": "Boyac\u00e1-Pesca"
+    },
+    {
+      "label": "Boyac\u00e1-Pisba"
+    },
+    {
+      "label": "Boyac\u00e1-Puerto Boyac\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Qu\u00edpama"
+    },
+    {
+      "label": "Boyac\u00e1-Ramiriqu\u00ed"
+    },
+    {
+      "label": "Boyac\u00e1-R\u00e1quira"
+    },
+    {
+      "label": "Boyac\u00e1-Rond\u00f3n"
+    },
+    {
+      "label": "Boyac\u00e1-Saboy\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-S\u00e1chica"
+    },
+    {
+      "label": "Boyac\u00e1-Samac\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-San Eduardo"
+    },
+    {
+      "label": "Boyac\u00e1-San Jos\u00e9 de Pare"
+    },
+    {
+      "label": "Boyac\u00e1-San Luis de Gaceno"
+    },
+    {
+      "label": "Boyac\u00e1-San Mateo"
+    },
+    {
+      "label": "Boyac\u00e1-San Miguel de Sema"
+    },
+    {
+      "label": "Boyac\u00e1-San Pablo de Borbur"
+    },
+    {
+      "label": "Boyac\u00e1-Santa Mar\u00eda"
+    },
+    {
+      "label": "Boyac\u00e1-Santa Rosa de Viterbo"
+    },
+    {
+      "label": "Boyac\u00e1-Santa Sof\u00eda"
+    },
+    {
+      "label": "Boyac\u00e1-Santana"
+    },
+    {
+      "label": "Boyac\u00e1-Sativanorte"
+    },
+    {
+      "label": "Boyac\u00e1-Sativasur"
+    },
+    {
+      "label": "Boyac\u00e1-Siachoque"
+    },
+    {
+      "label": "Boyac\u00e1-Soat\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Socha"
+    },
+    {
+      "label": "Boyac\u00e1-Socot\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Sogamoso"
+    },
+    {
+      "label": "Boyac\u00e1-Somondoco"
+    },
+    {
+      "label": "Boyac\u00e1-Sora"
+    },
+    {
+      "label": "Boyac\u00e1-Sorac\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Sotaquir\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Susac\u00f3n"
+    },
+    {
+      "label": "Boyac\u00e1-Sutamarch\u00e1n"
+    },
+    {
+      "label": "Boyac\u00e1-Sutatenza"
+    },
+    {
+      "label": "Boyac\u00e1-Tasco"
+    },
+    {
+      "label": "Boyac\u00e1-Tenza"
+    },
+    {
+      "label": "Boyac\u00e1-Tiban\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Tibasosa"
+    },
+    {
+      "label": "Boyac\u00e1-Tinjac\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Tipacoque"
+    },
+    {
+      "label": "Boyac\u00e1-Toca"
+    },
+    {
+      "label": "Boyac\u00e1-Tog\u00fc\u00ed"
+    },
+    {
+      "label": "Boyac\u00e1-T\u00f3paga"
+    },
+    {
+      "label": "Boyac\u00e1-Tota"
+    },
+    {
+      "label": "Boyac\u00e1-Tunja"
+    },
+    {
+      "label": "Boyac\u00e1-Tunungu\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Turmequ\u00e9"
+    },
+    {
+      "label": "Boyac\u00e1-Tuta"
+    },
+    {
+      "label": "Boyac\u00e1-Tutaz\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-\u00dambita"
+    },
+    {
+      "label": "Boyac\u00e1-Ventaquemada"
+    },
+    {
+      "label": "Boyac\u00e1-Villa de Leyva"
+    },
+    {
+      "label": "Boyac\u00e1-Viracach\u00e1"
+    },
+    {
+      "label": "Boyac\u00e1-Zetaquira"
+    },
+    {
+      "label": "Caldas-Aguadas"
+    },
+    {
+      "label": "Caldas-Anserma"
+    },
+    {
+      "label": "Caldas-Aranzazu"
+    },
+    {
+      "label": "Caldas-Belalc\u00e1zar"
+    },
+    {
+      "label": "Caldas-Chinchin\u00e1"
+    },
+    {
+      "label": "Caldas-Filadelfia"
+    },
+    {
+      "label": "Caldas-La Dorada"
+    },
+    {
+      "label": "Caldas-La Merced"
+    },
+    {
+      "label": "Caldas-Manizales"
+    },
+    {
+      "label": "Caldas-Manzanares"
+    },
+    {
+      "label": "Caldas-Marmato"
+    },
+    {
+      "label": "Caldas-Marquetalia"
+    },
+    {
+      "label": "Caldas-Marulanda"
+    },
+    {
+      "label": "Caldas-Neira"
+    },
+    {
+      "label": "Caldas-Norcasia"
+    },
+    {
+      "label": "Caldas-P\u00e1cora"
+    },
+    {
+      "label": "Caldas-Palestina"
+    },
+    {
+      "label": "Caldas-Pensilvania"
+    },
+    {
+      "label": "Caldas-Riosucio"
+    },
+    {
+      "label": "Caldas-Risaralda"
+    },
+    {
+      "label": "Caldas-Salamina"
+    },
+    {
+      "label": "Caldas-Saman\u00e1"
+    },
+    {
+      "label": "Caldas-San Jos\u00e9"
+    },
+    {
+      "label": "Caldas-Sup\u00eda"
+    },
+    {
+      "label": "Caldas-Victoria"
+    },
+    {
+      "label": "Caldas-Villamar\u00eda"
+    },
+    {
+      "label": "Caldas-Viterbo"
+    },
+    {
+      "label": "Caquet\u00e1-Albania"
+    },
+    {
+      "label": "Caquet\u00e1-Bel\u00e9n de los Andaqu\u00edes"
+    },
+    {
+      "label": "Caquet\u00e1-Cartagena del Chair\u00e1"
+    },
+    {
+      "label": "Caquet\u00e1-Curillo"
+    },
+    {
+      "label": "Caquet\u00e1-El Doncello"
+    },
+    {
+      "label": "Caquet\u00e1-El Paujil"
+    },
+    {
+      "label": "Caquet\u00e1-Florencia"
+    },
+    {
+      "label": "Caquet\u00e1-La Monta\u00f1ita"
+    },
+    {
+      "label": "Caquet\u00e1-Mil\u00e1n"
+    },
+    {
+      "label": "Caquet\u00e1-Morelia"
+    },
+    {
+      "label": "Caquet\u00e1-Puerto Rico"
+    },
+    {
+      "label": "Caquet\u00e1-San Jos\u00e9 del Fragua"
+    },
+    {
+      "label": "Caquet\u00e1-San Vicente del Cagu\u00e1n"
+    },
+    {
+      "label": "Caquet\u00e1-Solano"
+    },
+    {
+      "label": "Caquet\u00e1-Solita"
+    },
+    {
+      "label": "Caquet\u00e1-Valpara\u00edso"
+    },
+    {
+      "label": "Casanare-Aguazul"
+    },
+    {
+      "label": "Casanare-Ch\u00e1meza"
+    },
+    {
+      "label": "Casanare-Hato Corozal"
+    },
+    {
+      "label": "Casanare-La Salina"
+    },
+    {
+      "label": "Casanare-Man\u00ed"
+    },
+    {
+      "label": "Casanare-Monterrey"
+    },
+    {
+      "label": "Casanare-Nunch\u00eda"
+    },
+    {
+      "label": "Casanare-Orocu\u00e9"
+    },
+    {
+      "label": "Casanare-Paz de Ariporo"
+    },
+    {
+      "label": "Casanare-Pore"
+    },
+    {
+      "label": "Casanare-Recetor"
+    },
+    {
+      "label": "Casanare-Sabanalarga"
+    },
+    {
+      "label": "Casanare-S\u00e1cama"
+    },
+    {
+      "label": "Casanare-San Luis de Palenque"
+    },
+    {
+      "label": "Casanare-T\u00e1mara"
+    },
+    {
+      "label": "Casanare-Tauramena"
+    },
+    {
+      "label": "Casanare-Trinidad"
+    },
+    {
+      "label": "Casanare-Villanueva"
+    },
+    {
+      "label": "Casanare-Yopal"
+    },
+    {
+      "label": "Cauca-Almaguer"
+    },
+    {
+      "label": "Cauca-Argelia"
+    },
+    {
+      "label": "Cauca-Balboa"
+    },
+    {
+      "label": "Cauca-Bol\u00edvar"
+    },
+    {
+      "label": "Cauca-Buenos Aires"
+    },
+    {
+      "label": "Cauca-Cajib\u00edo"
+    },
+    {
+      "label": "Cauca-Caldono"
+    },
+    {
+      "label": "Cauca-Caloto"
+    },
+    {
+      "label": "Cauca-Corinto"
+    },
+    {
+      "label": "Cauca-El Tambo"
+    },
+    {
+      "label": "Cauca-Florencia"
+    },
+    {
+      "label": "Cauca-Guachen\u00e9"
+    },
+    {
+      "label": "Cauca-Guap\u00ed"
+    },
+    {
+      "label": "Cauca-Inz\u00e1"
+    },
+    {
+      "label": "Cauca-Jambal\u00f3"
+    },
+    {
+      "label": "Cauca-La Sierra"
+    },
+    {
+      "label": "Cauca-La Vega"
+    },
+    {
+      "label": "Cauca-L\u00f3pez de Micay"
+    },
+    {
+      "label": "Cauca-Mercaderes"
+    },
+    {
+      "label": "Cauca-Miranda"
+    },
+    {
+      "label": "Cauca-Morales"
+    },
+    {
+      "label": "Cauca-Padilla"
+    },
+    {
+      "label": "Cauca-P\u00e1ez"
+    },
+    {
+      "label": "Cauca-Pat\u00eda"
+    },
+    {
+      "label": "Cauca-Piamonte"
+    },
+    {
+      "label": "Cauca-Piendam\u00f3"
+    },
+    {
+      "label": "Cauca-Popay\u00e1n"
+    },
+    {
+      "label": "Cauca-Puerto Tejada"
+    },
+    {
+      "label": "Cauca-Purac\u00e9"
+    },
+    {
+      "label": "Cauca-Rosas"
+    },
+    {
+      "label": "Cauca-San Sebasti\u00e1n"
+    },
+    {
+      "label": "Cauca-Santa Rosa"
+    },
+    {
+      "label": "Cauca-Santander de Quilichao"
+    },
+    {
+      "label": "Cauca-Silvia"
+    },
+    {
+      "label": "Cauca-Sotar\u00e1"
+    },
+    {
+      "label": "Cauca-Su\u00e1rez"
+    },
+    {
+      "label": "Cauca-Sucre"
+    },
+    {
+      "label": "Cauca-Timb\u00edo"
+    },
+    {
+      "label": "Cauca-Timbiqu\u00ed"
+    },
+    {
+      "label": "Cauca-Torib\u00edo"
+    },
+    {
+      "label": "Cauca-Totor\u00f3"
+    },
+    {
+      "label": "Cauca-Villa Rica"
+    },
+    {
+      "label": "Cesar-Aguachica"
+    },
+    {
+      "label": "Cesar-Agust\u00edn Codazzi"
+    },
+    {
+      "label": "Cesar-Astrea"
+    },
+    {
+      "label": "Cesar-Becerril"
+    },
+    {
+      "label": "Cesar-Bosconia"
+    },
+    {
+      "label": "Cesar-Chimichagua"
+    },
+    {
+      "label": "Cesar-Chiriguan\u00e1"
+    },
+    {
+      "label": "Cesar-Curuman\u00ed"
+    },
+    {
+      "label": "Cesar-El Copey"
+    },
+    {
+      "label": "Cesar-El Paso"
+    },
+    {
+      "label": "Cesar-Gamarra"
+    },
+    {
+      "label": "Cesar-Gonz\u00e1lez"
+    },
+    {
+      "label": "Cesar-La Gloria (Cesar)"
+    },
+    {
+      "label": "Cesar-La Jagua de Ibirico"
+    },
+    {
+      "label": "Cesar-La Paz"
+    },
+    {
+      "label": "Cesar-Manaure Balc\u00f3n del Cesar"
+    },
+    {
+      "label": "Cesar-Pailitas"
+    },
+    {
+      "label": "Cesar-Pelaya"
+    },
+    {
+      "label": "Cesar-Pueblo Bello"
+    },
+    {
+      "label": "Cesar-R\u00edo de Oro"
+    },
+    {
+      "label": "Cesar-San Alberto"
+    },
+    {
+      "label": "Cesar-San Diego"
+    },
+    {
+      "label": "Cesar-San Mart\u00edn"
+    },
+    {
+      "label": "Cesar-Tamalameque"
+    },
+    {
+      "label": "Cesar-Valledupar"
+    },
+    {
+      "label": "Choc\u00f3-Acand\u00ed"
+    },
+    {
+      "label": "Choc\u00f3-Alto Baud\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Bagad\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Bah\u00eda Solano"
+    },
+    {
+      "label": "Choc\u00f3-Bajo Baud\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Bojay\u00e1"
+    },
+    {
+      "label": "Choc\u00f3-Cant\u00f3n de San Pablo"
+    },
+    {
+      "label": "Choc\u00f3-C\u00e9rtegui"
+    },
+    {
+      "label": "Choc\u00f3-Condoto"
+    },
+    {
+      "label": "Choc\u00f3-El Atrato"
+    },
+    {
+      "label": "Choc\u00f3-El Carmen de Atrato"
+    },
+    {
+      "label": "Choc\u00f3-El Carmen del Dari\u00e9n"
+    },
+    {
+      "label": "Choc\u00f3-Istmina"
+    },
+    {
+      "label": "Choc\u00f3-Jurad\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Litoral de San Juan"
+    },
+    {
+      "label": "Choc\u00f3-Llor\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Medio Atrato"
+    },
+    {
+      "label": "Choc\u00f3-Medio Baud\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Medio San Juan"
+    },
+    {
+      "label": "Choc\u00f3-N\u00f3vita"
+    },
+    {
+      "label": "Choc\u00f3-Nuqu\u00ed"
+    },
+    {
+      "label": "Choc\u00f3-Quibd\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-R\u00edo Ir\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-R\u00edo Quito"
+    },
+    {
+      "label": "Choc\u00f3-Riosucio"
+    },
+    {
+      "label": "Choc\u00f3-San Jos\u00e9 del Palmar"
+    },
+    {
+      "label": "Choc\u00f3-Sip\u00ed"
+    },
+    {
+      "label": "Choc\u00f3-Tad\u00f3"
+    },
+    {
+      "label": "Choc\u00f3-Uni\u00f3n Panamericana"
+    },
+    {
+      "label": "Choc\u00f3-Ungu\u00eda"
+    },
+    {
+      "label": "Cundinamarca-Agua de Dios"
+    },
+    {
+      "label": "Cundinamarca-Alb\u00e1n"
+    },
+    {
+      "label": "Cundinamarca-Anapoima"
+    },
+    {
+      "label": "Cundinamarca-Anolaima"
+    },
+    {
+      "label": "Cundinamarca-Apulo"
+    },
+    {
+      "label": "Cundinamarca-Arbel\u00e1ez"
+    },
+    {
+      "label": "Cundinamarca-Beltr\u00e1n"
+    },
+    {
+      "label": "Cundinamarca-Bituima"
+    },
+    {
+      "label": "Cundinamarca-Bogot\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Bojac\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Cabrera"
+    },
+    {
+      "label": "Cundinamarca-Cachipay"
+    },
+    {
+      "label": "Cundinamarca-Cajic\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Caparrap\u00ed"
+    },
+    {
+      "label": "Cundinamarca-C\u00e1queza"
+    },
+    {
+      "label": "Cundinamarca-Carmen de Carupa"
+    },
+    {
+      "label": "Cundinamarca-Chaguan\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Ch\u00eda"
+    },
+    {
+      "label": "Cundinamarca-Chipaque"
+    },
+    {
+      "label": "Cundinamarca-Choach\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Chocont\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Cogua"
+    },
+    {
+      "label": "Cundinamarca-Cota"
+    },
+    {
+      "label": "Cundinamarca-Cucunub\u00e1"
+    },
+    {
+      "label": "Cundinamarca-El Colegio"
+    },
+    {
+      "label": "Cundinamarca-El Pe\u00f1\u00f3n"
+    },
+    {
+      "label": "Cundinamarca-El Rosal"
+    },
+    {
+      "label": "Cundinamarca-Facatativ\u00e1"
+    },
+    {
+      "label": "Cundinamarca-F\u00f3meque"
+    },
+    {
+      "label": "Cundinamarca-Fosca"
+    },
+    {
+      "label": "Cundinamarca-Funza"
+    },
+    {
+      "label": "Cundinamarca-F\u00faquene"
+    },
+    {
+      "label": "Cundinamarca-Fusagasug\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Gachal\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Gachancip\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Gachet\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Gama"
+    },
+    {
+      "label": "Cundinamarca-Girardot"
+    },
+    {
+      "label": "Cundinamarca-Granada"
+    },
+    {
+      "label": "Cundinamarca-Guachet\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Guaduas"
+    },
+    {
+      "label": "Cundinamarca-Guasca"
+    },
+    {
+      "label": "Cundinamarca-Guataqu\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Guatavita"
+    },
+    {
+      "label": "Cundinamarca-Guayabal de S\u00edquima"
+    },
+    {
+      "label": "Cundinamarca-Guayabetal"
+    },
+    {
+      "label": "Cundinamarca-Guti\u00e9rrez"
+    },
+    {
+      "label": "Cundinamarca-Jerusal\u00e9n"
+    },
+    {
+      "label": "Cundinamarca-Jun\u00edn"
+    },
+    {
+      "label": "Cundinamarca-La Calera"
+    },
+    {
+      "label": "Cundinamarca-La Mesa"
+    },
+    {
+      "label": "Cundinamarca-La Palma"
+    },
+    {
+      "label": "Cundinamarca-La Pe\u00f1a"
+    },
+    {
+      "label": "Cundinamarca-La Vega"
+    },
+    {
+      "label": "Cundinamarca-Lenguazaque"
+    },
+    {
+      "label": "Cundinamarca-Machet\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Madrid"
+    },
+    {
+      "label": "Cundinamarca-Manta"
+    },
+    {
+      "label": "Cundinamarca-Medina"
+    },
+    {
+      "label": "Cundinamarca-Mosquera"
+    },
+    {
+      "label": "Cundinamarca-Nari\u00f1o"
+    },
+    {
+      "label": "Cundinamarca-Nemoc\u00f3n"
+    },
+    {
+      "label": "Cundinamarca-Nilo"
+    },
+    {
+      "label": "Cundinamarca-Nimaima"
+    },
+    {
+      "label": "Cundinamarca-Nocaima"
+    },
+    {
+      "label": "Cundinamarca-Pacho"
+    },
+    {
+      "label": "Cundinamarca-Paime"
+    },
+    {
+      "label": "Cundinamarca-Pandi"
+    },
+    {
+      "label": "Cundinamarca-Paratebueno"
+    },
+    {
+      "label": "Cundinamarca-Pasca"
+    },
+    {
+      "label": "Cundinamarca-Puerto Salgar"
+    },
+    {
+      "label": "Cundinamarca-Pul\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Quebradanegra"
+    },
+    {
+      "label": "Cundinamarca-Quetame"
+    },
+    {
+      "label": "Cundinamarca-Quipile"
+    },
+    {
+      "label": "Cundinamarca-Ricaurte"
+    },
+    {
+      "label": "Cundinamarca-San Antonio del Tequendama"
+    },
+    {
+      "label": "Cundinamarca-San Bernardo"
+    },
+    {
+      "label": "Cundinamarca-San Cayetano"
+    },
+    {
+      "label": "Cundinamarca-San Francisco"
+    },
+    {
+      "label": "Cundinamarca-San Juan de Rioseco"
+    },
+    {
+      "label": "Cundinamarca-Sasaima"
+    },
+    {
+      "label": "Cundinamarca-Sesquil\u00e9"
+    },
+    {
+      "label": "Cundinamarca-Sibat\u00e9"
+    },
+    {
+      "label": "Cundinamarca-Silvania"
+    },
+    {
+      "label": "Cundinamarca-Simijaca"
+    },
+    {
+      "label": "Cundinamarca-Soacha"
+    },
+    {
+      "label": "Cundinamarca-Sop\u00f3"
+    },
+    {
+      "label": "Cundinamarca-Subachoque"
+    },
+    {
+      "label": "Cundinamarca-Suesca"
+    },
+    {
+      "label": "Cundinamarca-Supat\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Susa"
+    },
+    {
+      "label": "Cundinamarca-Sutatausa"
+    },
+    {
+      "label": "Cundinamarca-Tabio"
+    },
+    {
+      "label": "Cundinamarca-Tausa"
+    },
+    {
+      "label": "Cundinamarca-Tena"
+    },
+    {
+      "label": "Cundinamarca-Tenjo"
+    },
+    {
+      "label": "Cundinamarca-Tibacuy"
+    },
+    {
+      "label": "Cundinamarca-Tibirita"
+    },
+    {
+      "label": "Cundinamarca-Tocaima"
+    },
+    {
+      "label": "Cundinamarca-Tocancip\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Topaip\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Ubal\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Ubaque"
+    },
+    {
+      "label": "Cundinamarca-Ubat\u00e9"
+    },
+    {
+      "label": "Cundinamarca-Une"
+    },
+    {
+      "label": "Cundinamarca-\u00datica"
+    },
+    {
+      "label": "Cundinamarca-Venecia"
+    },
+    {
+      "label": "Cundinamarca-Vergara"
+    },
+    {
+      "label": "Cundinamarca-Vian\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Villag\u00f3mez"
+    },
+    {
+      "label": "Cundinamarca-Villapinz\u00f3n"
+    },
+    {
+      "label": "Cundinamarca-Villeta"
+    },
+    {
+      "label": "Cundinamarca-Viot\u00e1"
+    },
+    {
+      "label": "Cundinamarca-Yacop\u00ed"
+    },
+    {
+      "label": "Cundinamarca-Zipac\u00f3n"
+    },
+    {
+      "label": "Cundinamarca-Zipaquir\u00e1"
+    },
+    {
+      "label": "C\u00f3rdoba-Ayapel"
+    },
+    {
+      "label": "C\u00f3rdoba-Buenavista"
+    },
+    {
+      "label": "C\u00f3rdoba-Canalete"
+    },
+    {
+      "label": "C\u00f3rdoba-Ceret\u00e9"
+    },
+    {
+      "label": "C\u00f3rdoba-Chim\u00e1"
+    },
+    {
+      "label": "C\u00f3rdoba-Chin\u00fa"
+    },
+    {
+      "label": "C\u00f3rdoba-Ci\u00e9naga de Oro"
+    },
+    {
+      "label": "C\u00f3rdoba-Cotorra"
+    },
+    {
+      "label": "C\u00f3rdoba-La Apartada"
+    },
+    {
+      "label": "C\u00f3rdoba-Lorica"
+    },
+    {
+      "label": "C\u00f3rdoba-Los C\u00f3rdobas"
+    },
+    {
+      "label": "C\u00f3rdoba-Momil"
+    },
+    {
+      "label": "C\u00f3rdoba-Montel\u00edbano"
+    },
+    {
+      "label": "C\u00f3rdoba-Monter\u00eda"
+    },
+    {
+      "label": "C\u00f3rdoba-Mo\u00f1itos"
+    },
+    {
+      "label": "C\u00f3rdoba-Planeta Rica"
+    },
+    {
+      "label": "C\u00f3rdoba-Pueblo Nuevo"
+    },
+    {
+      "label": "C\u00f3rdoba-Puerto Escondido"
+    },
+    {
+      "label": "C\u00f3rdoba-Puerto Libertador"
+    },
+    {
+      "label": "C\u00f3rdoba-Pur\u00edsima"
+    },
+    {
+      "label": "C\u00f3rdoba-Sahag\u00fan"
+    },
+    {
+      "label": "C\u00f3rdoba-San Andr\u00e9s de Sotavento"
+    },
+    {
+      "label": "C\u00f3rdoba-San Antero"
+    },
+    {
+      "label": "C\u00f3rdoba-San Bernardo del Viento"
+    },
+    {
+      "label": "C\u00f3rdoba-San Carlos"
+    },
+    {
+      "label": "C\u00f3rdoba-San Jos\u00e9 de Ur\u00e9"
+    },
+    {
+      "label": "C\u00f3rdoba-San Pelayo"
+    },
+    {
+      "label": "C\u00f3rdoba-Tierralta"
+    },
+    {
+      "label": "C\u00f3rdoba-Tuch\u00edn"
+    },
+    {
+      "label": "C\u00f3rdoba-Valencia"
+    },
+    {
+      "label": "Guain\u00eda-In\u00edrida"
+    },
+    {
+      "label": "Guaviare-Calamar"
+    },
+    {
+      "label": "Guaviare-El Retorno"
+    },
+    {
+      "label": "Guaviare-Miraflores"
+    },
+    {
+      "label": "Guaviare-San Jos\u00e9 del Guaviare"
+    },
+    {
+      "label": "Huila-Acevedo"
+    },
+    {
+      "label": "Huila-Agrado"
+    },
+    {
+      "label": "Huila-Aipe"
+    },
+    {
+      "label": "Huila-Algeciras"
+    },
+    {
+      "label": "Huila-Altamira"
+    },
+    {
+      "label": "Huila-Baraya"
+    },
+    {
+      "label": "Huila-Campoalegre"
+    },
+    {
+      "label": "Huila-Colombia"
+    },
+    {
+      "label": "Huila-El Pital"
+    },
+    {
+      "label": "Huila-El\u00edas"
+    },
+    {
+      "label": "Huila-Garz\u00f3n"
+    },
+    {
+      "label": "Huila-Gigante"
+    },
+    {
+      "label": "Huila-Guadalupe"
+    },
+    {
+      "label": "Huila-Hobo"
+    },
+    {
+      "label": "Huila-\u00cdquira"
+    },
+    {
+      "label": "Huila-Isnos"
+    },
+    {
+      "label": "Huila-La Argentina"
+    },
+    {
+      "label": "Huila-La Plata"
+    },
+    {
+      "label": "Huila-N\u00e1taga"
+    },
+    {
+      "label": "Huila-Neiva"
+    },
+    {
+      "label": "Huila-Oporapa"
+    },
+    {
+      "label": "Huila-Paicol"
+    },
+    {
+      "label": "Huila-Palermo"
+    },
+    {
+      "label": "Huila-Palestina"
+    },
+    {
+      "label": "Huila-Pitalito"
+    },
+    {
+      "label": "Huila-Rivera"
+    },
+    {
+      "label": "Huila-Saladoblanco"
+    },
+    {
+      "label": "Huila-San Agust\u00edn"
+    },
+    {
+      "label": "Huila-Santa Mar\u00eda"
+    },
+    {
+      "label": "Huila-Suaza"
+    },
+    {
+      "label": "Huila-Tarqui"
+    },
+    {
+      "label": "Huila-Tello"
+    },
+    {
+      "label": "Huila-Teruel"
+    },
+    {
+      "label": "Huila-Tesalia"
+    },
+    {
+      "label": "Huila-Timan\u00e1"
+    },
+    {
+      "label": "Huila-Villavieja"
+    },
+    {
+      "label": "Huila-Yaguar\u00e1"
+    },
+    {
+      "label": "La Guajira-Albania"
+    },
+    {
+      "label": "La Guajira-Barrancas"
+    },
+    {
+      "label": "La Guajira-Dibulla"
+    },
+    {
+      "label": "La Guajira-Distracci\u00f3n"
+    },
+    {
+      "label": "La Guajira-El Molino"
+    },
+    {
+      "label": "La Guajira-Fonseca"
+    },
+    {
+      "label": "La Guajira-Hatonuevo"
+    },
+    {
+      "label": "La Guajira-La Jagua del Pilar"
+    },
+    {
+      "label": "La Guajira-Maicao"
+    },
+    {
+      "label": "La Guajira-Manaure"
+    },
+    {
+      "label": "La Guajira-Riohacha"
+    },
+    {
+      "label": "La Guajira-San Juan del Cesar"
+    },
+    {
+      "label": "La Guajira-Uribia"
+    },
+    {
+      "label": "La Guajira-Urumita"
+    },
+    {
+      "label": "La Guajira-Villanueva"
+    },
+    {
+      "label": "Magdalena-Algarrobo"
+    },
+    {
+      "label": "Magdalena-Aracataca"
+    },
+    {
+      "label": "Magdalena-Ariguan\u00ed"
+    },
+    {
+      "label": "Magdalena-Cerro de San Antonio"
+    },
+    {
+      "label": "Magdalena-Chibolo"
+    },
+    {
+      "label": "Magdalena-Ci\u00e9naga"
+    },
+    {
+      "label": "Magdalena-Concordia"
+    },
+    {
+      "label": "Magdalena-El Banco"
+    },
+    {
+      "label": "Magdalena-El Pi\u00f1\u00f3n"
+    },
+    {
+      "label": "Magdalena-El Ret\u00e9n"
+    },
+    {
+      "label": "Magdalena-Fundaci\u00f3n"
+    },
+    {
+      "label": "Magdalena-Guamal"
+    },
+    {
+      "label": "Magdalena-Nueva Granada"
+    },
+    {
+      "label": "Magdalena-Pedraza"
+    },
+    {
+      "label": "Magdalena-Piji\u00f1o del Carmen"
+    },
+    {
+      "label": "Magdalena-Pivijay"
+    },
+    {
+      "label": "Magdalena-Plato"
+    },
+    {
+      "label": "Magdalena-Pueblo Viejo"
+    },
+    {
+      "label": "Magdalena-Remolino"
+    },
+    {
+      "label": "Magdalena-Sabanas de San \u00c1ngel"
+    },
+    {
+      "label": "Magdalena-Salamina"
+    },
+    {
+      "label": "Magdalena-San Sebasti\u00e1n de Buenavista"
+    },
+    {
+      "label": "Magdalena-San Zen\u00f3n"
+    },
+    {
+      "label": "Magdalena-Santa Ana"
+    },
+    {
+      "label": "Magdalena-Santa B\u00e1rbara de Pinto"
+    },
+    {
+      "label": "Magdalena-Santa Marta"
+    },
+    {
+      "label": "Magdalena-Sitionuevo"
+    },
+    {
+      "label": "Magdalena-Tenerife"
+    },
+    {
+      "label": "Magdalena-Zapay\u00e1n"
+    },
+    {
+      "label": "Magdalena-Zona Bananera"
+    },
+    {
+      "label": "Meta-Acac\u00edas"
+    },
+    {
+      "label": "Meta-Barranca de Up\u00eda"
+    },
+    {
+      "label": "Meta-Cabuyaro"
+    },
+    {
+      "label": "Meta-Castilla la Nueva"
+    },
+    {
+      "label": "Meta-Cubarral"
+    },
+    {
+      "label": "Meta-Cumaral"
+    },
+    {
+      "label": "Meta-El Calvario"
+    },
+    {
+      "label": "Meta-El Castillo"
+    },
+    {
+      "label": "Meta-El Dorado"
+    },
+    {
+      "label": "Meta-Fuente de Oro"
+    },
+    {
+      "label": "Meta-Granada"
+    },
+    {
+      "label": "Meta-Guamal"
+    },
+    {
+      "label": "Meta-La Macarena"
+    },
+    {
+      "label": "Meta-La Uribe"
+    },
+    {
+      "label": "Meta-Lejan\u00edas"
+    },
+    {
+      "label": "Meta-Mapirip\u00e1n"
+    },
+    {
+      "label": "Meta-Mesetas"
+    },
+    {
+      "label": "Meta-Puerto Concordia"
+    },
+    {
+      "label": "Meta-Puerto Gait\u00e1n"
+    },
+    {
+      "label": "Meta-Puerto Lleras"
+    },
+    {
+      "label": "Meta-Puerto L\u00f3pez"
+    },
+    {
+      "label": "Meta-Puerto Rico"
+    },
+    {
+      "label": "Meta-Restrepo"
+    },
+    {
+      "label": "Meta-San Carlos de Guaroa"
+    },
+    {
+      "label": "Meta-San Juan de Arama"
+    },
+    {
+      "label": "Meta-San Juanito"
+    },
+    {
+      "label": "Meta-San Mart\u00edn"
+    },
+    {
+      "label": "Meta-Villavicencio"
+    },
+    {
+      "label": "Meta-Vista Hermosa"
+    },
+    {
+      "label": "Nari\u00f1o-Aldana"
+    },
+    {
+      "label": "Nari\u00f1o-Ancuy\u00e1"
+    },
+    {
+      "label": "Nari\u00f1o-Arboleda"
+    },
+    {
+      "label": "Nari\u00f1o-Barbacoas"
+    },
+    {
+      "label": "Nari\u00f1o-Bel\u00e9n"
+    },
+    {
+      "label": "Nari\u00f1o-Buesaco"
+    },
+    {
+      "label": "Nari\u00f1o-Chachag\u00fc\u00ed"
+    },
+    {
+      "label": "Nari\u00f1o-Col\u00f3n"
+    },
+    {
+      "label": "Nari\u00f1o-Consac\u00e1"
+    },
+    {
+      "label": "Nari\u00f1o-Contadero"
+    },
+    {
+      "label": "Nari\u00f1o-C\u00f3rdoba"
+    },
+    {
+      "label": "Nari\u00f1o-Cuaspud"
+    },
+    {
+      "label": "Nari\u00f1o-Cumbal"
+    },
+    {
+      "label": "Nari\u00f1o-Cumbitara"
+    },
+    {
+      "label": "Nari\u00f1o-El Charco"
+    },
+    {
+      "label": "Nari\u00f1o-El Pe\u00f1ol"
+    },
+    {
+      "label": "Nari\u00f1o-El Rosario"
+    },
+    {
+      "label": "Nari\u00f1o-El Tabl\u00f3n"
+    },
+    {
+      "label": "Nari\u00f1o-El Tambo"
+    },
+    {
+      "label": "Nari\u00f1o-Francisco Pizarro"
+    },
+    {
+      "label": "Nari\u00f1o-Funes"
+    },
+    {
+      "label": "Nari\u00f1o-Guachucal"
+    },
+    {
+      "label": "Nari\u00f1o-Guaitarilla"
+    },
+    {
+      "label": "Nari\u00f1o-Gualmat\u00e1n"
+    },
+    {
+      "label": "Nari\u00f1o-Iles"
+    },
+    {
+      "label": "Nari\u00f1o-Imu\u00e9s"
+    },
+    {
+      "label": "Nari\u00f1o-Ipiales"
+    },
+    {
+      "label": "Nari\u00f1o-La Cruz"
+    },
+    {
+      "label": "Nari\u00f1o-La Florida"
+    },
+    {
+      "label": "Nari\u00f1o-La Llanada"
+    },
+    {
+      "label": "Nari\u00f1o-La Tola"
+    },
+    {
+      "label": "Nari\u00f1o-La Uni\u00f3n"
+    },
+    {
+      "label": "Nari\u00f1o-Leiva"
+    },
+    {
+      "label": "Nari\u00f1o-Linares"
+    },
+    {
+      "label": "Nari\u00f1o-Los Andes"
+    },
+    {
+      "label": "Nari\u00f1o-Mag\u00fc\u00ed Pay\u00e1n"
+    },
+    {
+      "label": "Nari\u00f1o-Mallama"
+    },
+    {
+      "label": "Nari\u00f1o-Mosquera"
+    },
+    {
+      "label": "Nari\u00f1o-Nari\u00f1o"
+    },
+    {
+      "label": "Nari\u00f1o-Olaya Herrera"
+    },
+    {
+      "label": "Nari\u00f1o-Ospina"
+    },
+    {
+      "label": "Nari\u00f1o-Pasto"
+    },
+    {
+      "label": "Nari\u00f1o-Policarpa"
+    },
+    {
+      "label": "Nari\u00f1o-Potos\u00ed"
+    },
+    {
+      "label": "Nari\u00f1o-Providencia"
+    },
+    {
+      "label": "Nari\u00f1o-Puerres"
+    },
+    {
+      "label": "Nari\u00f1o-Pupiales"
+    },
+    {
+      "label": "Nari\u00f1o-Ricaurte"
+    },
+    {
+      "label": "Nari\u00f1o-Roberto Pay\u00e1n"
+    },
+    {
+      "label": "Nari\u00f1o-Samaniego"
+    },
+    {
+      "label": "Nari\u00f1o-San Bernardo"
+    },
+    {
+      "label": "Nari\u00f1o-San Jos\u00e9 de Alb\u00e1n"
+    },
+    {
+      "label": "Nari\u00f1o-San Lorenzo"
+    },
+    {
+      "label": "Nari\u00f1o-San Pablo"
+    },
+    {
+      "label": "Nari\u00f1o-San Pedro de Cartago"
+    },
+    {
+      "label": "Nari\u00f1o-Sandon\u00e1"
+    },
+    {
+      "label": "Nari\u00f1o-Santa B\u00e1rbara"
+    },
+    {
+      "label": "Nari\u00f1o-Santacruz"
+    },
+    {
+      "label": "Nari\u00f1o-Sapuyes"
+    },
+    {
+      "label": "Nari\u00f1o-Taminango"
+    },
+    {
+      "label": "Nari\u00f1o-Tangua"
+    },
+    {
+      "label": "Nari\u00f1o-Tumaco"
+    },
+    {
+      "label": "Nari\u00f1o-T\u00faquerres"
+    },
+    {
+      "label": "Nari\u00f1o-Yacuanquer"
+    },
+    {
+      "label": "Norte de Santander-\u00c1brego"
+    },
+    {
+      "label": "Norte de Santander-Arboledas"
+    },
+    {
+      "label": "Norte de Santander-Bochalema"
+    },
+    {
+      "label": "Norte de Santander-Bucarasica"
+    },
+    {
+      "label": "Norte de Santander-C\u00e1chira"
+    },
+    {
+      "label": "Norte de Santander-C\u00e1cota"
+    },
+    {
+      "label": "Norte de Santander-Chin\u00e1cota"
+    },
+    {
+      "label": "Norte de Santander-Chitag\u00e1"
+    },
+    {
+      "label": "Norte de Santander-Convenci\u00f3n"
+    },
+    {
+      "label": "Norte de Santander-C\u00facuta"
+    },
+    {
+      "label": "Norte de Santander-Cucutilla"
+    },
+    {
+      "label": "Norte de Santander-Duran\u00eda"
+    },
+    {
+      "label": "Norte de Santander-El Carmen"
+    },
+    {
+      "label": "Norte de Santander-El Tarra"
+    },
+    {
+      "label": "Norte de Santander-El Zulia"
+    },
+    {
+      "label": "Norte de Santander-Gramalote"
+    },
+    {
+      "label": "Norte de Santander-Hacar\u00ed"
+    },
+    {
+      "label": "Norte de Santander-Herr\u00e1n"
+    },
+    {
+      "label": "Norte de Santander-La Esperanza"
+    },
+    {
+      "label": "Norte de Santander-La Playa de Bel\u00e9n"
+    },
+    {
+      "label": "Norte de Santander-Labateca"
+    },
+    {
+      "label": "Norte de Santander-Los Patios"
+    },
+    {
+      "label": "Norte de Santander-Lourdes"
+    },
+    {
+      "label": "Norte de Santander-Mutiscua"
+    },
+    {
+      "label": "Norte de Santander-Oca\u00f1a"
+    },
+    {
+      "label": "Norte de Santander-Pamplona"
+    },
+    {
+      "label": "Norte de Santander-Pamplonita"
+    },
+    {
+      "label": "Norte de Santander-Puerto Santander"
+    },
+    {
+      "label": "Norte de Santander-Ragonvalia"
+    },
+    {
+      "label": "Norte de Santander-Salazar de Las Palmas"
+    },
+    {
+      "label": "Norte de Santander-San Calixto"
+    },
+    {
+      "label": "Norte de Santander-San Cayetano"
+    },
+    {
+      "label": "Norte de Santander-Santiago"
+    },
+    {
+      "label": "Norte de Santander-Santo Domingo de Silos"
+    },
+    {
+      "label": "Norte de Santander-Sardinata"
+    },
+    {
+      "label": "Norte de Santander-Teorama"
+    },
+    {
+      "label": "Norte de Santander-Tib\u00fa"
+    },
+    {
+      "label": "Norte de Santander-Toledo"
+    },
+    {
+      "label": "Norte de Santander-Villa Caro"
+    },
+    {
+      "label": "Norte de Santander-Villa del Rosario"
+    },
+    {
+      "label": "Putumayo-Col\u00f3n"
+    },
+    {
+      "label": "Putumayo-Mocoa"
+    },
+    {
+      "label": "Putumayo-Orito"
+    },
+    {
+      "label": "Putumayo-Puerto As\u00eds"
+    },
+    {
+      "label": "Putumayo-Puerto Caicedo"
+    },
+    {
+      "label": "Putumayo-Puerto Guzm\u00e1n"
+    },
+    {
+      "label": "Putumayo-Puerto Legu\u00edzamo"
+    },
+    {
+      "label": "Putumayo-San Francisco"
+    },
+    {
+      "label": "Putumayo-San Miguel"
+    },
+    {
+      "label": "Putumayo-Santiago"
+    },
+    {
+      "label": "Putumayo-Sibundoy"
+    },
+    {
+      "label": "Putumayo-Valle del Guamuez"
+    },
+    {
+      "label": "Putumayo-Villagarz\u00f3n"
+    },
+    {
+      "label": "Quind\u00edo-Armenia"
+    },
+    {
+      "label": "Quind\u00edo-Buenavista"
+    },
+    {
+      "label": "Quind\u00edo-Calarc\u00e1"
+    },
+    {
+      "label": "Quind\u00edo-Circasia"
+    },
+    {
+      "label": "Quind\u00edo-C\u00f3rdoba"
+    },
+    {
+      "label": "Quind\u00edo-Filandia"
+    },
+    {
+      "label": "Quind\u00edo-G\u00e9nova"
+    },
+    {
+      "label": "Quind\u00edo-La Tebaida"
+    },
+    {
+      "label": "Quind\u00edo-Montenegro"
+    },
+    {
+      "label": "Quind\u00edo-Pijao"
+    },
+    {
+      "label": "Quind\u00edo-Quimbaya"
+    },
+    {
+      "label": "Quind\u00edo-Salento"
+    },
+    {
+      "label": "Risaralda-Ap\u00eda"
+    },
+    {
+      "label": "Risaralda-Balboa"
+    },
+    {
+      "label": "Risaralda-Bel\u00e9n de Umbr\u00eda"
+    },
+    {
+      "label": "Risaralda-Dosquebradas"
+    },
+    {
+      "label": "Risaralda-Gu\u00e1tica"
+    },
+    {
+      "label": "Risaralda-La Celia"
+    },
+    {
+      "label": "Risaralda-La Virginia"
+    },
+    {
+      "label": "Risaralda-Marsella"
+    },
+    {
+      "label": "Risaralda-Mistrat\u00f3"
+    },
+    {
+      "label": "Risaralda-Pereira"
+    },
+    {
+      "label": "Risaralda-Pueblo Rico"
+    },
+    {
+      "label": "Risaralda-Quinch\u00eda"
+    },
+    {
+      "label": "Risaralda-Santa Rosa de Cabal"
+    },
+    {
+      "label": "Risaralda-Santuario"
+    },
+    {
+      "label": "San Andr\u00e9s y Providencia-Providencia y Santa Catalina Islas"
+    },
+    {
+      "label": "San Andr\u00e9s y Providencia-San Andr\u00e9s"
+    },
+    {
+      "label": "Santander-Aguada"
+    },
+    {
+      "label": "Santander-Albania"
+    },
+    {
+      "label": "Santander-Aratoca"
+    },
+    {
+      "label": "Santander-Barbosa"
+    },
+    {
+      "label": "Santander-Barichara"
+    },
+    {
+      "label": "Santander-Barrancabermeja"
+    },
+    {
+      "label": "Santander-Betulia"
+    },
+    {
+      "label": "Santander-Bol\u00edvar"
+    },
+    {
+      "label": "Santander-Bucaramanga"
+    },
+    {
+      "label": "Santander-Cabrera"
+    },
+    {
+      "label": "Santander-California"
+    },
+    {
+      "label": "Santander-Capitanejo"
+    },
+    {
+      "label": "Santander-Carcas\u00ed"
+    },
+    {
+      "label": "Santander-Cepit\u00e1"
+    },
+    {
+      "label": "Santander-Cerrito"
+    },
+    {
+      "label": "Santander-Charal\u00e1"
+    },
+    {
+      "label": "Santander-Charta"
+    },
+    {
+      "label": "Santander-Chima"
+    },
+    {
+      "label": "Santander-Chipat\u00e1"
+    },
+    {
+      "label": "Santander-Cimitarra"
+    },
+    {
+      "label": "Santander-Concepci\u00f3n"
+    },
+    {
+      "label": "Santander-Confines"
+    },
+    {
+      "label": "Santander-Contrataci\u00f3n"
+    },
+    {
+      "label": "Santander-Coromoro"
+    },
+    {
+      "label": "Santander-Curit\u00ed"
+    },
+    {
+      "label": "Santander-El Carmen de Chucur\u00ed"
+    },
+    {
+      "label": "Santander-El Guacamayo"
+    },
+    {
+      "label": "Santander-El Pe\u00f1\u00f3n"
+    },
+    {
+      "label": "Santander-El Play\u00f3n"
+    },
+    {
+      "label": "Santander-El Socorro"
+    },
+    {
+      "label": "Santander-Encino"
+    },
+    {
+      "label": "Santander-Enciso"
+    },
+    {
+      "label": "Santander-Flori\u00e1n"
+    },
+    {
+      "label": "Santander-Floridablanca"
+    },
+    {
+      "label": "Santander-Gal\u00e1n"
+    },
+    {
+      "label": "Santander-G\u00e1mbita"
+    },
+    {
+      "label": "Santander-Gir\u00f3n"
+    },
+    {
+      "label": "Santander-Guaca"
+    },
+    {
+      "label": "Santander-Guadalupe"
+    },
+    {
+      "label": "Santander-Guapot\u00e1"
+    },
+    {
+      "label": "Santander-Guavat\u00e1"
+    },
+    {
+      "label": "Santander-G\u00fcepsa"
+    },
+    {
+      "label": "Santander-Hato"
+    },
+    {
+      "label": "Santander-Jes\u00fas Mar\u00eda"
+    },
+    {
+      "label": "Santander-Jord\u00e1n"
+    },
+    {
+      "label": "Santander-La Belleza"
+    },
+    {
+      "label": "Santander-La Paz"
+    },
+    {
+      "label": "Santander-Land\u00e1zuri"
+    },
+    {
+      "label": "Santander-Lebrija"
+    },
+    {
+      "label": "Santander-Los Santos"
+    },
+    {
+      "label": "Santander-Macaravita"
+    },
+    {
+      "label": "Santander-M\u00e1laga"
+    },
+    {
+      "label": "Santander-Matanza"
+    },
+    {
+      "label": "Santander-Mogotes"
+    },
+    {
+      "label": "Santander-Molagavita"
+    },
+    {
+      "label": "Santander-Ocamonte"
+    },
+    {
+      "label": "Santander-Oiba"
+    },
+    {
+      "label": "Santander-Onzaga"
+    },
+    {
+      "label": "Santander-Palmar"
+    },
+    {
+      "label": "Santander-Palmas del Socorro"
+    },
+    {
+      "label": "Santander-P\u00e1ramo"
+    },
+    {
+      "label": "Santander-Piedecuesta"
+    },
+    {
+      "label": "Santander-Pinchote"
+    },
+    {
+      "label": "Santander-Puente Nacional"
+    },
+    {
+      "label": "Santander-Puerto Parra"
+    },
+    {
+      "label": "Santander-Puerto Wilches"
+    },
+    {
+      "label": "Santander-Rionegro"
+    },
+    {
+      "label": "Santander-Sabana de Torres"
+    },
+    {
+      "label": "Santander-San Andr\u00e9s"
+    },
+    {
+      "label": "Santander-San Benito"
+    },
+    {
+      "label": "Santander-San Gil"
+    },
+    {
+      "label": "Santander-San Joaqu\u00edn"
+    },
+    {
+      "label": "Santander-San Jos\u00e9 de Miranda"
+    },
+    {
+      "label": "Santander-San Miguel"
+    },
+    {
+      "label": "Santander-San Vicente de Chucur\u00ed"
+    },
+    {
+      "label": "Santander-Santa B\u00e1rbara"
+    },
+    {
+      "label": "Santander-Santa Helena del Op\u00f3n"
+    },
+    {
+      "label": "Santander-Simacota"
+    },
+    {
+      "label": "Santander-Suaita"
+    },
+    {
+      "label": "Santander-Sucre"
+    },
+    {
+      "label": "Santander-Surat\u00e1"
+    },
+    {
+      "label": "Santander-Tona"
+    },
+    {
+      "label": "Santander-Valle de San Jos\u00e9"
+    },
+    {
+      "label": "Santander-V\u00e9lez"
+    },
+    {
+      "label": "Santander-Vetas"
+    },
+    {
+      "label": "Santander-Villanueva"
+    },
+    {
+      "label": "Santander-Zapatoca"
+    },
+    {
+      "label": "Sucre-Buenavista"
+    },
+    {
+      "label": "Sucre-Caimito"
+    },
+    {
+      "label": "Sucre-Chal\u00e1n"
+    },
+    {
+      "label": "Sucre-Colos\u00f3"
+    },
+    {
+      "label": "Sucre-Corozal"
+    },
+    {
+      "label": "Sucre-Cove\u00f1as"
+    },
+    {
+      "label": "Sucre-El Roble"
+    },
+    {
+      "label": "Sucre-Galeras"
+    },
+    {
+      "label": "Sucre-Guaranda"
+    },
+    {
+      "label": "Sucre-La Uni\u00f3n"
+    },
+    {
+      "label": "Sucre-Los Palmitos"
+    },
+    {
+      "label": "Sucre-Majagual"
+    },
+    {
+      "label": "Sucre-Morroa"
+    },
+    {
+      "label": "Sucre-Ovejas"
+    },
+    {
+      "label": "Sucre-Sampu\u00e9s"
+    },
+    {
+      "label": "Sucre-San Antonio de Palmito"
+    },
+    {
+      "label": "Sucre-San Benito Abad"
+    },
+    {
+      "label": "Sucre-San Juan de Betulia"
+    },
+    {
+      "label": "Sucre-San Marcos"
+    },
+    {
+      "label": "Sucre-San Onofre"
+    },
+    {
+      "label": "Sucre-San Pedro"
+    },
+    {
+      "label": "Sucre-Sinc\u00e9"
+    },
+    {
+      "label": "Sucre-Sincelejo"
+    },
+    {
+      "label": "Sucre-Sucre"
+    },
+    {
+      "label": "Sucre-Tol\u00fa"
+    },
+    {
+      "label": "Sucre-Tol\u00fa Viejo"
+    },
+    {
+      "label": "Tolima-Alpujarra"
+    },
+    {
+      "label": "Tolima-Alvarado"
+    },
+    {
+      "label": "Tolima-Ambalema"
+    },
+    {
+      "label": "Tolima-Anzo\u00e1tegui"
+    },
+    {
+      "label": "Tolima-Armero"
+    },
+    {
+      "label": "Tolima-Ataco"
+    },
+    {
+      "label": "Tolima-Cajamarca"
+    },
+    {
+      "label": "Tolima-Carmen de Apical\u00e1"
+    },
+    {
+      "label": "Tolima-Casabianca"
+    },
+    {
+      "label": "Tolima-Chaparral"
+    },
+    {
+      "label": "Tolima-Coello"
+    },
+    {
+      "label": "Tolima-Coyaima"
+    },
+    {
+      "label": "Tolima-Cunday"
+    },
+    {
+      "label": "Tolima-Dolores"
+    },
+    {
+      "label": "Tolima-El Espinal"
+    },
+    {
+      "label": "Tolima-Fal\u00e1n"
+    },
+    {
+      "label": "Tolima-Flandes"
+    },
+    {
+      "label": "Tolima-Fresno"
+    },
+    {
+      "label": "Tolima-Guamo"
+    },
+    {
+      "label": "Tolima-Herveo"
+    },
+    {
+      "label": "Tolima-Honda"
+    },
+    {
+      "label": "Tolima-Ibagu\u00e9"
+    },
+    {
+      "label": "Tolima-Icononzo"
+    },
+    {
+      "label": "Tolima-L\u00e9rida"
+    },
+    {
+      "label": "Tolima-L\u00edbano"
+    },
+    {
+      "label": "Tolima-Mariquita"
+    },
+    {
+      "label": "Tolima-Melgar"
+    },
+    {
+      "label": "Tolima-Murillo"
+    },
+    {
+      "label": "Tolima-Natagaima"
+    },
+    {
+      "label": "Tolima-Ortega"
+    },
+    {
+      "label": "Tolima-Palocabildo"
+    },
+    {
+      "label": "Tolima-Piedras"
+    },
+    {
+      "label": "Tolima-Planadas"
+    },
+    {
+      "label": "Tolima-Prado"
+    },
+    {
+      "label": "Tolima-Purificaci\u00f3n"
+    },
+    {
+      "label": "Tolima-Rioblanco"
+    },
+    {
+      "label": "Tolima-Roncesvalles"
+    },
+    {
+      "label": "Tolima-Rovira"
+    },
+    {
+      "label": "Tolima-Salda\u00f1a"
+    },
+    {
+      "label": "Tolima-San Antonio"
+    },
+    {
+      "label": "Tolima-San Luis"
+    },
+    {
+      "label": "Tolima-Santa Isabel"
+    },
+    {
+      "label": "Tolima-Su\u00e1rez"
+    },
+    {
+      "label": "Tolima-Valle de San Juan"
+    },
+    {
+      "label": "Tolima-Venadillo"
+    },
+    {
+      "label": "Tolima-Villahermosa"
+    },
+    {
+      "label": "Tolima-Villarrica"
+    },
+    {
+      "label": "Valle del Cauca-Alcal\u00e1"
+    },
+    {
+      "label": "Valle del Cauca-Andaluc\u00eda"
+    },
+    {
+      "label": "Valle del Cauca-Ansermanuevo"
+    },
+    {
+      "label": "Valle del Cauca-Argelia"
+    },
+    {
+      "label": "Valle del Cauca-Bol\u00edvar"
+    },
+    {
+      "label": "Valle del Cauca-Buenaventura"
+    },
+    {
+      "label": "Valle del Cauca-Buga"
+    },
+    {
+      "label": "Valle del Cauca-Bugalagrande"
+    },
+    {
+      "label": "Valle del Cauca-Caicedonia"
+    },
+    {
+      "label": "Valle del Cauca-Cali"
+    },
+    {
+      "label": "Valle del Cauca-Calima"
+    },
+    {
+      "label": "Valle del Cauca-Candelaria"
+    },
+    {
+      "label": "Valle del Cauca-Cartago"
+    },
+    {
+      "label": "Valle del Cauca-Dagua"
+    },
+    {
+      "label": "Valle del Cauca-El \u00c1guila"
+    },
+    {
+      "label": "Valle del Cauca-El Cairo"
+    },
+    {
+      "label": "Valle del Cauca-El Cerrito"
+    },
+    {
+      "label": "Valle del Cauca-El Dovio"
+    },
+    {
+      "label": "Valle del Cauca-Florida"
+    },
+    {
+      "label": "Valle del Cauca-Ginebra"
+    },
+    {
+      "label": "Valle del Cauca-Guacar\u00ed"
+    },
+    {
+      "label": "Valle del Cauca-Jamund\u00ed"
+    },
+    {
+      "label": "Valle del Cauca-La Cumbre"
+    },
+    {
+      "label": "Valle del Cauca-La Uni\u00f3n"
+    },
+    {
+      "label": "Valle del Cauca-La Victoria"
+    },
+    {
+      "label": "Valle del Cauca-Obando"
+    },
+    {
+      "label": "Valle del Cauca-Palmira"
+    },
+    {
+      "label": "Valle del Cauca-Pradera"
+    },
+    {
+      "label": "Valle del Cauca-Restrepo"
+    },
+    {
+      "label": "Valle del Cauca-Riofr\u00edo"
+    },
+    {
+      "label": "Valle del Cauca-Roldanillo"
+    },
+    {
+      "label": "Valle del Cauca-San Pedro"
+    },
+    {
+      "label": "Valle del Cauca-Sevilla"
+    },
+    {
+      "label": "Valle del Cauca-Toro"
+    },
+    {
+      "label": "Valle del Cauca-Trujillo"
+    },
+    {
+      "label": "Valle del Cauca-Tulu\u00e1"
+    },
+    {
+      "label": "Valle del Cauca-Ulloa"
+    },
+    {
+      "label": "Valle del Cauca-Versalles"
+    },
+    {
+      "label": "Valle del Cauca-Vijes"
+    },
+    {
+      "label": "Valle del Cauca-Yotoco"
+    },
+    {
+      "label": "Valle del Cauca-Yumbo"
+    },
+    {
+      "label": "Valle del Cauca-Zarzal"
+    },
+    {
+      "label": "Vaup\u00e9s-Carur\u00fa"
+    },
+    {
+      "label": "Vaup\u00e9s-Mit\u00fa"
+    },
+    {
+      "label": "Vaup\u00e9s-Taraira"
+    },
+    {
+      "label": "Vichada-Cumaribo"
+    },
+    {
+      "label": "Vichada-La Primavera"
+    },
+    {
+      "label": "Vichada-Puerto Carre\u00f1o"
+    },
+    {
+      "label": "Vichada-Santa Rosal\u00eda"
+    }
+  ]
+}

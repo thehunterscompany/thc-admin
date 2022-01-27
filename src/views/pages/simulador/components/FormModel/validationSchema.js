@@ -14,12 +14,7 @@ export const personalValidation = Yup.object().shape({
   [personal.documentType.name]: Yup.string().required(
     personal.documentType.requiredErrorMsg,
   ),
-  [personal.location.name]: Yup.object()
-    .required(personal.location.requiredErrorMsg)
-    .nullable()
-    .test('valid-city', personal.location.invalidErrorMsg, function (value) {
-      return value?.label ? true : false;
-    }),
+  [personal.location.name]: Yup.string().required(personal.location.requiredErrorMsg),
   [personal.documentId.name]: Yup.string()
     .required(personal.documentType.requiredErrorMsg)
     .matches(/^\d+$/, personal.documentId.invalidErrorMsg),

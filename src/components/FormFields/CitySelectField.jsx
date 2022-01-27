@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import { Autocomplete, Box, TextField } from '@mui/material';
 import { useField } from 'formik';
 import { at } from 'lodash';
-import { cities } from 'src/utils/data/colombiaCities';
+import cities from 'src/utils/data/colombiaCities.json';
 
 const useStyles = makeStyles({
   option: {
@@ -37,7 +37,7 @@ const enterInput = (value) => {
 const CitySelect = (props) => {
   // eslint-disable-next-line react/prop-types
   const { errorText, type, setFieldValue, value, ...rest } = props;
-  const data = useMemo(() => cities, []);
+  const data = useMemo(() => cities.cities, []);
 
   const [inputValue, setInputValue] = useState(enterInput(value));
   const [userValue, setValue] = useState(findIfSelectedOption(value, data));
@@ -61,7 +61,7 @@ const CitySelect = (props) => {
         const city = (element) => element.label === newInputValue;
         const index = data.findIndex(city);
         if (index > -1) {
-          setFieldValue('location', data[index]);
+          setFieldValue('location', data[index].label);
         }
         setInputValue(newInputValue);
       }}
@@ -72,10 +72,7 @@ const CitySelect = (props) => {
       }}
       onChange={(_e, newValue) => {
         setValue(newValue);
-        setFieldValue(
-          'location',
-          newValue !== null ? newValue : { label: '', state: '' },
-        );
+        setFieldValue('location', newValue !== null ? newValue?.label : '');
       }}
       renderOption={(props, option) => (
         <Box component="li" sx={{ width: '100%' }} {...props}>
