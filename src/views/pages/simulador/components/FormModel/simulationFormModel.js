@@ -37,7 +37,7 @@ const formFields = {
       },
       location: {
         name: 'location',
-        label: 'En que ciudad vives? ',
+        label: '¿En qué ciudad vives? ',
         requiredErrorMsg: 'Este campo es requerido.',
         invalidErrorMsg: 'La ciudad ingresada no es válidas.',
       },
@@ -49,7 +49,7 @@ const formFields = {
       },
       simulation: {
         name: 'simulation',
-        label: 'Que Necesitas?',
+        label: '¿Qué Necesitas?',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       simulationType: {
@@ -78,7 +78,7 @@ const formFields = {
       },
       passive: {
         name: 'passive',
-        label: 'Cuotas mensuales de préstamos y tarjetas de crédito?',
+        label: 'Cuota mensuales de créditos y tarjetas?',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       tenants: {

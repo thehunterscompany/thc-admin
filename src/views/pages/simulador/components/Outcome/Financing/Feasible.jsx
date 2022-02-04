@@ -94,7 +94,7 @@ const Feasible = ({ values }) => {
       </p>
       <p></p>
       <CustomTable headers={headersBottomTable} rowData={bottomData} />
-      <span>{`Si deseas continuar con el proceso, haz click en el botón "continuar" para
+      <span>{`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}</span>
     </Container>
   );

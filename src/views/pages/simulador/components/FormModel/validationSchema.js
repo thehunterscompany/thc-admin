@@ -92,7 +92,7 @@ const operationalValidation = Yup.object().shape({
     )
     .test(
       'valid-percentage-leasing-habitacional',
-      'Para leasing habitacional, la máxima financiación es hasta el 50% del valor de la vivienda!',
+      'Para leasing habitacional, la máxima financiación es hasta el 80% del valor de la vivienda!',
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.type === 'Leasing Habitacional') {
@@ -100,7 +100,7 @@ const operationalValidation = Yup.object().shape({
               (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
                 parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
                 100,
-            ) <= 50
+            ) <= 80
               ? true
               : false;
           }

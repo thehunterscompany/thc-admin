@@ -18,7 +18,7 @@ const Lending = () => {
         dependiendo del perfil del cliente.
       </p>
       <span>
-        {`Si quieres solicitar tu financiación, haz click en el botón "continuar" para
+        {`Si quieres solicitar tu financiación, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}
       </span>
     </Container>

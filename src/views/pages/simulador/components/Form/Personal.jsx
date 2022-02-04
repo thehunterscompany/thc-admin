@@ -23,8 +23,8 @@ const rateSimulation = [
 ];
 
 const idType = [
-  { value: 'Cedula de ciudadanía', label: 'Cedula de ciudadanía' },
-  { value: 'Cedula de extragería', label: 'Cedula de extragería' },
+  { value: 'Cédula de ciudadanía', label: 'Cédula de ciudadanía' },
+  { value: 'Cédula de extranjería', label: 'Cédula de extranjería' },
 ];
 
 const PersonalFields = ({ formField, values, setFieldValue }) => {

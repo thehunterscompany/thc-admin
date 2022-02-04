@@ -29,7 +29,7 @@ const NotFeasible = () => {
         primero de afinidad.
       </p>
       <span>
-        {`Si deseas continuar con el proceso, haz click en el botón "continuar" para
+        {`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}
       </span>
     </Container>
