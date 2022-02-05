@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { StyleRoot } from 'radium';
 
 import {
   CitySelect,
@@ -32,6 +33,13 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     checkedA: values?.checkedA ? values.checkedA : false,
     checkedB: values?.checkedB ? values.checkedB : false,
   });
+
+  const labelStyle = {
+    // Adding media query..
+    '@media (max-width: 500px)': {
+      paddingLeft: '20px',
+    },
+  };
 
   const {
     firstNames,
@@ -167,17 +175,18 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
               }
             />
           </FormControl>
-
-          <small>
-            Acepto{' '}
-            <a
-              href="https://thcsas.com.co/terminos-y-condiciones"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              términos, condiciones y política de tratamiento de datos
-            </a>
-          </small>
+          <StyleRoot style={labelStyle}>
+            <small>
+              Acepto{' '}
+              <a
+                href="https://thcsas.com.co/terminos-y-condiciones"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                términos, condiciones y política de tratamiento de datos
+              </a>
+            </small>
+          </StyleRoot>
         </Grid>
 
         <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
@@ -192,9 +201,11 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
               }
             />
           </FormControl>
-          <small>
-            Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.
-          </small>
+          <StyleRoot style={labelStyle}>
+            <small>
+              Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.
+            </small>
+          </StyleRoot>
         </Grid>
       </Grid>
     </React.Fragment>

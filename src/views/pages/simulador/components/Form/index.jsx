@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CCard, CCardBody, CCol, CRow } from '@coreui/react';
-import {
-  Button,
-  CircularProgress,
-  Container,
-  Step,
-  StepLabel,
-  Stepper,
-} from '@mui/material';
+import { CCardBody, CCol } from '@coreui/react';
+import { Button, CircularProgress, Paper, Step, StepLabel, Stepper } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
+import useWindowSize from 'src/hooks/useWindowSize';
 import { lendingSimulation, simulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
@@ -117,6 +111,7 @@ const SimulatorForm = () => {
   const isLastStep = activeStep === steps.length - 1;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
+  const { width } = useWindowSize();
   const dispatch = useDispatch();
 
   const setSchemaOnFormChange = (simulationType) => {
@@ -131,7 +126,9 @@ const SimulatorForm = () => {
 
   const handleSubmit = async (values, actions) => {
     if (isLastStep) {
-      window.open('https://api.whatsapp.com/send?phone=+573104908414', '_self');
+      window.open('https://api.whatsapp.com/send?phone=+573104908414', '_blank');
+      window.focus();
+      window.location.reload();
     } else {
       if (activeStep + 1 === 1) {
         setActiveSchema(financialValidation);
@@ -221,119 +218,117 @@ const SimulatorForm = () => {
     }));
   };
 
-  console.log(activeStep);
+  const borderOrNot = () => {
+    if (skip) {
+      return 0;
+    }
+
+    if (width <= 760) {
+      return 0;
+    }
+
+    return 2;
+  };
 
   return (
     <React.Fragment>
-      {/* {!skip ? <h1>Para darte la mejor opción necesitamos algunos datos</h1> : null} */}
-      {/* <CRow className="justify-content-center"> */}
-      {/* <Container maxWidth={false}> */}
-      <CRow className="justify-content-center">
-        <CCol xs="8" sm="8" md="8" lg="8" xl={!skip ? '6' : '8'}>
-          <CCard className="mx-4" style={!skip ? null : { border: 'none' }}>
-            {/* <CCard
-          className="mx-4"
-          // style={!skip ? null : { border: 'none' }}
-          style={{ border: 'none' }}
-        > */}
-            <CCardBody className="p-4">
-              {activeStep < 3 ? (
-                <Stepper
-                  activeStep={activeStep}
-                  className={classes.stepper}
-                  connector={<StepperConnector />}
-                  alternativeLabel
-                >
-                  {!skip
-                    ? steps.slice(0, 3).map((label) => (
-                        <Step key={label}>
-                          <StepLabel
-                            StepIconComponent={StepperIcon}
-                            className={classes.stepperSvg}
-                          >
-                            {label}
-                          </StepLabel>
-                        </Step>
-                      ))
-                    : null}
-                </Stepper>
-              ) : null}
-              <Formik
-                initialValues={initialValues}
-                onSubmit={(values, actions) => {
-                  setInitialValues(values);
-                  handleSubmit(values, actions);
-                }}
-                validationSchema={activeSchema}
-                enableReinitialize
+      {!skip ? (
+        <h1 id="top-point" className="_intro-message">
+          Para darte la mejor opción necesitamos algunos datos
+        </h1>
+      ) : null}
+      <CCol xs="12" sm="11" md="9" lg="10" xl={!skip ? '9' : '10'}>
+        <Paper elevation={borderOrNot()}>
+          <CCardBody className="p-4" style={{ minWidth: '250px' }}>
+            {activeStep < 3 ? (
+              <Stepper
+                activeStep={activeStep}
+                className={classes.stepper}
+                connector={<StepperConnector />}
+                alternativeLabel={width >= 600 ? true : false}
+                orientation={width >= 600 ? 'horizontal' : 'vertical'}
               >
-                {({
-                  handleChange,
-                  isSubmitting,
-                  values,
-                  setFieldValue,
-                  isValid,
-                  touched,
-                }) => {
-                  console.log(values);
+                {!skip
+                  ? steps.slice(0, 3).map((label) => (
+                      <Step key={label}>
+                        <StepLabel StepIconComponent={StepperIcon}>{label}</StepLabel>
+                      </Step>
+                    ))
+                  : null}
+              </Stepper>
+            ) : null}
+            <Formik
+              initialValues={initialValues}
+              onSubmit={(values, actions) => {
+                setInitialValues(values);
+                handleSubmit(values, actions);
+              }}
+              // validationSchema={activeSchema}
+              enableReinitialize
+            >
+              {({
+                handleChange,
+                isSubmitting,
+                values,
+                setFieldValue,
+                isValid,
+                touched,
+              }) => {
+                console.log(values);
 
-                  return (
-                    <Form onChange={handleChange}>
-                      {renderStepForms(
-                        activeStep,
-                        values,
-                        setFieldValue,
-                        simulationResult,
-                      )}
-                      <div className="_buttons_space">
-                        {[1, 2].includes(activeStep) ||
-                        (!simulationResult &&
-                          activeStep === 3 &&
-                          values?.simulation === 1) ? (
-                          <Button
-                            onClick={() => handleBack(values)}
-                            className={'_return_button'}
-                          >
-                            Regresar
-                          </Button>
-                        ) : null}
-                        <div className={classes.wrapper}>
-                          <Button
-                            disabled={
-                              isSubmitting || !values.checkedA || !values.checkedB
-                            }
-                            // disabled={!isValid}
-                            // disabled={
-                            //   !isValid ||
-                            //   (Object.keys(touched).length === 0 &&
-                            //     touched.constructor === Object)
-                            // }
-                            type="submit"
-                            variant="contained"
-                            className={'_continue_button'}
-                          >
-                            {(values?.simulation === 1 && activeStep === 2) ||
-                            (values?.simulation === 2 && activeStep === 1)
-                              ? 'Simular'
-                              : 'Continuar'}
-                          </Button>
-                          {isSubmitting && (
-                            <CircularProgress
-                              size={24}
-                              className={classes.buttonProgress}
-                            />
-                          )}
-                        </div>
+                return (
+                  <Form onChange={handleChange}>
+                    {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
+                    <div className="_buttons_space">
+                      {[1, 2].includes(activeStep) ||
+                      (!simulationResult &&
+                        activeStep === 3 &&
+                        values?.simulation === 1) ? (
+                        <Button
+                          onClick={() => handleBack(values)}
+                          className={'_return_button'}
+                        >
+                          Regresar
+                        </Button>
+                      ) : null}
+                      <div className={classes.wrapper}>
+                        <Button
+                          disabled={isSubmitting || !values.checkedA || !values.checkedB}
+                          // disabled={!isValid}
+                          // disabled={
+                          //   !isValid ||
+                          //   (Object.keys(touched).length === 0 &&
+                          //     touched.constructor === Object)
+                          // }
+                          type="submit"
+                          variant="contained"
+                          className={'_continue_button'}
+                          onClick={(e) => e.target.blur()}
+                        >
+                          {isLastStep
+                            ? 'Contáctanos'
+                            : (values?.simulation === 1 && activeStep === 2) ||
+                              (values?.simulation === 2 && activeStep === 1)
+                            ? 'Simular'
+                            : 'Continuar'}
+                        </Button>
+                        {isSubmitting && (
+                          <CircularProgress
+                            size={24}
+                            className={classes.buttonProgress}
+                          />
+                        )}
                       </div>
-                    </Form>
-                  );
-                }}
-              </Formik>
-            </CCardBody>
-          </CCard>
-        </CCol>
-        {/* </Container> */}
-      </CRow>
+                    </div>
+                  </Form>
+                );
+              }}
+            </Formik>
+          </CCardBody>
+        </Paper>
+      </CCol>
+      {/* </Container> */}
+      {/* </CRow> */}
     </React.Fragment>
   );
 };
