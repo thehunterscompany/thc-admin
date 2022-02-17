@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
+import cities from 'src/utils/data/colombiaCities.json';
+import states from 'src/utils/data/colombiaStates.json';
 
 import {
-  CitySelect,
+  ComboBox,
   DateField,
   InputField,
   MaskedInput,
@@ -28,8 +30,11 @@ const idType = [
   { value: 'Cédula de extranjería', label: 'Cédula de extranjería' },
 ];
 
+const statesData = states.states;
+const citiesData = cities.cities;
+
 const PersonalFields = ({ formField, values, setFieldValue }) => {
-  const [state, setState] = useState({
+  const [checkboxes, setCheckboxes] = useState({
     checkedA: values?.checkedA ? values.checkedA : false,
     checkedB: values?.checkedB ? values.checkedB : false,
   });
@@ -48,14 +53,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     documentId,
     dateOfBirth,
     email,
-    location,
+    city,
+    state,
     telephone,
     simulation,
     simulationType,
   } = formField;
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setCheckboxes({ ...checkboxes, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -102,6 +108,46 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
+          <InputField
+            name={email.name}
+            label={email.label}
+            type="text"
+            value={values.email}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <MaskedInput
+            name={telephone.name}
+            label={telephone.label}
+            code={'57'}
+            type="phone"
+            value={values.telephone}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ComboBox
+            name={state.name}
+            label={state.label}
+            value={values.state}
+            data={statesData}
+            fullWidth
+            setFieldValue={setFieldValue}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <ComboBox
+            name={city.name}
+            label={city.label}
+            value={values.city}
+            data={citiesData}
+            fullWidth
+            setFieldValue={setFieldValue}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
           <DateField
             name={dateOfBirth.name}
             label={dateOfBirth.label}
@@ -114,46 +160,17 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={email.name}
-            label={email.label}
-            type="text"
-            value={values.email}
-            fullWidth
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <CitySelect
-            name={location.name}
-            label={location.label}
-            fullWidth
-            setFieldValue={setFieldValue}
-            value={values.location}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <MaskedInput
-            name={telephone.name}
-            label={telephone.label}
-            code={'57'}
-            type="phone"
-            value={values.telephone}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={values.simulation === 1 ? 6 : 12}>
           <SelectField
             name={simulation.name}
             label={simulation.label}
             data={simulationOptions}
             fullWidth
+            style={{ marginTop: '16px' }}
           />
         </Grid>
 
         {values.simulation === 1 ? (
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12}>
             <SelectField
               name={simulationType.name}
               label={simulationType.label}
@@ -168,7 +185,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             <FormControlLabel
               control={
                 <CustomSwitch
-                  checked={state.checkedA}
+                  checked={checkboxes.checkedA}
                   onChange={handleChange}
                   name="checkedA"
                 />
@@ -194,7 +211,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             <FormControlLabel
               control={
                 <CustomSwitch
-                  checked={state.checkedB}
+                  checked={checkboxes.checkedB}
                   onChange={handleChange}
                   name="checkedB"
                 />

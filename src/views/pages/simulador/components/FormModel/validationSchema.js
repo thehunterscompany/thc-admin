@@ -14,7 +14,8 @@ export const personalValidation = Yup.object().shape({
   [personal.documentType.name]: Yup.string().required(
     personal.documentType.requiredErrorMsg,
   ),
-  [personal.location.name]: Yup.string().required(personal.location.requiredErrorMsg),
+  [personal.state.name]: Yup.string().required(personal.state.requiredErrorMsg),
+  [personal.city.name]: Yup.string().required(personal.city.requiredErrorMsg),
   [personal.documentId.name]: Yup.string()
     .required(personal.documentType.requiredErrorMsg)
     .matches(/^\d+$/, personal.documentId.invalidErrorMsg),

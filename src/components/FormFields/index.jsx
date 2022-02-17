@@ -1,4 +1,4 @@
-import CitySelect from './CitySelectField';
+import AsyncComboBox from './AsyncComboBox';
 import ComboBox from './ComboBox';
 import CountrySelect from './CountrySelectField';
 import DateField from './DateField';
@@ -7,7 +7,7 @@ import MaskedInput from './MaskedInput';
 import SelectField from './SelectField';
 
 export {
-  CitySelect,
+  AsyncComboBox,
   ComboBox,
   CountrySelect,
   DateField,

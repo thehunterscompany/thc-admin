@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CCardBody, CCol } from '@coreui/react';
 import { Button, CircularProgress, Paper, Step, StepLabel, Stepper } from '@mui/material';
@@ -111,6 +111,10 @@ const SimulatorForm = () => {
   const isLastStep = activeStep === steps.length - 1;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeStep]);
+
   const { width } = useWindowSize();
   const dispatch = useDispatch();
 
@@ -125,6 +129,8 @@ const SimulatorForm = () => {
   };
 
   const handleSubmit = async (values, actions) => {
+    window.scrollTo(0, 0);
+
     if (isLastStep) {
       window.open('https://api.whatsapp.com/send?phone=+573104908414', '_blank');
       window.focus();

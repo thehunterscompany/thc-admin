@@ -35,6 +35,17 @@ const formFields = {
         requiredErrorMsg: 'Este campo es requerido.',
         invalidErrorMsg: 'El correo ingresado no es válido.',
       },
+      state: {
+        name: 'state',
+        label: '¿En qué departamento vives? ',
+        requiredErrorMsg: 'Este campo es requerido.',
+      },
+      city: {
+        name: 'city',
+        label: '¿En qué ciudad vives? ',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'La ciudad ingresada no es válidas.',
+      },
       location: {
         name: 'location',
         label: '¿En qué ciudad vives? ',

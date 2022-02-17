@@ -4,7 +4,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-import { ComboBox, InputField, MaskedInput } from '../../../../../components/FormFields';
+import {
+  AsyncComboBox,
+  InputField,
+  MaskedInput,
+} from '../../../../../components/FormFields';
 import { axiosCall } from '../../../../../utils';
 
 import '../../Simulador.scss';
@@ -50,7 +54,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 
   const [extraTenants, setExtraTenants] = useState(0);
 
-  const [employmentTypeData, setEmploymentType] = useState([]);
+  const [employmentTypeData, setEmploymentTypeData] = useState([]);
 
   const [open, setOpen] = useState(false);
   const loading = open && employmentTypeData.length === 0;
@@ -63,8 +67,8 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
     (async () => {
       await sleep(1e3);
       axiosCall('GET', 'employmentType')
-        .then((data) => setEmploymentType(data))
-        .catch(() => setEmploymentType(DATA));
+        .then((data) => setEmploymentTypeData(data))
+        .catch(() => setEmploymentTypeData(DATA));
     })();
   }, [loading]);
 
@@ -148,7 +152,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <strong>Titular {1}</strong>
         </div>
         <Grid item xs={12} md={6}>
-          <ComboBox
+          <AsyncComboBox
             name={mainEmployment.name}
             label={mainEmployment.label}
             loading={loading}
@@ -157,7 +161,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             handleOpenChange={setOpen}
             open={open}
             fullWidth
-            value={values.earnings}
+            value={values.mainEmployment}
           />
         </Grid>
         <Grid item xs={12} md={6}>
