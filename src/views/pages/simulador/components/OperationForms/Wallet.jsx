@@ -85,8 +85,6 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
             value={values.rates}
           />
         </Grid>
-
-        <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );

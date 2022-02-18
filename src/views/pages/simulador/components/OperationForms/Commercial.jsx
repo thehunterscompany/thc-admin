@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import useWindowSize from 'src/hooks/useWindowSize';
 
 import {
   InputField,
@@ -11,6 +12,8 @@ import { axiosCall } from '../../../../../utils';
 
 const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) => {
   const { value, currentDeal, realEstateType, time, type } = formField;
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     (async () => {
@@ -53,7 +56,7 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
               { value: 'Local', label: 'Local' },
             ]}
             fullWidth
-            style={{ marginTop: '16px' }}
+            style={width >= 960 ? { marginTop: '16px' } : {}}
             value={values.realEstateType}
           />
         </Grid>
@@ -74,8 +77,6 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             value={values.time}
           />
         </Grid>
-
-        <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );

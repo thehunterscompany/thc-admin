@@ -46,6 +46,7 @@ const DateField = (props) => {
           error={isError}
           invalidDateMessage={isError && error}
           helperText={isError && error}
+          margin="normal"
         />
       </MuiPickersUtilsProvider>
     </Grid>

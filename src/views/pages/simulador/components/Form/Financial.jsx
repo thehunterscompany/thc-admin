@@ -217,7 +217,6 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             </FormControl>
           </Grid>
         ) : null}
-        <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );

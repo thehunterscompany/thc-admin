@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormHelperText } from '@material-ui/core';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+// import { FormHelperText } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material';
 import { useField } from 'formik';
 import { at } from 'lodash';
 import PropTypes from 'prop-types';
@@ -19,7 +19,7 @@ const SelectField = (props) => {
   }
 
   return (
-    <FormControl {...rest} variant="filled" error={isError}>
+    <FormControl {...rest} variant="filled" margin="normal" error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (

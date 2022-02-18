@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
+import useWindowSize from 'src/hooks/useWindowSize';
 import cities from 'src/utils/data/colombiaCities.json';
 import states from 'src/utils/data/colombiaStates.json';
 
@@ -38,6 +39,8 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     checkedA: values?.checkedA ? values.checkedA : false,
     checkedB: values?.checkedB ? values.checkedB : false,
   });
+
+  const { width } = useWindowSize();
 
   const labelStyle = {
     // Adding media query..
@@ -93,7 +96,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             value={values.documentType}
             data={idType}
             fullWidth
-            style={{ marginTop: '16px' }}
+            style={width >= 960 ? { marginTop: '16px' } : {}}
           />
         </Grid>
 
@@ -154,7 +157,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             format="dd/MM/yyyy"
             minDate={new Date('1900/01/01')}
             maxDate={new Date()}
-            style={{ marginTop: '25px' }}
+            style={width >= 960 ? { marginTop: '25px' } : {}}
             fullWidth
           />
         </Grid>

@@ -109,8 +109,6 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             value={values.time}
           />
         </Grid>
-
-        <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );

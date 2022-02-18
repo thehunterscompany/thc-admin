@@ -333,8 +333,6 @@ const SimulatorForm = () => {
           </CCardBody>
         </Paper>
       </CCol>
-      {/* </Container> */}
-      {/* </CRow> */}
     </React.Fragment>
   );
 };
