@@ -269,7 +269,7 @@ const SimulatorForm = () => {
                 setInitialValues(values);
                 handleSubmit(values, actions);
               }}
-              // validationSchema={activeSchema}
+              validationSchema={activeSchema}
               enableReinitialize
             >
               {({
