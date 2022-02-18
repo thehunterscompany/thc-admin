@@ -7,13 +7,13 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@material-ui/core';
+} from '@mui/material';
 import PropTypes from 'prop-types';
 
 const CustomTable = ({ className, headers, rowData }) => {
   return (
-    <TableContainer component={Paper}>
-      <Table className={className}>
+    <TableContainer component={Paper} className={className}>
+      <Table>
         <TableHead>
           <TableRow>
             {headers.map(({ name, align }, index) => (
@@ -49,7 +49,7 @@ const CustomTable = ({ className, headers, rowData }) => {
 };
 
 CustomTable.propTypes = {
-  className: PropTypes.any,
+  className: PropTypes.string,
   headers: PropTypes.array.isRequired,
   rowData: PropTypes.array.isRequired,
 };

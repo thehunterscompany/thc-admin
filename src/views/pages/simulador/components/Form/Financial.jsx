@@ -4,8 +4,12 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
-import { InputField, MaskedInput } from '../../../../../components/FormFields';
-import useCurrencySymbol from '../../hooks/useCurrencySymbol';
+import {
+  AsyncComboBox,
+  InputField,
+  MaskedInput,
+} from '../../../../../components/FormFields';
+import { axiosCall } from '../../../../../utils';
 
 import '../../Simulador.scss';
 
@@ -17,33 +21,56 @@ const useStyles = makeStyles(() => ({
   root: {
     marginLeft: '4px',
   },
+  loadingProgress: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+  },
 }));
+
+const DATA = [
+  { value: 'Empleado término indefinido', label: 'Empleado término indefinido' },
+  { value: 'Empleado término fijo', label: 'Empleado término fijo' },
+  {
+    value: 'Contratista y prestador de servicio',
+    label: 'Contratista y prestador de servicio',
+  },
+  { value: 'Pensionado', label: 'Pensionado' },
+  { value: 'Fuerzas Militares', label: 'Fuerzas Militares' },
+  { value: 'Rentista de capital', label: 'Rentista de capital' },
+  { value: 'Independiente', label: 'Independiente' },
+];
+
+function sleep(delay = 0) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
+}
 
 const FinancialFields = ({ formField, values, setFieldValue }) => {
   const classes = useStyles();
 
   const { mainEmployment, laborTime, earnings, passive } = formField;
 
-  const [extraTenants, setExtraTenants] = useState(values.tenants.length);
+  const [extraTenants, setExtraTenants] = useState(0);
 
-  const currencySymbol = useCurrencySymbol(values.country);
+  const [employmentTypeData, setEmploymentTypeData] = useState([]);
+
+  const [open, setOpen] = useState(false);
+  const loading = open && employmentTypeData.length === 0;
 
   useEffect(() => {
-    if (values.earnings) {
-      if (currencySymbol !== values.earnings.split(' ')[0]) {
-        setFieldValue('earnings', `${currencySymbol} ${values.earnings.split(' ')[1]}`);
-        setFieldValue('passive', `${currencySymbol} ${values.passive.split(' ')[1]}`);
-        if (values.tenants.length) {
-          for (let i = 0; i < values.tenants.length; i++) {
-            setFieldValue(
-              `tenants[${i}].earnings`,
-              `${currencySymbol} ${values.tenants[i].earnings.split(' ')[1]}`,
-            );
-          }
-        }
-      }
+    if (!loading) {
+      return undefined;
     }
-  }, [currencySymbol]);
+
+    (async () => {
+      await sleep(1e3);
+      axiosCall('GET', 'employmentType')
+        .then((data) => setEmploymentTypeData(data))
+        .catch(() => setEmploymentTypeData(DATA));
+    })();
+  }, [loading]);
 
   const renderExtraTenants = () => {
     let array = [];
@@ -51,7 +78,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
       array.push(
         <Grid container item spacing={3}>
           <div className="_titular-space">
-            <strong>Titular {i + 1}</strong>
+            <strong>Titular {i + 2}</strong>
             <Button
               className={`_eliminar-x ${classes.button}`}
               onClick={() => handleRemoveClick(i)}
@@ -89,8 +116,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             <MaskedInput
               name={`tenants[${i}].earnings`}
               label={earnings.label}
-              code={currencySymbol}
-              width="41.5vw"
+              code={'COP'}
               type="currency"
               value={
                 values.tenants.length && values.tenants[i]
@@ -122,11 +148,18 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
   return (
     <React.Fragment>
       <Grid container spacing={3}>
+        <div className="_titular-space">
+          <strong>Titular {1}</strong>
+        </div>
         <Grid item xs={12} md={6}>
-          <InputField
+          <AsyncComboBox
             name={mainEmployment.name}
             label={mainEmployment.label}
-            type="text"
+            loading={loading}
+            data={employmentTypeData}
+            setFieldValue={setFieldValue}
+            handleOpenChange={setOpen}
+            open={open}
             fullWidth
             value={values.mainEmployment}
           />
@@ -140,11 +173,12 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.laborTime) > 1 ? 'años' : 'año'}
+                  {parseInt(values.laborTime) > 1 || parseInt(values.laborTime) === 0
+                    ? 'años'
+                    : 'año'}
                 </InputAdornment>
               ),
             }}
-            value={values.laborTime}
           />
         </Grid>
 
@@ -152,7 +186,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={earnings.name}
             label={earnings.label}
-            code={currencySymbol}
+            code={'COP'}
             type="currency"
             value={values.earnings}
           />
@@ -162,7 +196,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={passive.name}
             label={passive.label}
-            code={currencySymbol}
+            code={'COP'}
             type="currency"
             value={values.passive}
           />
@@ -170,7 +204,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
         {renderExtraTenants().map((tenant, index) => (
           <React.Fragment key={index}>{tenant}</React.Fragment>
         ))}
-        {extraTenants < 4 ? (
+        {extraTenants < 3 ? (
           <Grid item xs={12}>
             <FormControl>
               <FormControlLabel
@@ -183,7 +217,6 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             </FormControl>
           </Grid>
         ) : null}
-        <div style={{ minWidth: '50vw' }} />
       </Grid>
     </React.Fragment>
   );

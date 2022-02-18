@@ -24,7 +24,7 @@ class App extends Component {
       <HashRouter>
         <React.Suspense fallback={loading}>
           <Switch>
-            <Route
+            {/* <Route
               exact
               path="/login"
               name="Login Page"
@@ -47,18 +47,18 @@ class App extends Component {
               path="/500"
               name="Page 500"
               render={(props) => <Page500 {...props} />}
-            />
+            /> */}
             <Route
               exact
-              path="/simulador"
+              path="/"
               name="Simulador"
               render={(props) => <Simulador {...props} />}
             />
-            <Route
+            {/* <Route
               path="/"
               name="Home"
               render={(props) => <DefaultLayout {...props} />}
-            />
+            /> */}
           </Switch>
         </React.Suspense>
       </HashRouter>

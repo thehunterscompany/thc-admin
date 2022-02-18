@@ -4,21 +4,14 @@ export default makeStyles((theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
-  },
   wrapper: {
-    margin: theme.spacing(1),
-    position: 'relative',
+    margin: `${theme.spacing(1)}px !important`,
+    position: 'relative !important',
   },
   buttonProgress: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
+    position: 'absolute !important',
+    top: '50% !important',
+    left: '45% !important',
+    color: 'rgb(211, 73, 150) !important',
   },
 }));

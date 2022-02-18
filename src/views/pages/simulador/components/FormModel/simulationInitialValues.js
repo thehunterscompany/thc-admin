@@ -11,7 +11,8 @@ const personalValues = {
   [personal.documentId.name]: '',
   [personal.dateOfBirth.name]: '',
   [personal.email.name]: '',
-  [personal.country.name]: '',
+  [personal.state.name]: '',
+  [personal.city.name]: '',
   [personal.telephone.name]: '',
   [personal.simulation.name]: '',
   [personal.simulationType.name]: '',
@@ -31,9 +32,10 @@ const operationalValues = {
   [operational.value.name]: '',
   [operational.currentDeal.name]: '',
   [operational.time.name]: '',
+  [operational.type.name]: '',
+
   realEstate: {
     [operational.realEstate.realEstateType.name]: '',
-    [operational.realEstate.type.name]: '',
   },
   commercial: {
     [operational.commercial.realEstateType.name]: '',

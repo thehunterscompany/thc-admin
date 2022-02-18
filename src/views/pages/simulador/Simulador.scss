@@ -1,25 +1,7 @@
-._form-spaces {
-  background: #fff;
-  // margin-top: 2em;
-  margin-bottom: 1em;
-  padding: 2%;
-  min-width: 700px;
-
-  h1 {
-    font-size: 24px;
-    display: block;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-}
-
-._simulador-container {
-  display: flex;
-  height: auto;
-  min-height: 100vh;
-  align-items: center;
-  gap: 2.5em;
-  flex-direction: column;
+._simulation-container {
+  height: 100vh;
+  width: auto;
+  overflow-x: clip;
 
   ._eliminar-x::before {
     content: '×';
@@ -41,6 +23,151 @@
       display: inline-flex;
       padding: 15px 0px;
       margin-top: -13px;
+    }
+  }
+
+  ._simulation_results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h1,
+    ._value {
+      color: rgb(211, 73, 150) !important;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      font-size: calc(2em + 1.5vw);
+    }
+    p {
+      font-size: 12px;
+      text-align: left;
+    }
+    span {
+      text-align: left;
+    }
+
+    ._simulation_table {
+      border-radius: 25px;
+      table {
+        background-color: rgb(211, 73, 150) !important;
+        color: #fff !important;
+        border-radius: 1px;
+        th,
+        td {
+          color: #fff;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  ._form-spaces {
+    background: #fff;
+    margin-top: 2vh;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4vh;
+
+    button:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    @media (max-width: 600px) {
+      .card.border-style {
+        border: none;
+      }
+    }
+    h1._intro-message {
+      text-align: center;
+      font-size: calc(1em + 1.5vw);
+      margin-bottom: 0px;
+      padding: 0 5%;
+    }
+
+    @media (min-width: 760px) {
+      h1._intro-message {
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    .MuiStepConnector-root.MuiStepConnector-vertical {
+      margin-left: 19px;
+    }
+
+    .MuiStepLabel-root.MuiStepLabel-vertical {
+      padding: 0;
+      .MuiStepLabel-iconContainer {
+        div {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    .MuiStepConnector-line.MuiStepConnector-lineVertical {
+      height: 35px;
+      width: 2px;
+    }
+
+    .MuiFormLabel-root.Mui-focused {
+      color: rgb(211, 73, 150) !important;
+    }
+
+    .MuiFormLabel-root.Mui-focused.Mui-error {
+      color: #f44336 !important;
+    }
+
+    .MuiFilledInput-underline.Mui-focused.Mui-error::after,
+    .MuiFilledInput-underline.Mui-error::after {
+      border-bottom-color: #f44336 !important;
+    }
+
+    .MuiInput-underline.Mui-focused::after,
+    .MuiFilledInput-underline.Mui-focused::after {
+      border-bottom: 2px solid rgb(211, 73, 150) !important;
+    }
+
+    .MuiFormLabel-root.Mui-error,
+    .MuiFormHelperText-root.Mui-error {
+      color: #f44336;
+    }
+
+    .MuiAutocomplete-inputRoot.MuiFilledInput-root {
+      padding-top: 23px;
+    }
+
+    ._buttons_space {
+      display: flex;
+      justify-content: center;
+
+      ._return_button.MuiButton-root {
+        margin-top: 24px;
+        margin-left: 8px;
+        color: #000;
+        &:not(:disabled):hover {
+          background-color: rgba(211, 73, 150, 0.04);
+        }
+      }
+
+      ._continue_button.MuiButton-root {
+        margin-top: 24px;
+        margin-left: 8px;
+        background-color: rgb(211, 73, 150);
+        &:disabled {
+          color: rgba(0, 0, 0, 0.26);
+          box-shadow: none;
+          background-color: rgba(0, 0, 0, 0.12);
+        }
+        &:not(:disabled):hover {
+          background-color: rgba(211, 73, 150, 0.8);
+        }
+      }
     }
   }
 }

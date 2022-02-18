@@ -21,33 +21,46 @@ const formFields = {
         name: 'documentId',
         label: 'Número de Documento',
         requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'Este campo solo puede tener numeros.',
       },
       dateOfBirth: {
         name: 'dateOfBirth',
         label: 'Fecha de Nacimiento',
         requiredErrorMsg: 'Este campo es requerido.',
-        invalidErrorMsg: 'La fecha es invalida',
+        invalidErrorMsg: 'La fecha ingresada no es válida.',
       },
       email: {
         name: 'email',
         label: 'Correo Electrónico',
         requiredErrorMsg: 'Este campo es requerido.',
-        invalidErrorMsg: 'El correo ingresado es incorrecto',
+        invalidErrorMsg: 'El correo ingresado no es válido.',
       },
-      country: {
-        name: 'country',
-        label: 'En que país vives? ',
+      state: {
+        name: 'state',
+        label: '¿En qué departamento vives? ',
         requiredErrorMsg: 'Este campo es requerido.',
+      },
+      city: {
+        name: 'city',
+        label: '¿En qué ciudad vives? ',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'La ciudad ingresada no es válidas.',
+      },
+      location: {
+        name: 'location',
+        label: '¿En qué ciudad vives? ',
+        requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'La ciudad ingresada no es válidas.',
       },
       telephone: {
         name: 'telephone',
         label: 'Teléfono',
         requiredErrorMsg: 'Este campo es requerido.',
-        invalidErrorMsg: 'Numero de teléfono no puede ser mas de 15 digitos',
+        invalidErrorMsg: 'Por favor eliminar extra espacios en blanco.',
       },
       simulation: {
         name: 'simulation',
-        label: 'Que Necesitas?',
+        label: '¿Qué Necesitas?',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       simulationType: {
@@ -64,8 +77,9 @@ const formFields = {
       },
       laborTime: {
         name: 'laborTime',
-        label: 'Actividad Laboral',
+        label: 'Antiguedad Laboral',
         requiredErrorMsg: 'Este campo es requerido.',
+        invalidErrorMsg: 'Solo pueden ser números!',
       },
       earnings: {
         name: 'earnings',
@@ -75,7 +89,7 @@ const formFields = {
       },
       passive: {
         name: 'passive',
-        label: 'Cuotas mensuales de préstamos y tarjetas de crédito?',
+        label: 'Cuota mensuales de créditos y tarjetas?',
         requiredErrorMsg: 'Este campo es requerido.',
       },
       tenants: {
@@ -99,15 +113,16 @@ const formFields = {
         name: 'time',
         label: 'Plazo',
         requiredErrorMsg: 'Este campo es requerido.',
-        invalidErrorMsg: 'El plazo minímo es a 5 año y el máximo a 20 años',
+        invalidErrorMsg: 'Solo puede contener números!',
+        invalidErrorMsg1: 'El plazo minímo es a 5 año y el máximo a 20 años',
+      },
+      type: {
+        name: 'type',
+        label: 'Linea de financiación',
+        requiredErrorMsg: 'Este campo es requerido.',
       },
 
       realEstate: {
-        type: {
-          name: 'type',
-          label: 'Linea de financiación',
-          requiredErrorMsg: 'Este campo es requerido.',
-        },
         realEstateType: {
           name: 'realEstateType',
           label: 'Tipo de vivienda',
@@ -145,12 +160,12 @@ const formFields = {
         name: 'password',
         label: 'Contraseña',
         requiredErrorMsg: 'Este campo es requerido.',
-        invalidErrorMsg: 'Solo ingresa numeros.',
+        invalidErrorMsg: 'La contraseña tiene que tener como mínimo 8 caracteres.',
+        invalidErrorMsg1: 'La contraseña es invalida. Por favor revisar las reglas!',
       },
       repeatPassword: {
         name: 'repeatPassword',
         label: 'Repite la contraseña',
-        requiredErrorMsg: 'Este campo es requerido.',
         invalidErrorMsg: 'Las contraseñas no son las mismas',
       },
     },

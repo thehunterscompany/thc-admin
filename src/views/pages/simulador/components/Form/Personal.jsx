@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { FormControl, FormControlLabel, Grid, Switch } from '@material-ui/core';
+import React, { useState } from 'react';
+import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { StyleRoot } from 'radium';
+import useWindowSize from 'src/hooks/useWindowSize';
+import cities from 'src/utils/data/colombiaCities.json';
+import states from 'src/utils/data/colombiaStates.json';
 
 import {
-  CountrySelect,
+  ComboBox,
   DateField,
   InputField,
   MaskedInput,
   SelectField,
 } from '../../../../../components/FormFields';
+import { CustomSwitch } from '../../../../../components/Switch';
 
 const simulationOptions = [
-  { value: 1, label: 'Calular Cuota' },
+  { value: 1, label: 'Calcular Cuota' },
   { value: 2, label: 'Cuanto me prestan' },
 ];
 
@@ -22,41 +27,27 @@ const rateSimulation = [
 ];
 
 const idType = [
-  { value: 'Cedula de ciudadanía', label: 'Cedula de ciudadanía' },
-  { value: 'Cedula de extrangería', label: 'Cedula de extrangería' },
-  { value: 'Pasaporte', label: 'Pasaporte' },
+  { value: 'Cédula de ciudadanía', label: 'Cédula de ciudadanía' },
+  { value: 'Cédula de extranjería', label: 'Cédula de extranjería' },
 ];
 
+const statesData = states.states;
+const citiesData = cities.cities;
+
 const PersonalFields = ({ formField, values, setFieldValue }) => {
-  const [state, setState] = useState({
+  const [checkboxes, setCheckboxes] = useState({
     checkedA: values?.checkedA ? values.checkedA : false,
     checkedB: values?.checkedB ? values.checkedB : false,
   });
 
-  const [phoneCountryCode, setPhoneCountryCode] = useState('');
+  const { width } = useWindowSize();
 
-  useEffect(() => {
-    if (values.country['phone']) {
-      if (values.country?.phone.length >= 1) {
-        setPhoneCountryCode(values.country?.phone);
-      } else {
-        setPhoneCountryCode('');
-      }
-    } else {
-      setPhoneCountryCode('');
-    }
-  }, [values.country]);
-
-  useEffect(() => {
-    if (values.country) {
-      if (values.telephone) {
-        let number = values.telephone.split(' ')[1];
-        setFieldValue('telephone', `+${values.country.phone} ${number}`);
-      }
-    } else {
-      setFieldValue('telephone', '');
-    }
-  }, [values.country]);
+  const labelStyle = {
+    // Adding media query..
+    '@media (max-width: 500px)': {
+      paddingLeft: '20px',
+    },
+  };
 
   const {
     firstNames,
@@ -65,14 +56,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     documentId,
     dateOfBirth,
     email,
-    country,
+    city,
+    state,
     telephone,
     simulation,
     simulationType,
   } = formField;
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setCheckboxes({ ...checkboxes, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -96,14 +88,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             value={values.lastNames}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <SelectField
             name={documentType.name}
             label={documentType.label}
+            value={values.documentType}
             data={idType}
             fullWidth
-            style={{ marginTop: '25px' }}
-            value={values.documentType}
+            style={width >= 960 ? { marginTop: '16px' } : {}}
           />
         </Grid>
 
@@ -112,8 +105,48 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={documentId.name}
             label={documentId.label}
             type="text"
-            fullWidth
             value={values.documentId}
+            fullWidth
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <InputField
+            name={email.name}
+            label={email.label}
+            type="text"
+            value={values.email}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <MaskedInput
+            name={telephone.name}
+            label={telephone.label}
+            code={'57'}
+            type="phone"
+            value={values.telephone}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ComboBox
+            name={state.name}
+            label={state.label}
+            value={values.state}
+            data={statesData}
+            fullWidth
+            setFieldValue={setFieldValue}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <ComboBox
+            name={city.name}
+            label={city.label}
+            value={values.city}
+            data={citiesData}
+            fullWidth
+            setFieldValue={setFieldValue}
           />
         </Grid>
 
@@ -124,105 +157,75 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             format="dd/MM/yyyy"
             minDate={new Date('1900/01/01')}
             maxDate={new Date()}
-            style={{ marginTop: '25px' }}
+            style={width >= 960 ? { marginTop: '25px' } : {}}
             fullWidth
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={email.name}
-            label={email.label}
-            type="text"
-            fullWidth
-            value={values.email}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <CountrySelect
-            name={country.name}
-            label={country.label}
-            fullWidth
-            setFieldValue={setFieldValue}
-            value={values.country}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <MaskedInput
-            name={telephone.name}
-            label={telephone.label}
-            code={phoneCountryCode}
-            type="phone"
-            value={values.telephone}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={values.simulation === 1 ? 6 : 12}>
           <SelectField
             name={simulation.name}
             label={simulation.label}
             data={simulationOptions}
             fullWidth
-            value={values.simulation}
+            style={{ marginTop: '16px' }}
           />
         </Grid>
 
         {values.simulation === 1 ? (
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12}>
             <SelectField
               name={simulationType.name}
               label={simulationType.label}
               data={rateSimulation}
               fullWidth
-              value={values.simulationType}
             />
           </Grid>
         ) : null}
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
               control={
-                <Switch
-                  checked={state.checkedA}
+                <CustomSwitch
+                  checked={checkboxes.checkedA}
                   onChange={handleChange}
                   name="checkedA"
-                  color="primary"
                 />
               }
             />
           </FormControl>
-
-          <small>
-            Acepto{' '}
-            <a
-              href="https://thcsas.com.co/terminos-y-condiciones"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              términos, condiciones y política de tratamiento de datos
-            </a>
-          </small>
+          <StyleRoot style={labelStyle}>
+            <small>
+              Acepto{' '}
+              <a
+                href="https://thcsas.com.co/terminos-y-condiciones"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                términos, condiciones y política de tratamiento de datos
+              </a>
+            </small>
+          </StyleRoot>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
               control={
-                <Switch
-                  checked={state.checkedB}
+                <CustomSwitch
+                  checked={checkboxes.checkedB}
                   onChange={handleChange}
                   name="checkedB"
-                  color="primary"
                 />
               }
             />
           </FormControl>
-          <small>
-            Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.
-          </small>
+          <StyleRoot style={labelStyle}>
+            <small>
+              Autorizo a thcsas.com.co a consultar mi información en centrales de riesgo.
+            </small>
+          </StyleRoot>
         </Grid>
       </Grid>
     </React.Fragment>

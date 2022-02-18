@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Grid, LinearProgress } from '@material-ui/core';
+import { Container, LinearProgress } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import CustomTable from '../Table/Table';
@@ -9,13 +9,13 @@ const headersTopTable = [
   { name: 'Linea de Financiación', align: 'center' },
   { name: 'Tasa Interés Efectiva Anual', align: 'center' },
   { name: 'Tasa Interés Mes Vencido', align: 'center' },
-  { name: 'Cuota Sin Seguros', align: 'center' },
+  { name: 'Cuota Sin Seguros**', align: 'center' },
 ];
 
 const headersBottomTable = [
   { name: 'Valor Compra', align: 'center' },
   { name: 'Valor a Financiar', align: 'center' },
-  { name: 'Porcentaje de Financiamiento', align: 'center' },
+  { name: 'Porcentaje de Financiación', align: 'center' },
   { name: 'Plazo', align: 'center' },
 ];
 
@@ -33,7 +33,7 @@ const Feasible = ({ values }) => {
     setTopData([
       {
         value: {
-          1: `Crédito`,
+          1: values.type,
           2: rate,
           3: `${tem}%`,
           4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
@@ -41,14 +41,15 @@ const Feasible = ({ values }) => {
         align: 'center',
       },
     ]);
-  }, [simulation]);
+  }, [simulation, values]);
 
   useEffect(() => {
     if (Object.keys(values).length) {
       const { value, currentDeal, time } = values;
       let [symbol, totalValue] = value.split(' ');
-      let financingValue = currentDeal.split(' ')[1];
-      let percent = (financingValue / totalValue).toFixed(4) * 100;
+      totalValue = Number(totalValue.replace(/\D/g, ''));
+      let financingValue = Number(currentDeal.replace(/\D/g, ''));
+      let percent = ((financingValue / totalValue).toFixed(4) * 100).toFixed(2);
       setBottomData([
         {
           value: {
@@ -57,7 +58,7 @@ const Feasible = ({ values }) => {
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
             3: `${percent}%`,
-            4: time,
+            4: `${time} ${time === 1 ? 'año' : 'años'}`,
           },
           align: 'center',
         },
@@ -74,27 +75,28 @@ const Feasible = ({ values }) => {
   return isLoading ? (
     <LinearProgress />
   ) : (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      direction="column"
-      style={{ textAlign: 'center' }}
-    >
-      <h1>Enhorabuena!</h1>
+    <Container className="_simulation_results">
+      <h1>¡Felicitaciones!</h1>
       <h2>Tu financiación es VIABLE</h2>
-      <CustomTable headers={headersTopTable} rowData={topData} />
+      <CustomTable
+        headers={headersTopTable}
+        rowData={topData}
+        className="_simulation_table"
+      />
       <p>
-        ** este valor es simulado con el promedio de cuotas desembolsadas en los últimos 3
-        meses, por lo que podría ser incluso mejor dependiendo de la entidad financiera
-        donde presentemos tu operación.
+        ** el valor de la cuota está calculado con base en el promedio de las tasas de
+        interés vigentes en cada momento del mercado. Para cada operación buscamos la
+        mejor tasa dependiendo del perfil del cliente.
       </p>
-      <span>
-        ** la financiación tiene dos seguros de vida e incendio y terremoto que se
-        calcularán según Banco elegido.
-      </span>
+      <p>
+        ** el valor de esta cuota no incluye los seguros obligatorios (vida e incendio y
+        terremoto), estos dependen de cada Banco.
+      </p>
+      <p></p>
       <CustomTable headers={headersBottomTable} rowData={bottomData} />
-    </Grid>
+      <span>{`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
+        comunicarte con uno de nuestros brokers.`}</span>
+    </Container>
   );
 };
 
