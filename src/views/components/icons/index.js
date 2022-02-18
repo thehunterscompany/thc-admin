@@ -1,5 +1,5 @@
-import CoreUIIcons from './coreui-icons'
-import Flags from './flags'
-import Brands from './brands'
+import Brands from './brands';
+import CoreUIIcons from './coreui-icons';
+import Flags from './flags';
 
-export { CoreUIIcons, Flags, Brands }
+export { Brands, CoreUIIcons, Flags };

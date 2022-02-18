@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CBreadcrumb,
   CBreadcrumbItem,
@@ -6,10 +6,10 @@ import {
   CCardBody,
   CCardHeader,
   CCol,
-  CRow,
   CLink,
-} from '@coreui/react'
-import { DocsCallout, Example } from 'src/reusable'
+  CRow,
+} from '@coreui/react';
+import { DocsCallout, DocsExample } from 'src/components';
 
 const Breadcrumbs = () => {
   return (
@@ -24,9 +24,10 @@ const Breadcrumbs = () => {
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
-              The breadcrumb navigation provides links back to each previous page the user navigated
-              through and shows the current location in a website or an application. You don’t have
-              to add separators, because they automatically added in CSS through{' '}
+              The breadcrumb navigation provides links back to each previous page the user
+              navigated through and shows the current location in a website or an
+              application. You don’t have to add separators, because they automatically
+              added in CSS through{' '}
               <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before">
                 {' '}
                 <code>::before</code>
@@ -38,7 +39,7 @@ const Breadcrumbs = () => {
               </a>
               .
             </p>
-            <Example href="components/breadcrumb">
+            <DocsExample href="components/breadcrumb">
               <CBreadcrumb>
                 <CBreadcrumbItem>
                   <CLink href="#">Home</CLink>
@@ -66,12 +67,12 @@ const Breadcrumbs = () => {
                 </CBreadcrumbItem>
                 <CBreadcrumbItem active>Bootstrap</CBreadcrumbItem>
               </CBreadcrumb>
-            </Example>
+            </DocsExample>
           </CCardBody>
         </CCard>
       </CCol>
     </CRow>
-  )
-}
+  );
+};
 
-export default Breadcrumbs
+export default Breadcrumbs;

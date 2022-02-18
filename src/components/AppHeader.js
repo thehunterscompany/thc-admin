@@ -1,6 +1,8 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons';
+import CIcon from '@coreui/icons-react';
 import {
   CContainer,
   CHeader,
@@ -8,30 +10,30 @@ import {
   CHeaderDivider,
   CHeaderNav,
   CHeaderToggler,
-  CNavLink,
   CNavItem,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+  CNavLink,
+} from '@coreui/react';
+import { logo } from 'src/assets/brand/logo';
+import { responsiveSidebar } from 'src/store/actions';
 
-import { AppBreadcrumb } from './index'
-
-import { AppHeaderDropdown } from './header/index'
+import { AppHeaderDropdown } from './header/index';
+import { AppBreadcrumb } from './index';
 
 const AppHeader = () => {
-  const dispatch = useDispatch()
-  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const dispatch = useDispatch();
+  const sidebarShow = useSelector((state) => state.changeState.sidebarShow);
 
   return (
     <CHeader position="sticky" className="mb-4">
       <CContainer fluid>
         <CHeaderToggler
-          className="ms-md-3 d-lg-none"
-          onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
+          className="ps-1"
+          onClick={() => dispatch(responsiveSidebar({ sidebarShow: !sidebarShow }))}
         >
-          <CIcon name="cil-menu" size="lg" />
+          <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CHeaderBrand className="mx-auto d-md-none" to="/">
-          <CIcon name="logo" height="48" alt="Logo" />
+          <CIcon icon={logo} height={48} alt="Logo" />
         </CHeaderBrand>
         <CHeaderNav className="d-none d-md-flex me-auto">
           <CNavItem>
@@ -49,17 +51,17 @@ const AppHeader = () => {
         <CHeaderNav>
           <CNavItem>
             <CNavLink href="#">
-              <CIcon name="cil-bell" size="lg" />
+              <CIcon icon={cilBell} size="lg" />
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">
-              <CIcon name="cil-list" size="lg" />
+              <CIcon icon={cilList} size="lg" />
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink href="#">
-              <CIcon name="cil-envelope-open" size="lg" />
+              <CIcon icon={cilEnvelopeOpen} size="lg" />
             </CNavLink>
           </CNavItem>
         </CHeaderNav>
@@ -72,7 +74,7 @@ const AppHeader = () => {
         <AppBreadcrumb />
       </CContainer>
     </CHeader>
-  )
-}
+  );
+};
 
-export default AppHeader
+export default AppHeader;

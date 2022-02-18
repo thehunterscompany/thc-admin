@@ -1,5 +1,6 @@
-import React from 'react'
-import { AppContent, AppSidebar, AppFooter, AppHeader } from '../components/index'
+import React from 'react';
+
+import { AppContent, AppFooter, AppHeader, AppSidebar } from '../components/index';
 
 const DefaultLayout = () => {
   return (
@@ -13,7 +14,7 @@ const DefaultLayout = () => {
         <AppFooter />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;

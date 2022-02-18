@@ -1,0 +1,39 @@
+{
+  "states": [
+    { "label": "Amazonas", "value": "Amazonas" },
+    { "label": "Antioquia", "value": "Antioquia" },
+    { "label": "Arauca", "value": "Arauca" },
+    { "label": "Atl\u00e1ntico", "value": "Atl\u00e1ntico" },
+    { "label": "Bol\u00edvar", "value": "Bol\u00edvar" },
+    { "label": "Boyac\u00e1", "value": "Boyac\u00e1" },
+    { "label": "Caldas", "value": "Caldas" },
+    { "label": "Caquet\u00e1", "value": "Caquet\u00e1" },
+    { "label": "Casanare", "value": "Casanare" },
+    { "label": "Cauca", "value": "Cauca" },
+    { "label": "Cesar", "value": "Cesar" },
+    { "label": "Choc\u00f3", "value": "Choc\u00f3" },
+    { "label": "Cundinamarca", "value": "Cundinamarca" },
+    { "label": "C\u00f3rdoba", "value": "C\u00f3rdoba" },
+    { "label": "Guain\u00eda", "value": "Guain\u00eda" },
+    { "label": "Guaviare", "value": "Guaviare" },
+    { "label": "Huila", "value": "Huila" },
+    { "label": "La Guajira", "value": "La Guajira" },
+    { "label": "Magdalena", "value": "Magdalena" },
+    { "label": "Meta", "value": "Meta" },
+    { "label": "Nari\u00f1o", "value": "Nari\u00f1o" },
+    { "label": "Norte de Santander", "value": "Norte de Santander" },
+    { "label": "Putumayo", "value": "Putumayo" },
+    { "label": "Quind\u00edo", "value": "Quind\u00edo" },
+    { "label": "Risaralda", "value": "Risaralda" },
+    {
+      "label": "San Andr\u00e9s y Providencia",
+      "value": "San Andr\u00e9s y Providencia"
+    },
+    { "label": "Santander", "value": "Santander" },
+    { "label": "Sucre", "value": "Sucre" },
+    { "label": "Tolima", "value": "Tolima" },
+    { "label": "Valle del Cauca", "value": "Valle del Cauca" },
+    { "label": "Vaup\u00e9s", "value": "Vaup\u00e9s" },
+    { "label": "Vichada", "value": "Vichada" }
+  ]
+}
