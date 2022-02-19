@@ -4,7 +4,7 @@ import { CCardBody, CCol } from '@coreui/react';
 import { Button, CircularProgress, Paper, Step, StepLabel, Stepper } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
-import useWindowSize from 'src/hooks/useWindowSize';
+import useWindowSize from 'src/hooks/useWindowsize';
 import { lendingSimulation, simulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
