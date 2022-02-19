@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
-import useWindowSize from 'src/hooks/useWindowSize';
+import useWindowSize from 'src/hooks/useWindowsize';
 import cities from 'src/utils/data/colombiaCities.json';
 import states from 'src/utils/data/colombiaStates.json';
 
