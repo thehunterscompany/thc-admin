@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  thc-admin:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: thc-admin
+    restart: unless-stopped
+    networks:
+      thc-admin-network:
+        ipv4_address: 104.0.0.5
+
+networks:
+  thc-admin-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 104.0.0.1/24
