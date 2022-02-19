@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import useWindowSize from 'src/hooks/useWindowSize';
+import useWindowSize from 'src/hooks/useWindowsize';
 
 import {
   InputField,
