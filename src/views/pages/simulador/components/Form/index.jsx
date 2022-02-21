@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CCardBody, CCol } from '@coreui/react';
-import { Button, CircularProgress, Paper, Step, StepLabel, Stepper } from '@mui/material';
+import {
+  Button,
+  CircularProgress,
+  Container,
+  Grid,
+  Paper,
+  Step,
+  StepLabel,
+  Stepper,
+} from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
 import useWindowSize from 'src/hooks/useWindowsize';
@@ -243,9 +251,18 @@ const SimulatorForm = () => {
           Para darte la mejor opción necesitamos algunos datos
         </h1>
       ) : null}
-      <CCol xs="12" sm="11" md="9" lg="10" xl={!skip ? '9' : '10'}>
+      <Grid
+        container
+        item
+        xs={12}
+        sm={11}
+        md={9}
+        lg={10}
+        xl={!skip ? 9 : 10}
+        style={{ justifyContent: 'center' }}
+      >
         <Paper elevation={borderOrNot()}>
-          <CCardBody className="p-4" style={{ minWidth: '250px' }}>
+          <Container style={{ minWidth: '250px', padding: '1.5rem' }}>
             {activeStep < 3 ? (
               <Stepper
                 activeStep={activeStep}
@@ -280,8 +297,6 @@ const SimulatorForm = () => {
                 isValid,
                 touched,
               }) => {
-                console.log(values);
-
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
@@ -330,9 +345,9 @@ const SimulatorForm = () => {
                 );
               }}
             </Formik>
-          </CCardBody>
+          </Container>
         </Paper>
-      </CCol>
+      </Grid>
     </React.Fragment>
   );
 };

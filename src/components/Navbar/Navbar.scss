@@ -1,44 +1,132 @@
-._navbar-container {
-  display: flex;
-  -moz-box-pack: justify;
-  justify-content: space-between;
-  padding: 15px 50px;
-
-  @media only screen and (max-width: 1000px) {
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    -moz-box-align: center;
-    align-items: center;
-  }
-  @media only screen and (max-width: 550px) {
-    padding: 15px !important;
-  }
-}
-
-._navbar-content {
-  display: flex;
-  flex: 40% 0 0;
-  @media only screen and (max-width: 550px) {
-    flex: 100% 0 0 !important;
-  }
-}
-
-._navbar-text {
-  margin: auto auto auto 0;
-  strong {
-    font-size: 23px;
-  }
-  @media only screen and (max-width: 550px) {
-    strong {
-      font-size: 18px;
-    }
-  }
-}
-
-._navbar {
+._navbar-header {
   position: sticky;
   top: 0px;
   z-index: 10;
   background: white none repeat scroll 0% 0%;
   border-bottom: 2px solid #e72c67;
+
+  ._navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    ._navbar-container {
+      display: flex;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+      padding: 15px 50px;
+
+      @media only screen and (max-width: 1000px) {
+        -moz-box-pack: justify;
+        justify-content: space-between;
+        -moz-box-align: center;
+        align-items: center;
+      }
+      @media only screen and (max-width: 550px) {
+        padding: 15px !important;
+      }
+
+      ._navbar-content {
+        display: flex;
+        flex: 40% 0 0;
+        @media only screen and (max-width: 550px) {
+          flex: 100% 0 0 !important;
+        }
+
+        ._navbar-text {
+          margin: auto auto auto 0;
+          strong {
+            font-size: 23px;
+          }
+          @media only screen and (max-width: 550px) {
+            strong {
+              font-size: 18px;
+            }
+          }
+        }
+
+        ._navbar-logo {
+          padding-top: 0.3125rem;
+          padding-bottom: 0.3125rem;
+          font-size: 1.25rem;
+          text-decoration: none;
+          white-space: nowrap;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    ._navbar._navbar-expand {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
 }
+// ._navbar-header {
+//   position: sticky;
+//   top: 0px;
+//   z-index: 10;
+//   background: white none repeat scroll 0% 0%;
+//   border-bottom: 2px solid #e72c67;
+//   ._navbar {
+//     position: sticky;
+//     top: 0px;
+//     z-index: 10;
+//     background: white none repeat scroll 0% 0%;
+//     border-bottom: 2px solid #e72c67;
+//     ._navbar-container {
+//       display: flex;
+//       -moz-box-pack: justify;
+//       justify-content: space-between;
+//       padding: 15px 50px;
+//       flex-wrap: inherit;
+//       align-items: center;
+//       width: 100%;
+//       padding-right: 0.75rem;
+//       padding-right: var(--cui-gutter-x, 0.75rem);
+//       padding-left: 0.75rem;
+//       padding-left: var(--cui-gutter-x, 0.75rem);
+//       margin-right: auto;
+//       margin-left: auto;
+
+//       @media only screen and (max-width: 1000px) {
+//         -moz-box-pack: justify;
+//         justify-content: space-between;
+//         -moz-box-align: center;
+//         align-items: center;
+//       }
+//       @media only screen and (max-width: 550px) {
+//         padding: 15px !important;
+//       }
+//       ._navbar-content {
+//         display: flex;
+//         flex: 40% 0 0;
+//         @media only screen and (max-width: 550px) {
+//           flex: 100% 0 0 !important;
+//         }
+//         ._navbar-text {
+//           margin: auto auto auto 0;
+//           strong {
+//             font-size: 23px;
+//           }
+//           @media only screen and (max-width: 550px) {
+//             strong {
+//               font-size: 18px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//   @media only screen and (min-width: 992px) {
+//     ._navbar._navbar-expand {
+//       flex-wrap: nowrap;
+//       justify-content: flex-start;
+//     }
+//   }
+// }

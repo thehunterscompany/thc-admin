@@ -1,22 +1,21 @@
 import React from 'react';
-import { CContainer, CNavbar, CNavbarBrand } from '@coreui/react';
 
 import './Navbar.scss';
 
 const Navbar = () => (
-  <header className="_navbar">
-    <CNavbar expand="lg">
-      <CContainer className="_navbar-container" fluid>
+  <header className="_navbar-header">
+    <div className="_navbar _navbar-expand">
+      <div style={{ margin: 0 }} className="_navbar-container">
         <div className="_navbar-content">
-          <CNavbarBrand href="http://thcsas.com.co">
+          <div className="_navbar-logo" href="http://thcsas.com.co">
             <img src="img/logo/Logo.svg" alt="Logo" height="60px" />
-          </CNavbarBrand>
+          </div>
           <div className="_navbar-text ">
             <strong>Simulador </strong>
           </div>
         </div>
-      </CContainer>
-    </CNavbar>
+      </div>
+    </div>
   </header>
 );
 
