@@ -262,7 +262,10 @@ const SimulatorForm = () => {
         style={{ justifyContent: 'center' }}
       >
         <Paper elevation={borderOrNot()} style={{ minWidth: '60vw' }}>
-          <Container style={{ minWidth: '250px', padding: '1.5rem' }}>
+          <Container
+            className={simulationResult && activeStep === 3 ? '_final_results' : ''}
+            style={{ minWidth: '250px', padding: '1.5rem' }}
+          >
             {activeStep < 3 ? (
               <Stepper
                 activeStep={activeStep}

@@ -57,7 +57,7 @@
         th,
         td {
           color: #fff;
-          font-size: 18px;
+          font-size: calc(1em + 0.25vw);
           font-weight: bold;
         }
       }
@@ -90,9 +90,16 @@
       padding: 0 5%;
     }
 
-    @media (min-width: 760px) {
+    @media only screen and (min-width: 760px) {
       h1._intro-message {
         margin-bottom: 1rem !important;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      .MuiContainer-root.MuiContainer-maxWidthLg._final_results {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
       }
     }
 
