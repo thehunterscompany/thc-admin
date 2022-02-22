@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, InputAdornment } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import useWindowSize from 'src/hooks/useWindowSize';
 
 import {
-  ComboBox,
+  AsyncComboBox,
   InputField,
   MaskedInput,
   SelectField,
@@ -29,6 +30,8 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
   const [open, setOpen] = useState(false);
   const loading = open && creditLineType.length === 0;
 
+  const { width } = useWindowSize();
+
   useEffect(() => {
     if (!loading) {
       return undefined;
@@ -42,12 +45,30 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
     })();
   }, [loading]);
 
+  const checkCurrencyFormat = ({ floatValue }) => {
+    if (floatValue !== undefined) {
+      if (floatValue <= 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const currencyFormat = {
+    prefix: 'COP ',
+    thousandSeparator: '.',
+    decimalSeparator: ',',
+    allowLeadingZeros: false,
+    isAllowed: checkCurrencyFormat,
+  };
+
   return (
     <React.Fragment>
       <h2>Financiación de vivienda</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <ComboBox
+          <AsyncComboBox
             name={type.name}
             label={type.label}
             loading={loading}
@@ -71,29 +92,32 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             ]}
             fullWidth
             value={values.realEstateType}
-            style={{ marginTop: '5%' }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={value.name}
             label={value.label}
-            code={currencySymbol}
             value={values['value']}
-            type="currency"
+            type="text"
+            fullWidth
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            code={currencySymbol}
-            type="currency"
             value={values.currentDeal}
+            type="text"
+            fullWidth
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={width >= 960 ? 6 : 12}>
           <InputField
             name={time.name}
             label={time.label}

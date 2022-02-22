@@ -83,16 +83,18 @@ const Feasible = ({ values }) => {
         rowData={topData}
         className="_simulation_table"
       />
-      <p>
-        ** el valor de la cuota está calculado con base en el promedio de las tasas de
-        interés vigentes en cada momento del mercado. Para cada operación buscamos la
-        mejor tasa dependiendo del perfil del cliente.
-      </p>
-      <p>
-        ** el valor de esta cuota no incluye los seguros obligatorios (vida e incendio y
-        terremoto), estos dependen de cada Banco.
-      </p>
-      <p></p>
+      <div style={{ textAlign: 'left', padding: '0 0.5vw' }}>
+        <p>
+          ** el valor de la cuota está calculado con base en el promedio de las tasas de
+          interés vigentes en cada momento del mercado. Para cada operación buscamos la
+          mejor tasa dependiendo del perfil del cliente.
+        </p>
+        <p>
+          ** el valor de esta cuota no incluye los seguros obligatorios (vida e incendio y
+          terremoto), estos dependen de cada Banco.
+        </p>
+      </div>
+
       <CustomTable headers={headersBottomTable} rowData={bottomData} />
       <span>{`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}</span>

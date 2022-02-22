@@ -59,6 +59,23 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
   const [open, setOpen] = useState(false);
   const loading = open && employmentTypeData.length === 0;
 
+  const checkCurrencyFormat = ({ floatValue }) => {
+    if (floatValue !== undefined) {
+      if (floatValue <= 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const currencyFormat = {
+    prefix: 'COP ',
+    thousandSeparator: '.',
+    decimalSeparator: ',',
+    isAllowed: checkCurrencyFormat,
+  };
+
   useEffect(() => {
     if (!loading) {
       return undefined;
@@ -116,13 +133,15 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             <MaskedInput
               name={`tenants[${i}].earnings`}
               label={earnings.label}
-              code={'COP'}
-              type="currency"
+              type="text"
+              fullWidth
               value={
                 values.tenants.length && values.tenants[i]
                   ? values.tenants[i].earnings
                   : ''
               }
+              setFieldValue={setFieldValue}
+              format={currencyFormat}
             />
           </Grid>
         </Grid>,
@@ -186,9 +205,11 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={earnings.name}
             label={earnings.label}
-            code={'COP'}
-            type="currency"
+            type="text"
+            fullWidth
             value={values.earnings}
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
 
@@ -196,9 +217,11 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={passive.name}
             label={passive.label}
-            code={'COP'}
-            type="currency"
+            type="text"
+            fullWidth
             value={values.passive}
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
         {renderExtraTenants().map((tenant, index) => (

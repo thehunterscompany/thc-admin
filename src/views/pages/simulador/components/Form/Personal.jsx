@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
-import useWindowSize from 'src/hooks/useWindowsize';
+import useWindowSize from 'src/hooks/useWindowSize';
 import cities from 'src/utils/data/colombiaCities.json';
 import states from 'src/utils/data/colombiaStates.json';
 
@@ -41,6 +41,8 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
   });
 
   const { width } = useWindowSize();
+
+  const phoneFormatting = { format: '+57 (###) ###-####', mask: '_' };
 
   const labelStyle = {
     // Adding media query..
@@ -123,9 +125,11 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={telephone.name}
             label={telephone.label}
-            code={'57'}
-            type="phone"
+            type="text"
             value={values.telephone}
+            fullWidth
+            setFieldValue={setFieldValue}
+            format={phoneFormatting}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -173,7 +177,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         {values.simulation === 1 ? (
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <SelectField
               name={simulationType.name}
               label={simulationType.label}

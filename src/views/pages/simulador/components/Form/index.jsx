@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
-import useWindowSize from 'src/hooks/useWindowsize';
+import useWindowSize from 'src/hooks/useWindowSize';
 import { lendingSimulation, simulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
@@ -237,7 +237,7 @@ const SimulatorForm = () => {
       return 0;
     }
 
-    if (width <= 760) {
+    if (width <= 900) {
       return 0;
     }
 
@@ -261,7 +261,7 @@ const SimulatorForm = () => {
         xl={!skip ? 9 : 10}
         style={{ justifyContent: 'center' }}
       >
-        <Paper elevation={borderOrNot()}>
+        <Paper elevation={borderOrNot()} style={{ minWidth: '60vw' }}>
           <Container style={{ minWidth: '250px', padding: '1.5rem' }}>
             {activeStep < 3 ? (
               <Stepper
@@ -286,7 +286,7 @@ const SimulatorForm = () => {
                 setInitialValues(values);
                 handleSubmit(values, actions);
               }}
-              validationSchema={activeSchema}
+              // validationSchema={activeSchema}
               enableReinitialize
             >
               {({
@@ -297,6 +297,7 @@ const SimulatorForm = () => {
                 isValid,
                 touched,
               }) => {
+                console.log(values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}

@@ -24,14 +24,16 @@ const NotFeasible = () => {
       <h2 className="_value">{`${simulation.symbol} ${simulation.sum
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`}</h2>
-      <p>
-        **Recuerda que puedes consolidar ingresos hasta segundo grado de consanguinidad y
-        primero de afinidad.
-      </p>
-      <span>
-        {`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
+      <div style={{ textAlign: 'left', padding: '0 0.5vw' }}>
+        <p>
+          **Recuerda que puedes consolidar ingresos hasta segundo grado de consanguinidad
+          y primero de afinidad.
+        </p>
+        <span>
+          {`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}
-      </span>
+        </span>
+      </div>
     </Container>
   );
 };
