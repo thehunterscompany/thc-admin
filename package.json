@@ -24,8 +24,6 @@
     "@date-io/date-fns": "v1",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/pickers": "^3.3.10",
     "@mui/icons-material": "^5.2.4",
     "@mui/lab": "^5.0.0-alpha.30",

@@ -1,11 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   stepper: {
-    padding: theme.spacing(3, 0, 5),
+    padding: '24px 0px 8px',
   },
   wrapper: {
-    margin: `${theme.spacing(1)}px !important`,
+    margin: '8px !important',
     position: 'relative !important',
   },
   buttonProgress: {

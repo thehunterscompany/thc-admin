@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputAdornment,
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -14,12 +19,19 @@ import { axiosCall } from '../../../../../utils';
 import '../../Simulador.scss';
 
 const useStyles = makeStyles(() => ({
+  mainGrid: {
+    position: 'relative !important',
+  },
   button: {
     height: '30px',
     fontSize: '12px',
   },
-  root: {
-    marginLeft: '4px',
+
+  extraGrid: {
+    paddingTop: '50px !important',
+  },
+  buttonLabel: {
+    margin: '0 !important',
   },
   loadingProgress: {
     position: 'absolute',
@@ -93,14 +105,14 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
     let array = [];
     for (let i = 0; i < extraTenants; i++) {
       array.push(
-        <Grid container item spacing={3}>
+        <Grid container item spacing={3} className={classes.extraGrid}>
           <div className="_titular-space">
             <strong>Titular {i + 2}</strong>
             <Button
               className={`_eliminar-x ${classes.button}`}
               onClick={() => handleRemoveClick(i)}
             >
-              Elimar Titular
+              <span> Elimar Titular</span>
             </Button>
           </div>
           <Grid item xs={12} md={6}>
@@ -166,7 +178,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 
   return (
     <React.Fragment>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className={classes.mainGrid}>
         <div className="_titular-space">
           <strong>Titular {1}</strong>
         </div>
@@ -228,14 +240,18 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <React.Fragment key={index}>{tenant}</React.Fragment>
         ))}
         {extraTenants < 3 ? (
-          <Grid item xs={12}>
+          <Grid item xs={12} className="_extra-tenants-button">
             <FormControl>
               <FormControlLabel
+                label=""
                 control={
-                  <Button onClick={handleAddClick} className={classes.root}>
-                    Añadir Titular (máximo 4 titulares por operación)
+                  <Button onClick={handleAddClick}>
+                    <span className="_check-mark">
+                      Añadir Titular (máximo 4 titulares por operación)
+                    </span>
                   </Button>
                 }
+                className={classes.buttonLabel}
               />
             </FormControl>
           </Grid>

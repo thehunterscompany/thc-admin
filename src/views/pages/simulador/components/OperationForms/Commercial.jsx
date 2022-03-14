@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, InputAdornment } from '@material-ui/core';
+import { Grid, InputAdornment } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import {
