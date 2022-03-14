@@ -155,15 +155,15 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          {/* <DateField
+          <DateField
             name={dateOfBirth.name}
             label={dateOfBirth.label}
-            // format="dd/MM/yyyy"
-            // minDate={new Date('1900/01/01')}
-            // maxDate={new Date()}
-            // style={width >= 960 ? { marginTop: '25px' } : {}}
+            format="dd/MM/yyyy"
+            minDate={new Date('1900/01/01')}
+            maxDate={new Date()}
+            style={width >= 960 ? { marginTop: '25px' } : {}}
             fullWidth
-          /> */}
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>

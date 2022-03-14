@@ -205,6 +205,8 @@ const SimulatorForm = () => {
   };
 
   const handleBack = (values) => {
+    window.scrollTo(0, 0);
+
     setInitialValues(values);
     setSkip(activeStep - 1 === 3 ? true : false);
 
@@ -318,8 +320,8 @@ const SimulatorForm = () => {
                       ) : null}
                       <div className={classes.wrapper}>
                         <Button
-                          disabled={isSubmitting || !values.checkedA || !values.checkedB}
-                          // disabled={!isValid}
+                          // disabled={isSubmitting || !values.checkedA || !values.checkedB}
+                          disabled={!isValid}
                           // disabled={
                           //   !isValid ||
                           //   (Object.keys(touched).length === 0 &&
