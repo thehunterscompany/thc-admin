@@ -23,8 +23,8 @@ export const personalValidation = Yup.object().shape({
     .required(personal.dateOfBirth.requiredErrorMsg)
     .nullable()
     .test('valid-date', personal.dateOfBirth.invalidErrorMsg, function (value) {
-      let date = new Date(value);
-      if (isNaN(date.getDate())) {
+      let date_parser = Date.parse(value);
+      if (isNaN(date_parser)) {
         return false;
       }
       return true;
@@ -34,7 +34,7 @@ export const personalValidation = Yup.object().shape({
     .email(personal.email.invalidErrorMsg),
   [personal.telephone.name]: Yup.string()
     .required(personal.telephone.requiredErrorMsg)
-    .matches(/^[+]\S{1,5} \d+$/, personal.telephone.invalidErrorMsg),
+    .matches(/^[+]\d{2} [(]\d{3}[)] \d{3}[-]\d{4}$/, personal.telephone.invalidErrorMsg),
   [personal.simulation.name]: Yup.number().required(personal.simulation.requiredErrorMsg),
   [personal.simulationType.name]: Yup.number().test(
     'is-required',

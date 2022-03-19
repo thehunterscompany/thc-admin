@@ -5,6 +5,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import TextField from '@mui/material/TextField';
 import esLocale from 'date-fns/locale/es';
 import { useField } from 'formik';
+import { at } from 'lodash';
 
 const localeMap = {
   es: esLocale,
@@ -17,8 +18,8 @@ const maskMap = {
 const DateField = (props) => {
   // eslint-disable-next-line react/prop-types
   const { minDate, maxDate, ...other } = props;
-  const [field, helper] = useField(props);
-  const { setValue } = helper;
+  const [field, meta, helpers] = useField(props);
+  const { setError, setValue, setTouched } = helpers;
   const { value } = field;
   const [selectedDate, setSelectedDate] = useState(value ? value : null);
 
@@ -28,6 +29,22 @@ const DateField = (props) => {
       setSelectedDate(date);
     }
   }, [value]);
+
+  const _renderHelperText = () => {
+    const [touched, error] = at(meta, 'touched', 'error');
+    if (touched && error) {
+      return error;
+    }
+  };
+
+  const handleInputBlur = () => {
+    if (selectedDate === null) {
+      setError('Este campo es requerido');
+      setTouched(true, false);
+    } else if (meta.error) {
+      setTouched(true, false);
+    }
+  };
 
   const handleChange = (date) => {
     if (date) {
@@ -47,7 +64,7 @@ const DateField = (props) => {
     <LocalizationProvider dateAdapter={AdapterDateFns} locale={localeMap['es']}>
       <DatePicker
         views={['year', 'month', 'day']}
-        mask={maskMap[localeMap.es]}
+        mask={maskMap.es}
         minDate={minDate}
         maxDate={maxDate}
         value={selectedDate}
@@ -57,7 +74,9 @@ const DateField = (props) => {
             {...params}
             {...other}
             variant="standard"
-            helperText={'dd/mm/yyyy'}
+            helperText={_renderHelperText()}
+            onBlur={handleInputBlur}
+            error={meta.touched && meta.error && true}
           />
         )}
       />

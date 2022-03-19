@@ -158,6 +158,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <DateField
             name={dateOfBirth.name}
             label={dateOfBirth.label}
+            value={values.dateOfBirth}
             format="dd/MM/yyyy"
             minDate={new Date('1900/01/01')}
             maxDate={new Date()}

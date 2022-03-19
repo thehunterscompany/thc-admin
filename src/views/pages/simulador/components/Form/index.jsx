@@ -300,9 +300,10 @@ const SimulatorForm = () => {
                 values,
                 setFieldValue,
                 isValid,
-                touched,
+                dirty,
+                validateForm,
               }) => {
-                console.log(values);
+                console.log(isValid, dirty, values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
@@ -312,7 +313,10 @@ const SimulatorForm = () => {
                         activeStep === 3 &&
                         values?.simulation === 1) ? (
                         <Button
-                          onClick={() => handleBack(values)}
+                          onClick={() => {
+                            handleBack(values);
+                            validateForm();
+                          }}
                           className={'_return_button'}
                         >
                           Regresar
@@ -320,13 +324,12 @@ const SimulatorForm = () => {
                       ) : null}
                       <div className={classes.wrapper}>
                         <Button
-                          disabled={isSubmitting || !values.checkedA || !values.checkedB}
-                          // disabled={!isValid}
-                          // disabled={
-                          //   !isValid ||
-                          //   (Object.keys(touched).length === 0 &&
-                          //     touched.constructor === Object)
-                          // }
+                          disabled={
+                            isSubmitting ||
+                            !values.checkedA ||
+                            !values.checkedB ||
+                            !(dirty && isValid)
+                          }
                           type="submit"
                           variant="contained"
                           className={'_continue_button'}

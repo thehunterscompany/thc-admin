@@ -5,15 +5,15 @@ import { at } from 'lodash';
 
 const InputField = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { errorText, type, ...rest } = props;
+  const { type, ...rest } = props;
   const [field, meta] = useField(props);
 
-  function _renderHelperText() {
+  const _renderHelperText = () => {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
       return error;
     }
-  }
+  };
 
   return (
     <TextField
