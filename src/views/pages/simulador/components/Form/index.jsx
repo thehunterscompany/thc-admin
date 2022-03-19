@@ -291,7 +291,7 @@ const SimulatorForm = () => {
                 setInitialValues(values);
                 handleSubmit(values, actions);
               }}
-              // validationSchema={activeSchema}
+              validationSchema={activeSchema}
               enableReinitialize
             >
               {({
@@ -320,8 +320,8 @@ const SimulatorForm = () => {
                       ) : null}
                       <div className={classes.wrapper}>
                         <Button
-                          // disabled={isSubmitting || !values.checkedA || !values.checkedB}
-                          disabled={!isValid}
+                          disabled={isSubmitting || !values.checkedA || !values.checkedB}
+                          // disabled={!isValid}
                           // disabled={
                           //   !isValid ||
                           //   (Object.keys(touched).length === 0 &&
