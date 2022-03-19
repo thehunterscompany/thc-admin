@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import DateFnsUtils from '@date-io/date-fns';
-import Grid from '@material-ui/core/Grid';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import DatePicker from '@mui/lab/DatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import TextField from '@mui/material/TextField';
+import esLocale from 'date-fns/locale/es';
 import { useField } from 'formik';
 
-import 'date-fns';
+const localeMap = {
+  es: esLocale,
+};
+
+const maskMap = {
+  es: '__/__/____',
+};
 
 const DateField = (props) => {
-  const [field, meta, helper] = useField(props);
-  const { touched, error } = meta;
+  // eslint-disable-next-line react/prop-types
+  const { minDate, maxDate, ...other } = props;
+  const [field, helper] = useField(props);
   const { setValue } = helper;
-  const isError = touched && error && true;
   const { value } = field;
   const [selectedDate, setSelectedDate] = useState(value ? value : null);
 
@@ -36,21 +44,25 @@ const DateField = (props) => {
   };
 
   return (
-    <Grid container>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          {...field}
-          {...props}
-          value={selectedDate}
-          onChange={handleChange}
-          error={isError}
-          invalidDateMessage={isError && error}
-          helperText={isError && error}
-          margin="normal"
-        />
-      </MuiPickersUtilsProvider>
-    </Grid>
+    <LocalizationProvider dateAdapter={AdapterDateFns} locale={localeMap['es']}>
+      <DatePicker
+        views={['year', 'month', 'day']}
+        mask={maskMap[localeMap.es]}
+        minDate={minDate}
+        maxDate={maxDate}
+        value={selectedDate}
+        onChange={handleChange}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            {...other}
+            variant="standard"
+            helperText={'dd/mm/yyyy'}
+          />
+        )}
+      />
+    </LocalizationProvider>
   );
 };
 
-export default React.memo(DateField);
+export default DateField;

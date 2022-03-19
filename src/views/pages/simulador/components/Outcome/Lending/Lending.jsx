@@ -12,15 +12,17 @@ const Lending = () => {
       <h2 className="_value">{` ${symbol} ${maxLoanValue
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`}</h2>
-      <p>
-        ** este valor está calculado con base en el promedio de las tasas de interés
-        vigentes en cada momento del mercado. Para cada operación buscamos la mejor tasa
-        dependiendo del perfil del cliente.
-      </p>
-      <span>
-        {`Si quieres solicitar tu financiación, haz click en el botón "Contáctanos" para
+      <div style={{ textAlign: 'left', padding: '0 0.5vw' }}>
+        <p>
+          ** este valor está calculado con base en el promedio de las tasas de interés
+          vigentes en cada momento del mercado. Para cada operación buscamos la mejor tasa
+          dependiendo del perfil del cliente.
+        </p>
+        <span>
+          {`Si quieres solicitar tu financiación, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}
-      </span>
+        </span>
+      </div>
     </Container>
   );
 };

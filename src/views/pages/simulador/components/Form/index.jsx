@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CCardBody, CCol } from '@coreui/react';
-import { Button, CircularProgress, Paper, Step, StepLabel, Stepper } from '@mui/material';
+import {
+  Button,
+  CircularProgress,
+  Container,
+  Grid,
+  Paper,
+  Step,
+  StepLabel,
+  Stepper,
+} from '@mui/material';
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
-import useWindowSize from 'src/hooks/useWindowsize';
+import useWindowSize from 'src/hooks/useWindowSize';
 import { lendingSimulation, simulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
@@ -197,6 +205,8 @@ const SimulatorForm = () => {
   };
 
   const handleBack = (values) => {
+    window.scrollTo(0, 0);
+
     setInitialValues(values);
     setSkip(activeStep - 1 === 3 ? true : false);
 
@@ -229,7 +239,7 @@ const SimulatorForm = () => {
       return 0;
     }
 
-    if (width <= 760) {
+    if (width <= 900) {
       return 0;
     }
 
@@ -243,9 +253,21 @@ const SimulatorForm = () => {
           Para darte la mejor opción necesitamos algunos datos
         </h1>
       ) : null}
-      <CCol xs="12" sm="11" md="9" lg="10" xl={!skip ? '9' : '10'}>
-        <Paper elevation={borderOrNot()}>
-          <CCardBody className="p-4" style={{ minWidth: '250px' }}>
+      <Grid
+        container
+        item
+        xs={12}
+        sm={11}
+        md={9}
+        lg={10}
+        xl={!skip ? 9 : 10}
+        style={{ justifyContent: 'center' }}
+      >
+        <Paper elevation={borderOrNot()} style={{ minWidth: '60vw' }}>
+          <Container
+            className={simulationResult && activeStep === 3 ? '_final_results' : ''}
+            style={{ minWidth: '250px', padding: '1.5rem' }}
+          >
             {activeStep < 3 ? (
               <Stepper
                 activeStep={activeStep}
@@ -281,7 +303,6 @@ const SimulatorForm = () => {
                 touched,
               }) => {
                 console.log(values);
-
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
@@ -330,9 +351,9 @@ const SimulatorForm = () => {
                 );
               }}
             </Formik>
-          </CCardBody>
+          </Container>
         </Paper>
-      </CCol>
+      </Grid>
     </React.Fragment>
   );
 };

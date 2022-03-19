@@ -1,9 +1,9 @@
 {
-  "short_name": "CoreUI-React",
-  "name": "CoreUI-React sample",
+  "short_name": "Simulador THC",
+  "name": "Simulador The Hunters Company",
   "icons": [
     {
-      "src": "./assets/img/favicon.png",
+      "src": ".img/favicon.ico",
       "sizes": "100x100",
       "type": "image/png"
     }

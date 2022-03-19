@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Grid, InputAdornment } from '@material-ui/core';
+import { Grid, InputAdornment } from '@mui/material';
 import PropTypes from 'prop-types';
-import useWindowSize from 'src/hooks/useWindowsize';
 
 import {
   InputField,
@@ -13,8 +12,6 @@ import { axiosCall } from '../../../../../utils';
 const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) => {
   const { value, currentDeal, realEstateType, time, type } = formField;
 
-  const { width } = useWindowSize();
-
   useEffect(() => {
     (async () => {
       axiosCall('GET', 'credit-type')
@@ -22,6 +19,23 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
         .catch(() => setFieldValue(type.name, 'Linea Comercial'));
     })();
   }, [setFieldValue, type]);
+
+  const checkCurrencyFormat = ({ floatValue }) => {
+    if (floatValue !== undefined) {
+      if (floatValue <= 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const currencyFormat = {
+    prefix: 'COP ',
+    thousandSeparator: '.',
+    decimalSeparator: ',',
+    isAllowed: checkCurrencyFormat,
+  };
 
   return (
     <React.Fragment>
@@ -31,18 +45,22 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
           <MaskedInput
             name={value.name}
             label={value.label}
-            code={currencySymbol}
-            type="currency"
             value={values.value}
+            type="text"
+            fullWidth
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            code={currencySymbol}
-            type="currency"
             value={values.currentDeal}
+            type="text"
+            fullWidth
+            format={currencyFormat}
+            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -56,7 +74,6 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
               { value: 'Local', label: 'Local' },
             ]}
             fullWidth
-            style={width >= 960 ? { marginTop: '16px' } : {}}
             value={values.realEstateType}
           />
         </Grid>
