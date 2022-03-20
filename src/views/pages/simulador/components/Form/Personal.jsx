@@ -126,32 +126,16 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={telephone.name}
             label={telephone.label}
             type="text"
-            value={values.telephone}
             fullWidth
-            setFieldValue={setFieldValue}
             format={phoneFormatting}
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <ComboBox
-            name={state.name}
-            label={state.label}
-            value={values.state}
-            data={statesData}
-            fullWidth
-            setFieldValue={setFieldValue}
-          />
+          <ComboBox name={state.name} label={state.label} data={statesData} fullWidth />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <ComboBox
-            name={city.name}
-            label={city.label}
-            value={values.city}
-            data={citiesData}
-            fullWidth
-            setFieldValue={setFieldValue}
-          />
+          <ComboBox name={city.name} label={city.label} data={citiesData} fullWidth />
         </Grid>
 
         <Grid item xs={12} md={6}>

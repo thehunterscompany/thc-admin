@@ -303,16 +303,8 @@ const SimulatorForm = () => {
               enableReinitialize
               validateOnMount
             >
-              {({
-                handleChange,
-                isSubmitting,
-                values,
-                setFieldValue,
-                isValid,
-                validateField,
-                setTouched,
-              }) => {
-                console.log(isValid, values);
+              {({ handleChange, isSubmitting, values, setFieldValue, isValid }) => {
+                console.log(values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}

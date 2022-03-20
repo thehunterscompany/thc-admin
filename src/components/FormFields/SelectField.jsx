@@ -11,11 +11,11 @@ const SelectField = (props) => {
   const { value: selectedValue } = field;
   const [touched, error] = at(meta, 'touched', 'error');
   const isError = touched && error && true;
-  function _renderHelperText() {
+  const _renderHelperText = () => {
     if (isError) {
       return <FormHelperText error>{error}</FormHelperText>;
     }
-  }
+  };
 
   return (
     <FormControl {...rest} variant="filled" margin="normal" error={isError}>
@@ -26,6 +26,7 @@ const SelectField = (props) => {
             {item.label}
           </MenuItem>
         ))}
+        S
       </Select>
       {_renderHelperText()}
     </FormControl>
