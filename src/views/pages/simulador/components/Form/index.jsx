@@ -114,7 +114,8 @@ const SimulatorForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [skip, setSkip] = useState(false);
-  const [initialValues, setInitialValues] = useState(personalValues);
+  const [globalInitialValues, setGlobalInitialValues] = useState(personalValues);
+  const [formDirection, setFormDirection] = useState('');
   const [activeSchema, setActiveSchema] = useState(personalValidation);
   const isLastStep = activeStep === steps.length - 1;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
@@ -146,14 +147,14 @@ const SimulatorForm = () => {
     } else {
       if (activeStep + 1 === 1) {
         setActiveSchema(financialValidation);
-        if (initialValues?.mainEmployment === undefined) {
+        if (globalInitialValues?.mainEmployment === undefined) {
           handleAddExtra(financialValues);
         }
       }
 
       if (activeStep + 1 === 2 && values?.simulation === 1) {
         setSchemaOnFormChange(values.simulationType);
-        if (initialValues?.value === undefined) {
+        if (globalInitialValues?.value === undefined) {
           const { value, currentDeal, time } = operationalValues;
           const obj = { value, currentDeal, time };
           if (values.simulationType === 1) {
@@ -204,10 +205,10 @@ const SimulatorForm = () => {
     }
   };
 
-  const handleBack = (values) => {
+  const handleBack = (values, actions) => {
     window.scrollTo(0, 0);
 
-    setInitialValues(values);
+    setGlobalInitialValues(values);
     setSkip(activeStep - 1 === 3 ? true : false);
 
     setActiveStep(
@@ -225,10 +226,12 @@ const SimulatorForm = () => {
     if (activeStep === 4) {
       setActiveSchema(Yup.object().shape({}));
     }
+    actions.setTouched({});
+    actions.setSubmitting(false);
   };
 
   const handleAddExtra = (obj) => {
-    setInitialValues((prevState) => ({
+    setGlobalInitialValues((prevState) => ({
       ...prevState,
       ...obj,
     }));
@@ -286,13 +289,19 @@ const SimulatorForm = () => {
               </Stepper>
             ) : null}
             <Formik
-              initialValues={initialValues}
+              initialValues={globalInitialValues}
               onSubmit={(values, actions) => {
-                setInitialValues(values);
-                handleSubmit(values, actions);
+                setGlobalInitialValues(values);
+
+                if (formDirection === 'forward') {
+                  handleSubmit(values, actions);
+                } else {
+                  handleBack(values, actions);
+                }
               }}
               validationSchema={activeSchema}
               enableReinitialize
+              validateOnMount
             >
               {({
                 handleChange,
@@ -300,10 +309,10 @@ const SimulatorForm = () => {
                 values,
                 setFieldValue,
                 isValid,
-                dirty,
-                validateForm,
+                validateField,
+                setTouched,
               }) => {
-                console.log(isValid, dirty, values);
+                console.log(isValid, values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
@@ -313,9 +322,10 @@ const SimulatorForm = () => {
                         activeStep === 3 &&
                         values?.simulation === 1) ? (
                         <Button
-                          onClick={() => {
-                            handleBack(values);
-                            validateForm();
+                          type="submit"
+                          onClick={(e) => {
+                            setFormDirection('backwards');
+                            e.target.blur();
                           }}
                           className={'_return_button'}
                         >
@@ -328,12 +338,15 @@ const SimulatorForm = () => {
                             isSubmitting ||
                             !values.checkedA ||
                             !values.checkedB ||
-                            !(dirty && isValid)
+                            !isValid
                           }
                           type="submit"
                           variant="contained"
                           className={'_continue_button'}
-                          onClick={(e) => e.target.blur()}
+                          onClick={(e) => {
+                            setFormDirection('forward');
+                            e.target.blur();
+                          }}
                         >
                           {isLastStep
                             ? 'Contáctanos'

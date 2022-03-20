@@ -1,4 +1,4 @@
-import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
+import { sumTotalEarnings } from 'src/utils/utils';
 
 import { SIMULATION_FAILED, SIMULATION_PASS } from './action-types';
 
