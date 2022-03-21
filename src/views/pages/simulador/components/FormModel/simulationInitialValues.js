@@ -5,24 +5,24 @@ const {
 } = formFields;
 
 const personalValues = {
-  [personal.firstNames.name]: 'A',
-  [personal.lastNames.name]: 'b',
+  [personal.firstNames.name]: '',
+  [personal.lastNames.name]: '',
   [personal.documentType.name]: '',
-  [personal.documentId.name]: '234234',
+  [personal.documentId.name]: '',
   [personal.dateOfBirth.name]: '',
-  [personal.email.name]: 'ajzpiv97@gmail.com',
+  [personal.email.name]: '',
   [personal.state.name]: '',
   [personal.city.name]: '',
-  [personal.telephone.name]: '1234234324',
+  [personal.telephone.name]: '',
   [personal.simulation.name]: 0,
   [personal.simulationType.name]: 0,
-  checkedA: true,
-  checkedB: true,
+  checkedA: false,
+  checkedB: false,
 };
 
 const financialValues = {
   [financial.mainEmployment.name]: '',
-  [financial.laborTime.name]: '12',
+  [financial.laborTime.name]: '',
   [financial.earnings.name]: '',
   [financial.passive.name]: '',
   [financial.tenants.name]: [],

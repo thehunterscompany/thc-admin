@@ -91,6 +91,10 @@ const PersonalFields = ({ formField }) => {
     return citiesData;
   };
 
+  const controlCityInput = () => {
+    setFieldValue('city', '');
+  };
+
   return (
     <React.Fragment>
       <Grid container spacing={3}>
@@ -150,6 +154,7 @@ const PersonalFields = ({ formField }) => {
             label={formField.state.label}
             data={statesData}
             fullWidth
+            handleChange={controlCityInput}
           />
         </Grid>
 
@@ -159,6 +164,7 @@ const PersonalFields = ({ formField }) => {
             label={city.label}
             data={citiesForStateInput(state)}
             fullWidth
+            disabled={state ? false : true}
           />
         </Grid>
 

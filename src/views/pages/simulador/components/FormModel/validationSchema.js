@@ -57,13 +57,20 @@ export const financialValidation = Yup.object().shape({
   [financial.laborTime.name]: Yup.number()
     .required(financial.laborTime.requiredErrorMsg)
     .min(0, '¡Solo se pueden numeros positivos!'),
-  [financial.earnings.name]: Yup.string().required(financial.earnings.requiredErrorMsg),
-  [financial.passive.name]: Yup.string().required(financial.passive.requiredErrorMsg),
+  [financial.earnings.name]: Yup.string()
+    .required(financial.earnings.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
+  [financial.passive.name]: Yup.string()
+    .required(financial.passive.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
+
   [financial.tenants.name]: Yup.array().of(
     Yup.object().shape({
       firstNames: Yup.string().required(personal.firstNames.requiredErrorMsg),
       lastNames: Yup.string().required(personal.lastNames.requiredErrorMsg),
-      earnings: Yup.string().required(financial.earnings.requiredErrorMsg),
+      earnings: Yup.string()
+        .required(financial.earnings.requiredErrorMsg)
+        .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
     }),
   ),
 });
@@ -72,6 +79,7 @@ const operationalValidation = Yup.object().shape({
   [operational.value.name]: Yup.string().required(operational.value.requiredErrorMsg),
   [operational.currentDeal.name]: Yup.string()
     .required(operational.currentDeal.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!')
     .test(
       'valid-percentage-credito-hipotecario',
       'Para credito hipotecario, la máxima financiación es hasta el 70% del valor de la vivienda!',
@@ -155,9 +163,9 @@ export const commercialValidation = Yup.object()
 
 export const walletValidation = Yup.object()
   .shape({
-    [wallet.currentDealMonth.name]: Yup.string().required(
-      wallet.currentDealMonth.requiredErrorMsg,
-    ),
+    [wallet.currentDealMonth.name]: Yup.string()
+      .required(wallet.currentDealMonth.requiredErrorMsg)
+      .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
     [wallet.institution.name]: Yup.string().required(wallet.institution.requiredErrorMsg),
     [wallet.rates.name]: Yup.string().required(wallet.rates.requiredErrorMsg),
   })

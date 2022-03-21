@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import InputField from './InputField';
 
-const ComboBox = ({ data, ...props }) => {
+const ComboBox = ({ data, disabled, handleChange, ...props }) => {
   const [field, , helpers] = useField(props);
   const { setValue } = helpers;
   const { value } = field;
@@ -26,6 +26,7 @@ const ComboBox = ({ data, ...props }) => {
 
   return (
     <Autocomplete
+      disabled={disabled}
       options={data}
       value={userValue}
       inputValue={value}
@@ -33,6 +34,9 @@ const ComboBox = ({ data, ...props }) => {
       onChange={(_e, newValue) => {
         setUserValue(newValue);
         setValue(newValue !== null ? newValue.value : '');
+        if (handleChange !== undefined) {
+          handleChange();
+        }
       }}
       onInputChange={() => setUserValue(null)}
       onBlur={() => checkInput(data, value)}
@@ -45,6 +49,7 @@ const ComboBox = ({ data, ...props }) => {
             {...params}
             {...field}
             {...props}
+            disabled={disabled}
             InputProps={{
               ...params.InputProps,
             }}
@@ -59,4 +64,6 @@ export default ComboBox;
 
 ComboBox.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  disabled: PropTypes.bool,
+  handleChange: PropTypes.func,
 };
