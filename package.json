@@ -1,7 +1,7 @@
 {
   "name": "thc-admin",
   "description": "The Hunters Company Admin Website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "The Hunters Company",
     "url": "https://thcsas.com.co",
@@ -79,8 +79,14 @@
     "test:cov": "npm test -- --coverage --watchAll=false",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
     "eject": "react-scripts eject",
-    "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit"
+    "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit",
+    "test_something": "echo \"Running tests for version $npm_package_version...\"",
+    "preversion": "yarn test_something",
+    "postversion": "git push --tags && git push && echo \"Successfully released version $npm_package_version!\""
   },
+  "eslintIgnore": [
+    "*.json"
+  ],
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",

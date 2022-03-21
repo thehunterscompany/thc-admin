@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, LinearProgress } from '@mui/material';
-import PropTypes from 'prop-types';
+import { useFormikContext } from 'formik';
 
 import CustomTable from '../Table/Table';
 
@@ -19,7 +19,11 @@ const headersBottomTable = [
   { name: 'Plazo', align: 'center' },
 ];
 
-const Feasible = ({ values }) => {
+const Feasible = () => {
+  const { values } = useFormikContext();
+
+  const { value, currentDeal, time, type } = values;
+
   const [topData, setTopData] = useState([]);
 
   const [bottomData, setBottomData] = useState([]);
@@ -33,19 +37,18 @@ const Feasible = ({ values }) => {
     setTopData([
       {
         value: {
-          1: values.type,
+          1: type,
           2: rate,
           3: `${tem}%`,
-          4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+          4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
         },
         align: 'center',
       },
     ]);
-  }, [simulation, values]);
+  }, [simulation, type]);
 
   useEffect(() => {
     if (Object.keys(values).length) {
-      const { value, currentDeal, time } = values;
       let [symbol, totalValue] = value.split(' ');
       totalValue = Number(totalValue.replace(/\D/g, ''));
       let financingValue = Number(currentDeal.replace(/\D/g, ''));
@@ -53,10 +56,10 @@ const Feasible = ({ values }) => {
       setBottomData([
         {
           value: {
-            1: `${symbol} ${totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+            1: `${symbol} ${totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
             2: `${symbol} ${financingValue
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+              .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
             3: `${percent}%`,
             4: `${time} ${time === 1 ? 'año' : 'años'}`,
           },
@@ -64,7 +67,7 @@ const Feasible = ({ values }) => {
         },
       ]);
     }
-  }, [values]);
+  }, [values, value, currentDeal, time]);
 
   useEffect(() => {
     if (Object.keys(simulation).length) {
@@ -72,11 +75,16 @@ const Feasible = ({ values }) => {
     }
   }, [simulation]);
 
+  useEffect(() => {
+    const element = document.getElementById('top-point');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
+
   return isLoading ? (
-    <LinearProgress />
+    <LinearProgress id="top-point" />
   ) : (
     <Container className="_simulation_results">
-      <h1>¡Felicitaciones!</h1>
+      <h1 id="top-point">¡Felicitaciones!</h1>
       <h2>Tu financiación es VIABLE</h2>
       <CustomTable
         headers={headersTopTable}
@@ -100,10 +108,6 @@ const Feasible = ({ values }) => {
         comunicarte con uno de nuestros brokers.`}</span>
     </Container>
   );
-};
-
-Feasible.propTypes = {
-  values: PropTypes.object.isRequired,
 };
 
 export default Feasible;

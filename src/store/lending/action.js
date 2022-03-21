@@ -1,4 +1,4 @@
-import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
+import { sumTotalEarnings } from 'src/utils/utils';
 
 import { SIMULATION } from './action-types';
 
@@ -23,6 +23,7 @@ export const lendingSimulation = (income, tenantsIncome, rate, duration = 20) =>
     payload: {
       maxLoanValue,
       symbol,
+      sum,
     },
   };
 };

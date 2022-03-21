@@ -13,11 +13,16 @@ const NotFeasible = () => {
     }
   }, [simulation]);
 
+  useEffect(() => {
+    const element = document.getElementById('top-point');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
+
   return isLoading ? (
-    <LinearProgress />
+    <LinearProgress id="top-point" />
   ) : (
     <Container className="_simulation_results">
-      <h1>¡Lo sentimos!</h1>
+      <h1 id="top-point">¡Lo sentimos!</h1>
       <h2>
         Para este valor de inmueble, debes contar con unos ingresos mensuales mínimos de
       </h2>

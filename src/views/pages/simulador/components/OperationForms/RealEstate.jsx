@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, InputAdornment } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import useWindowSize from 'src/hooks/useWindowSize';
 
@@ -22,8 +23,12 @@ const DATA = [
   { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
 ];
 
-const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) => {
-  const { value, currentDeal, type, time, realEstateType } = formField;
+const RealEstateForm = ({ formField, currencySymbol }) => {
+  const { values } = useFormikContext();
+
+  const { time } = values;
+
+  const { value, currentDeal, type, realEstateType } = formField;
 
   const [creditLineType, setCreditLineType] = useState([]);
 
@@ -56,7 +61,7 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
   };
 
   const currencyFormat = {
-    prefix: 'COP ',
+    prefix: `${currencySymbol} `,
     thousandSeparator: '.',
     decimalSeparator: ',',
     allowLeadingZeros: false,
@@ -73,10 +78,8 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
             label={type.label}
             loading={loading}
             data={creditLineType}
-            setFieldValue={setFieldValue}
             handleOpenChange={setOpen}
             open={open}
-            value={values.type}
             fullWidth
           />
         </Grid>
@@ -91,46 +94,40 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
               { value: 'None', label: 'No se aun' },
             ]}
             fullWidth
-            value={values.realEstateType}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={value.name}
             label={value.label}
-            value={values['value']}
             type="text"
             fullWidth
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            value={values.currentDeal}
             type="text"
             fullWidth
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
 
         <Grid item xs={width >= 960 ? 6 : 12}>
           <InputField
-            name={time.name}
-            label={time.label}
+            name={formField.time.name}
+            label={formField.time.label}
             type="text"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                  {time > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
-            value={values.time}
           />
         </Grid>
       </Grid>
@@ -139,10 +136,8 @@ const RealEstateForm = ({ formField, values, currencySymbol, setFieldValue }) =>
 };
 
 RealEstateForm.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  currencySymbol: PropTypes.string,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
+  currencySymbol: PropTypes.string.isRequired,
 };
 
 export default RealEstateForm;

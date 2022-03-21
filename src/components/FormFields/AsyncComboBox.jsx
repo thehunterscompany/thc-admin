@@ -6,19 +6,12 @@ import PropTypes from 'prop-types';
 
 import InputField from './InputField';
 
-const AsyncComboBox = (props) => {
-  const {
-    value,
-    errorText,
-    open,
-    handleOpenChange,
-    data,
-    loading,
-    name,
-    setFieldValue,
-    ...rest
-  } = props;
-  const [field, meta] = useField(props);
+const AsyncComboBox = ({ open, handleOpenChange, data, loading, ...props }) => {
+  const [field, meta, helpers] = useField(props);
+
+  const { setValue } = helpers;
+  const { value } = field;
+
   const _renderHelperText = () => {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
@@ -27,17 +20,24 @@ const AsyncComboBox = (props) => {
   };
 
   const enterInput = (value) => {
-    // eslint-disable-next-line react/prop-types
     return value ? { value, label: value } : null;
   };
 
-  const [userValue, setValue] = useState(enterInput(value));
+  const [userValue, setUserValue] = useState(enterInput(value));
 
   const defaultProps = {
     options: data,
     getOptionLabel: (option) => {
       return option.label;
     },
+  };
+
+  const checkInput = (dataArray, value) => {
+    const checkUsername = (obj) => obj.value === value;
+    if (!dataArray.some(checkUsername)) {
+      setUserValue(null);
+      setValue('');
+    }
   };
 
   return (
@@ -53,11 +53,13 @@ const AsyncComboBox = (props) => {
         handleOpenChange(false);
       }}
       onChange={(_e, newValue) => {
-        setValue(newValue);
-        setFieldValue(name, newValue !== null ? newValue.value : '');
+        setUserValue(newValue);
+        setValue(newValue !== null ? newValue.value : '');
       }}
+      onBlur={() => checkInput(data, value)}
       isOptionEqualToValue={(option, value) => option.label === value.value}
       loading={loading}
+      openOnFocus
       renderInput={(params) => {
         return (
           <InputField
@@ -67,7 +69,7 @@ const AsyncComboBox = (props) => {
             variant="filled"
             margin="normal"
             {...field}
-            {...rest}
+            {...props}
             InputProps={{
               ...params.InputProps,
               endAdornment: (
@@ -89,12 +91,8 @@ const AsyncComboBox = (props) => {
 export default AsyncComboBox;
 
 AsyncComboBox.propTypes = {
-  name: PropTypes.string,
-  errorText: PropTypes.string,
-  open: PropTypes.bool,
-  handleOpenChange: PropTypes.func,
-  loading: PropTypes.bool,
-  data: PropTypes.arrayOf(PropTypes.object),
-  setFieldValue: PropTypes.func,
-  value: PropTypes.string,
+  open: PropTypes.bool.isRequired,
+  handleOpenChange: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
