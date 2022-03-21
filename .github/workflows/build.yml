@@ -1,7 +1,5 @@
 # Continuous Integration 
 
-name: CI
-
 # Controls when the workflow will run
 on:
   # Triggers the workflow on pull request events for the master, dev branches
@@ -11,6 +9,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+name:  CI Pipeline
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
