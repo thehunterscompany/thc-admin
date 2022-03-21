@@ -81,6 +81,9 @@
     "eject": "react-scripts eject",
     "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit"
   },
+  "eslintIgnore": [
+    "*.json"
+  ],
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
