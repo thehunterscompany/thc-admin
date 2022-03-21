@@ -40,7 +40,7 @@ const Feasible = () => {
           1: type,
           2: rate,
           3: `${tem}%`,
-          4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+          4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
         },
         align: 'center',
       },
@@ -56,10 +56,10 @@ const Feasible = () => {
       setBottomData([
         {
           value: {
-            1: `${symbol} ${totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+            1: `${symbol} ${totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
             2: `${symbol} ${financingValue
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
+              .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
             3: `${percent}%`,
             4: `${time} ${time === 1 ? 'año' : 'años'}`,
           },
@@ -75,11 +75,16 @@ const Feasible = () => {
     }
   }, [simulation]);
 
+  useEffect(() => {
+    const element = document.getElementById('top-point');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
+
   return isLoading ? (
-    <LinearProgress />
+    <LinearProgress id="top-point" />
   ) : (
     <Container className="_simulation_results">
-      <h1>¡Felicitaciones!</h1>
+      <h1 id="top-point">¡Felicitaciones!</h1>
       <h2>Tu financiación es VIABLE</h2>
       <CustomTable
         headers={headersTopTable}

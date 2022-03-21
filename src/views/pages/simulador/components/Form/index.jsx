@@ -13,7 +13,7 @@ import {
 import { Form, Formik } from 'formik';
 import { StepperConnector, StepperIcon } from 'src/components/Stepper';
 import useWindowSize from 'src/hooks/useWindowSize';
-import { lendingSimulation, simulation } from 'src/store/actions';
+import { lendingSimulation, pmtSimulation } from 'src/store/actions';
 import * as Yup from 'yup';
 
 import formFields from '../FormModel/simulationFormModel';
@@ -45,16 +45,16 @@ const steps = [
 ];
 
 const { formField } = formFields;
-const renderStepForms = (step, values, simulation) => {
+const renderStepForms = (step, values, simulationResult) => {
   if (step === 0) return <PersonalFields formField={formField.personal} />;
   if (step === 1) return <FinancialFields formField={formField.financial} />;
 
   if (values?.simulation === 1) {
     if (step === 2) return <OperationalFields formField={formField.operational} />;
 
-    if (step === 3 && simulation) return <Feasible />;
+    if (step === 3 && simulationResult.simulation) return <Feasible />;
 
-    if (step === 3 && !simulation) return <NotFeasible />;
+    if (step === 3 && !simulationResult.simulation) return <NotFeasible />;
 
     if (step === 4)
       return (
@@ -98,15 +98,15 @@ const SimulatorForm = () => {
   const [activeSchema, setActiveSchema] = useState(personalValidation);
   const [simulationType, setSimulationType] = useState('');
   const isLastStep = activeStep === steps.length - 1;
-  const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
+  const simulationResult = useSelector((state) => state.PmtSimulationState);
+  const lendingResult = useSelector((state) => state.LendingSimulationState);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activeStep]);
-
-  // useEffect(() => {
-
-  // }, [simulationType])
+    if (!skip) {
+      const element = document.getElementById('top-point');
+      element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [activeStep, skip]);
 
   const { width } = useWindowSize();
   const dispatch = useDispatch();
@@ -122,10 +122,17 @@ const SimulatorForm = () => {
   };
 
   const handleSubmit = async (values, actions) => {
-    window.scrollTo(0, 0);
-
     if (isLastStep) {
-      window.open('https://api.whatsapp.com/send?phone=+573104908414', '_blank');
+      const textValue = createWhatsappText(
+        values.firstNames,
+        values.lastNames,
+        values.simulation,
+        values.simulationType,
+        values.tenants,
+      );
+
+      const encodedTextValue = encodeURIComponent(textValue);
+      window.open(`https://wa.me/+573104908414/?text=${encodedTextValue}`, '_blank');
       window.focus();
       window.location.reload();
     } else {
@@ -163,7 +170,7 @@ const SimulatorForm = () => {
       } else {
         if (activeStep + 1 === 3) {
           dispatch(
-            simulation(
+            pmtSimulation(
               values.currentDeal,
               values.time,
               '9.5%',
@@ -190,8 +197,6 @@ const SimulatorForm = () => {
   };
 
   const handleBack = (values, actions) => {
-    window.scrollTo(0, 0);
-
     setGlobalInitialValues(values);
     setSkip(activeStep - 1 === 3 ? true : false);
 
@@ -231,6 +236,52 @@ const SimulatorForm = () => {
     }
 
     return 2;
+  };
+
+  const createWhatsappText = (name, lastName, simulation, simulationType, tenants) => {
+    const selectSimulationType = (simulationType) => {
+      if (simulationType === 1) {
+        return 'Financiación de vivienda';
+      } else if (simulationType === 2) {
+        return 'Financiación inmuebles comerciales';
+      } else {
+        return 'Compra de cartera';
+      }
+    };
+    const addTextDependingOnSimulation = (simulation, tenants, simulationType) => {
+      let text = '';
+      if (simulation === 1) {
+        text = `
+Tipo de Cuota: ${selectSimulationType(simulationType)}
+Numero de titulares: ${1 + tenants.length}
+Ingresos Totales: ${simulationResult.symbol} ${simulationResult.totalEarnings
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+Resultado de Simulación: ${simulationResult.simulation ? 'Valid' : 'Invalida'}
+Cuota Sin Seguro: ${
+          simulationResult.pmt
+            ? `${simulationResult.symbol} ${simulationResult.pmt
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`
+            : 'N/A'
+        }`;
+      } else {
+        text = `
+Numero de titulares: ${1 + tenants.length}
+Ingresos Totales: ${lendingResult.symbol} ${lendingResult.sum
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+Máximo Prestamo: ${lendingResult.symbol} ${lendingResult.maxLoanValue
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
+      }
+      return text;
+    };
+
+    const text = `
+Hola mi nombre es ${name} ${lastName}. Acabo de completar el simulador y estos son algunos resultados:\n
+Tipo de Simulación: ${simulation === 1 ? 'Calcular Cuota' : 'Cuanto me prestan'}`;
+    return text + addTextDependingOnSimulation(simulation, tenants, simulationType);
   };
 
   return (
@@ -299,7 +350,6 @@ const SimulatorForm = () => {
               validateOnMount
             >
               {({ handleChange, isSubmitting, values, isValid }) => {
-                console.log(values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, simulationResult)}

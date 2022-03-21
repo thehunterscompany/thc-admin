@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 
 const Lending = () => {
   const { maxLoanValue, symbol } = useSelector((state) => state.LendingSimulationState);
 
+  useEffect(() => {
+    const element = document.getElementById('top-point');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
+
   return (
     <Container className="_simulation_results">
-      <h1>¡Felicitaciones!</h1>
+      <h1 id="top-point">¡Felicitaciones!</h1>
       <h2>Puedes tener una financiación de hasta</h2>
       <h2 className="_value">{` ${symbol} ${maxLoanValue
         .toString()

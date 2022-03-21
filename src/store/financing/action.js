@@ -28,6 +28,7 @@ export const pmtSimulation = (amount, duration, rate, income, tenants) => {
       payload: {
         simulation: false,
         sum: Math.round(pmt / 0.3),
+        totalEarnings: sum,
         symbol,
       },
     };

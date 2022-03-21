@@ -2,7 +2,7 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles(() => ({
   stepper: {
-    padding: '24px 0px 8px',
+    padding: '20px 0px 40px',
   },
   wrapper: {
     margin: '8px !important',
