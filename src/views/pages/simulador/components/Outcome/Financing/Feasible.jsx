@@ -22,7 +22,7 @@ const headersBottomTable = [
 const Feasible = () => {
   const { values } = useFormikContext();
 
-  const [value, currentDeal, time, type] = values;
+  const { value, currentDeal, time, type } = values;
 
   const [topData, setTopData] = useState([]);
 

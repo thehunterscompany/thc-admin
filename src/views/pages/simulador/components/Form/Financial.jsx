@@ -90,6 +90,7 @@ const FinancialFields = ({ formField }) => {
     prefix: 'COP ',
     thousandSeparator: '.',
     decimalSeparator: ',',
+    allowLeadingZeros: false,
     isAllowed: checkCurrencyFormat,
   };
 

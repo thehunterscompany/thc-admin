@@ -56,7 +56,7 @@ export const financialValidation = Yup.object().shape({
   ),
   [financial.laborTime.name]: Yup.number()
     .required(financial.laborTime.requiredErrorMsg)
-    .min(0, '¡No puede ser números negativos!'),
+    .min(0, '¡Solo se pueden numeros positivos!'),
   [financial.earnings.name]: Yup.string().required(financial.earnings.requiredErrorMsg),
   [financial.passive.name]: Yup.string().required(financial.passive.requiredErrorMsg),
   [financial.tenants.name]: Yup.array().of(

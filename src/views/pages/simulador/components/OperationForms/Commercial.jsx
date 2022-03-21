@@ -39,6 +39,7 @@ const CommercialForm = ({ formField, currencySymbol }) => {
     prefix: `${currencySymbol} `,
     thousandSeparator: '.',
     decimalSeparator: ',',
+    allowLeadingZeros: false,
     isAllowed: checkCurrencyFormat,
   };
 
