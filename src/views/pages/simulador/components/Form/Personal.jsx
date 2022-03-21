@@ -34,10 +34,10 @@ const idType = [
 const statesData = states.states;
 const citiesData = cities.cities;
 
-const PersonalFields = ({ formField, values, setFieldValue }) => {
+const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
   const [checkboxes, setCheckboxes] = useState({
-    checkedA: values?.checkedA ? values.checkedA : false,
-    checkedB: values?.checkedB ? values.checkedB : false,
+    checkedA: checkedA ? checkedA : false,
+    checkedB: checkedB ? checkedB : false,
   });
 
   const { width } = useWindowSize();
@@ -78,7 +78,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={firstNames.label}
             type="text"
             fullWidth
-            value={values.firstNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -87,7 +86,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={lastNames.label}
             type="text"
             fullWidth
-            value={values.lastNames}
           />
         </Grid>
 
@@ -95,7 +93,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <SelectField
             name={documentType.name}
             label={documentType.label}
-            value={values.documentType}
             data={idType}
             fullWidth
             style={width >= 960 ? { marginTop: '16px' } : {}}
@@ -107,20 +104,14 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={documentId.name}
             label={documentId.label}
             type="text"
-            value={values.documentId}
             fullWidth
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={email.name}
-            label={email.label}
-            type="text"
-            value={values.email}
-            fullWidth
-          />
+          <InputField name={email.name} label={email.label} type="text" fullWidth />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={telephone.name}
@@ -130,6 +121,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             format={phoneFormatting}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <ComboBox name={state.name} label={state.label} data={statesData} fullWidth />
         </Grid>
@@ -142,7 +134,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <DateField
             name={dateOfBirth.name}
             label={dateOfBirth.label}
-            value={values.dateOfBirth}
             format="dd/MM/yyyy"
             minDate={new Date('1900/01/01')}
             maxDate={new Date()}
@@ -161,7 +152,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           />
         </Grid>
 
-        {values.simulation === 1 ? (
+        {simulationVal === 1 ? (
           <Grid item xs={12} md={6}>
             <SelectField
               name={simulationType.name}
@@ -224,9 +215,10 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
 };
 
 PersonalFields.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
+  checkedA: PropTypes.bool.isRequired,
+  checkedB: PropTypes.bool.isRequired,
+  simulationVal: PropTypes.number.isRequired,
 };
 
 export default PersonalFields;

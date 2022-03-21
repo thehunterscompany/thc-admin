@@ -35,12 +35,14 @@ export const personalValidation = Yup.object().shape({
   [personal.telephone.name]: Yup.string()
     .required(personal.telephone.requiredErrorMsg)
     .matches(/^[+]\d{2} [(]\d{3}[)] \d{3}[-]\d{4}$/, personal.telephone.invalidErrorMsg),
-  [personal.simulation.name]: Yup.number().required(personal.simulation.requiredErrorMsg),
+  [personal.simulation.name]: Yup.number()
+    .required(personal.simulation.requiredErrorMsg)
+    .min(1, personal.simulation.requiredErrorMsg),
   [personal.simulationType.name]: Yup.number().test(
     'is-required',
     personal.simulationType.requiredErrorMsg,
     function (value) {
-      if (this.parent.simulation === 1 && value === undefined) {
+      if (this.parent.simulation === 1 && (value === undefined || value === 0)) {
         return false;
       }
       return true;
@@ -52,9 +54,9 @@ export const financialValidation = Yup.object().shape({
   [financial.mainEmployment.name]: Yup.string().required(
     financial.mainEmployment.requiredErrorMsg,
   ),
-  [financial.laborTime.name]: Yup.string()
+  [financial.laborTime.name]: Yup.number()
     .required(financial.laborTime.requiredErrorMsg)
-    .matches(/^\d+$/, financial.laborTime.invalidErrorMsg),
+    .min(0, '¡No puede ser números negativos!'),
   [financial.earnings.name]: Yup.string().required(financial.earnings.requiredErrorMsg),
   [financial.passive.name]: Yup.string().required(financial.passive.requiredErrorMsg),
   [financial.tenants.name]: Yup.array().of(
@@ -79,11 +81,10 @@ const operationalValidation = Yup.object().shape({
             this.parent.type === 'Crédito Hipotecario' ||
             this.parent.simulationType === 3
           ) {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 70
+            return (parseInt(value.replaceAll(/[,.]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              70.0
               ? true
               : false;
           }
@@ -97,11 +98,10 @@ const operationalValidation = Yup.object().shape({
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.type === 'Leasing Habitacional') {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 80
+            return (parseInt(value.replaceAll(/[,.]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              80.0
               ? true
               : false;
           }
@@ -115,11 +115,10 @@ const operationalValidation = Yup.object().shape({
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.simulationType === 2) {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 50
+            return (parseInt(value.replaceAll(/[.,]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              50.0
               ? true
               : false;
           }
@@ -127,9 +126,8 @@ const operationalValidation = Yup.object().shape({
         return true;
       },
     ),
-  [operational.time.name]: Yup.string()
+  [operational.time.name]: Yup.number()
     .required(operational.time.requiredErrorMsg)
-    .matches(/^\d+$/, operational.time.invalidErrorMsg)
     .test('valid-time', operational.time.invalidErrorMsg1, function (value) {
       if (value > 20 || value < 5) {
         return false;

@@ -14,8 +14,8 @@ const personalValues = {
   [personal.state.name]: '',
   [personal.city.name]: '',
   [personal.telephone.name]: '',
-  [personal.simulation.name]: '',
-  [personal.simulationType.name]: '',
+  [personal.simulation.name]: 0,
+  [personal.simulationType.name]: 0,
   checkedA: false,
   checkedB: false,
 };

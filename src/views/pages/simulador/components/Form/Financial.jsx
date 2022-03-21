@@ -59,7 +59,7 @@ function sleep(delay = 0) {
   });
 }
 
-const FinancialFields = ({ formField, values, setFieldValue }) => {
+const FinancialFields = ({ formField, laborTimeVal, tenants, setFieldValue }) => {
   const classes = useStyles();
 
   const { mainEmployment, laborTime, earnings, passive } = formField;
@@ -121,11 +121,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               label={'Nombres'}
               type="text"
               fullWidth
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].firstNames
-                  : ''
-              }
+              value={tenants.length && tenants[i] ? tenants[i].firstNames : ''}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -134,11 +130,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               label="Apellidos"
               type="text"
               fullWidth
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].lastNames
-                  : ''
-              }
+              value={tenants.length && tenants[i] ? tenants[i].lastNames : ''}
             />
           </Grid>
           <Grid item xs={12}>
@@ -147,12 +139,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               label={earnings.label}
               type="text"
               fullWidth
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].earnings
-                  : ''
-              }
-              setFieldValue={setFieldValue}
+              value={tenants.length && tenants[i] ? tenants[i].earnings : ''}
               format={currencyFormat}
             />
           </Grid>
@@ -170,7 +157,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
   };
 
   const handleRemoveClick = (index) => {
-    let array = values.tenants.slice();
+    let array = tenants.slice();
     array.splice(index, 1);
     setExtraTenants((preValue) => preValue - 1);
     setFieldValue('tenants', array);
@@ -188,25 +175,21 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             label={mainEmployment.label}
             loading={loading}
             data={employmentTypeData}
-            setFieldValue={setFieldValue}
             handleOpenChange={setOpen}
             open={open}
             fullWidth
-            value={values.mainEmployment}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <InputField
             name={laborTime.name}
             label={laborTime.label}
-            type="text"
+            type="number"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.laborTime) > 1 || parseInt(values.laborTime) === 0
-                    ? 'años'
-                    : 'año'}
+                  {laborTimeVal > 1 || laborTimeVal === 0 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -219,9 +202,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             label={earnings.label}
             type="text"
             fullWidth
-            value={values.earnings}
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
 
@@ -231,9 +212,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             label={passive.label}
             type="text"
             fullWidth
-            value={values.passive}
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
         {renderExtraTenants().map((tenant, index) => (
@@ -262,8 +241,9 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 };
 
 FinancialFields.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
+  formField: PropTypes.object.isRequired,
+  laborTimeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  tenants: PropTypes.arrayOf(PropTypes.object),
   setFieldValue: PropTypes.func,
 };
 

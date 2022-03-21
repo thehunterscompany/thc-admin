@@ -50,15 +50,17 @@ const renderStepForms = (step, values, setFieldValue, simulation) => {
     return (
       <PersonalFields
         formField={formField.personal}
-        values={values}
-        setFieldValue={setFieldValue}
+        checkedA={values.checkedA}
+        checkedB={values.checkedA}
+        simulationVal={values.simulation}
       />
     );
   if (step === 1)
     return (
       <FinancialFields
         formField={formField.financial}
-        values={values}
+        laborTimeVal={values.laborTime}
+        tenants={values.tenants}
         setFieldValue={setFieldValue}
       />
     );
@@ -117,12 +119,17 @@ const SimulatorForm = () => {
   const [globalInitialValues, setGlobalInitialValues] = useState(personalValues);
   const [formDirection, setFormDirection] = useState('');
   const [activeSchema, setActiveSchema] = useState(personalValidation);
+  const [simulationType, setSimulationType] = useState('');
   const isLastStep = activeStep === steps.length - 1;
   const simulationResult = useSelector((state) => state.PmtSimulationState).simulation;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activeStep]);
+
+  // useEffect(() => {
+
+  // }, [simulationType])
 
   const { width } = useWindowSize();
   const dispatch = useDispatch();
@@ -294,6 +301,17 @@ const SimulatorForm = () => {
                 setGlobalInitialValues(values);
 
                 if (formDirection === 'forward') {
+                  if (values.simulation === 1 && values?.realEstateType) {
+                    if (simulationType) {
+                      if (simulationType !== values.simulationType && activeStep === 0) {
+                        values.realEstateType = '';
+                        setSimulationType(values.simulationType);
+                        setGlobalInitialValues(values);
+                      }
+                    } else {
+                      setSimulationType(values.simulationType);
+                    }
+                  }
                   handleSubmit(values, actions);
                 } else {
                   handleBack(values, actions);
@@ -304,7 +322,6 @@ const SimulatorForm = () => {
               validateOnMount
             >
               {({ handleChange, isSubmitting, values, setFieldValue, isValid }) => {
-                console.log(values);
                 return (
                   <Form onChange={handleChange}>
                     {renderStepForms(activeStep, values, setFieldValue, simulationResult)}

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { InputField, MaskedInput } from '../../../../../components/FormFields';
 import { axiosCall } from '../../../../../utils';
 
-const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
+const WalletForm = ({ formField, timeVal, currencySymbol, setFieldValue }) => {
   const { value, currentDeal, currentDealMonth, institution, time, rates, type } =
     formField;
 
@@ -58,33 +58,27 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
           <MaskedInput
             name={value.name}
             label={value.label}
-            value={values.value}
             type="text"
             fullWidth
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            value={values.currentDeal}
             type="text"
             fullWidth
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDealMonth.name}
             label={currentDealMonth.label}
-            value={values.currentDealMonth}
             type="text"
             fullWidth
             format={currencyFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
 
@@ -94,7 +88,6 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
             label={institution.label}
             type="text"
             fullWidth
-            value={values.institution}
           />
         </Grid>
 
@@ -107,11 +100,10 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                  {timeVal > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
-            value={values.time}
           />
         </Grid>
 
@@ -119,11 +111,9 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
           <MaskedInput
             name={rates.name}
             label={rates.label}
-            value={values.rates}
             type="text"
             fullWidth
             format={percentageFormat}
-            setFieldValue={setFieldValue}
           />
         </Grid>
       </Grid>
@@ -133,7 +123,7 @@ const WalletForm = ({ formField, values, currencySymbol, setFieldValue }) => {
 
 WalletForm.propTypes = {
   formField: PropTypes.object,
-  values: PropTypes.object,
+  timeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   currencySymbol: PropTypes.string,
   setFieldValue: PropTypes.func,
 };
