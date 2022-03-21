@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, LinearProgress } from '@mui/material';
-import PropTypes from 'prop-types';
+import { useFormikContext } from 'formik';
 
 import CustomTable from '../Table/Table';
 
@@ -19,7 +19,11 @@ const headersBottomTable = [
   { name: 'Plazo', align: 'center' },
 ];
 
-const Feasible = ({ values }) => {
+const Feasible = () => {
+  const { values } = useFormikContext();
+
+  const [value, currentDeal, time, type] = values;
+
   const [topData, setTopData] = useState([]);
 
   const [bottomData, setBottomData] = useState([]);
@@ -33,7 +37,7 @@ const Feasible = ({ values }) => {
     setTopData([
       {
         value: {
-          1: values.type,
+          1: type,
           2: rate,
           3: `${tem}%`,
           4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`,
@@ -41,11 +45,10 @@ const Feasible = ({ values }) => {
         align: 'center',
       },
     ]);
-  }, [simulation, values]);
+  }, [simulation, type]);
 
   useEffect(() => {
     if (Object.keys(values).length) {
-      const { value, currentDeal, time } = values;
       let [symbol, totalValue] = value.split(' ');
       totalValue = Number(totalValue.replace(/\D/g, ''));
       let financingValue = Number(currentDeal.replace(/\D/g, ''));
@@ -64,7 +67,7 @@ const Feasible = ({ values }) => {
         },
       ]);
     }
-  }, [values]);
+  }, [values, value, currentDeal, time]);
 
   useEffect(() => {
     if (Object.keys(simulation).length) {
@@ -100,10 +103,6 @@ const Feasible = ({ values }) => {
         comunicarte con uno de nuestros brokers.`}</span>
     </Container>
   );
-};
-
-Feasible.propTypes = {
-  values: PropTypes.object.isRequired,
 };
 
 export default Feasible;

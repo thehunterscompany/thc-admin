@@ -45,37 +45,14 @@ const steps = [
 ];
 
 const { formField } = formFields;
-const renderStepForms = (step, values, setFieldValue, simulation) => {
-  if (step === 0)
-    return (
-      <PersonalFields
-        formField={formField.personal}
-        checkedA={values.checkedA}
-        checkedB={values.checkedA}
-        simulationVal={values.simulation}
-      />
-    );
-  if (step === 1)
-    return (
-      <FinancialFields
-        formField={formField.financial}
-        laborTimeVal={values.laborTime}
-        tenants={values.tenants}
-        setFieldValue={setFieldValue}
-      />
-    );
+const renderStepForms = (step, values, simulation) => {
+  if (step === 0) return <PersonalFields formField={formField.personal} />;
+  if (step === 1) return <FinancialFields formField={formField.financial} />;
 
   if (values?.simulation === 1) {
-    if (step === 2)
-      return (
-        <OperationalFields
-          formField={formField.operational}
-          setFieldValue={setFieldValue}
-          values={values}
-        />
-      );
+    if (step === 2) return <OperationalFields formField={formField.operational} />;
 
-    if (step === 3 && simulation) return <Feasible values={values} />;
+    if (step === 3 && simulation) return <Feasible />;
 
     if (step === 3 && !simulation) return <NotFeasible />;
 
@@ -321,10 +298,11 @@ const SimulatorForm = () => {
               enableReinitialize
               validateOnMount
             >
-              {({ handleChange, isSubmitting, values, setFieldValue, isValid }) => {
+              {({ handleChange, isSubmitting, values, isValid }) => {
+                console.log(values);
                 return (
                   <Form onChange={handleChange}>
-                    {renderStepForms(activeStep, values, setFieldValue, simulationResult)}
+                    {renderStepForms(activeStep, values, simulationResult)}
                     <div className="_buttons_space">
                       {[1, 2].includes(activeStep) ||
                       (!simulationResult &&

@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
 import { InputField, MaskedInput } from '../../../../../components/FormFields';
 import { axiosCall } from '../../../../../utils';
 
-const WalletForm = ({ formField, timeVal, currencySymbol, setFieldValue }) => {
-  const { value, currentDeal, currentDealMonth, institution, time, rates, type } =
-    formField;
+const WalletForm = ({ formField, currencySymbol }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  const { time } = values;
+
+  const { value, currentDeal, currentDealMonth, institution, rates, type } = formField;
 
   const checkCurrencyFormat = ({ floatValue }) => {
     if (floatValue !== undefined) {
@@ -30,7 +34,7 @@ const WalletForm = ({ formField, timeVal, currencySymbol, setFieldValue }) => {
   };
 
   const currencyFormat = {
-    prefix: 'COP ',
+    prefix: `${currencySymbol} `,
     thousandSeparator: '.',
     decimalSeparator: ',',
     allowLeadingZeros: false,
@@ -93,14 +97,14 @@ const WalletForm = ({ formField, timeVal, currencySymbol, setFieldValue }) => {
 
         <Grid item xs={12} md={6}>
           <InputField
-            name={time.name}
-            label={time.label}
+            name={formField.time.name}
+            label={formField.time.label}
             type="text"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {timeVal > 1 ? 'años' : 'año'}
+                  {time > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -122,10 +126,8 @@ const WalletForm = ({ formField, timeVal, currencySymbol, setFieldValue }) => {
 };
 
 WalletForm.propTypes = {
-  formField: PropTypes.object,
-  timeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  currencySymbol: PropTypes.string,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
+  currencySymbol: PropTypes.string.isRequired,
 };
 
 export default WalletForm;

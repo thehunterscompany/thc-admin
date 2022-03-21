@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, InputAdornment } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import useWindowSize from 'src/hooks/useWindowSize';
 
@@ -22,8 +23,12 @@ const DATA = [
   { value: 'Leasing Habitacional', label: 'Leasing Habitacional' },
 ];
 
-const RealEstateForm = ({ formField, currencySymbol, timeVal }) => {
-  const { value, currentDeal, type, time, realEstateType } = formField;
+const RealEstateForm = ({ formField, currencySymbol }) => {
+  const { values } = useFormikContext();
+
+  const { time } = values;
+
+  const { value, currentDeal, type, realEstateType } = formField;
 
   const [creditLineType, setCreditLineType] = useState([]);
 
@@ -56,7 +61,7 @@ const RealEstateForm = ({ formField, currencySymbol, timeVal }) => {
   };
 
   const currencyFormat = {
-    prefix: 'COP ',
+    prefix: `${currencySymbol} `,
     thousandSeparator: '.',
     decimalSeparator: ',',
     allowLeadingZeros: false,
@@ -90,16 +95,6 @@ const RealEstateForm = ({ formField, currencySymbol, timeVal }) => {
             ]}
             fullWidth
           />
-          {/* <ComboBox
-            name={realEstateType.name}
-            label={realEstateType.label}
-            data={[
-              { value: 'Usada', label: 'Usada' },
-              { value: 'Nueva', label: 'Nueva' },
-              { value: 'None', label: 'No se aun' },
-            ]}
-            fullWidth
-          /> */}
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
@@ -122,14 +117,14 @@ const RealEstateForm = ({ formField, currencySymbol, timeVal }) => {
 
         <Grid item xs={width >= 960 ? 6 : 12}>
           <InputField
-            name={time.name}
-            label={time.label}
+            name={formField.time.name}
+            label={formField.time.label}
             type="text"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {timeVal > 1 ? 'años' : 'año'}
+                  {time > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -141,9 +136,8 @@ const RealEstateForm = ({ formField, currencySymbol, timeVal }) => {
 };
 
 RealEstateForm.propTypes = {
-  formField: PropTypes.object,
-  timeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  currencySymbol: PropTypes.string,
+  formField: PropTypes.object.isRequired,
+  currencySymbol: PropTypes.string.isRequired,
 };
 
 export default RealEstateForm;

@@ -28,11 +28,13 @@ const ComboBox = ({ data, ...props }) => {
     <Autocomplete
       options={data}
       value={userValue}
+      inputValue={value}
       sx={{ width: '100%' }}
       onChange={(_e, newValue) => {
         setUserValue(newValue);
         setValue(newValue !== null ? newValue.value : '');
       }}
+      onInputChange={() => setUserValue(null)}
       onBlur={() => checkInput(data, value)}
       openOnFocus
       getOptionLabel={(option) => option.label}

@@ -7,6 +7,7 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
 import {
@@ -59,10 +60,14 @@ function sleep(delay = 0) {
   });
 }
 
-const FinancialFields = ({ formField, laborTimeVal, tenants, setFieldValue }) => {
+const FinancialFields = ({ formField }) => {
   const classes = useStyles();
 
-  const { mainEmployment, laborTime, earnings, passive } = formField;
+  const { mainEmployment, earnings, passive } = formField;
+
+  const { values, setFieldValue } = useFormikContext();
+
+  const { laborTime, tenants } = values;
 
   const [extraTenants, setExtraTenants] = useState(0);
 
@@ -182,14 +187,14 @@ const FinancialFields = ({ formField, laborTimeVal, tenants, setFieldValue }) =>
         </Grid>
         <Grid item xs={12} md={6}>
           <InputField
-            name={laborTime.name}
-            label={laborTime.label}
+            name={formField.laborTime.name}
+            label={formField.laborTime.label}
             type="number"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {laborTimeVal > 1 || laborTimeVal === 0 ? 'años' : 'año'}
+                  {laborTime > 1 || laborTime === 0 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -242,9 +247,6 @@ const FinancialFields = ({ formField, laborTimeVal, tenants, setFieldValue }) =>
 
 FinancialFields.propTypes = {
   formField: PropTypes.object.isRequired,
-  laborTimeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  tenants: PropTypes.arrayOf(PropTypes.object),
-  setFieldValue: PropTypes.func,
 };
 
 export default FinancialFields;

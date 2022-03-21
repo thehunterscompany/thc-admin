@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Grid, InputAdornment } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,8 +10,12 @@ import {
 } from '../../../../../components/FormFields';
 import { axiosCall } from '../../../../../utils';
 
-const CommercialForm = ({ formField, timeVal, setFieldValue }) => {
-  const { value, currentDeal, realEstateType, time, type } = formField;
+const CommercialForm = ({ formField, currencySymbol }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  const { time } = values;
+
+  const { value, currentDeal, realEstateType, type } = formField;
 
   useEffect(() => {
     (async () => {
@@ -31,7 +36,7 @@ const CommercialForm = ({ formField, timeVal, setFieldValue }) => {
   };
 
   const currencyFormat = {
-    prefix: 'COP ',
+    prefix: `${currencySymbol} `,
     thousandSeparator: '.',
     decimalSeparator: ',',
     isAllowed: checkCurrencyFormat,
@@ -71,29 +76,18 @@ const CommercialForm = ({ formField, timeVal, setFieldValue }) => {
             ]}
             fullWidth
           />
-          {/* <ComboBox
-            name={realEstateType.name}
-            label={realEstateType.label}
-            data={[
-              { value: 'Bodega', label: 'Bodega' },
-              { value: 'Consultorio', label: 'Consultorio' },
-              { value: 'Oficina', label: 'Oficina' },
-              { value: 'Local', label: 'Local' },
-            ]}
-            fullWidth
-          /> */}
         </Grid>
 
         <Grid item xs={12} md={6}>
           <InputField
-            name={time.name}
-            label={time.label}
+            name={formField.time.name}
+            label={formField.time.label}
             type="text"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {timeVal > 1 ? 'años' : 'año'}
+                  {time > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -106,9 +100,7 @@ const CommercialForm = ({ formField, timeVal, setFieldValue }) => {
 
 CommercialForm.propTypes = {
   formField: PropTypes.object.isRequired,
-  timeVal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   currencySymbol: PropTypes.string.isRequired,
-  setFieldValue: PropTypes.func.isRequired,
 };
 
 export default CommercialForm;

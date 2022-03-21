@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, FormControlLabel, Grid } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
 import useWindowSize from 'src/hooks/useWindowSize';
@@ -34,11 +35,17 @@ const idType = [
 const statesData = states.states;
 const citiesData = cities.cities;
 
-const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
+const PersonalFields = ({ formField }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  const { state, checkedA, checkedB, simulation } = values;
+
   const [checkboxes, setCheckboxes] = useState({
     checkedA: checkedA ? checkedA : false,
     checkedB: checkedB ? checkedB : false,
   });
+
+  const [selectedState, setSelectedState] = useState(state);
 
   const { width } = useWindowSize();
 
@@ -59,14 +66,29 @@ const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
     dateOfBirth,
     email,
     city,
-    state,
     telephone,
-    simulation,
     simulationType,
   } = formField;
 
+  useEffect(() => {
+    if (state !== selectedState) {
+      setSelectedState(state);
+      setFieldValue('city', '');
+    }
+  }, [selectedState, setFieldValue, state]);
+
   const handleChange = (event) => {
     setCheckboxes({ ...checkboxes, [event.target.name]: event.target.checked });
+  };
+
+  const citiesForStateInput = (stateInput) => {
+    if (stateInput) {
+      const checkIfCityInState = (obj) => obj.state === stateInput;
+      const filteredObject = citiesData.filter((obj) => checkIfCityInState(obj));
+      return filteredObject;
+    }
+
+    return citiesData;
   };
 
   return (
@@ -123,11 +145,21 @@ const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <ComboBox name={state.name} label={state.label} data={statesData} fullWidth />
+          <ComboBox
+            name={formField.state.name}
+            label={formField.state.label}
+            data={statesData}
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <ComboBox name={city.name} label={city.label} data={citiesData} fullWidth />
+          <ComboBox
+            name={city.name}
+            label={city.label}
+            data={citiesForStateInput(state)}
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -144,15 +176,15 @@ const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
 
         <Grid item xs={12} md={6}>
           <SelectField
-            name={simulation.name}
-            label={simulation.label}
+            name={formField.simulation.name}
+            label={formField.simulation.label}
             data={simulationOptions}
             fullWidth
             style={{ marginTop: '16px' }}
           />
         </Grid>
 
-        {simulationVal === 1 ? (
+        {simulation === 1 ? (
           <Grid item xs={12} md={6}>
             <SelectField
               name={simulationType.name}
@@ -216,9 +248,6 @@ const PersonalFields = ({ formField, checkedA, checkedB, simulationVal }) => {
 
 PersonalFields.propTypes = {
   formField: PropTypes.object.isRequired,
-  checkedA: PropTypes.bool.isRequired,
-  checkedB: PropTypes.bool.isRequired,
-  simulationVal: PropTypes.number.isRequired,
 };
 
 export default PersonalFields;
