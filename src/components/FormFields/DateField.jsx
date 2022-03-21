@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import esLocale from 'date-fns/locale/es';
 import { useField } from 'formik';
 import { at } from 'lodash';
+import PropTypes from 'prop-types';
 
 const localeMap = {
   es: esLocale,
@@ -15,9 +16,7 @@ const maskMap = {
   es: '__/__/____',
 };
 
-const DateField = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { minDate, maxDate, ...other } = props;
+const DateField = ({ minDate, maxDate, ...props }) => {
   const [field, meta, helpers] = useField(props);
   const { setError, setValue, setTouched } = helpers;
   const { value } = field;
@@ -34,6 +33,8 @@ const DateField = (props) => {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
       return error;
+    } else {
+      return 'dd/mm/yyyyy';
     }
   };
 
@@ -72,7 +73,7 @@ const DateField = (props) => {
         renderInput={(params) => (
           <TextField
             {...params}
-            {...other}
+            {...props}
             variant="standard"
             helperText={_renderHelperText()}
             onBlur={handleInputBlur}
@@ -82,6 +83,11 @@ const DateField = (props) => {
       />
     </LocalizationProvider>
   );
+};
+
+DateField.propTypes = {
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object,
 };
 
 export default DateField;

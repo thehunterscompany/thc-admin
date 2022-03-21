@@ -4,9 +4,7 @@ import { useField } from 'formik';
 import { at } from 'lodash';
 import PropTypes from 'prop-types';
 
-const SelectField = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { label, data, ...rest } = props;
+const SelectField = ({ label, data, ...props }) => {
   const [field, meta] = useField(props);
   const { value: selectedValue } = field;
   const [touched, error] = at(meta, 'touched', 'error');
@@ -18,7 +16,7 @@ const SelectField = (props) => {
   };
 
   return (
-    <FormControl {...rest} variant="filled" margin="normal" error={isError}>
+    <FormControl {...props} variant="filled" margin="normal" error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
@@ -39,6 +37,7 @@ SelectField.defaultProps = {
 
 SelectField.propTypes = {
   data: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default React.memo(SelectField);

@@ -2,12 +2,13 @@ import React, { forwardRef } from 'react';
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 
-const NumberFormatCustom = forwardRef(function NumberFormatCustom(props, ref) {
-  const { onChange, format, ...other } = props;
-
+const NumberFormatCustom = forwardRef(function NumberFormatCustom(
+  { onChange, format, ...props },
+  ref,
+) {
   return (
     <NumberFormat
-      {...other}
+      {...props}
       getInputRef={ref}
       onValueChange={(_e, values) => {
         onChange(values);

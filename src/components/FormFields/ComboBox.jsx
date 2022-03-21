@@ -5,38 +5,36 @@ import PropTypes from 'prop-types';
 
 import InputField from './InputField';
 
-const ComboBox = (props) => {
-  const { data, ...rest } = props;
+const ComboBox = ({ data, ...props }) => {
   const [field, , helpers] = useField(props);
-
   const { setValue } = helpers;
   const { value } = field;
-
-  const checkInput = (dataArray, value) => {
-    const checkUsername = (obj) => obj.value === value;
-    if (!dataArray.some(checkUsername)) {
-      setValue('');
-    }
-  };
 
   const enterInput = (value) => {
     return value ? { value, label: value } : null;
   };
 
-  const [inputValue, setInputValue] = useState(enterInput(value));
+  const [userValue, setUserValue] = useState(enterInput(value));
+
+  const checkInput = (dataArray, value) => {
+    const checkUsername = (obj) => obj.value === value;
+    if (!dataArray.some(checkUsername)) {
+      setUserValue(null);
+      setValue('');
+    }
+  };
 
   return (
     <Autocomplete
       options={data}
-      value={inputValue}
+      value={userValue}
       sx={{ width: '100%' }}
       onChange={(_e, newValue) => {
-        setInputValue(newValue);
+        setUserValue(newValue);
         setValue(newValue !== null ? newValue.value : '');
       }}
+      onBlur={() => checkInput(data, value)}
       openOnFocus
-      blurOnSelect
-      onClose={() => checkInput(data, value)}
       getOptionLabel={(option) => option.label}
       isOptionEqualToValue={(option, value) => option.label === value.value}
       renderInput={(params) => {
@@ -44,7 +42,7 @@ const ComboBox = (props) => {
           <InputField
             {...params}
             {...field}
-            {...rest}
+            {...props}
             InputProps={{
               ...params.InputProps,
             }}
@@ -58,5 +56,5 @@ const ComboBox = (props) => {
 export default ComboBox;
 
 ComboBox.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
