@@ -1,39 +1,38 @@
-on: 
+# Continuous Integration 
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull request events for the master, dev branches
   pull_request:
-    branches:
-      - master
+    branches: [ master, dev ]
 
-name: Test and Validate ARM Templates
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
-env:
-  LOCATION: westeurope
-  RESOURCE_GROUP_TEST: rg-validation
-
+name:  CI Pipeline
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test_arm_templates:
+  # This workflow contains a single job called "build"
+  build:
+    name: create latest build
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    name: Test deployment and Run Azure Resource Manager Template Toolkit
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       
-      - name: Azure Login
-        uses: azure/login@v1
+      # Install node js 
+      - name: Install node.js
+        uses: actions/setup-node@v2.4.0
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: 'dev1'
-
-      - name: Azure CLI Validate Deployment
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.0.72
-          inlineScript: |
-            az group create --location $LOCATION --name $RESOURCE_GROUP_TEST
-            az group deployment validate --resource-group $RESOURCE_GROUP_TEST --template-file $GITHUB_WORKSPACE/azuredeploy.json
-            az group delete --resource-group $RESOURCE_GROUP_TEST --yes --no-wait 
-
-      - name: Run Azure Resource Manager Template Toolkit
-        uses: ./.github/actions
-        id: action
+            node-version: '16.x'
+      
+      # Install repo packages
+      - name: Install packages
+        run: yarn install
+      
+      # Buidl packages
+      - name: Build website
+        run: yarn build
