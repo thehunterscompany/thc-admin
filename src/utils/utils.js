@@ -8,7 +8,6 @@ const sumTotalEarnings = (tenants, income) => {
   let sum = earningsArray.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
-
   return { symbol, sum };
 };
 

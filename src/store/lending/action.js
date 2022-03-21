@@ -23,6 +23,7 @@ export const lendingSimulation = (income, tenantsIncome, rate, duration = 20) =>
     payload: {
       maxLoanValue,
       symbol,
+      sum,
     },
   };
 };
