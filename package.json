@@ -1,7 +1,7 @@
 {
   "name": "thc-admin",
   "description": "The Hunters Company Admin Website",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": {
     "name": "The Hunters Company",
     "url": "https://thcsas.com.co",
@@ -82,7 +82,7 @@
     "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit",
     "test_something": "echo \"Running tests for version $npm_package_version...\"",
     "preversion": "yarn test_something",
-    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+    "postversion": "git push --tags && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "eslintIgnore": [
     "*.json"
