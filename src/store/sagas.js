@@ -4,8 +4,7 @@ import { watchLoginAsync } from './login/saga';
 import { watchRegistrationAsync } from './registration/saga';
 import { watchGetRolesAsync } from './roles/saga';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function* () {
+export default function* foo() {
   yield all([
     fork(watchRegistrationAsync),
     fork(watchGetRolesAsync),
