@@ -1,25 +1,22 @@
 import React from 'react';
-// import { FormHelperText } from '@material-ui/core';
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material';
 import { useField } from 'formik';
 import { at } from 'lodash';
 import PropTypes from 'prop-types';
 
-const SelectField = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { label, data, ...rest } = props;
+const SelectField = ({ label, data, ...props }) => {
   const [field, meta] = useField(props);
   const { value: selectedValue } = field;
   const [touched, error] = at(meta, 'touched', 'error');
   const isError = touched && error && true;
-  function _renderHelperText() {
+  const _renderHelperText = () => {
     if (isError) {
       return <FormHelperText error>{error}</FormHelperText>;
     }
-  }
+  };
 
   return (
-    <FormControl {...rest} variant="filled" margin="normal" error={isError}>
+    <FormControl {...props} variant="filled" margin="normal" error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
@@ -27,6 +24,7 @@ const SelectField = (props) => {
             {item.label}
           </MenuItem>
         ))}
+        S
       </Select>
       {_renderHelperText()}
     </FormControl>
@@ -39,6 +37,7 @@ SelectField.defaultProps = {
 
 SelectField.propTypes = {
   data: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default React.memo(SelectField);

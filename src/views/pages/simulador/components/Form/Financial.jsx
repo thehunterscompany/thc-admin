@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputAdornment,
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
 import {
@@ -14,12 +20,19 @@ import { axiosCall } from '../../../../../utils';
 import '../../Simulador.scss';
 
 const useStyles = makeStyles(() => ({
+  mainGrid: {
+    position: 'relative !important',
+  },
   button: {
     height: '30px',
     fontSize: '12px',
   },
-  root: {
-    marginLeft: '4px',
+
+  extraGrid: {
+    paddingTop: '50px !important',
+  },
+  buttonLabel: {
+    margin: '0 !important',
   },
   loadingProgress: {
     position: 'absolute',
@@ -47,10 +60,14 @@ function sleep(delay = 0) {
   });
 }
 
-const FinancialFields = ({ formField, values, setFieldValue }) => {
+const FinancialFields = ({ formField }) => {
   const classes = useStyles();
 
-  const { mainEmployment, laborTime, earnings, passive } = formField;
+  const { mainEmployment, earnings, passive } = formField;
+
+  const { values, setFieldValue } = useFormikContext();
+
+  const { laborTime, tenants } = values;
 
   const [extraTenants, setExtraTenants] = useState(0);
 
@@ -58,6 +75,24 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 
   const [open, setOpen] = useState(false);
   const loading = open && employmentTypeData.length === 0;
+
+  const checkCurrencyFormat = ({ floatValue }) => {
+    if (floatValue !== undefined) {
+      if (floatValue <= 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const currencyFormat = {
+    prefix: 'COP ',
+    thousandSeparator: '.',
+    decimalSeparator: ',',
+    allowLeadingZeros: false,
+    isAllowed: checkCurrencyFormat,
+  };
 
   useEffect(() => {
     if (!loading) {
@@ -76,14 +111,14 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
     let array = [];
     for (let i = 0; i < extraTenants; i++) {
       array.push(
-        <Grid container item spacing={3}>
+        <Grid container item spacing={3} className={classes.extraGrid}>
           <div className="_titular-space">
             <strong>Titular {i + 2}</strong>
             <Button
               className={`_eliminar-x ${classes.button}`}
               onClick={() => handleRemoveClick(i)}
             >
-              Elimar Titular
+              <span> Elimar Titular</span>
             </Button>
           </div>
           <Grid item xs={12} md={6}>
@@ -92,11 +127,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               label={'Nombres'}
               type="text"
               fullWidth
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].firstNames
-                  : ''
-              }
+              value={tenants.length && tenants[i] ? tenants[i].firstNames : ''}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -105,24 +136,17 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
               label="Apellidos"
               type="text"
               fullWidth
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].lastNames
-                  : ''
-              }
+              value={tenants.length && tenants[i] ? tenants[i].lastNames : ''}
             />
           </Grid>
           <Grid item xs={12}>
             <MaskedInput
               name={`tenants[${i}].earnings`}
               label={earnings.label}
-              code={'COP'}
-              type="currency"
-              value={
-                values.tenants.length && values.tenants[i]
-                  ? values.tenants[i].earnings
-                  : ''
-              }
+              type="text"
+              fullWidth
+              value={tenants.length && tenants[i] ? tenants[i].earnings : ''}
+              format={currencyFormat}
             />
           </Grid>
         </Grid>,
@@ -139,7 +163,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
   };
 
   const handleRemoveClick = (index) => {
-    let array = values.tenants.slice();
+    let array = tenants.slice();
     array.splice(index, 1);
     setExtraTenants((preValue) => preValue - 1);
     setFieldValue('tenants', array);
@@ -147,7 +171,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 
   return (
     <React.Fragment>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className={classes.mainGrid}>
         <div className="_titular-space">
           <strong>Titular {1}</strong>
         </div>
@@ -157,25 +181,21 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
             label={mainEmployment.label}
             loading={loading}
             data={employmentTypeData}
-            setFieldValue={setFieldValue}
             handleOpenChange={setOpen}
             open={open}
             fullWidth
-            value={values.mainEmployment}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <InputField
-            name={laborTime.name}
-            label={laborTime.label}
-            type="text"
+            name={formField.laborTime.name}
+            label={formField.laborTime.label}
+            type="number"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.laborTime) > 1 || parseInt(values.laborTime) === 0
-                    ? 'años'
-                    : 'año'}
+                  {laborTime > 1 || laborTime === 0 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
@@ -186,9 +206,9 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={earnings.name}
             label={earnings.label}
-            code={'COP'}
-            type="currency"
-            value={values.earnings}
+            type="text"
+            fullWidth
+            format={currencyFormat}
           />
         </Grid>
 
@@ -196,23 +216,27 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
           <MaskedInput
             name={passive.name}
             label={passive.label}
-            code={'COP'}
-            type="currency"
-            value={values.passive}
+            type="text"
+            fullWidth
+            format={currencyFormat}
           />
         </Grid>
         {renderExtraTenants().map((tenant, index) => (
           <React.Fragment key={index}>{tenant}</React.Fragment>
         ))}
         {extraTenants < 3 ? (
-          <Grid item xs={12}>
+          <Grid item xs={12} className="_extra-tenants-button">
             <FormControl>
               <FormControlLabel
+                label=""
                 control={
-                  <Button onClick={handleAddClick} className={classes.root}>
-                    Añadir Titular (máximo 4 titulares por operación)
+                  <Button onClick={handleAddClick}>
+                    <span className="_check-mark">
+                      Añadir Titular (máximo 4 titulares por operación)
+                    </span>
                   </Button>
                 }
+                className={classes.buttonLabel}
               />
             </FormControl>
           </Grid>
@@ -223,9 +247,7 @@ const FinancialFields = ({ formField, values, setFieldValue }) => {
 };
 
 FinancialFields.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
 };
 
 export default FinancialFields;

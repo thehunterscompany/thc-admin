@@ -23,8 +23,8 @@ export const personalValidation = Yup.object().shape({
     .required(personal.dateOfBirth.requiredErrorMsg)
     .nullable()
     .test('valid-date', personal.dateOfBirth.invalidErrorMsg, function (value) {
-      let date = new Date(value);
-      if (isNaN(date.getDate())) {
+      let date_parser = Date.parse(value);
+      if (isNaN(date_parser)) {
         return false;
       }
       return true;
@@ -34,13 +34,15 @@ export const personalValidation = Yup.object().shape({
     .email(personal.email.invalidErrorMsg),
   [personal.telephone.name]: Yup.string()
     .required(personal.telephone.requiredErrorMsg)
-    .matches(/^[+]\S{1,5} \d+$/, personal.telephone.invalidErrorMsg),
-  [personal.simulation.name]: Yup.number().required(personal.simulation.requiredErrorMsg),
+    .matches(/^[+]\d{2} [(]\d{3}[)] \d{3}[-]\d{4}$/, personal.telephone.invalidErrorMsg),
+  [personal.simulation.name]: Yup.number()
+    .required(personal.simulation.requiredErrorMsg)
+    .min(1, personal.simulation.requiredErrorMsg),
   [personal.simulationType.name]: Yup.number().test(
     'is-required',
     personal.simulationType.requiredErrorMsg,
     function (value) {
-      if (this.parent.simulation === 1 && value === undefined) {
+      if (this.parent.simulation === 1 && (value === undefined || value === 0)) {
         return false;
       }
       return true;
@@ -52,16 +54,23 @@ export const financialValidation = Yup.object().shape({
   [financial.mainEmployment.name]: Yup.string().required(
     financial.mainEmployment.requiredErrorMsg,
   ),
-  [financial.laborTime.name]: Yup.string()
+  [financial.laborTime.name]: Yup.number()
     .required(financial.laborTime.requiredErrorMsg)
-    .matches(/^\d+$/, financial.laborTime.invalidErrorMsg),
-  [financial.earnings.name]: Yup.string().required(financial.earnings.requiredErrorMsg),
-  [financial.passive.name]: Yup.string().required(financial.passive.requiredErrorMsg),
+    .min(0, '¡Solo se pueden numeros positivos!'),
+  [financial.earnings.name]: Yup.string()
+    .required(financial.earnings.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
+  [financial.passive.name]: Yup.string()
+    .required(financial.passive.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
+
   [financial.tenants.name]: Yup.array().of(
     Yup.object().shape({
       firstNames: Yup.string().required(personal.firstNames.requiredErrorMsg),
       lastNames: Yup.string().required(personal.lastNames.requiredErrorMsg),
-      earnings: Yup.string().required(financial.earnings.requiredErrorMsg),
+      earnings: Yup.string()
+        .required(financial.earnings.requiredErrorMsg)
+        .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
     }),
   ),
 });
@@ -70,6 +79,7 @@ const operationalValidation = Yup.object().shape({
   [operational.value.name]: Yup.string().required(operational.value.requiredErrorMsg),
   [operational.currentDeal.name]: Yup.string()
     .required(operational.currentDeal.requiredErrorMsg)
+    .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!')
     .test(
       'valid-percentage-credito-hipotecario',
       'Para credito hipotecario, la máxima financiación es hasta el 70% del valor de la vivienda!',
@@ -79,11 +89,10 @@ const operationalValidation = Yup.object().shape({
             this.parent.type === 'Crédito Hipotecario' ||
             this.parent.simulationType === 3
           ) {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 70
+            return (parseInt(value.replaceAll(/[,.]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              70.0
               ? true
               : false;
           }
@@ -97,11 +106,10 @@ const operationalValidation = Yup.object().shape({
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.type === 'Leasing Habitacional') {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 80
+            return (parseInt(value.replaceAll(/[,.]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              80.0
               ? true
               : false;
           }
@@ -115,11 +123,10 @@ const operationalValidation = Yup.object().shape({
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.simulationType === 2) {
-            return Math.round(
-              (parseInt(value.replaceAll(/,/g, '').split(' ')[1]) /
-                parseInt(this.parent.value.replaceAll(/,/g, '').split(' ')[1])) *
-                100,
-            ) <= 50
+            return (parseInt(value.replaceAll(/[.,]/g, '').split(' ')[1]) /
+              parseInt(this.parent.value.replaceAll(/[,.]/g, '').split(' ')[1])) *
+              100.0 <=
+              50.0
               ? true
               : false;
           }
@@ -127,9 +134,8 @@ const operationalValidation = Yup.object().shape({
         return true;
       },
     ),
-  [operational.time.name]: Yup.string()
+  [operational.time.name]: Yup.number()
     .required(operational.time.requiredErrorMsg)
-    .matches(/^\d+$/, operational.time.invalidErrorMsg)
     .test('valid-time', operational.time.invalidErrorMsg1, function (value) {
       if (value > 20 || value < 5) {
         return false;
@@ -157,9 +163,9 @@ export const commercialValidation = Yup.object()
 
 export const walletValidation = Yup.object()
   .shape({
-    [wallet.currentDealMonth.name]: Yup.string().required(
-      wallet.currentDealMonth.requiredErrorMsg,
-    ),
+    [wallet.currentDealMonth.name]: Yup.string()
+      .required(wallet.currentDealMonth.requiredErrorMsg)
+      .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!'),
     [wallet.institution.name]: Yup.string().required(wallet.institution.requiredErrorMsg),
     [wallet.rates.name]: Yup.string().required(wallet.rates.requiredErrorMsg),
   })

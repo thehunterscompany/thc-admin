@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Grid, InputAdornment } from '@material-ui/core';
+import { Grid, InputAdornment } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
-import useWindowSize from 'src/hooks/useWindowsize';
 
 import {
   InputField,
@@ -10,10 +10,12 @@ import {
 } from '../../../../../components/FormFields';
 import { axiosCall } from '../../../../../utils';
 
-const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) => {
-  const { value, currentDeal, realEstateType, time, type } = formField;
+const CommercialForm = ({ formField, currencySymbol }) => {
+  const { values, setFieldValue } = useFormikContext();
 
-  const { width } = useWindowSize();
+  const { time } = values;
+
+  const { value, currentDeal, realEstateType, type } = formField;
 
   useEffect(() => {
     (async () => {
@@ -23,6 +25,24 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
     })();
   }, [setFieldValue, type]);
 
+  const checkCurrencyFormat = ({ floatValue }) => {
+    if (floatValue !== undefined) {
+      if (floatValue <= 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  const currencyFormat = {
+    prefix: `${currencySymbol} `,
+    thousandSeparator: '.',
+    decimalSeparator: ',',
+    allowLeadingZeros: false,
+    isAllowed: checkCurrencyFormat,
+  };
+
   return (
     <React.Fragment>
       <h2>Financiación inmuebles comerciales</h2>
@@ -31,18 +51,18 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
           <MaskedInput
             name={value.name}
             label={value.label}
-            code={currencySymbol}
-            type="currency"
-            value={values.value}
+            type="text"
+            fullWidth
+            format={currencyFormat}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={currentDeal.name}
             label={currentDeal.label}
-            code={currencySymbol}
-            type="currency"
-            value={values.currentDeal}
+            type="text"
+            fullWidth
+            format={currencyFormat}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -56,25 +76,22 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
               { value: 'Local', label: 'Local' },
             ]}
             fullWidth
-            style={width >= 960 ? { marginTop: '16px' } : {}}
-            value={values.realEstateType}
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
           <InputField
-            name={time.name}
-            label={time.label}
+            name={formField.time.name}
+            label={formField.time.label}
             type="text"
             fullWidth
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  {parseInt(values.time) > 1 ? 'años' : 'año'}
+                  {time > 1 ? 'años' : 'año'}
                 </InputAdornment>
               ),
             }}
-            value={values.time}
           />
         </Grid>
       </Grid>
@@ -83,10 +100,8 @@ const CommercialForm = ({ formField, values, currencySymbol, setFieldValue }) =>
 };
 
 CommercialForm.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  currencySymbol: PropTypes.string,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
+  currencySymbol: PropTypes.string.isRequired,
 };
 
 export default CommercialForm;

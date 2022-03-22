@@ -1,60 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { FormControl } from '@mui/material';
+import React from 'react';
+import { useField } from 'formik';
 import PropTypes from 'prop-types';
 
-import TextMaskCustom from './TextMaskCustom/TextMaskCustom';
-import InputField from './InputField';
+import TextField from './InputField';
+import NumberFormatCustom from './NumberFormat';
 
-const MaskedInput = (props) => {
-  const { code, type, width } = props;
+const FormattedInputs = ({ format, ...props }) => {
+  const [field, , helpers] = useField(props);
 
-  const useStyles = makeStyles({
-    root: {
-      width: width ? width : '100%',
-    },
-  });
+  const { setValue } = helpers;
+  const { value } = field;
 
-  const [values, setValues] = useState(
-    type === 'phone' ? `+${code}` : type === 'currency' ? `${code}` : ` ${code}`,
-  );
-
-  const handleChange = (event) => {
-    setValues(event.target.value);
+  const handleChange = () => {
+    setValue(value !== null ? value : '');
   };
-  useEffect(() => {
-    if (code && code.length > 0) {
-      if (type === 'phone') setValues(`+${code}`);
-      else if (type === 'currency') setValues(`${code}`);
-      else if (type === 'percentage') setValues(` ${code}`);
-    } else {
-      setValues('');
-    }
-  }, [code, type]);
 
   return (
-    <div>
-      <FormControl className={useStyles().root}>
-        <InputField
-          label={props.label}
-          value={values}
-          onChange={handleChange}
-          InputProps={{
-            inputComponent: TextMaskCustom,
-            inputProps: { code, type },
-          }}
-          {...props}
-        />
-      </FormControl>
-    </div>
+    <TextField
+      onChange={handleChange}
+      InputProps={{
+        inputComponent: NumberFormatCustom,
+      }}
+      inputProps={{
+        format,
+      }}
+      {...props}
+    />
   );
 };
 
-MaskedInput.propTypes = {
-  code: PropTypes.string,
-  type: PropTypes.string,
-  label: PropTypes.string,
-  width: PropTypes.string,
+FormattedInputs.propTypes = {
+  format: PropTypes.object.isRequired,
 };
 
-export default React.memo(MaskedInput);
+export default FormattedInputs;

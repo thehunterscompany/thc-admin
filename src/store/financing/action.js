@@ -1,4 +1,4 @@
-import { sumTotalEarnings } from 'src/utils/simulationHelperFunctions';
+import { sumTotalEarnings } from 'src/utils/utils';
 
 import { SIMULATION_FAILED, SIMULATION_PASS } from './action-types';
 
@@ -18,7 +18,7 @@ const calculateMonthlyRate = (rate) => {
   return (roundTem * 100).toFixed(2);
 };
 
-export const simulation = (amount, duration, rate, income, tenants) => {
+export const pmtSimulation = (amount, duration, rate, income, tenants) => {
   const { symbol, sum } = sumTotalEarnings(tenants, income);
   const pmt = calculatePMT(amount, duration, rate);
   const tem = calculateMonthlyRate(rate);
@@ -28,6 +28,7 @@ export const simulation = (amount, duration, rate, income, tenants) => {
       payload: {
         simulation: false,
         sum: Math.round(pmt / 0.3),
+        totalEarnings: sum,
         symbol,
       },
     };
@@ -38,6 +39,7 @@ export const simulation = (amount, duration, rate, income, tenants) => {
     payload: {
       simulation: true,
       pmt,
+      totalEarnings: sum,
       sum: Math.round(sum * 0.3),
       symbol,
       rate,

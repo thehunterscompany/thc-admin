@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import DateFnsUtils from '@date-io/date-fns';
-import Grid from '@material-ui/core/Grid';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import DatePicker from '@mui/lab/DatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import TextField from '@mui/material/TextField';
+import esLocale from 'date-fns/locale/es';
 import { useField } from 'formik';
+import { at } from 'lodash';
+import PropTypes from 'prop-types';
 
-import 'date-fns';
+const localeMap = {
+  es: esLocale,
+};
 
-const DateField = (props) => {
-  const [field, meta, helper] = useField(props);
-  const { touched, error } = meta;
-  const { setValue } = helper;
-  const isError = touched && error && true;
+const maskMap = {
+  es: '__/__/____',
+};
+
+const DateField = ({ minDate, maxDate, ...props }) => {
+  const [field, meta, helpers] = useField(props);
+  const { setError, setValue, setTouched } = helpers;
   const { value } = field;
   const [selectedDate, setSelectedDate] = useState(value ? value : null);
 
@@ -20,6 +28,24 @@ const DateField = (props) => {
       setSelectedDate(date);
     }
   }, [value]);
+
+  const _renderHelperText = () => {
+    const [touched, error] = at(meta, 'touched', 'error');
+    if (touched && error) {
+      return error;
+    } else {
+      return 'dd/mm/yyyyy';
+    }
+  };
+
+  const handleInputBlur = () => {
+    if (selectedDate === null) {
+      setError('Este campo es requerido');
+      setTouched(true, false);
+    } else if (meta.error) {
+      setTouched(true, false);
+    }
+  };
 
   const handleChange = (date) => {
     if (date) {
@@ -36,21 +62,32 @@ const DateField = (props) => {
   };
 
   return (
-    <Grid container>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          {...field}
-          {...props}
-          value={selectedDate}
-          onChange={handleChange}
-          error={isError}
-          invalidDateMessage={isError && error}
-          helperText={isError && error}
-          margin="normal"
-        />
-      </MuiPickersUtilsProvider>
-    </Grid>
+    <LocalizationProvider dateAdapter={AdapterDateFns} locale={localeMap['es']}>
+      <DatePicker
+        views={['year', 'month', 'day']}
+        mask={maskMap.es}
+        minDate={minDate}
+        maxDate={maxDate}
+        value={selectedDate}
+        onChange={handleChange}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            {...props}
+            variant="standard"
+            helperText={_renderHelperText()}
+            onBlur={handleInputBlur}
+            error={meta.touched && meta.error && true}
+          />
+        )}
+      />
+    </LocalizationProvider>
   );
 };
 
-export default React.memo(DateField);
+DateField.propTypes = {
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object,
+};
+
+export default DateField;

@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useRef, useState } from 'react';
-import { Grid, InputAdornment } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Box, Popover, Stack } from '@mui/material';
+import { Box, Grid, InputAdornment } from '@mui/material';
 import PropTypes from 'prop-types';
 
 import { InputField } from '../../../../../components/FormFields';
@@ -33,7 +32,7 @@ const CredentialFields = ({ formField, values }) => {
 
   // const open = Boolean(anchorEl);
 
-  const ref = useRef();
+  // const ref = useRef();
 
   return (
     <React.Fragment>

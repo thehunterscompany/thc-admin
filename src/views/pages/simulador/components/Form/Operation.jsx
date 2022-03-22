@@ -1,9 +1,14 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
 import { CommercialForm, RealEstateForm, WalletForm } from '../OperationForms';
 
-const OperationalFields = ({ formField, values, setFieldValue }) => {
+const OperationalFields = ({ formField }) => {
+  const { values } = useFormikContext();
+
+  const { simulationType } = values;
+
   const formSelector = (simulationType) => {
     let component;
     const { value, currentDeal, time, type } = formField;
@@ -12,18 +17,14 @@ const OperationalFields = ({ formField, values, setFieldValue }) => {
       component = (
         <RealEstateForm
           formField={{ value, currentDeal, time, type, ...formField.realEstate }}
-          values={values}
           currencySymbol={'COP'}
-          setFieldValue={setFieldValue}
         />
       );
     if (simulationType === 2)
       component = (
         <CommercialForm
           formField={{ value, currentDeal, time, type, ...formField.commercial }}
-          values={values}
           currencySymbol={'COP'}
-          setFieldValue={setFieldValue}
         />
       );
 
@@ -31,22 +32,18 @@ const OperationalFields = ({ formField, values, setFieldValue }) => {
       component = (
         <WalletForm
           formField={{ value, currentDeal, time, type, ...formField.wallet }}
-          values={values}
           currencySymbol={'COP'}
-          setFieldValue={setFieldValue}
         />
       );
 
     return component;
   };
 
-  return <React.Fragment>{formSelector(values.simulationType)}</React.Fragment>;
+  return <React.Fragment>{formSelector(simulationType)}</React.Fragment>;
 };
 
 OperationalFields.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
 };
 
 export default OperationalFields;

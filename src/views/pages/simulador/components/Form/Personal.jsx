@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { FormControl, FormControlLabel, Grid } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { FormControl, FormControlLabel, Grid } from '@mui/material';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import { StyleRoot } from 'radium';
-import useWindowSize from 'src/hooks/useWindowsize';
+import useWindowSize from 'src/hooks/useWindowSize';
 import cities from 'src/utils/data/colombiaCities.json';
 import states from 'src/utils/data/colombiaStates.json';
 
@@ -34,13 +35,21 @@ const idType = [
 const statesData = states.states;
 const citiesData = cities.cities;
 
-const PersonalFields = ({ formField, values, setFieldValue }) => {
+const PersonalFields = ({ formField }) => {
+  const { values, setFieldValue } = useFormikContext();
+
+  const { state, checkedA, checkedB, simulation } = values;
+
   const [checkboxes, setCheckboxes] = useState({
-    checkedA: values?.checkedA ? values.checkedA : false,
-    checkedB: values?.checkedB ? values.checkedB : false,
+    checkedA: checkedA ? checkedA : false,
+    checkedB: checkedB ? checkedB : false,
   });
 
+  const [selectedState, setSelectedState] = useState(state);
+
   const { width } = useWindowSize();
+
+  const phoneFormatting = { format: '+57 (###) ###-####', mask: '_' };
 
   const labelStyle = {
     // Adding media query..
@@ -57,14 +66,33 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
     dateOfBirth,
     email,
     city,
-    state,
     telephone,
-    simulation,
     simulationType,
   } = formField;
 
+  useEffect(() => {
+    if (state !== selectedState) {
+      setSelectedState(state);
+      setFieldValue('city', '');
+    }
+  }, [selectedState, setFieldValue, state]);
+
   const handleChange = (event) => {
     setCheckboxes({ ...checkboxes, [event.target.name]: event.target.checked });
+  };
+
+  const citiesForStateInput = (stateInput) => {
+    if (stateInput) {
+      const checkIfCityInState = (obj) => obj.state === stateInput;
+      const filteredObject = citiesData.filter((obj) => checkIfCityInState(obj));
+      return filteredObject;
+    }
+
+    return citiesData;
+  };
+
+  const controlCityInput = () => {
+    setFieldValue('city', '');
   };
 
   return (
@@ -76,7 +104,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={firstNames.label}
             type="text"
             fullWidth
-            value={values.firstNames}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -85,7 +112,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             label={lastNames.label}
             type="text"
             fullWidth
-            value={values.lastNames}
           />
         </Grid>
 
@@ -93,7 +119,6 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <SelectField
             name={documentType.name}
             label={documentType.label}
-            value={values.documentType}
             data={idType}
             fullWidth
             style={width >= 960 ? { marginTop: '16px' } : {}}
@@ -105,37 +130,31 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
             name={documentId.name}
             label={documentId.label}
             type="text"
-            value={values.documentId}
             fullWidth
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <InputField
-            name={email.name}
-            label={email.label}
-            type="text"
-            value={values.email}
-            fullWidth
-          />
+          <InputField name={email.name} label={email.label} type="text" fullWidth />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <MaskedInput
             name={telephone.name}
             label={telephone.label}
-            code={'57'}
-            type="phone"
-            value={values.telephone}
+            type="text"
+            fullWidth
+            format={phoneFormatting}
           />
         </Grid>
+
         <Grid item xs={12} md={6}>
           <ComboBox
-            name={state.name}
-            label={state.label}
-            value={values.state}
+            name={formField.state.name}
+            label={formField.state.label}
             data={statesData}
             fullWidth
-            setFieldValue={setFieldValue}
+            handleChange={controlCityInput}
           />
         </Grid>
 
@@ -143,10 +162,9 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
           <ComboBox
             name={city.name}
             label={city.label}
-            value={values.city}
-            data={citiesData}
+            data={citiesForStateInput(state)}
             fullWidth
-            setFieldValue={setFieldValue}
+            disabled={state ? false : true}
           />
         </Grid>
 
@@ -164,16 +182,16 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
 
         <Grid item xs={12} md={6}>
           <SelectField
-            name={simulation.name}
-            label={simulation.label}
+            name={formField.simulation.name}
+            label={formField.simulation.label}
             data={simulationOptions}
             fullWidth
             style={{ marginTop: '16px' }}
           />
         </Grid>
 
-        {values.simulation === 1 ? (
-          <Grid item xs={12}>
+        {simulation === 1 ? (
+          <Grid item xs={12} md={6}>
             <SelectField
               name={simulationType.name}
               label={simulationType.label}
@@ -186,6 +204,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
+              label=""
               control={
                 <CustomSwitch
                   checked={checkboxes.checkedA}
@@ -212,6 +231,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
         <Grid item xs={12} style={{ display: 'flex', alignItems: 'center' }}>
           <FormControl>
             <FormControlLabel
+              label=""
               control={
                 <CustomSwitch
                   checked={checkboxes.checkedB}
@@ -233,9 +253,7 @@ const PersonalFields = ({ formField, values, setFieldValue }) => {
 };
 
 PersonalFields.propTypes = {
-  formField: PropTypes.object,
-  values: PropTypes.object,
-  setFieldValue: PropTypes.func,
+  formField: PropTypes.object.isRequired,
 };
 
 export default PersonalFields;

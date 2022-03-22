@@ -13,25 +13,32 @@ const NotFeasible = () => {
     }
   }, [simulation]);
 
+  useEffect(() => {
+    const element = document.getElementById('top-point');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, []);
+
   return isLoading ? (
-    <LinearProgress />
+    <LinearProgress id="top-point" />
   ) : (
     <Container className="_simulation_results">
-      <h1>¡Lo sentimos!</h1>
+      <h1 id="top-point">¡Lo sentimos!</h1>
       <h2>
         Para este valor de inmueble, debes contar con unos ingresos mensuales mínimos de
       </h2>
       <h2 className="_value">{`${simulation.symbol} ${simulation.sum
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}**`}</h2>
-      <p>
-        **Recuerda que puedes consolidar ingresos hasta segundo grado de consanguinidad y
-        primero de afinidad.
-      </p>
-      <span>
-        {`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
+      <div style={{ textAlign: 'left', padding: '0 0.5vw' }}>
+        <p>
+          **Recuerda que puedes consolidar ingresos hasta segundo grado de consanguinidad
+          y primero de afinidad.
+        </p>
+        <span>
+          {`Si deseas continuar con el proceso, haz click en el botón "Contáctanos" para
         comunicarte con uno de nuestros brokers.`}
-      </span>
+        </span>
+      </div>
     </Container>
   );
 };

@@ -1,31 +1,39 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import { useField } from 'formik';
 import { at } from 'lodash';
+import PropTypes from 'prop-types';
 
 const InputField = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { errorText, type, ...rest } = props;
   const [field, meta] = useField(props);
 
-  function _renderHelperText() {
+  const _renderHelperText = () => {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
       return error;
     }
-  }
+  };
 
   return (
     <TextField
-      type={type}
       error={meta.touched && meta.error && true}
       helperText={_renderHelperText()}
       variant="filled"
       margin="normal"
       {...field}
-      {...rest}
+      {...props}
     />
   );
+};
+
+InputField.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+InputField.defaultProps = {
+  type: 'text',
 };
 
 export default React.memo(InputField);
