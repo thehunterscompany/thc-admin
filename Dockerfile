@@ -6,7 +6,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY ./package.json /app/
 COPY ./yarn.lock /app/
-RUN yarn
+RUN yarn install --production --ignore-scripts --prefer-offline
+ENV NODE_ENV production
 COPY . /app
 RUN yarn build
 
