@@ -3,6 +3,7 @@
 */.git/
 .gitignore
 Dockerfile
+*.md
 .editorconfig
 .eslintignore
 .eslintrc.js
