@@ -8,7 +8,7 @@ const Navbar = () => (
       <div style={{ margin: 0 }} className="_navbar-container">
         <div className="_navbar-content">
           <div className="_navbar-logo">
-            <a href="https://thcsas.com.co">
+            <a href="https://www.thcsas.com.co">
               <img src="img/logo/Logo.svg" alt="Logo" height="60px" />
             </a>
           </div>
