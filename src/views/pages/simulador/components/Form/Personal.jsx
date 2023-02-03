@@ -218,7 +218,7 @@ const PersonalFields = ({ formField }) => {
             <small>
               Acepto{' '}
               <a
-                href="https://thcsas.com.co/terminos-y-condiciones"
+                href="https://www.thcsas.com.co/terminos-y-condiciones"
                 target="_blank"
                 rel="noreferrer noopener"
               >
