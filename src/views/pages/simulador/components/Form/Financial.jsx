@@ -45,11 +45,11 @@ const DATA = [
   { value: 'Empleado término indefinido', label: 'Empleado término indefinido' },
   { value: 'Empleado término fijo', label: 'Empleado término fijo' },
   {
-    value: 'Contratista y prestador de servicio',
-    label: 'Contratista y prestador de servicio',
+    value: 'Contratista y prestador de servicios',
+    label: 'Contratista y prestador de servicios',
   },
   { value: 'Pensionado', label: 'Pensionado' },
-  { value: 'Fuerzas Militares', label: 'Fuerzas Militares' },
+  { value: 'Fuerzas militares', label: 'Fuerzas militares' },
   { value: 'Rentista de capital', label: 'Rentista de capital' },
   { value: 'Independiente', label: 'Independiente' },
 ];
