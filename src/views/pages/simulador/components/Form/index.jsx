@@ -39,7 +39,7 @@ import useStyles from './style';
 const steps = [
   'Datos Personales',
   'Datos Económicos',
-  'Datos de la operación',
+  'Datos de la Operación',
   'Outcome',
   // 'Register',
 ];
@@ -280,7 +280,7 @@ Máximo Prestamo: ${lendingResult.symbol} ${lendingResult.maxLoanValue
 
     const text = `
 Hola mi nombre es ${name} ${lastName}. Acabo de completar el simulador y estos son algunos resultados:\n
-Tipo de Simulación: ${simulation === 1 ? 'Calcular Cuota' : 'Cuanto me prestan'}`;
+Tipo de Simulación: ${simulation === 1 ? 'Calcular cuota' : 'Cuanto me prestan'}`;
     return text + addTextDependingOnSimulation(simulation, tenants, simulationType);
   };
 
