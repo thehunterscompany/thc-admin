@@ -76,7 +76,7 @@
   "scripts": {
     "start": "REACT_APP_INTEREST_RATE=$INTEREST_RATE react-scripts start",
     "start-prod": "npx serve -s build",
-    "build": "react-scripts build",
+    "build": "REACT_APP_INTEREST_RATE=$INTEREST_RATE react-scripts build",
     "lint": "eslint \"src/**/*.js*\" --fix",
     "test": "react-scripts test",
     "test:cov": "npm test -- --coverage --watchAll=false",
