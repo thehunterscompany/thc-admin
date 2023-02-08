@@ -17,8 +17,8 @@ import {
 import { CustomSwitch } from '../../../../../components/Switch';
 
 const simulationOptions = [
-  { value: 1, label: 'Calcular Cuota' },
-  { value: 2, label: 'Cuanto me prestan' },
+  { value: 1, label: 'Calcular cuota' },
+  { value: 2, label: 'Cuánto me prestan' },
 ];
 
 const rateSimulation = [
@@ -218,7 +218,7 @@ const PersonalFields = ({ formField }) => {
             <small>
               Acepto{' '}
               <a
-                href="https://thcsas.com.co/terminos-y-condiciones"
+                href="https://www.thcsas.com.co/terminos-y-condiciones"
                 target="_blank"
                 rel="noreferrer noopener"
               >

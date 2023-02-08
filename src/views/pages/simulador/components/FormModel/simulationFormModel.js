@@ -77,7 +77,7 @@ const formFields = {
       },
       laborTime: {
         name: 'laborTime',
-        label: 'Antiguedad Laboral',
+        label: 'Antigúedad Laboral',
         requiredErrorMsg: 'Este campo es requerido',
         invalidErrorMsg: '¡Solo pueden ser números!',
       },
@@ -89,7 +89,7 @@ const formFields = {
       },
       passive: {
         name: 'passive',
-        label: 'Cuota mensuales de créditos y tarjetas?',
+        label: '¿Cuál es el valor de las cuotas mensuales que pagas a los bancos?',
         requiredErrorMsg: 'Este campo es requerido',
       },
       tenants: {
@@ -99,7 +99,7 @@ const formFields = {
     operational: {
       value: {
         name: 'value',
-        label: 'Valor de la vivienda',
+        label: 'Valor de la Vivienda',
         requiredErrorMsg: 'Este campo es requerido',
         invalidErrorMsg: 'Solo ingresa numeros',
       },
@@ -114,25 +114,31 @@ const formFields = {
         label: 'Plazo',
         requiredErrorMsg: 'Este campo es requerido',
         invalidErrorMsg: 'Solo puede contener números!',
-        invalidErrorMsg1: 'El plazo minímo es a 5 año y el máximo a 20 años',
+        invalidErrorMsg1: 'El plazo mínimo es de 5 años y el máximo de 20 años',
       },
       type: {
         name: 'type',
-        label: 'Linea de financiación',
+        label: 'Linea de Financiación',
         requiredErrorMsg: 'Este campo es requerido',
       },
 
       realEstate: {
         realEstateType: {
           name: 'realEstateType',
-          label: 'Tipo de vivienda',
+          label: 'Tipo de Vivienda',
           requiredErrorMsg: 'Este campo es requerido',
         },
       },
       commercial: {
+        value: {
+          name: 'value',
+          label: 'Valor del Inmueble',
+          requiredErrorMsg: 'Este campo es requerido',
+          invalidErrorMsg: 'Solo ingresa numeros',
+        },
         realEstateType: {
           name: 'realEstateType',
-          label: 'Tipo de inmueble',
+          label: 'Tipo de Inmueble',
           requiredErrorMsg: 'Este campo es requerido',
         },
       },
