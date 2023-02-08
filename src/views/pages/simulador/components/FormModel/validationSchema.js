@@ -82,7 +82,7 @@ const operationalValidation = Yup.object().shape({
     .matches(/\d{1,3}(.\d{3})*(\.\d+)?$/, '¡Solo se pueden números sin decimales!')
     .test(
       'valid-percentage-credito-hipotecario',
-      'Para credito hipotecario, la máxima financiación es hasta el 70% del valor de la vivienda!',
+      'Para credito hipotecario, la máxima financiación es hasta el 70% del valor de la vivienda',
       function (value) {
         if (value && this.parent.value) {
           if (
@@ -102,7 +102,7 @@ const operationalValidation = Yup.object().shape({
     )
     .test(
       'valid-percentage-leasing-habitacional',
-      'Para leasing habitacional, la máxima financiación es hasta el 80% del valor de la vivienda!',
+      'Para leasing habitacional, la máxima financiación es hasta el 80% del valor de la vivienda',
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.type === 'Leasing Habitacional') {
@@ -119,7 +119,7 @@ const operationalValidation = Yup.object().shape({
     )
     .test(
       'valid-percentage-linea-comercial',
-      'Para linea comercial, la máxima financiación es hasta el 50% del valor de la vivienda!',
+      'Para linea comercial, la máxima financiación es hasta el 50% del valor de la vivienda',
       function (value) {
         if (value && this.parent.value) {
           if (this.parent.simulationType === 2) {

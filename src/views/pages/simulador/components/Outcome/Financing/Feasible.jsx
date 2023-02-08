@@ -38,7 +38,7 @@ const Feasible = () => {
       {
         value: {
           1: type,
-          2: rate,
+          2: `${rate}%`,
           3: `${tem}%`,
           4: `${symbol} ${pmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`,
         },

@@ -91,7 +91,7 @@ const RealEstateForm = ({ formField, currencySymbol }) => {
             data={[
               { value: 'Usada', label: 'Usada' },
               { value: 'Nueva', label: 'Nueva' },
-              { value: 'None', label: 'No se aun' },
+              { value: 'None', label: 'No se aún' },
             ]}
             fullWidth
           />
