@@ -118,7 +118,7 @@ const FinancialFields = ({ formField }) => {
               className={`_eliminar-x ${classes.button}`}
               onClick={() => handleRemoveClick(i)}
             >
-              <span> Elimar Titular</span>
+              <span> Eliminar Titular</span>
             </Button>
           </div>
           <Grid item xs={12} md={6}>

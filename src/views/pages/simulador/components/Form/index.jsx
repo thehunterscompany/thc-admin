@@ -161,7 +161,13 @@ const SimulatorForm = () => {
       if (values?.simulation === 2) {
         if (activeStep + 1 === 2) {
           setSkip(true);
-          dispatch(lendingSimulation(values.earnings, values.tenants, '8.5%'));
+          dispatch(
+            lendingSimulation(
+              values.earnings,
+              values.tenants,
+              parseFloat(process.env['REACT_APP_INTEREST_RATE']),
+            ),
+          );
         }
         // else if (activeStep === 3) {
         //   handleAddExtra(credentialValues);
@@ -173,7 +179,7 @@ const SimulatorForm = () => {
             pmtSimulation(
               values.currentDeal,
               values.time,
-              '9.5%',
+              parseFloat(process.env['REACT_APP_INTEREST_RATE']),
               values.earnings,
               values.tenants,
             ),
@@ -280,7 +286,7 @@ Máximo Prestamo: ${lendingResult.symbol} ${lendingResult.maxLoanValue
 
     const text = `
 Hola mi nombre es ${name} ${lastName}. Acabo de completar el simulador y estos son algunos resultados:\n
-Tipo de Simulación: ${simulation === 1 ? 'Calcular cuota' : 'Cuanto me prestan'}`;
+Tipo de Simulación: ${simulation === 1 ? 'Calcular cuota' : 'Cuánto me prestan'}`;
     return text + addTextDependingOnSimulation(simulation, tenants, simulationType);
   };
 

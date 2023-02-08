@@ -17,8 +17,8 @@ import {
 import { CustomSwitch } from '../../../../../components/Switch';
 
 const simulationOptions = [
-  { value: 1, label: 'Calcular Cuota' },
-  { value: 2, label: 'Cuanto me prestan' },
+  { value: 1, label: 'Calcular cuota' },
+  { value: 2, label: 'Cuánto me prestan' },
 ];
 
 const rateSimulation = [

@@ -3,7 +3,7 @@ import { sumTotalEarnings } from 'src/utils/utils';
 import { SIMULATION_FAILED, SIMULATION_PASS } from './action-types';
 
 const calculatePMT = (amount, duration, rate) => {
-  rate = parseFloat(rate) / 100 / 12;
+  rate = rate / 100 / 12;
   duration = duration * 12;
   amount = Number(amount.replace(/\D/g, ''));
 
@@ -12,7 +12,7 @@ const calculatePMT = (amount, duration, rate) => {
 };
 
 const calculateMonthlyRate = (rate) => {
-  rate = parseFloat(rate) / 100;
+  rate = rate / 100;
   const tem = (1 + rate) ** (1 / 12) - 1;
   const roundTem = +parseFloat(tem).toFixed(4);
   return (roundTem * 100).toFixed(2);
