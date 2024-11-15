@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../../../public//fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 ._simulation-container {
   height: auto;
   width: auto;
