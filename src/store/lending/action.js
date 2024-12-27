@@ -3,15 +3,21 @@ import { sumTotalEarnings } from 'src/utils/utils';
 import { SIMULATION } from './action-types';
 
 const calculateValueofLoan = (earnings, rate, duration = 20) => {
-  rate = parseFloat(rate) / 100 / 12;
-  duration = duration * 12;
-  earnings = earnings * 0.3;
+  // Rate is fixed at %, duration is in months
+  rate = rate / 100; // Convert rate to decimal
+  const months = duration * 12;
 
-  const maxLoanValue = Math.round(
-    (earnings / rate) * (1 - (1 + rate) ** (-1 * duration)),
-  );
+  // Monthly interest rate
+  const MV = Math.pow(1 + rate, 1 / 12) - 1;
 
-  return maxLoanValue;
+  // Maximum monthly payment (30% of earnings)
+  const maxPayment = earnings * 0.3;
+
+  // Formula for max loan amount
+  const amount =
+    maxPayment * ((Math.pow(1 + MV, months) - 1) / (MV * Math.pow(1 + MV, months)));
+
+  return Math.round(amount);
 };
 
 export const lendingSimulation = (income, tenantsIncome, rate, duration = 20) => {
